@@ -1,0 +1,194 @@
+[
+  {
+    "objectID": "materials1.html",
+    "href": "materials1.html",
+    "title": "第一讲：导论",
+    "section": "",
+    "text": "Slides\n\n点击 slides 画面，然后用   键或   键控制翻页。点击 slides 左下角的  图标可以发现更多功能（PDF Export 功能只在 Chrome 中有效）。\n\n\n\n补充信息\nR和RStudio的安装：访问 https://posit.co/download/rstudio-desktop/，根据提示依次下载并安装 R 和 RStudio\n\n\n\nMac 上显示的下载页面\n\n\n在 RSTudio 中设置 Primary CRAN repository （下载 package 的默认镜像网站）：用 RStudio 默认的设定下载安装 package（包），有时会因网络连接超时而失败。解决该问题的方法是选择中国境内的镜像网站，具体方法如下\n第一步：打开 RStudio，从菜单中选择 Tools &gt; Global Options... &gt; Packages （如下图）\n\n\n\n\n\n\n第二步：点击 Primary CRAN repository 右侧的 Change... 键，从弹出的窗口中选择中国境内的镜像网站（下图中选择的是清华大学的镜像网站 TUNA）\n\n\n\n\n\n\n安装本门课程所需的包 xts 和 astsa：从菜单中选择 Tools &gt; Install Packages... ，如下图\n\n\n\n\n\n在 Packages 一栏中输入 xts, astsa ，并确保下面的  Install dependencies 已被选中，然后点击 Install。\nastsa 包中的绘图命令 tsplot：\n\nlibrary(astsa)          # 调用 astsa 包\npar(mfrow = c(2,1))     # 将绘图窗口分割成上下两部分\nplot(AirPassengers)     # 使用 R 的标准绘图命令 plot\ntsplot(AirPassengers)   # 使用 astsa 包中的绘图命令 tsplot\n\n\n\n\n\n\n\n\n由上图可见，用 tsplot 命令画出的图更漂亮，可读性更高。实际上 tsplot 命令是在原生的 plot 命令的基础上对四边空白等参数进行了优化调整。需要注意的是，上面的命令在 RStudio 里会呈现不同的效果，因为 RStudio 会根据 Plots 窗口的大小自动调整图的长宽比。\n\n\n\n学习资料\n\nNational Centers for Environmental Information, National Oceanic and Atmospheric Administration. El Niño/Southern Oscillation (ENSO). https://www.ncei.noaa.gov/access/monitoring/enso/\nRevisiting the Hare vs Lynx Cycle. https://www.ealt.ca/blog/hare-vs-lynx-cycle\nShumway, R., H., & Stoffer, D. S. (2017). Time Series Analysis and Its Applications: With R Examples (4th ed.), Appendix R: R Supplement. Springer.  打开文件\nTorfs, R., & Brauer, C. (2023). A (very) short introduction to R.  打开文件\nGrolemund, G. (2014). Hands-On Programming with R. O’Reily. https://rstudio-education.github.io/hopr/\n\n\n\n\n课后练习\n\n探索 R 中自带的数据 mtcars，可用 help() 命令查询帮助文件，例如 help(class) 。\n用 R 生成 500 个服从自由度为 20 的 t 分布的随机数（可自己在网上寻找合适的命令），画出该样本的直方图，并计算样本均值和方差。\n\n\n\n\nMac 上显示的下载页面",
+    "crumbs": [
+      "huangjp.com",
+      "课程资料",
+      "第一讲：导论"
+    ]
+  },
+  {
+    "objectID": "assignment.html",
+    "href": "assignment.html",
+    "title": "作业",
+    "section": "",
+    "text": "个人作业\n（待更新）\n\n\n\n小组汇报\n（待更新）",
+    "crumbs": [
+      "huangjp.com",
+      "作业"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "课程信息",
+    "section": "",
+    "text": "这里是深圳大学管理学院工商管理专业《时间序列分析与预测》的课程网站。在这里可以找到和课程相关的所有公开信息，包括课程介绍、课程资料、作业发布、考试信息等。\n\n\n基本信息\n\n课程编号：0401990024\n学分/学时：2学分/36学时\n2023-2024第二学期上课时间：星期四 7-8节\n2023-2024第二学期上课地点：丽湖校区四方楼 北401\n\n\n\n\n\n\n\n教材\n\n\n\n\n\n\n\n\n\n时间序列分析：基于R的数据分析方法\n（Time Series: A Data Analysis Approach Using R）\n作者：[美]罗伯特·H 沙姆韦，戴维·S 斯托弗 著，李洪成 潘文捷 译\n出版社：机械工业出版社\nISBN：978-7-111-69519-6\n\n\n\n\n\n\n\n\n\n\n\n主讲教师\n黄嘉平，工学博士、经济学博士，深圳大学中国经济特区研究中心讲师\n\n办公地址：深圳大学粤海校区汇文楼1510\n联系方式：huangjp %at% szu %dot% edu %dot% cn\n关于接访：为方便与选课学生交流，接访地点为丽湖校区，需事先邮件预约时间地点\n个人网站：huangjp.com\n\n\n\n\n内容简介\n本门课程的主要内容是介绍时间序列数据的分析和预测方法以及在经济管理领域的应用问题。通过本门课程的学习，学生可以理解时间序列数据的特征，掌握时间序列分析的基本方法，包括利用回归的探索性数据分析，Box-Jenkins 的 ARIMA 模型，频谱分析等。\n时间序列数据是针对同一变量在不同时间点上记录观测值的数据形式，广泛存在于社会科学和自然科学的研究领域，例如GDP、股票价格指数、日均气温、特定物种的种群规模等都是时间序列数据的典型例子。\n对时间序列数据的利用主要体现在对未来的预测，例如对GDP的预测可以帮助政府更好的制定经济政策，对股票价格的预测可以帮助投资者更好的做出决策。合理的预测基于对数据生成机制的探索和验证，其基础是对时间序列数据特征的理解。我们主要从两个角度讨论时间序列模型，即基于自相关特性的模型和基于谱特性的模型，前者能够描述一般回归模型无法涵盖的特征，而后者适用于具有规律周期性特征的数据。由于时间有限，本门课程不涉及多元时间序列分析的内容。\n选择本门课程的学生需要掌握统计学的基础知识，熟练掌握协方差和相关系数等统计量的推导与计算，并能够进行简单的回归分析。我们会用到R语言进行数据分析，但并不要求学生已经掌握了R语言。我们会在学习的过程中循序渐进地介绍R语言的使用方法。\n\n\n\n成绩评定\n本门课程采用过程考核为主的成绩评定方式\n\n平时成绩 60%\n平时成绩满分 100 分 = 出席情况和课堂表现 20% + 个人作业 40% + 小组汇报 40%\n期末考核 40%\n期末考核为闭卷考试  关于考试\n\n\n\n\n教学进度\n下面是2023-2024第二学期的教学进度计划。由于课程进程和学校放假安排的不确定性，下表中的内容可能发生变化。 深圳大学校历\n\n\n\n\n\n\n\n周次\n学习内容\n\n\n\n\n第一周（3月7日）\n导论\n\n\n第二周（3月14日）\n时间序列模型简介\n\n\n第三周（3月21日）\n时间序列数据的特征\n\n\n第四周（3月28日）\n参数的估计\n\n\n第五周（4月4日）\n（清明节放假）\n\n\n第六周（4月11日）\n练习课1\n\n\n第七周（4月18日）\n探索性分析1：数据的平稳化（stationarization）\n\n\n第八周（4月25日）\n探索型分析2：平滑方法（smoothing）\n\n\n第九周（5月2日）\nARMA 模型\n\n\n第十周（5月9日）\n自相关与偏自相关函数\n\n\n第十一周（5月16日）\nARMA 模型的估计和预测\n\n\n第十二周（5月23日）\nARIMA 模型\n\n\n第十三周（5月30日）\n练习课2\n\n\n第十四周（6月6日）\n频谱分析简介\n\n\n第十五周（6月13日）\n其他时间序列方法简介\n\n\n第十六周（6月20日）\n小组汇报1\n\n\n第十七周（6月27日）\n小组汇报2\n\n\n\n\n\n\n参考资料\n\nShunway, R. H., & Stoffer, D. S. (2019). Time Series: A Data Analysis Approach Using R. CRC Press.\nCryer, J. D., & Chan, K.-S. (2008). Time Series Analysis: With Applications in R (2nd ed.). Springer.\nBox, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2016). Time Series Analysis: Forecasting and Control (5th ed.). Wiley.\nShunway, R. H., & Stoffer, D. S. (2017). Time Series Analysis and Its Applications: With R Examples (4th ed.). Springer.\nLyubchich, V., & Gel, Y. R. (2023). Time Series Analysis: Lecture Notes with Examples in R. https://vlyubchich.github.io/tsar/\nHyndman, R. J., & Athanasopoulos, G. (2021). Forecasting: Principles and Practice (3rd ed.). OTexts. https://otexts.com/fpp3/\nGrolemund, G. (2014). Hands-On Programming with R. O’Reily. https://rstudio-education.github.io/hopr/\nWickman, H., Cetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed.). O’Reily. https://r4ds.hadley.nz/",
+    "crumbs": [
+      "huangjp.com",
+      "课程信息"
+    ]
+  },
+  {
+    "objectID": "exam.html",
+    "href": "exam.html",
+    "title": "关于考试",
+    "section": "",
+    "text": "期末考核采取闭卷考试的方式进行，分为基本题和附加题。 深圳大学本科课程考核办法\n\n题型和分值\n\n基本题：满分100分\n\n选择题8题，每题5分，共40分，主要考察对基础概念的理解和掌握\n简答题4题，每题10分，共40分，主要考察对相对复杂概念和方法的理解和掌握\n分析题1题，20分，主要考察应用能力 （题型和分值可能根据授课效果进行调整）\n\n附加题：满分30分\n\n简答题1题：30分，主要考察对理论部分的理解和掌握，难度较基本题高\n\n\n题型和分值可能根据实际授课进程和效果进行调整\n\n\n\n注意事项\n\n考试中允许使用电子计算器，但禁止使用带有计算器功能的智能设备（包括手机、只能手表、平板电脑等  深圳大学考场纪律）",
+    "crumbs": [
+      "huangjp.com",
+      "关于考试"
+    ]
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#课程信息",
+    "href": "assets/slides/lecture1.html#课程信息",
+    "title": "时间序列分析与预测",
+    "section": "课程信息",
+    "text": "课程信息\n\n课程网站：https//huangjp.com/TSAP/\n\n成绩评定：平时成绩 60% + 期末考核 40%\n\n平时成绩满分 100 分 = 出席情况和课堂表现 20% + 个人作业 40% + 小组汇报 40%\n期末考核为闭卷考试，基础题满分 100 分，附加题满分 30 分\n本学期考试周：2004年7月1日–12日"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#什么是时间序列数据",
+    "href": "assets/slides/lecture1.html#什么是时间序列数据",
+    "title": "时间序列分析与预测",
+    "section": "什么是时间序列数据？",
+    "text": "什么是时间序列数据？\n数据的基本结构\n\n变量：描述观测对象的某个特定特征的量，例如身高、收入、年龄等\n如何区分观测值：\n\n依个体区分：每一个个体为一个观测单位，例如个人、企业、国家等\n依时间节点区分：每一个时间点为一个观测单位，例如年、月、日等\n\n\n基本数据类型：\n\n时间序列数据（time series data）：对同一个体在多个时间点进行观测\n横截面数据（cross-sectional data）：对多个个体在同一时间点进行观测\n面板数据（panel data）：对多个个体在多个时间点进行重复观测\n\nGDP 是什么类型的数据？"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#不同类型的-gdp-数据",
+    "href": "assets/slides/lecture1.html#不同类型的-gdp-数据",
+    "title": "时间序列分析与预测",
+    "section": "不同类型的 GDP 数据",
+    "text": "不同类型的 GDP 数据\nGDP 是变量，结合不同的观测方式会形成不同的数据类型\n\n\n\n时间序列 GDP\n\n\n例如，中国在2000-2022年间的年度GDP是时间序列数据\n\n\n\n\n\n\n横截面 GDP\n\n\n例如，G20各国在2022年的年度GDP是横截面数据\n\n\n\n\n\n\n面板 GDP\n\n\n例如，G20各国在2000-2022年间的年度GDP是面板数据"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列分析的目的和方法",
+    "href": "assets/slides/lecture1.html#时间序列分析的目的和方法",
+    "title": "时间序列分析与预测",
+    "section": "时间序列分析的目的和方法",
+    "text": "时间序列分析的目的和方法\n为什么要分析时间序列数据？\n\n时间序列数据在生活中随处可见\n通过分析时间序列数据，可以帮助我们更好的预测未来可能发生的情况\n\n怎样分析时间序列数据？\n\n首先要对数据进行观察 \\to 变化趋势是什么？是否存在周期性？\n然后假设数据生成模型 \\to 白噪声、自回归、随机游走等\n之后利用手中的数据对模型进行拟合 \\to 求出模型中的关键参数\n验证模型、选择模型 \\to 如果需要可以回到第 2 步\n最后利用模型预测未来"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-1",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-1",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 1",
+    "text": "时间序列数据的例子 1\n例 1.1 强生公司的季度每股收益（quarterly earnings per share, QEPS）"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-2",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-2",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 2",
+    "text": "时间序列数据的例子 2\n例 1.2 全球变暖与气候变化：纵轴为当年的平均地表温度与 1951-1980 年间的平均值之差\n\n\n更多数据可参考 https://climate.nasa.gov/"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-3",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-3",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 3",
+    "text": "时间序列数据的例子 3\n例 1.3 道琼斯工业平均指数（DIJA）"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-4",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-4",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 4",
+    "text": "时间序列数据的例子 4\n例 1.4 厄尔尼诺南方涛动指数 (El Niño-Southern Oscillation Index)1 与新鱼数量指数\n\n本图与书中的图 1.5 不同，这里用 astsa 包中的 ENSO 数据替代了 soi 数据，因为 soi 数据被调整为取值在 -1 和 1 之间，与现今多数 soi 定义不符。但 ENSO 数据与 NOAA 网站提供的数据也有所不同，原因不明。\n\n\n\n\n\n\n\n\n\n\nSOI = 塔希提与澳大利亚达尔文海面气压之差的指数，正值代表拉尼娜现象，负值代表厄尔尼诺现象"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-5",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-5",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 5",
+    "text": "时间序列数据的例子 5\n例 1.5 捕食者与猎物：加拿大猞猁 (Canada lynx) 与白靴兔 (snow shoe hare)1\n\n\n\n\n\n\n\n\n\n猞猁是中型猫科动物，喜欢捕食小型啮齿动物和鹿，其中白靴兔是加拿大猞猁最喜欢的猎物"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-6",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-6",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 6",
+    "text": "时间序列数据的例子 6\n例 1.6 fMRI（功能磁共振成像）图像\n\n\n在脑皮层（cortex）、丘脑（thalamus）和小脑（cerebellum）中各取两个部位进行刺激。框线代表刺激与否，每次刺激和间隔时长为 32 秒。"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#r-的几种用法",
+    "href": "assets/slides/lecture1.html#r-的几种用法",
+    "title": "时间序列分析与预测",
+    "section": "R 的几种用法",
+    "text": "R 的几种用法\n\nR 图形界面with RStudioTerminal/Command Prompt"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#r-的命令与执行结果",
+    "href": "assets/slides/lecture1.html#r-的命令与执行结果",
+    "title": "时间序列分析与预测",
+    "section": "R 的命令与执行结果",
+    "text": "R 的命令与执行结果\n数值带入与运算\n\na &lt;- 100    # 将 &lt;- 右侧的值带入左侧的变量中，但不显示结果\nb &lt;- 2\nc &lt;- a * b^2\nprint(c)    # 显示 c 的值\n\n[1] 400\n\n\n\n\n探索数据\n\nclass(AirPassengers)    # 显示 AirPassengers 的数据类型\n\n[1] \"ts\"\n\ntsp(AirPassengers)      # 显示 \"ts\" 类数据的起始时间，结束时间，频度\n\n[1] 1949.000 1960.917   12.000\n\nwindow(AirPassengers, start = c(1955,1), end = c(1957,12))\n\n     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec\n1955 242 233 267 269 270 315 364 347 312 274 237 278\n1956 284 277 317 313 318 374 413 405 355 306 271 306\n1957 315 301 356 348 355 422 465 467 404 347 305 336"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列图",
+    "href": "assets/slides/lecture1.html#时间序列图",
+    "title": "时间序列分析与预测",
+    "section": "时间序列图",
+    "text": "时间序列图\n\nlibrary(astsa)\ntsplot(AirPassengers)\n\n\n\ntsplot 是 astsa 包中的命令，需要用 library 命令调用后才能使用"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#vector-和-matrix",
+    "href": "assets/slides/lecture1.html#vector-和-matrix",
+    "title": "时间序列分析与预测",
+    "section": "vector 和 matrix",
+    "text": "vector 和 matrix\n\nx &lt;- c(10, 20, 30, 40, 50)    # c() 将多个输入变量“联结”为一个 vector\nx                     # 不使用 print() 也可以显示变量的值\n\n[1] 10 20 30 40 50\n\ny &lt;- c(\"新学期\", \"新气象\")\ny\n\n[1] \"新学期\" \"新气象\"\n\nclass(y)\n\n[1] \"character\"\n\nis.vector(y)          # 确认 y 是否为 vector\n\n[1] TRUE\n\n\n\n\n\nz &lt;- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)    # 生成一个 2 x 3 的矩阵\nz\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#访问变量中特定的值",
+    "href": "assets/slides/lecture1.html#访问变量中特定的值",
+    "title": "时间序列分析与预测",
+    "section": "访问变量中特定的值",
+    "text": "访问变量中特定的值\n\ny[2]      # 调取 y 中的第 2 个值\n\n[1] \"新气象\"\n\nx[2:4]    # 调取 x 中的第 2 至 4 个值\n\n[1] 20 30 40\n\n\n\n\n\nz[1:4]    # 调取 z 中的第 1 至 4 个值\n\n[1] 1 2 3 4\n\nz[2,3]    # 调取 z 的第 (2,3) 要素\n\n[1] 6\n\nz[1,]     # 调取 z 的第 1 行\n\n[1] 1 3 5\n\nz[,2]     # 调取 z 的第 2 列\n\n[1] 3 4"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#data-frame",
+    "href": "assets/slides/lecture1.html#data-frame",
+    "title": "时间序列分析与预测",
+    "section": "Data Frame",
+    "text": "Data Frame\ndata frame 是 R 中储存多元数据的一种形式，以 matrix 形式存在，每一列代表一个变量，每一行代表一个观测值\n\nt = data.frame(a = c(11, 12, 14), b = c(19, 29, 39), c = c(100, 101, 102))\nt\n\n   a  b   c\n1 11 19 100\n2 12 29 101\n3 14 39 102\n\n\n\n\n调取特定的变量或值\n\nt$b         # 调取 t 中变量 b 的全部内容\n\n[1] 19 29 39\n\nt$a[2:3]    # 调取 t 中变量 a 的第 2 至 3 个值\n\n[1] 12 14"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#统计分析",
+    "href": "assets/slides/lecture1.html#统计分析",
+    "title": "时间序列分析与预测",
+    "section": "统计分析",
+    "text": "统计分析\n\nsimData &lt;- rnorm(100, mean = 10, sd = 2)      # 生成 100 个服从 N(10, 2^2) 的随机数\nc(mean(simData), var(simData), sd(simData))   # 求样本均值、样本方差和样本标准差\n\n[1] 9.693393 4.503128 2.122058\n\nsummary(simData)                              # 显示 sim 的描述性统计量\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  4.258   8.448   9.688   9.693  11.338  14.804 \n\nhist(simData)                                     # 画直方图"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据",
+    "href": "assets/slides/lecture1.html#时间序列数据",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据",
+    "text": "时间序列数据\n\nmydata &lt;- ts(simData, start = 1980, frequency = 4)  # 将 simData 转变为时间序列 \"ts\" 数据\n                                                    # 设起始时间为 1980 年，频度为季度\nmydata\n\n          Qtr1      Qtr2      Qtr3      Qtr4\n1980  9.750419 11.388804 13.490908 10.120251\n1981 11.871717  7.725485  5.761560  7.639432\n1982 12.991212 11.407212  6.712444  8.810368\n1983  9.443325 11.552660  9.249202 10.303917\n1984 11.945809 11.241250  9.684502  6.439547\n1985 10.396873  7.913214 11.737665  6.115647\n1986  4.661587 12.292607  4.273766 11.185243\n1987 11.129671 10.937166 10.023437  9.312789\n1988  8.947515  9.743574  8.903197  4.257831\n1989 11.489689  9.177043 11.810469  9.846058\n1990  6.922641 10.190873  9.158893  8.650109\n1991  9.764098  7.883072  8.223109 11.521699\n1992  9.644657 10.739370 13.281299  8.689349\n1993 10.225229 11.905674 10.625809 11.850568\n1994  9.253831 10.975859 12.518535  8.472443\n1995 13.400886 12.882064 11.421009  7.693023\n1996  9.690891 10.936133  9.476516 10.692630\n1997  8.596648 11.305769  9.612498  8.199283\n1998 10.291339  9.444160 11.413203  7.622763\n1999  8.929570  9.001167  9.541534  8.969422\n2000  7.822370  9.709169 14.803648  8.854632\n2001  8.243303  5.996746  9.166524  7.749291\n2002  5.841862  9.177337 12.784427  7.913783\n2003 13.393318 11.365443  9.940009 11.985918\n2004  5.650349 11.329397  8.373238  7.935833"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#错误提示",
+    "href": "assets/slides/lecture1.html#错误提示",
+    "title": "时间序列分析与预测",
+    "section": "错误提示",
+    "text": "错误提示"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#学会用-script-文件工作",
+    "href": "assets/slides/lecture1.html#学会用-script-文件工作",
+    "title": "时间序列分析与预测",
+    "section": "学会用 script 文件工作",
+    "text": "学会用 script 文件工作\n\n\n\n\\to RStudio 操作演示"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#进一步学习",
+    "href": "assets/slides/lecture1.html#进一步学习",
+    "title": "时间序列分析与预测",
+    "section": "进一步学习",
+    "text": "进一步学习\n我们会随着课程的进展逐渐介绍更多 R 的命令\n\n如何自学（或复习）R 的基本用法？\n\n参考学习资料中列举的资料\n有效利用 RStudio &gt; Help &gt; R Help 中的内容\n如果遇到运行错误，学会根据错误提示寻找问题所在\n熟能生巧"
+  }
+]
