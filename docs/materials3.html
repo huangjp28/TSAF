@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>《时间序列分析与预测》课程网站 - 作业</title>
+<title>《时间序列分析与预测》课程网站 - 第三讲：时间序列的特征</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./exam.html" rel="next">
-<link href="./materials4.html" rel="prev">
+<link href="./materials4.html" rel="next">
+<link href="./materials2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,6 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +69,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -110,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">作业</h1>
+          <h1 class="quarto-secondary-nav-title">第三讲：时间序列的特征</h1>
         </a>     
     </div>
   </nav>
@@ -129,13 +173,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">课程资料</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./materials1.html" class="sidebar-item-text sidebar-link">
@@ -150,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials3.html" class="sidebar-item-text sidebar-link">
+  <a href="./materials3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">第三讲：时间序列的特征</span></a>
   </div>
 </li>
@@ -164,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment.html" class="sidebar-item-text sidebar-link active">
+  <a href="./assignment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">作业</span></a>
   </div>
 </li>
@@ -184,8 +228,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#个人作业" id="toc-个人作业" class="nav-link active" data-scroll-target="#个人作业">个人作业</a></li>
-  <li><a href="#小组汇报" id="toc-小组汇报" class="nav-link" data-scroll-target="#小组汇报">小组汇报</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#补充学习" id="toc-补充学习" class="nav-link" data-scroll-target="#补充学习">补充学习</a></li>
+  <li><a href="#课后练习" id="toc-课后练习" class="nav-link" data-scroll-target="#课后练习">课后练习</a></li>
   </ul>
 </nav>
     </div>
@@ -194,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">作业</h1>
+<h1 class="title d-none d-lg-block">第三讲：时间序列的特征</h1>
 </div>
 
 
@@ -212,14 +257,95 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
-<section id="个人作业" class="level3">
-<h3 class="anchored" data-anchor-id="个人作业">个人作业</h3>
-<p>（待更新）</p>
+<section id="slides" class="level3">
+<h3 class="anchored" data-anchor-id="slides">Slides</h3>
+<iframe class="slide-deck" src="assets/slides/lecture3.html"></iframe>
+<p>点击 slides 画面，然后用 <i class="bi-arrow-up-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-down-square " style="" role="img" aria-hidden="true"></i> 键或 <i class="bi-arrow-left-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-right-square " style="" role="img" aria-hidden="true"></i> 键控制翻页。点击 slides 左下角的 <i class="bi-list " style="" role="img" aria-hidden="true"></i> 图标可以发现更多功能。</p>
+<p><strong>如何将 slides 保存到自己的电脑上</strong>：</p>
+<ol type="1">
+<li>点击下面的链接会在新的标签页里打开 slides<br>
+<a href="assets/slides/lecture3.html" target="_blank">assets/slides/lecture3.html</a></li>
+<li>在该页面点击键盘的 <code>e</code> 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）</li>
+<li>右键选择打印该页面，然后选择保存为 PDF 文件。</li>
+</ol>
 <hr>
 </section>
-<section id="小组汇报" class="level3">
-<h3 class="anchored" data-anchor-id="小组汇报">小组汇报</h3>
-<p>（待更新）</p>
+<section id="补充学习" class="level3">
+<h3 class="anchored" data-anchor-id="补充学习">补充学习</h3>
+<ol type="1">
+<li>阅读书中第二章关于 <strong>Wold 分解</strong>的部分。</li>
+<li>阅读书中的<strong>例 2.24</strong> 关于联合平稳性的例子。</li>
+</ol>
+<hr>
+</section>
+<section id="课后练习" class="level3">
+<h3 class="anchored" data-anchor-id="课后练习">课后练习</h3>
+<p>章后练习 2.8（自己完成后再看参考答案）</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">问题</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">参考答案</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>考虑两个时间序列</p>
+<p><span class="math display">
+\begin{align*}
+x_t &amp;= w_t ,\\
+y_t &amp;= w_t - \theta w_{t-1} + u_t ,
+\end{align*}
+</span> 其中 <span class="math inline">w_t</span> 和 <span class="math inline">u_t</span> 是独立的白噪声序列，且满足 <span class="math inline">\mathrm{var}(w_t) = \sigma_w^2</span>，<span class="math inline">\mathrm{var}(u_t) = \sigma_u^2</span>。<span class="math inline">\theta</span> 是未知系数。</p>
+<ol type="a">
+<li>将 <span class="math inline">\{y_t\}</span> 的自相关函数（ACF）<span class="math inline">\rho_y(h)</span> 写成 <span class="math inline">\sigma_w^2</span>、<span class="math inline">\sigma_u^2</span> 和 <span class="math inline">\theta</span> 的函数。</li>
+<li>写出 <span class="math inline">\{x_t\}</span> 和 <span class="math inline">\{y_t\}</span> 的交叉相关函数（CCF）<span class="math inline">\rho_{xy}(h)</span>。</li>
+<li>证明 <span class="math inline">\{x_t\}</span> 和 <span class="math inline">\{y_t\}</span> 是联合平稳的。</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>a.</p>
+<p><span class="math display">
+\begin{align*}
+\gamma_y(t,t) &amp;= \mathrm{var}(y_t) \\
+&amp;= \mathrm{var}(w_t) + \theta^2 \mathrm{var}(w_{t-1}) + \mathrm{var}(u_t) \\
+&amp;= (1+\theta^2) \sigma_w^2 + \sigma_u^2 \\
+\gamma_y(t-1,t) &amp;= \mathrm{cov}(y_{t-1}, y_t) \\
+&amp;= -\theta \, \mathrm{var}(w_{t-1}) = - \theta \sigma_w^2 \\
+\gamma_y(t+1,t) &amp;= \mathrm{cov}(y_{t+1}, y_t) \\
+&amp;= -\theta \, \mathrm{var}(w_{t}) = - \theta \sigma_w^2 \\
+\gamma_y(s,t) &amp;= 0 \text{ for all other } s \text{ and } t
+\end{align*}
+</span> 因此，<span class="math inline">\{y_t\}</span> 的自相关函数可以写成</p>
+<p><span class="math display">
+\rho_y(h) =
+\begin{cases}
+1 &amp; \text{if } h = 0 \\
+\frac{- \theta \sigma_w^2}{(1+\theta^2) \sigma_w^2 + \sigma_u^2} &amp; \text{if } h = 1 \\
+0 &amp; \text{if } h &gt; 1 \\
+\end{cases}
+</span></p>
+<p>b.</p>
+<p><span class="math display">
+\gamma_{xy}(h) =
+\begin{cases}
+\sigma_w^2 &amp; \text{if } h = 0 \\
+0 &amp; \text{if } h &gt; 0 \\
+-\theta \sigma_w^2 &amp; \text{if } h = -1 \\
+0 &amp; \text{if } h &lt; -1
+\end{cases}
+</span></p>
+<p>因此，<span class="math inline">\{x_t\}</span> 和 <span class="math inline">\{y_t\}</span> 的交叉相关函数为</p>
+<p><span class="math display">
+\rho_{xy}(h) =
+\begin{cases}
+\frac{\sigma_w}{\sqrt{(1+\theta^2) \sigma_w^2 + \sigma_u^2}} &amp; \text{if } h = 0 \\
+0 &amp; \text{if } h &gt; 0 \\
+- \frac{\theta \sigma_w}{(1+\theta^2) \sigma_w^2 + \sigma_u^2} &amp; \text{if } h = -1 \\
+0 &amp; \text{if } h &lt; -1
+\end{cases}
+</span></p>
+<p>c.</p>
+<p><span class="math inline">\{x_t\}</span> 是白噪声序列，因此是平稳的。由 <span class="math inline">\mu_{yt} = 0</span> 和 (a) 的结果可知 <span class="math inline">\{y_t\}</span> 也是平稳的。</p>
+<p>由 (b) 可知两者的交叉协方差函数仅是滞后期 <span class="math inline">h</span> 的函数，因此它们是联合平稳的。</p>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -634,13 +760,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./materials4.html" class="pagination-link  aria-label=" 第四讲：参数的估计"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第四讲：参数的估计</span>
+      <a href="./materials2.html" class="pagination-link  aria-label=" 第二讲：时间序列模型简介"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第二讲：时间序列模型简介</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./exam.html" class="pagination-link" aria-label="关于考试">
-        <span class="nav-page-text">关于考试</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./materials4.html" class="pagination-link" aria-label="第四讲：参数的估计">
+        <span class="nav-page-text">第四讲：参数的估计</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>《时间序列分析与预测》课程网站 - 作业</title>
+<title>《时间序列分析与预测》课程网站 - 第二讲：时间序列模型简介</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./exam.html" rel="next">
-<link href="./materials4.html" rel="prev">
+<link href="./materials3.html" rel="next">
+<link href="./materials1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,6 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">作业</h1>
+          <h1 class="quarto-secondary-nav-title">第二讲：时间序列模型简介</h1>
         </a>     
     </div>
   </nav>
@@ -129,13 +130,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">课程资料</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./materials1.html" class="sidebar-item-text sidebar-link">
@@ -144,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials2.html" class="sidebar-item-text sidebar-link">
+  <a href="./materials2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">第二讲：时间序列模型简介</span></a>
   </div>
 </li>
@@ -164,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment.html" class="sidebar-item-text sidebar-link active">
+  <a href="./assignment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">作业</span></a>
   </div>
 </li>
@@ -184,8 +185,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#个人作业" id="toc-个人作业" class="nav-link active" data-scroll-target="#个人作业">个人作业</a></li>
-  <li><a href="#小组汇报" id="toc-小组汇报" class="nav-link" data-scroll-target="#小组汇报">小组汇报</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#学习资料" id="toc-学习资料" class="nav-link" data-scroll-target="#学习资料">学习资料</a></li>
+  <li><a href="#课后练习" id="toc-课后练习" class="nav-link" data-scroll-target="#课后练习">课后练习</a></li>
   </ul>
 </nav>
     </div>
@@ -194,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">作业</h1>
+<h1 class="title d-none d-lg-block">第二讲：时间序列模型简介</h1>
 </div>
 
 
@@ -212,14 +214,33 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
-<section id="个人作业" class="level3">
-<h3 class="anchored" data-anchor-id="个人作业">个人作业</h3>
-<p>（待更新）</p>
+<section id="slides" class="level3">
+<h3 class="anchored" data-anchor-id="slides">Slides</h3>
+<iframe class="slide-deck" src="assets/slides/lecture2.html"></iframe>
+<p>点击 slides 画面，然后用 <i class="bi-arrow-up-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-down-square " style="" role="img" aria-hidden="true"></i> 键或 <i class="bi-arrow-left-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-right-square " style="" role="img" aria-hidden="true"></i> 键控制翻页。点击 slides 左下角的 <i class="bi-list " style="" role="img" aria-hidden="true"></i> 图标可以发现更多功能。</p>
+<p><strong>如何将 slides 保存到自己的电脑上</strong>：</p>
+<ol type="1">
+<li>点击下面的链接会在新的标签页里打开 slides<br>
+<a href="assets/slides/lecture2.html" target="_blank">assets/slides/lecture2.html</a></li>
+<li>在该页面点击键盘的 <code>e</code> 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）</li>
+<li>右键选择打印该页面，然后选择保存为 PDF 文件。</li>
+</ol>
 <hr>
 </section>
-<section id="小组汇报" class="level3">
-<h3 class="anchored" data-anchor-id="小组汇报">小组汇报</h3>
-<p>（待更新）</p>
+<section id="学习资料" class="level3">
+<h3 class="anchored" data-anchor-id="学习资料">学习资料</h3>
+<p>bilibili:【PBS无尽数学】计算机如何生成随机数?</p>
+<iframe src="//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=BV1XW411s7mK&amp;p=1&amp;danmaku=0&amp;muted=1&amp;hasMuteButton=1&amp;hideCoverInfo=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+<p>视频网址：<a href="https://www.bilibili.com/video/BV1XW411s7mK/" class="uri">https://www.bilibili.com/video/BV1XW411s7mK/</a></p>
+<hr>
+</section>
+<section id="课后练习" class="level3">
+<h3 class="anchored" data-anchor-id="课后练习">课后练习</h3>
+<ol type="1">
+<li>自学 R 命令 <code>replicate()</code> 。</li>
+<li>通过 help 了解 astsa 包中 <code>tsplot()</code> 命令的参数 spaghetti 的作用。</li>
+<li>利用 <code>replicate()</code> 生成 9 个随机游走序列（长度为 500，无漂移，白噪声服从标准正态分布），并将其绘制在同一张图中。</li>
+</ol>
 
 
 </section>
@@ -634,13 +655,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./materials4.html" class="pagination-link  aria-label=" 第四讲：参数的估计"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第四讲：参数的估计</span>
+      <a href="./materials1.html" class="pagination-link  aria-label=" 第一讲：导论"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第一讲：导论</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./exam.html" class="pagination-link" aria-label="关于考试">
-        <span class="nav-page-text">关于考试</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./materials3.html" class="pagination-link" aria-label="第三讲：时间序列的特征">
+        <span class="nav-page-text">第三讲：时间序列的特征</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

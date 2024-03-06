@@ -63,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assignment.html" rel="next">
+<link href="./materials2.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -223,6 +223,24 @@ window.Quarto = {
  <span class="menu-text">第一讲：导论</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./materials2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第二讲：时间序列模型简介</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./materials3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第三讲：时间序列的特征</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./materials4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四讲：参数的估计</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -280,7 +298,14 @@ window.Quarto = {
 <section id="slides" class="level3">
 <h3 class="anchored" data-anchor-id="slides">Slides</h3>
 <iframe class="slide-deck" src="assets/slides/lecture1.html"></iframe>
-<p>点击 slides 画面，然后用 <i class="bi-arrow-up-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-down-square " style="" role="img" aria-hidden="true"></i> 键或 <i class="bi-arrow-left-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-right-square " style="" role="img" aria-hidden="true"></i> 键控制翻页。点击 slides 左下角的 <i class="bi-list " style="" role="img" aria-hidden="true"></i> 图标可以发现更多功能（PDF Export 功能只在 Chrome 中有效）。</p>
+<p>点击 slides 画面，然后用 <i class="bi-arrow-up-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-down-square " style="" role="img" aria-hidden="true"></i> 键或 <i class="bi-arrow-left-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-right-square " style="" role="img" aria-hidden="true"></i> 键控制翻页。点击 slides 左下角的 <i class="bi-list " style="" role="img" aria-hidden="true"></i> 图标可以发现更多功能。</p>
+<p><strong>如何将 slides 保存到自己的电脑上</strong>：</p>
+<ol type="1">
+<li>点击下面的链接会在新的标签页里打开 slides<br>
+<a href="assets/slides/lecture1.html" target="_blank">assets/slides/lecture1.html</a></li>
+<li>在该页面点击键盘的 <code>e</code> 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）</li>
+<li>右键选择打印该页面，然后选择保存为 PDF 文件。</li>
+</ol>
 <hr>
 </section>
 <section id="补充信息" class="level3">
@@ -288,7 +313,7 @@ window.Quarto = {
 <p><strong>R和RStudio的安装</strong>：访问 <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>，根据提示依次下载并安装 R 和 RStudio</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="assets/images/posit.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Mac 上显示的下载页面"><img src="assets/images/posit.png" class="img-fluid rounded border shadow-lg figure-img" alt="Mac 上显示的下载页面"></a></p>
+<p><a href="assets/images/posit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Mac 上显示的下载页面"><img src="assets/images/posit.png" class="img-fluid rounded border shadow-lg figure-img" alt="Mac 上显示的下载页面"></a></p>
 <figcaption>Mac 上显示的下载页面</figcaption>
 </figure>
 </div>
@@ -770,8 +795,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./assignment.html" class="pagination-link" aria-label="作业">
-        <span class="nav-page-text">作业</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./materials2.html" class="pagination-link" aria-label="第二讲：时间序列模型简介">
+        <span class="nav-page-text">第二讲：时间序列模型简介</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -793,7 +818,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

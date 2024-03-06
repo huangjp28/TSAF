@@ -409,7 +409,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">时间序列分析与预测</h1>
-  <p class="subtitle"><strong>第一讲：导论</strong><br>
+  <p class="subtitle"><strong>第二讲：时间序列模型简介</strong><br>
 </p><hr><p></p>
 
 <div class="quarto-title-authors">
@@ -424,455 +424,382 @@
 </div>
 
 </section>
-<section class="slide level2">
-
-<iframe width="100%" height="100%" src="https://embed.windy.com/embed.html?type=map&amp;location=coordinates&amp;metricRain=mm&amp;metricTemp=°C&amp;metricWind=m/s&amp;zoom=3&amp;overlay=wind&amp;product=ecmwf&amp;level=surface&amp;lat=7.362&amp;lon=114.082&amp;detailLat=22.53572677696482&amp;detailLon=113.92938569088489&amp;detail=true&amp;message=true" frameborder="0"></iframe>
-</section>
-<section>
-<section id="时间序列分析第一步" class="title-slide slide level1 center">
-<h1>时间序列分析第一步</h1>
-
-</section>
-<section id="什么是时间序列数据" class="slide level2 smaller">
-<h2>什么是时间序列数据？</h2>
-<p>数据的基本结构</p>
-<ul>
-<li><p>变量：描述观测对象的某个特定特征的量，例如身高、收入、年龄等</p></li>
-<li><p>如何区分观测值：</p>
-<ul>
-<li><p>依个体区分：每一个个体为一个观测单位，例如个人、企业、国家等</p></li>
-<li><p>依时间节点区分：每一个时间点为一个观测单位，例如年、月、日等</p></li>
-</ul></li>
-</ul>
-<p>基本数据类型：</p>
-<ul>
-<li><p>时间序列数据（time series data）：对同一个体在多个时间点进行观测</p></li>
-<li><p>横截面数据（cross-sectional data）：对多个个体在同一时间点进行观测</p></li>
-<li><p>面板数据（panel data）：对多个个体在多个时间点进行重复观测</p></li>
-</ul>
-<p>GDP 是什么类型的数据？</p>
-</section>
-<section id="不同类型的-gdp-数据" class="slide level2">
-<h2>不同类型的 GDP 数据</h2>
-<p>GDP 是变量，结合不同的观测方式会形成不同的数据类型</p>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<section id="什么是时间序列模型" class="slide level2">
+<h2>什么是时间序列模型？</h2>
+<p>为了利用已知的时间序列数据预测未来的变化趋势，我们需要了解数据是如何生成的。然而世界是复杂的，而可获得的数据是有限的，因此我们无法完全理解数据的生成机制。</p>
+<p>科学的发展告诉我们，通过简单的模型描述复杂的现象在很多时候是有效的。</p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>时间序列 GDP</strong></p>
+<p><strong>时间序列模型</strong></p>
 </div>
 <div class="callout-content">
-<p>例如，中国在2000-2022年间的年度GDP是时间序列数据</p>
+<p>描述时间序列数据 <span class="math inline">\{x_t\}</span> 的<strong>模型</strong>是一个能够产生 <span class="math inline">\{x_t\}</span> 的随机变量序列 <span class="math inline">\{X_t\}</span> <sup>1</sup>。</p>
 </div>
 </div>
 </div>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<aside><ol class="aside-footnotes"><li id="fn1"><p>也称为随机过程（stochastic process）。</p></li></ol></aside></section>
+<section id="白噪声-white-noise" class="slide level2">
+<h2>白噪声 white noise</h2>
+<p>最简单的时间序列模型是白噪声模型。它是一组相互不相关的随机变量 <span class="math inline">w_t</span>, 且每个随机变量都具有零均值和有限方差 <span class="math inline">\sigma_w^2</span> 。</p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>横截面 GDP</strong></p>
+<p><strong>白噪声（white noise）</strong></p>
 </div>
 <div class="callout-content">
-<p>例如，G20各国在2022年的年度GDP是横截面数据</p>
+<p>随机过程 <span class="math inline">\{w_t\}</span>，其中 <span class="math inline">E(w_t) =0</span>，<span class="math inline">\mathit{Var}\,(w_t) = \sigma_w^2 &lt; \infty</span>。 也可以写成 <span class="math inline">w_t \sim \mathit{wn}\,(0, \sigma_w^2)</span>。我们常常假设独立正态分布，即 <span class="math inline">w_t \sim \mathrm{iid}N(0, \sigma_w^2)</span>。</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(astsa)</span>
+<span id="cb1-2"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)    <span class="co"># 生成 500 个服从 N(0,1) 的随机数 </span></span>
+<span id="cb1-3"><a></a><span class="fu">tsplot</span>(w, <span class="at">col=</span><span class="dv">4</span>, <span class="at">main=</span><span class="st">"white noise"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</div>
+</section>
+<section id="白噪声-white-noise-output" class="slide level2 output-location-slide"><h2>白噪声 white noise</h2><div class="cell output-location-slide">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lecture2_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="移动平均平滑滤波" class="slide level2">
+<h2>移动平均、平滑、滤波</h2>
+<p>白噪声过程看起来充满了震荡，这意味着它在局部的变化幅度非常大。很多时候我们希望看到更加平滑（smooth）的时间序列数据。最常用的平滑方法是取相邻观测值的平均值，称为移动平均（moving average）。</p>
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>三期移动平均过程</strong></p>
+</div>
+<div class="callout-content">
+<p>令 <span class="math inline">v_t = \tfrac{1}{3} (w_{t-1} + w_t + w_{t+1})</span> ，则 <span class="math inline">\{v_t\}</span> 是 <span class="math inline">\{w_t\}</span> 的一个移动平均过程。</p>
 </div>
 </div>
 </div>
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>面板 GDP</strong></p>
+<p><strong>滤波 filter</strong></p>
 </div>
 <div class="callout-content">
-<p>例如，G20各国在2000-2022年间的年度GDP是面板数据</p>
+<p>从时间序列数据中剔除噪声的方法称为滤波。比较常见的线性滤波指时间序列数据的线性结合。因此，移动平均过程是线性滤波的一种。</p>
 </div>
 </div>
 </div>
 </section>
-<section id="时间序列分析的目的和方法" class="slide level2 smaller">
-<h2>时间序列分析的目的和方法</h2>
-<p>为什么要分析时间序列数据？</p>
-<ul>
-<li><p>时间序列数据在生活中随处可见</p></li>
-<li><p>通过分析时间序列数据，可以帮助我们更好的预测未来可能发生的情况</p></li>
-</ul>
-<p>怎样分析时间序列数据？</p>
-<ol type="1">
-<li><p>首先要对数据进行观察 <span class="math inline">\to</span> 变化趋势是什么？是否存在周期性？</p></li>
-<li><p>然后假设<strong>数据生成模型</strong> <span class="math inline">\to</span> 白噪声、自回归、随机游走等</p></li>
-<li><p>之后利用手中的数据对模型进行拟合 <span class="math inline">\to</span> 求出模型中的关键参数</p></li>
-<li><p>验证模型、选择模型 <span class="math inline">\to</span> 如果需要可以回到第 2 步</p></li>
-<li><p>最后利用模型预测未来</p></li>
-</ol>
+<section id="白噪声过程与移动平均滤波" class="slide level2 smaller">
+<h2>白噪声过程与移动平均滤波</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)</span>
+<span id="cb2-2"><a></a>v <span class="ot">&lt;-</span> <span class="fu">filter</span>(w, <span class="at">sides =</span> <span class="dv">2</span>, <span class="at">filter =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">3</span>))    <span class="co"># 用 filter 命令生成 3 期移动平均滤波</span></span>
+<span id="cb2-3"><a></a>s <span class="ot">&lt;-</span> <span class="fu">filter</span>(w, <span class="at">sides =</span> <span class="dv">2</span>, <span class="at">filter =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">15</span>, <span class="dv">15</span>))  <span class="co"># 15 期移动平均滤波</span></span>
+<span id="cb2-4"><a></a><span class="fu">tsplot</span>(w, <span class="at">col =</span> <span class="st">"tomato3"</span>, <span class="at">lwd =</span> <span class="dv">1</span>)</span>
+<span id="cb2-5"><a></a><span class="fu">lines</span>(v, <span class="at">col =</span> <span class="st">"blue4"</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb2-6"><a></a><span class="fu">lines</span>(s, <span class="at">col =</span> <span class="st">"chartreuse2"</span>, <span class="at">lwd =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="lecture2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="自回归模型-autoregression-models" class="slide level2 smaller">
+<h2>自回归模型 autoregression models</h2>
+<p>考虑下面的方程：</p>
+<p><span class="math display">
+x_t = 1.5 x_{t-1} - 0.75 x_{t-2} + w_t, \quad w_t \sim N(0,1)
+</span></p>
+<p>此时，时间序列 <span class="math inline">\{x_t\}</span> 是一个自回归序列。</p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>自回归序列 autoregressive series</strong></p>
+</div>
+<div class="callout-content">
+<p>现在值依赖过去值的序列称为自回归序列。</p>
+</div>
+</div>
+</div>
+<p>给定初始值 <span class="math inline">x_0 = x_{-1} = 0</span> 时，<span class="math inline">\{x_t\}</span> 可以用递归形式表达：</p>
+<p><span class="math display">
+\begin{align*}
+x_1 &amp;= 1.5 x_{0} - 0.75 x_{-1} + w_1 = w_1 \\
+x_2 &amp;= 1.5 x_{1} - 0.75 x_{0} + w_2 = 1.5w_1 + w_2 \\
+x_3 &amp;= 1.5 x_{2} - 0.75 x_{1} + w_3 = 1.5w_1 + 1.5w_2 + w_3 \\
+&amp;\ \ \vdots
+\end{align*}
+</span></p>
 </section>
-<section id="时间序列数据的例子-1" class="slide level2 smaller">
-<h2>时间序列数据的例子 1</h2>
-<p>例 1.1 强生公司的季度每股收益（quarterly earnings per share, QEPS）</p>
+<section id="自回归模型-autoregression-models-1" class="slide level2 smaller">
+<h2>自回归模型 autoregression models</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">set.seed</span>(<span class="dv">90210</span>)         <span class="co"># 指定随机数生成器的种子</span></span>
+<span id="cb3-2"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">250</span> <span class="sc">+</span> <span class="dv">50</span>)    <span class="co"># 多生成 50 个噪声项 </span></span>
+<span id="cb3-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">filter</span>(w, <span class="at">filter=</span><span class="fu">c</span>(<span class="fl">1.5</span>,<span class="sc">-</span><span class="fl">0.75</span>), <span class="at">method=</span><span class="st">"recursive"</span>)[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>)]  </span>
+<span id="cb3-4"><a></a>     <span class="co"># method="recursive" 对应自回归模型       [-(1:50)] 代表去掉前 50 个值</span></span>
+<span id="cb3-5"><a></a><span class="fu">tsplot</span>(x, <span class="at">main=</span><span class="st">"autoregression"</span>, <span class="at">col=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section id="时间序列数据的例子-2" class="slide level2 smaller">
-<h2>时间序列数据的例子 2</h2>
-<p>例 1.2 全球变暖与气候变化：纵轴为当年的平均地表温度与 1951-1980 年间的平均值之差</p>
-
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="footer">
-<p>更多数据可参考 <a href="https://climate.nasa.gov/" class="uri">https://climate.nasa.gov/</a></p>
+</div>
+<img data-src="lecture2_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="带漂移项的随机游走模型" class="slide level2 smaller">
+<h2>带漂移项的随机游走模型</h2>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>随机游走模型 random walk</strong></p>
+</div>
+<div class="callout-content">
+<p>白噪声的累积称为随机游走模型，即</p>
+<p><span class="math display">
+x_t = \sum_{j=1}^t w_j \quad \Leftrightarrow \quad x_t = x_{t-1} + w_t
+</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>带漂移项的随机游走模型 random walk with drift</strong></p>
+</div>
+<div class="callout-content">
+<p>在随机游走模型中加入固定趋势即为带漂移项的随机游走模型，即</p>
+<p><span class="math display">
+x_t = \delta t + \sum_{j=1}^t w_j \quad \Leftrightarrow \quad x_t = \delta + x_{t-1} + w_t
+</span></p>
+<p><span class="math inline">\delta</span> 称为漂移项 drift。</p>
+</div>
+</div>
 </div>
 </section>
-<section id="时间序列数据的例子-3" class="slide level2 smaller">
-<h2>时间序列数据的例子 3</h2>
-<p>例 1.3 道琼斯工业平均指数（DIJA）</p>
+<section id="带漂移项的随机游走模型-1" class="slide level2 smaller">
+<h2>带漂移项的随机游走模型</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">set.seed</span>(<span class="dv">314159265</span>)</span>
+<span id="cb4-2"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>);   x <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(w)     <span class="co"># 在命令后加分号 ; 代表一个命令结束</span></span>
+<span id="cb4-3"><a></a>wd <span class="ot">&lt;-</span> w <span class="sc">+</span>.<span class="dv">3</span>;       xd <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(wd)   <span class="co"># cumsum() 为取第一项至当前项之和</span></span>
+<span id="cb4-4"><a></a><span class="fu">tsplot</span>(xd, <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">80</span>), <span class="at">main=</span><span class="st">"random walk"</span>, <span class="at">ylab=</span><span class="st">""</span>, <span class="at">col=</span><span class="dv">4</span>) </span>
+<span id="cb4-5"><a></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>, <span class="at">b=</span>.<span class="dv">3</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)     <span class="co"># 画出漂移项（趋势）</span></span>
+<span id="cb4-6"><a></a><span class="fu">lines</span>(x, <span class="at">col=</span><span class="st">"darkred"</span>);  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkred"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="时间序列数据的例子-4" class="slide level2 smaller">
-<h2>时间序列数据的例子 4</h2>
-<p><strong>ENSO</strong> (El Niño-Southern Oscillation) <strong>厄尔尼诺南方涛动</strong>是赤道地区太平洋海面温度和气压的一种综合气候现象。</p>
-<div class="columns">
-<div class="column" style="width:70%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/ENSO.png" class="quarto-figure quarto-figure-center" width="676"></p>
-</figure>
 </div>
-</div><div class="column" style="width:30%;">
-<p>厄尔尼诺（El Niño）现象指太平洋中东部海面温度过高。</p>
+<img data-src="lecture2_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="信号-噪声" class="slide level2 smaller">
+<h2>信号 + 噪声</h2>
+<p>在信号处理领域，含有信息的量称为信号（signal），而不含信息的量称为噪声。现实中，任意一个物理观测量都可以看作信号，例如气温、气压、浓度、电压、电流、速度等。非物理观测量也可以是信号，例如股价等。</p>
 <p><br></p>
-<p>拉尼娜（La Niña）现象指该区域海面温度过低。</p>
+<p>时间序列数据可以看作在不同时间点上观测的信号或噪声。</p>
+<div class="fragment">
 <p><br></p>
-<p>南方涛动指该地区海面气压和西太平洋地区气压的相对变化。</p>
+<p>周期性信号常用三角函数表达，例如下面模型中的第一项：</p>
+<p><span class="math display">
+x_t = 2\cos \Big( 2\pi \frac{t+15}{50}\Big) + w_t
+</span></p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>余弦波</strong></p>
+</div>
+<div class="callout-content">
+<p>余弦波可以表达为 <span class="math inline">A\cos (2\pi \omega t + \varphi)</span> ，其中 <span class="math inline">A</span> 为振幅（amplitude），<span class="math inline">\omega</span> 为频率，<span class="math inline">\varphi</span> 为初始相位。</p>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section id="信号-噪声-1" class="slide level2 smaller">
+<h2>信号 + 噪声</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>t <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">500</span></span>
+<span id="cb5-2"><a></a>cs <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">cos</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>(t<span class="sc">+</span><span class="dv">15</span>)<span class="sc">/</span><span class="dv">50</span>)    <span class="co"># 信号 signal</span></span>
+<span id="cb5-3"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)                <span class="co"># 噪声 noise</span></span>
+<span id="cb5-4"><a></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>))</span>
+<span id="cb5-5"><a></a><span class="fu">tsplot</span>(cs, <span class="at">col=</span><span class="dv">4</span>, <span class="at">main=</span><span class="fu">expression</span>(<span class="dv">2</span><span class="sc">*</span><span class="fu">cos</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>(t<span class="sc">+</span><span class="dv">15</span>)<span class="sc">/</span><span class="dv">50</span>))) </span>
+<span id="cb5-6"><a></a><span class="fu">tsplot</span>(cs<span class="sc">+</span>w, <span class="at">col=</span><span class="dv">4</span>, <span class="at">main=</span><span class="fu">expression</span>(<span class="dv">2</span><span class="sc">*</span><span class="fu">cos</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>(t<span class="sc">+</span><span class="dv">15</span>)<span class="sc">/</span><span class="dv">50</span>)<span class="sc">+</span><span class="fu">N</span>(<span class="dv">0</span>,<span class="dv">1</span>)))      <span class="co"># 白噪声方差为 1</span></span>
+<span id="cb5-7"><a></a><span class="fu">tsplot</span>(cs<span class="sc">+</span><span class="dv">5</span><span class="sc">*</span>w,<span class="at">col=</span><span class="dv">4</span>, <span class="at">main=</span><span class="fu">expression</span>(<span class="dv">2</span><span class="sc">*</span><span class="fu">cos</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>(t<span class="sc">+</span><span class="dv">15</span>)<span class="sc">/</span><span class="dv">50</span>)<span class="sc">+</span><span class="fu">N</span>(<span class="dv">0</span>,<span class="dv">5</span><span class="sc">^</span><span class="dv">2</span>)))   <span class="co"># 白噪声方差为 25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<aside><div>
-<p>更多信息可参考 <a href="https://www.climate.gov/news-features/blogs/enso/what-el-niño–southern-oscillation-enso-nutshell">www.climate.gov</a> 或 <a href="https://iri.columbia.edu/our-expertise/climate/enso/enso-essentials/">iri.columbia.edu</a></p>
-</div></aside></section>
-<section id="时间序列数据的例子-4-1" class="slide level2 smaller">
-<h2>时间序列数据的例子 4</h2>
-<p>例 1.4 厄尔尼诺南方涛动指数 (El Niño-Southern Oscillation Index)<sup>1</sup> 与新鱼数量指数</p>
+</div>
+<img data-src="lecture2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="思考题" class="slide level2 smaller">
+<h2>思考题</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">问题</a></li><li><a href="#tabset-1-2">答案</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>下面的时间序列数据最像哪种模型生成的？</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lecture1_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<p><img data-src="lecture2_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </figure>
 </div>
 </div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>SOI = 塔希提与澳大利亚达尔文海面气压之差的指数，正值代表拉尼娜现象，负值代表厄尔尼诺现象</p></li></ol></aside></section>
-<section id="时间序列数据的例子-5" class="slide level2 smaller">
-<h2>时间序列数据的例子 5</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/population-density-fluctuations-snowshoe-hare-predator-effect.jpg" class="quarto-figure quarto-figure-center" width="600"></p>
-</figure>
-</div>
-</div><div class="column" style="width:45%;">
-<p><br></p>
-<p>猞猁（shēlì, lynx）是中型猫科动物，喜欢捕食小型啮齿动物和鹿等，其中白靴兔（snowshoe hare）是加拿大猞猁最喜欢的猎物。</p>
-<p><br></p>
-<p>图中的数据是加拿大哈德逊湾公司收购的皮毛数量，可以代表种群数量的变化。</p>
-</div>
-</div>
-</section>
-<section id="时间序列数据的例子-5-1" class="slide level2 smaller">
-<h2>时间序列数据的例子 5</h2>
-<p>例 1.5 捕食者与猎物：加拿大猞猁 (Canada lynx) 与白靴兔 (snow shoe hare)</p>
-
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
-<section id="时间序列数据的例子-6" class="slide level2 smaller">
-<h2>时间序列数据的例子 6</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p>fMRI（functional magnetic resonance imaging，功能磁共振成像）是通过核磁共振现象观测脑活动的一种技术。它常被用来研究脑的哪些区域对特定的外部刺激产生反应，从而尝试理解脑的工作原理。</p>
-</div><div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/BOLDSignal.jpg" class="quarto-figure quarto-figure-center" width="666"></p>
-</figure>
-</div>
-</div>
-</div>
-
-<aside><div>
-<p>图像取自 <a href="http://fmri.ucsd.edu/Research/whatisfmri.html" class="uri">http://fmri.ucsd.edu/Research/whatisfmri.html</a></p>
-</div></aside></section>
-<section id="时间序列数据的例子-6-1" class="slide level2 smaller">
-<h2>时间序列数据的例子 6</h2>
-<p>脑的某个区域的神经元活动时，其消耗的能量和氧会增加。为了补充氧气，附近血管中的血液流量会暂时性增加，使局部血液中的氧合血红蛋白浓度增加，脱氧血红蛋白浓度减少。前者的磁共振强度更高。由血氧浓度变化引起的 MRI 信号强度变化称为 BOLD（blood oxygenation level dependent, 血氧水平依赖）。</p>
-<div class="columns">
-<div class="column" style="width:70%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/fmri.png" class="quarto-figure quarto-figure-center" width="673"></p>
-</figure>
-</div>
-</div><div class="column" style="width:30%;">
-<p><br></p>
-<p>从图中可见，从刺激开始到 BOLD 信号达到峰值之间存在 6 秒左右的延迟。</p>
-</div>
-</div>
-
-<aside><div>
-<p>图像取自 <a href="http://fmri.ucsd.edu/Research/whatisfmri.html" class="uri">http://fmri.ucsd.edu/Research/whatisfmri.html</a></p>
-</div></aside></section>
-<section id="时间序列数据的例子-6-2" class="slide level2 smaller">
-<h2>时间序列数据的例子 6</h2>
-<p>例 1.6 fMRI 图像</p>
-
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><div style="font-size: 0.8em">
-<p>在脑皮层（cortex）、丘脑（thalamus）和小脑（cerebellum）中各取两个部位进行观测。</p>
-<p>试验针对麻醉的志愿者的手部进行强电流刺激（100Hz, 50mA）以模拟手术时皮肤被切割的痛感。框线代表刺激与否，每次刺激和间隔时长为 32 秒。</p>
-</div>
-</section></section>
-<section>
-<section id="r-和-rstudio-第一步" class="title-slide slide level1 center">
-<h1>R 和 RStudio 第一步</h1>
-
-</section>
-<section id="r-的几种用法" class="slide level2 smaller">
-<h2>R 的几种用法</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">R 图形界面</a></li><li><a href="#tabset-1-2">with RStudio</a></li><li><a href="#tabset-1-3">Terminal/Command Prompt</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/Rapp.png" class="quarto-figure quarto-figure-center" width="514"></p>
-</figure>
 </div>
 </div>
 <div id="tabset-1-2">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/RStusio.png" class="quarto-figure quarto-figure-center" width="861"></p>
-</figure>
-</div>
-</div>
-<div id="tabset-1-3">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/RTerminal.png" class="quarto-figure quarto-figure-center" width="655"></p>
-</figure>
-</div>
+<p>随机游走模型</p>
+<p><span class="math display">
+x_t = x_{t-1} + w_t, \quad w_t \sim N(0,1)
+</span></p>
+<p>R 命令为</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">set.seed</span>(<span class="dv">135</span>)</span>
+<span id="cb6-2"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)</span>
+<span id="cb6-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(w)</span>
+<span id="cb6-4"><a></a><span class="fu">tsplot</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="r-的命令与执行结果" class="slide level2 smaller">
-<h2>R 的命令与执行结果</h2>
-<p>数值带入与运算</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">100</span>    <span class="co"># 将 &lt;- 右侧的值带入左侧的变量中，但不显示结果</span></span>
-<span id="cb1-2"><a></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb1-3"><a></a>c <span class="ot">&lt;-</span> a <span class="sc">*</span> b<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb1-4"><a></a><span class="fu">print</span>(c)    <span class="co"># 显示 c 的值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 400</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><br></p>
-<p>探索数据</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">class</span>(AirPassengers)    <span class="co"># 显示 AirPassengers 的数据类型</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ts"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">tsp</span>(AirPassengers)      <span class="co"># 显示 "ts" 类数据的起始时间，结束时间，频度</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1949.000 1960.917   12.000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">window</span>(AirPassengers, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1955</span>,<span class="dv">1</span>), <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">1957</span>,<span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-1955 242 233 267 269 270 315 364 347 312 274 237 278
-1956 284 277 317 313 318 374 413 405 355 306 271 306
-1957 315 301 356 348 355 422 465 467 404 347 305 336</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="时间序列图" class="slide level2 smaller">
-<h2>时间序列图</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(astsa)</span>
-<span id="cb9-2"><a></a><span class="fu">tsplot</span>(AirPassengers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-</div>
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div style="font-size: 0.8em">
-<p><code>tsplot</code> 是 astsa 包中的命令，需要用 <code>library</code> 命令调用后才能使用</p>
-</div>
-</section>
-<section id="vector-和-matrix" class="slide level2 smaller">
-<h2>vector 和 matrix</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)    <span class="co"># c() 将多个输入变量“联结”为一个 vector</span></span>
-<span id="cb10-2"><a></a>x                     <span class="co"># 不使用 print() 也可以显示变量的值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10 20 30 40 50</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"新学期"</span>, <span class="st">"新气象"</span>)</span>
-<span id="cb12-2"><a></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "新学期" "新气象"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">class</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">is.vector</span>(y)          <span class="co"># 确认 y 是否为 vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)    <span class="co"># 生成一个 2 x 3 的矩阵</span></span>
-<span id="cb18-2"><a></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    3    5
-[2,]    2    4    6</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="访问变量中特定的值" class="slide level2 smaller">
-<h2>访问变量中特定的值</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>y[<span class="dv">2</span>]      <span class="co"># 调取 y 中的第 2 个值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "新气象"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]    <span class="co"># 调取 x 中的第 2 至 4 个值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20 30 40</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>z[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]    <span class="co"># 调取 z 中的第 1 至 4 个值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>z[<span class="dv">2</span>,<span class="dv">3</span>]    <span class="co"># 调取 z 的第 (2,3) 要素</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>z[<span class="dv">1</span>,]     <span class="co"># 调取 z 的第 1 行</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 3 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>z[,<span class="dv">2</span>]     <span class="co"># 调取 z 的第 2 列</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3 4</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="data-frame" class="slide level2 smaller">
-<h2>Data Frame</h2>
-<p>data frame 是 R 中储存多元数据的一种形式，以 matrix 形式存在，每一列代表一个变量，每一行代表一个观测值</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>t <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">14</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">29</span>, <span class="dv">39</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">101</span>, <span class="dv">102</span>))</span>
-<span id="cb32-2"><a></a>t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   a  b   c
-1 11 19 100
-2 12 29 101
-3 14 39 102</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><br></p>
-<p>调取特定的变量或值</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>t<span class="sc">$</span>b         <span class="co"># 调取 t 中变量 b 的全部内容</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 19 29 39</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>t<span class="sc">$</span>a[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]    <span class="co"># 调取 t 中变量 a 的第 2 至 3 个值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12 14</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="统计分析" class="slide level2 smaller">
-<h2>统计分析</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>simData <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)      <span class="co"># 生成 100 个服从 N(10, 2^2) 的随机数</span></span>
-<span id="cb38-2"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(simData), <span class="fu">var</span>(simData), <span class="fu">sd</span>(simData))   <span class="co"># 求样本均值、样本方差和样本标准差</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.814483 3.205029 1.790259</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">summary</span>(simData)                              <span class="co"># 显示 sim 的描述性统计量</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  5.241   8.686   9.485   9.814  11.238  14.200 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">hist</span>(simData)                                     <span class="co"># 画直方图</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-16-1.png" style="width:70.0%" class="r-stretch"></section>
-<section id="时间序列数据" class="slide level2 smaller">
-<h2>时间序列数据</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>mydata <span class="ot">&lt;-</span> <span class="fu">ts</span>(simData, <span class="at">start =</span> <span class="dv">1980</span>, <span class="at">frequency =</span> <span class="dv">4</span>)  <span class="co"># 将 simData 转变为时间序列 "ts" 数据</span></span>
-<span id="cb43-2"><a></a>                                                    <span class="co"># 设起始时间为 1980 年，频度为季度</span></span>
-<span id="cb43-3"><a></a>mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Qtr1      Qtr2      Qtr3      Qtr4
-1980  9.473859  9.180627 11.379493  8.792703
-1981 10.043224  9.955491  8.223800 10.417473
-1982 10.631749 14.200331  6.624186 12.699145
-1983 10.417275 11.002503 11.518072  8.835542
-1984  7.673450  9.039208  8.692310 11.209325
-1985 11.877941 10.737590 10.673656 10.392064
-1986 10.277630 11.422281 10.252661 11.618179
-1987  9.713549 10.355592  7.263250  8.774601
-1988 11.566563  6.097650  9.280111  9.422327
-1989  8.204316  9.241663 10.192954  9.341010
-1990  8.219675  8.524118 11.749226 13.509651
-1991  8.975135  8.514439  8.803923 12.107899
-1992  9.169472  8.608109  7.909532 11.564547
-1993 10.759660  8.774694 12.164454 12.023549
-1994  9.015033 13.319346 11.808557 11.704042
-1995  9.860409  6.781024 10.943615  6.658673
-1996  9.496683 12.336659 11.098434 11.324367
-1997  7.381283 11.691836  8.207877  9.025980
-1998 12.690045  8.667237  8.581036  9.729901
-1999  8.230507  9.039345  8.970566  5.240934
-2000 11.635977  8.801285  8.080511 10.093847
-2001 10.611252 11.943806  9.013143  8.912546
-2002  7.443097  9.299055  6.372271 12.351255
-2003 13.392986  9.250038  8.211968 10.534949
-2004 11.172894  9.058711  7.576504  7.795393</code></pre>
-</div>
-</div>
-</section>
-<section id="错误提示" class="slide level2">
-<h2>错误提示</h2>
-
-<img data-src="lecture1supp/R_error.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="学会用-script-文件工作" class="slide level2">
-<h2>学会用 script 文件工作</h2>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<p><span class="math inline">\to</span> RStudio 操作演示</p>
-</section>
-<section id="进一步学习" class="slide level2">
-<h2>进一步学习</h2>
-<p>我们会随着课程的进展逐渐介绍更多 R 的命令</p>
-<p><br></p>
-<p>如何自学（或复习）R 的基本用法？</p>
+<section id="基于模型生成数据" class="slide level2">
+<h2>基于模型生成数据</h2>
 <ul>
-<li><p>参考学习资料中列举的资料</p></li>
-<li><p>有效利用 RStudio &gt; Help &gt; R Help 中的内容</p></li>
-<li><p>如果遇到运行错误，学会根据错误提示寻找问题所在</p></li>
-<li><p>熟能生巧</p></li>
+<li><p>时间序列分析的目的是通过样本数据判断背后的生成机制，即从数据推断模型。</p></li>
+<li><p>那么，想象一下你在非洲大草原上或加拿大的针叶林中看到一种动物，你怎么判断它是什么物种呢？</p></li>
+<li><p>你需要事先掌握物种的知识，例如去动物园参观，或利用百科全书学习。</p></li>
+<li><p>同理，我们需要学习不同的模型，掌握不同模型生成数据的特点。而学习模型，除了数学推导，最好的方法就是用计算机模拟生成数据。</p></li>
 </ul>
+</section>
+<section id="用计算机生成伪随机数" class="slide level2 smaller">
+<h2>用计算机生成伪随机数</h2>
+<p>人们把无法预测或无法解释的现象称为“<strong>随机</strong>”。因此，所有用计算机生成的数值都不是随机的。但是，我们可以生成很难预测的近似随机的数值，称为伪随机数（pseudo-random number）。</p>
+<div class="fragment">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>线性同余法 linear congruential generator</strong></p>
+</div>
+<div class="callout-content">
+<p>最古老的伪随机数生成器。根据下面的递归方程生成伪随机数列 <span class="math inline">\{x_n\}</span></p>
+<p><span class="math display">
+x_{n+1} = (a x_n + c) \mod m
+</span></p>
+<p>其中，<span class="math inline">0 &lt; a &lt; m</span> ， <span class="math inline">0 &lt; c &lt; m</span> ，<span class="math inline">0 &lt; x_0 &lt; m</span>。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div style="font-size: 0.8em">
+<ul>
+<li>例如，<span class="math inline">(a, c, m, x_0) = (3, 4, 15, 1)</span> 时，<span class="math inline">\{x_n\} = (1, 7, 10, 4, 1, 7, 10, 4, 1, \dots)</span>，周期为 4。</li>
+<li>当 <span class="math inline">(a, c, m)</span> 满足特定条件时，<span class="math inline">\{x_n\}</span> 的周期为 <span class="math inline">m</span> 且不受 <span class="math inline">x_0</span> 取值的影响。
+<ul>
+<li>Borland C/C++ 中 <span class="math inline">(a, c, m) = (22695477, 1, 2^{31})</span> 。</li>
+<li>Microsoft Visual C++ 中 <span class="math inline">(a, c, m) = (214013, 2531011, 2^{31})</span> 。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="r-中的伪随机数生成器" class="slide level2 smaller">
+<h2>R 中的伪随机数生成器</h2>
+<ul>
+<li><p>R 和其他多数现代编程语言和计算软件中，生成伪随机数的默认算法都是 “Mersenne-Twister”。它生成的数列周期为 <span class="math inline">2^{19937}-1</span> ，且计算速度快。</p></li>
+<li><p>生成伪随机数的命令为 <code>r???()</code>，其中 <code>???</code> 可以替换为具体的分布名称。例如，均匀分布对应 <code>runif()</code>，正态分布对应 <code>rnorm()</code>，t 分布对应 <code>rt()</code>，等。</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>x1 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">1000</span>); x2 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>); x3 <span class="ot">=</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate=</span><span class="dv">1</span>)</span>
+<span id="cb7-2"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb7-3"><a></a><span class="fu">hist</span>(x1, <span class="at">main=</span><span class="st">"Uniform"</span>); <span class="fu">hist</span>(x2, <span class="at">main=</span><span class="st">"Standard Normal"</span>); <span class="fu">hist</span>(x3, <span class="at">main=</span><span class="st">"Exponential"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lecture2_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="monte-carlo-simulation" class="slide level2 smaller">
+<h2>Monte Carlo Simulation</h2>
+<p>带有随机成分的模拟方法统称为蒙特卡洛法，该名称源自摩纳哥的著名赌场所在地 Monte-Carlo。</p>
+<p>当模型中含有随机变量时，我们感兴趣的量就不再是某一个标量，而是一个概率分布。例如</p>
+<p><span class="math display">
+Y = X + 3Z, \quad X \sim N(1,4^2), \ Z \sim N(5, 1) , \ X \perp Z
+</span></p>
+<p>我们想知道 <span class="math inline">Y</span> 的分布。如果你有足够的统计学知识，你会知道 <span class="math inline">Y \sim N(16, 5^2)</span> 。</p>
+<p>蒙特卡洛法则是基于 <span class="math inline">X</span> 和 <span class="math inline">Z</span> 的信息，利用伪随机数生成多个 <span class="math inline">Y</span> 的样本点，从而模拟 <span class="math inline">Y</span> 的分布。当模型非常复杂时，推导目标变量的分布变得困难甚至不可能，此时蒙特卡洛法就能发挥重要作用。</p>
+</section>
+<section id="monte-carlo-simulation-1" class="slide level2 smaller">
+<h2>Monte Carlo Simulation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">4</span>)</span>
+<span id="cb8-2"><a></a>z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean=</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
+<span id="cb8-3"><a></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>z</span>
+<span id="cb8-4"><a></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)    <span class="co"># 调整图周围的空白空间</span></span>
+<span id="cb8-5"><a></a><span class="fu">plot</span>(<span class="fu">density</span>(x), <span class="at">col=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">15</span>, <span class="dv">35</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.42</span>), <span class="at">xlab=</span><span class="st">""</span>, <span class="at">main=</span><span class="st">""</span>)</span>
+<span id="cb8-6"><a></a><span class="fu">lines</span>(<span class="fu">density</span>(z), <span class="at">col=</span><span class="dv">3</span>, <span class="at">lwd=</span><span class="dv">4</span>);    <span class="fu">lines</span>(<span class="fu">density</span>(y), <span class="at">col=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">4</span>)</span>
+<span id="cb8-7"><a></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">inset=</span><span class="fu">c</span>(<span class="fl">0.02</span>,<span class="fl">0.05</span>), <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Z"</span>, <span class="st">"Y"</span>), <span class="at">col=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="lecture2_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<section id="模拟自回归过程" class="slide level2 smaller">
+<h2>模拟自回归过程</h2>
+<p>模拟自回归过程 <span class="math inline">\quad x_t = 1.5 x_{t-1} - 0.75 x_{t-2} + w_t, \ w_t \sim N(0,1)</span></p>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">方法 1</a></li><li><a href="#tabset-2-2">方法 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="sourceCode" id="cb9" style="font-size: 1.2em"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)                             <span class="co"># 准备白噪声序列</span></span>
+<span id="cb9-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="dv">100</span>)                 <span class="co"># 在内存中为 x_t 留出空间</span></span>
+<span id="cb9-3"><a></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> w[<span class="dv">1</span>]                                <span class="co"># 定义初期值 x_1</span></span>
+<span id="cb9-4"><a></a>x[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fl">1.5</span><span class="sc">*</span>x[<span class="dv">1</span>] <span class="sc">+</span> w[<span class="dv">2</span>]                     <span class="co"># 定义初期值 x_2</span></span>
+<span id="cb9-5"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">100</span>) {                          <span class="co"># 将序号 i 从 3 至 100 进行迭代</span></span>
+<span id="cb9-6"><a></a>  x[i] <span class="ot">&lt;-</span> <span class="fl">1.5</span><span class="sc">*</span>x[i<span class="dv">-1</span>] <span class="sc">-</span> <span class="fl">0.75</span><span class="sc">*</span>x[i<span class="dv">-2</span>] <span class="sc">+</span> w[i]   <span class="co"># 定义 x_i</span></span>
+<span id="cb9-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>这是任何编程语言都可以使用的方法，也和数学模型的描述最接近。</p>
+</div>
+<div id="tabset-2-2">
+<div class="sourceCode" id="cb10" style="font-size: 1.2em"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb10-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">filter</span>(w, <span class="at">filter=</span><span class="fu">c</span>(<span class="fl">1.5</span>,<span class="sc">-</span><span class="fl">0.75</span>), <span class="at">method=</span><span class="st">"recursive"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>这个方法利用了 stats 包里的命令 <code>filter()</code>。</p>
+<p>利用 R 中的独特函数可以大幅减少编程时间，也不需要考虑算法优化、内存等问题，但前提是对 R 语言和各种软件包非常熟悉。</p>
+</div>
+</div>
+</div>
+</section>
+<section id="思考题-1" class="slide level2 smaller">
+<h2>思考题</h2>
+<p>模拟序列 <span class="math inline">\{y_t: t = 1, 2, \dots, 200\}</span> ：</p>
+<p><span class="math display">
+\begin{align*}
+y_t &amp;= 8 + 0.7 y_{t-1} + 1.4 x_{t-1} - 0.5 x_{t-2} + 0.1t + w_t, \quad w_t \sim N(0, 1) \\
+x_t &amp;= x_{t-1} + v_t , \quad v_t \sim N(0, 2^2), \quad v_t \perp w_t \\
+\end{align*}
+</span></p>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">问题</a></li><li><a href="#tabset-3-2">答案</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="sourceCode" id="cb11" style="font-size: 1.2em"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>);   v <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">sd=</span>____);   x <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(v)</span>
+<span id="cb11-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="dv">200</span>)</span>
+<span id="cb11-3"><a></a>y[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">+</span> w[<span class="dv">1</span>]</span>
+<span id="cb11-4"><a></a>y[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">+</span> <span class="fl">0.7</span><span class="sc">*</span>y[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">1.4</span><span class="sc">*</span>x[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">0.2</span> <span class="sc">+</span> w[<span class="dv">2</span>]</span>
+<span id="cb11-5"><a></a><span class="cf">for</span> (i <span class="cf">in</span> ____) {</span>
+<span id="cb11-6"><a></a>  y[i] <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">+</span> <span class="fl">0.7</span><span class="sc">*</span>y[i<span class="dv">-1</span>] <span class="sc">+</span> <span class="fl">1.4</span><span class="sc">*</span>x[i<span class="dv">-1</span>] <span class="sc">-</span> <span class="fl">0.5</span><span class="sc">*</span>x[i<span class="dv">-2</span>] <span class="sc">+</span> ____ <span class="sc">+</span> w[i] </span>
+<span id="cb11-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2">
+<div class="sourceCode" id="cb12" style="font-size: 1.2em" data-code-line-numbers="1,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>);   v <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">sd=</span><span class="dv">2</span>);   x <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(v)</span>
+<span id="cb12-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="dv">200</span>)</span>
+<span id="cb12-3"><a></a>y[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">+</span> w[<span class="dv">1</span>]</span>
+<span id="cb12-4"><a></a>y[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">+</span> <span class="fl">0.7</span><span class="sc">*</span>y[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">1.4</span><span class="sc">*</span>x[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">0.2</span> <span class="sc">+</span> w[<span class="dv">2</span>]</span>
+<span id="cb12-5"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">200</span>) {</span>
+<span id="cb12-6"><a></a>  y[i] <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">+</span> <span class="fl">0.7</span><span class="sc">*</span>y[i<span class="dv">-1</span>] <span class="sc">+</span> <span class="fl">1.4</span><span class="sc">*</span>x[i<span class="dv">-1</span>] <span class="sc">-</span> <span class="fl">0.5</span><span class="sc">*</span>x[i<span class="dv">-2</span>] <span class="sc">+</span> <span class="fl">0.1</span><span class="sc">*</span>i <span class="sc">+</span> w[i] </span>
+<span id="cb12-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="fragment">
+<p>你能找到更好的方法吗？</p>
 
 <div class="quarto-auto-generated-content">
 <p><img src="logo.png" class="slide-logo"></p>
@@ -880,7 +807,8 @@
 
 </div>
 </div>
-</section></section>
+</div>
+</section>
 
     </div>
   </div>

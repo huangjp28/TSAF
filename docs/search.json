@@ -4,7 +4,7 @@
     "href": "materials1.html",
     "title": "第一讲：导论",
     "section": "",
-    "text": "Slides\n\n点击 slides 画面，然后用   键或   键控制翻页。点击 slides 左下角的  图标可以发现更多功能（PDF Export 功能只在 Chrome 中有效）。\n\n\n\n补充信息\nR和RStudio的安装：访问 https://posit.co/download/rstudio-desktop/，根据提示依次下载并安装 R 和 RStudio\n\n\n\nMac 上显示的下载页面\n\n\n在 RSTudio 中设置 Primary CRAN repository （下载 package 的默认镜像网站）：用 RStudio 默认的设定下载安装 package（包），有时会因网络连接超时而失败。解决该问题的方法是选择中国境内的镜像网站，具体方法如下\n第一步：打开 RStudio，从菜单中选择 Tools &gt; Global Options... &gt; Packages （如下图）\n\n\n\n\n\n\n第二步：点击 Primary CRAN repository 右侧的 Change... 键，从弹出的窗口中选择中国境内的镜像网站（下图中选择的是清华大学的镜像网站 TUNA）\n\n\n\n\n\n\n安装本门课程所需的包 xts 和 astsa：从菜单中选择 Tools &gt; Install Packages... ，如下图\n\n\n\n\n\n在 Packages 一栏中输入 xts, astsa ，并确保下面的  Install dependencies 已被选中，然后点击 Install。\nastsa 包中的绘图命令 tsplot：\n\nlibrary(astsa)          # 调用 astsa 包\npar(mfrow = c(2,1))     # 将绘图窗口分割成上下两部分\nplot(AirPassengers)     # 使用 R 的标准绘图命令 plot\ntsplot(AirPassengers)   # 使用 astsa 包中的绘图命令 tsplot\n\n\n\n\n\n\n\n\n由上图可见，用 tsplot 命令画出的图更漂亮，可读性更高。实际上 tsplot 命令是在原生的 plot 命令的基础上对四边空白等参数进行了优化调整。需要注意的是，上面的命令在 RStudio 里会呈现不同的效果，因为 RStudio 会根据 Plots 窗口的大小自动调整图的长宽比。\n\n\n\n学习资料\n\nNational Centers for Environmental Information, National Oceanic and Atmospheric Administration. El Niño/Southern Oscillation (ENSO). https://www.ncei.noaa.gov/access/monitoring/enso/\nRevisiting the Hare vs Lynx Cycle. https://www.ealt.ca/blog/hare-vs-lynx-cycle\nShumway, R., H., & Stoffer, D. S. (2017). Time Series Analysis and Its Applications: With R Examples (4th ed.), Appendix R: R Supplement. Springer.  打开文件\nTorfs, R., & Brauer, C. (2023). A (very) short introduction to R.  打开文件\nGrolemund, G. (2014). Hands-On Programming with R. O’Reily. https://rstudio-education.github.io/hopr/\n\n\n\n\n课后练习\n\n探索 R 中自带的数据 mtcars，可用 help() 命令查询帮助文件，例如 help(class) 。\n用 R 生成 500 个服从自由度为 20 的 t 分布的随机数（可自己在网上寻找合适的命令），画出该样本的直方图，并计算样本均值和方差。\n\n\n\n\nMac 上显示的下载页面",
+    "text": "Slides\n\n点击 slides 画面，然后用   键或   键控制翻页。点击 slides 左下角的  图标可以发现更多功能。\n如何将 slides 保存到自己的电脑上：\n\n点击下面的链接会在新的标签页里打开 slides\nassets/slides/lecture1.html\n在该页面点击键盘的 e 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）\n右键选择打印该页面，然后选择保存为 PDF 文件。\n\n\n\n\n补充信息\nR和RStudio的安装：访问 https://posit.co/download/rstudio-desktop/，根据提示依次下载并安装 R 和 RStudio\n\n\n\nMac 上显示的下载页面\n\n\n在 RSTudio 中设置 Primary CRAN repository （下载 package 的默认镜像网站）：用 RStudio 默认的设定下载安装 package（包），有时会因网络连接超时而失败。解决该问题的方法是选择中国境内的镜像网站，具体方法如下\n第一步：打开 RStudio，从菜单中选择 Tools &gt; Global Options... &gt; Packages （如下图）\n\n\n\n\n\n\n第二步：点击 Primary CRAN repository 右侧的 Change... 键，从弹出的窗口中选择中国境内的镜像网站（下图中选择的是清华大学的镜像网站 TUNA）\n\n\n\n\n\n\n安装本门课程所需的包 xts 和 astsa：从菜单中选择 Tools &gt; Install Packages... ，如下图\n\n\n\n\n\n在 Packages 一栏中输入 xts, astsa ，并确保下面的  Install dependencies 已被选中，然后点击 Install。\nastsa 包中的绘图命令 tsplot：\n\nlibrary(astsa)          # 调用 astsa 包\npar(mfrow = c(2,1))     # 将绘图窗口分割成上下两部分\nplot(AirPassengers)     # 使用 R 的标准绘图命令 plot\ntsplot(AirPassengers)   # 使用 astsa 包中的绘图命令 tsplot\n\n\n\n\n\n\n\n\n由上图可见，用 tsplot 命令画出的图更漂亮，可读性更高。实际上 tsplot 命令是在原生的 plot 命令的基础上对四边空白等参数进行了优化调整。需要注意的是，上面的命令在 RStudio 里会呈现不同的效果，因为 RStudio 会根据 Plots 窗口的大小自动调整图的长宽比。\n\n\n\n学习资料\n\nNational Centers for Environmental Information, National Oceanic and Atmospheric Administration. El Niño/Southern Oscillation (ENSO). https://www.ncei.noaa.gov/access/monitoring/enso/\nRevisiting the Hare vs Lynx Cycle. https://www.ealt.ca/blog/hare-vs-lynx-cycle\nShumway, R., H., & Stoffer, D. S. (2017). Time Series Analysis and Its Applications: With R Examples (4th ed.), Appendix R: R Supplement. Springer.  打开文件\nTorfs, R., & Brauer, C. (2023). A (very) short introduction to R.  打开文件\nGrolemund, G. (2014). Hands-On Programming with R. O’Reily. https://rstudio-education.github.io/hopr/\n\n\n\n\n课后练习\n\n探索 R 中自带的数据 mtcars，可用 help() 命令查询帮助文件，例如 help(class) 。\n用 R 生成 500 个服从自由度为 20 的 t 分布的随机数（可自己在网上寻找合适的命令），画出该样本的直方图，并计算样本均值和方差。\n\n\n\n\nMac 上显示的下载页面",
     "crumbs": [
       "huangjp.com",
       "课程资料",
@@ -12,44 +12,149 @@
     ]
   },
   {
-    "objectID": "assignment.html",
-    "href": "assignment.html",
-    "title": "作业",
+    "objectID": "materials2.html",
+    "href": "materials2.html",
+    "title": "第二讲：时间序列模型简介",
     "section": "",
-    "text": "个人作业\n（待更新）\n\n\n\n小组汇报\n（待更新）",
+    "text": "Slides\n\n点击 slides 画面，然后用   键或   键控制翻页。点击 slides 左下角的  图标可以发现更多功能。\n如何将 slides 保存到自己的电脑上：\n\n点击下面的链接会在新的标签页里打开 slides\nassets/slides/lecture2.html\n在该页面点击键盘的 e 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）\n右键选择打印该页面，然后选择保存为 PDF 文件。\n\n\n\n\n学习资料\nbilibili:【PBS无尽数学】计算机如何生成随机数?\n\n视频网址：https://www.bilibili.com/video/BV1XW411s7mK/\n\n\n\n课后练习\n\n自学 R 命令 replicate() 。\n通过 help 了解 astsa 包中 tsplot() 命令的参数 spaghetti 的作用。\n利用 replicate() 生成 9 个随机游走序列（长度为 500，无漂移，白噪声服从标准正态分布），并将其绘制在同一张图中。",
     "crumbs": [
       "huangjp.com",
-      "作业"
+      "课程资料",
+      "第二讲：时间序列模型简介"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "课程信息",
-    "section": "",
-    "text": "这里是深圳大学管理学院工商管理专业《时间序列分析与预测》的课程网站。在这里可以找到和课程相关的所有公开信息，包括课程介绍、课程资料、作业发布、考试信息等。\n\n\n基本信息\n\n课程编号：0401990024\n学分/学时：2学分/36学时\n2023-2024第二学期上课时间：星期四 7-8节\n2023-2024第二学期上课地点：丽湖校区四方楼 北401\n\n\n\n\n\n\n\n教材\n\n\n\n\n\n\n\n\n\n时间序列分析：基于R的数据分析方法\n（Time Series: A Data Analysis Approach Using R）\n作者：[美]罗伯特·H 沙姆韦，戴维·S 斯托弗 著，李洪成 潘文捷 译\n出版社：机械工业出版社\nISBN：978-7-111-69519-6\n\n\n\n\n\n\n\n\n\n\n\n主讲教师\n黄嘉平，工学博士、经济学博士，深圳大学中国经济特区研究中心讲师\n\n办公地址：深圳大学粤海校区汇文楼1510\n联系方式：huangjp %at% szu %dot% edu %dot% cn\n关于接访：为方便与选课学生交流，接访地点为丽湖校区，需事先邮件预约时间地点\n个人网站：huangjp.com\n\n\n\n\n内容简介\n本门课程的主要内容是介绍时间序列数据的分析和预测方法以及在经济管理领域的应用问题。通过本门课程的学习，学生可以理解时间序列数据的特征，掌握时间序列分析的基本方法，包括利用回归的探索性数据分析，Box-Jenkins 的 ARIMA 模型，频谱分析等。\n时间序列数据是针对同一变量在不同时间点上记录观测值的数据形式，广泛存在于社会科学和自然科学的研究领域，例如GDP、股票价格指数、日均气温、特定物种的种群规模等都是时间序列数据的典型例子。\n对时间序列数据的利用主要体现在对未来的预测，例如对GDP的预测可以帮助政府更好的制定经济政策，对股票价格的预测可以帮助投资者更好的做出决策。合理的预测基于对数据生成机制的探索和验证，其基础是对时间序列数据特征的理解。我们主要从两个角度讨论时间序列模型，即基于自相关特性的模型和基于谱特性的模型，前者能够描述一般回归模型无法涵盖的特征，而后者适用于具有规律周期性特征的数据。由于时间有限，本门课程不涉及多元时间序列分析的内容。\n选择本门课程的学生需要掌握统计学的基础知识，熟练掌握协方差和相关系数等统计量的推导与计算，并能够进行简单的回归分析。我们会用到R语言进行数据分析，但并不要求学生已经掌握了R语言。我们会在学习的过程中循序渐进地介绍R语言的使用方法。\n\n\n\n成绩评定\n本门课程采用过程考核为主的成绩评定方式\n\n平时成绩 60%\n平时成绩满分 100 分 = 出席情况和课堂表现 20% + 个人作业 40% + 小组汇报 40%\n期末考核 40%\n期末考核为闭卷考试  关于考试\n\n\n\n\n教学进度\n下面是2023-2024第二学期的教学进度计划。由于课程进程和学校放假安排的不确定性，下表中的内容可能发生变化。 深圳大学校历\n\n\n\n\n\n\n\n周次\n学习内容\n\n\n\n\n第一周（3月7日）\n导论\n\n\n第二周（3月14日）\n时间序列模型简介\n\n\n第三周（3月21日）\n时间序列数据的特征\n\n\n第四周（3月28日）\n参数的估计\n\n\n第五周（4月4日）\n（清明节放假）\n\n\n第六周（4月11日）\n练习课1\n\n\n第七周（4月18日）\n探索性分析1：数据的平稳化（stationarization）\n\n\n第八周（4月25日）\n探索型分析2：平滑方法（smoothing）\n\n\n第九周（5月2日）\nARMA 模型\n\n\n第十周（5月9日）\n自相关与偏自相关函数\n\n\n第十一周（5月16日）\nARMA 模型的估计和预测\n\n\n第十二周（5月23日）\nARIMA 模型\n\n\n第十三周（5月30日）\n练习课2\n\n\n第十四周（6月6日）\n频谱分析简介\n\n\n第十五周（6月13日）\n其他时间序列方法简介\n\n\n第十六周（6月20日）\n小组汇报1\n\n\n第十七周（6月27日）\n小组汇报2\n\n\n\n\n\n\n参考资料\n\nShunway, R. H., & Stoffer, D. S. (2019). Time Series: A Data Analysis Approach Using R. CRC Press.\nCryer, J. D., & Chan, K.-S. (2008). Time Series Analysis: With Applications in R (2nd ed.). Springer.\nBox, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2016). Time Series Analysis: Forecasting and Control (5th ed.). Wiley.\nShunway, R. H., & Stoffer, D. S. (2017). Time Series Analysis and Its Applications: With R Examples (4th ed.). Springer.\nLyubchich, V., & Gel, Y. R. (2023). Time Series Analysis: Lecture Notes with Examples in R. https://vlyubchich.github.io/tsar/\nHyndman, R. J., & Athanasopoulos, G. (2021). Forecasting: Principles and Practice (3rd ed.). OTexts. https://otexts.com/fpp3/\nGrolemund, G. (2014). Hands-On Programming with R. O’Reily. https://rstudio-education.github.io/hopr/\nWickman, H., Cetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed.). O’Reily. https://r4ds.hadley.nz/",
-    "crumbs": [
-      "huangjp.com",
-      "课程信息"
-    ]
-  },
-  {
-    "objectID": "exam.html",
-    "href": "exam.html",
-    "title": "关于考试",
-    "section": "",
-    "text": "期末考核采取闭卷考试的方式进行，分为基本题和附加题。 深圳大学本科课程考核办法\n\n题型和分值\n\n基本题：满分100分\n\n选择题8题，每题5分，共40分，主要考察对基础概念的理解和掌握\n简答题4题，每题10分，共40分，主要考察对相对复杂概念和方法的理解和掌握\n分析题1题，20分，主要考察应用能力 （题型和分值可能根据授课效果进行调整）\n\n附加题：满分30分\n\n简答题1题：30分，主要考察对理论部分的理解和掌握，难度较基本题高\n\n\n题型和分值可能根据实际授课进程和效果进行调整\n\n\n\n注意事项\n\n考试中允许使用电子计算器，但禁止使用带有计算器功能的智能设备（包括手机、只能手表、平板电脑等  深圳大学考场纪律）",
-    "crumbs": [
-      "huangjp.com",
-      "关于考试"
-    ]
-  },
-  {
-    "objectID": "assets/slides/lecture1.html#课程信息",
-    "href": "assets/slides/lecture1.html#课程信息",
+    "objectID": "assets/slides/lecture2.html#什么是时间序列模型",
+    "href": "assets/slides/lecture2.html#什么是时间序列模型",
     "title": "时间序列分析与预测",
-    "section": "课程信息",
-    "text": "课程信息\n\n课程网站：https//huangjp.com/TSAP/\n\n成绩评定：平时成绩 60% + 期末考核 40%\n\n平时成绩满分 100 分 = 出席情况和课堂表现 20% + 个人作业 40% + 小组汇报 40%\n期末考核为闭卷考试，基础题满分 100 分，附加题满分 30 分\n本学期考试周：2004年7月1日–12日"
+    "section": "什么是时间序列模型？",
+    "text": "什么是时间序列模型？\n为了利用已知的时间序列数据预测未来的变化趋势，我们需要了解数据是如何生成的。然而世界是复杂的，而可获得的数据是有限的，因此我们无法完全理解数据的生成机制。\n科学的发展告诉我们，通过简单的模型描述复杂的现象在很多时候是有效的。\n\n\n\n时间序列模型\n\n\n描述时间序列数据 \\{x_t\\} 的模型是一个能够产生 \\{x_t\\} 的随机变量序列 \\{X_t\\} 1。\n\n\n\n也称为随机过程（stochastic process）。"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#白噪声-white-noise",
+    "href": "assets/slides/lecture2.html#白噪声-white-noise",
+    "title": "时间序列分析与预测",
+    "section": "白噪声 white noise",
+    "text": "白噪声 white noise\n最简单的时间序列模型是白噪声模型。它是一组相互不相关的随机变量 w_t, 且每个随机变量都具有零均值和有限方差 \\sigma_w^2 。\n\n\n\n白噪声（white noise）\n\n\n随机过程 \\{w_t\\}，其中 E(w_t) =0，\\mathit{Var}\\,(w_t) = \\sigma_w^2 &lt; \\infty。 也可以写成 w_t \\sim \\mathit{wn}\\,(0, \\sigma_w^2)。我们常常假设独立正态分布，即 w_t \\sim \\mathrm{iid}N(0, \\sigma_w^2)。\n\n\n\n\n\nlibrary(astsa)\nw &lt;- rnorm(500)    # 生成 500 个服从 N(0,1) 的随机数 \ntsplot(w, col=4, main=\"white noise\")"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#白噪声-white-noise-output",
+    "href": "assets/slides/lecture2.html#白噪声-white-noise-output",
+    "title": "时间序列分析与预测",
+    "section": "白噪声 white noise",
+    "text": "白噪声 white noise"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#移动平均平滑滤波",
+    "href": "assets/slides/lecture2.html#移动平均平滑滤波",
+    "title": "时间序列分析与预测",
+    "section": "移动平均、平滑、滤波",
+    "text": "移动平均、平滑、滤波\n白噪声过程看起来充满了震荡，这意味着它在局部的变化幅度非常大。很多时候我们希望看到更加平滑（smooth）的时间序列数据。最常用的平滑方法是取相邻观测值的平均值，称为移动平均（moving average）。\n\n\n\n三期移动平均过程\n\n\n令 v_t = \\tfrac{1}{3} (w_{t-1} + w_t + w_{t+1}) ，则 \\{v_t\\} 是 \\{w_t\\} 的一个移动平均过程。\n\n\n\n\n\n\n滤波 filter\n\n\n从时间序列数据中剔除噪声的方法称为滤波。比较常见的线性滤波指时间序列数据的线性结合。因此，移动平均过程是线性滤波的一种。"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#白噪声过程与移动平均滤波",
+    "href": "assets/slides/lecture2.html#白噪声过程与移动平均滤波",
+    "title": "时间序列分析与预测",
+    "section": "白噪声过程与移动平均滤波",
+    "text": "白噪声过程与移动平均滤波\n\nw &lt;- rnorm(500)\nv &lt;- filter(w, sides = 2, filter = rep(1/3, 3))    # 用 filter 命令生成 3 期移动平均滤波\ns &lt;- filter(w, sides = 2, filter = rep(1/15, 15))  # 15 期移动平均滤波\ntsplot(w, col = \"tomato3\", lwd = 1)\nlines(v, col = \"blue4\", lwd = 3)\nlines(s, col = \"chartreuse2\", lwd = 6)"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#自回归模型-autoregression-models",
+    "href": "assets/slides/lecture2.html#自回归模型-autoregression-models",
+    "title": "时间序列分析与预测",
+    "section": "自回归模型 autoregression models",
+    "text": "自回归模型 autoregression models\n考虑下面的方程：\n\nx_t = 1.5 x_{t-1} - 0.75 x_{t-2} + w_t, \\quad w_t \\sim N(0,1)\n\n此时，时间序列 \\{x_t\\} 是一个自回归序列。\n\n\n\n自回归序列 autoregressive series\n\n\n现在值依赖过去值的序列称为自回归序列。\n\n\n\n给定初始值 x_0 = x_{-1} = 0 时，\\{x_t\\} 可以用递归形式表达：\n\n\\begin{align*}\nx_1 &= 1.5 x_{0} - 0.75 x_{-1} + w_1 = w_1 \\\\\nx_2 &= 1.5 x_{1} - 0.75 x_{0} + w_2 = 1.5w_1 + w_2 \\\\\nx_3 &= 1.5 x_{2} - 0.75 x_{1} + w_3 = 1.5w_1 + 1.5w_2 + w_3 \\\\\n&\\ \\ \\vdots\n\\end{align*}"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#自回归模型-autoregression-models-1",
+    "href": "assets/slides/lecture2.html#自回归模型-autoregression-models-1",
+    "title": "时间序列分析与预测",
+    "section": "自回归模型 autoregression models",
+    "text": "自回归模型 autoregression models\n\nset.seed(90210)         # 指定随机数生成器的种子\nw &lt;- rnorm(250 + 50)    # 多生成 50 个噪声项 \nx &lt;- filter(w, filter=c(1.5,-0.75), method=\"recursive\")[-(1:50)]  \n     # method=\"recursive\" 对应自回归模型       [-(1:50)] 代表去掉前 50 个值\ntsplot(x, main=\"autoregression\", col=4)"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#带漂移项的随机游走模型",
+    "href": "assets/slides/lecture2.html#带漂移项的随机游走模型",
+    "title": "时间序列分析与预测",
+    "section": "带漂移项的随机游走模型",
+    "text": "带漂移项的随机游走模型\n\n\n\n随机游走模型 random walk\n\n\n白噪声的累积称为随机游走模型，即\n\nx_t = \\sum_{j=1}^t w_j \\quad \\Leftrightarrow \\quad x_t = x_{t-1} + w_t\n\n\n\n\n\n\n\n带漂移项的随机游走模型 random walk with drift\n\n\n在随机游走模型中加入固定趋势即为带漂移项的随机游走模型，即\n\nx_t = \\delta t + \\sum_{j=1}^t w_j \\quad \\Leftrightarrow \\quad x_t = \\delta + x_{t-1} + w_t\n\n\\delta 称为漂移项 drift。"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#带漂移项的随机游走模型-1",
+    "href": "assets/slides/lecture2.html#带漂移项的随机游走模型-1",
+    "title": "时间序列分析与预测",
+    "section": "带漂移项的随机游走模型",
+    "text": "带漂移项的随机游走模型\n\nset.seed(314159265)\nw &lt;- rnorm(200);   x &lt;- cumsum(w)     # 在命令后加分号 ; 代表一个命令结束\nwd &lt;- w +.3;       xd &lt;- cumsum(wd)   # cumsum() 为取第一项至当前项之和\ntsplot(xd, ylim=c(-2,80), main=\"random walk\", ylab=\"\", col=4) \nabline(a=0, b=.3, lty=2, col=4)     # 画出漂移项（趋势）\nlines(x, col=\"darkred\");  abline(h=0, col=\"darkred\", lty=2)"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#信号-噪声",
+    "href": "assets/slides/lecture2.html#信号-噪声",
+    "title": "时间序列分析与预测",
+    "section": "信号 + 噪声",
+    "text": "信号 + 噪声\n在信号处理领域，含有信息的量称为信号（signal），而不含信息的量称为噪声。现实中，任意一个物理观测量都可以看作信号，例如气温、气压、浓度、电压、电流、速度等。非物理观测量也可以是信号，例如股价等。\n\n时间序列数据可以看作在不同时间点上观测的信号或噪声。\n\n\n周期性信号常用三角函数表达，例如下面模型中的第一项：\n\nx_t = 2\\cos \\Big( 2\\pi \\frac{t+15}{50}\\Big) + w_t\n\n\n\n\n余弦波\n\n\n余弦波可以表达为 A\\cos (2\\pi \\omega t + \\varphi) ，其中 A 为振幅（amplitude），\\omega 为频率，\\varphi 为初始相位。"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#信号-噪声-1",
+    "href": "assets/slides/lecture2.html#信号-噪声-1",
+    "title": "时间序列分析与预测",
+    "section": "信号 + 噪声",
+    "text": "信号 + 噪声\n\nt &lt;- 1:500\ncs &lt;- 2*cos(2*pi*(t+15)/50)    # 信号 signal\nw &lt;- rnorm(500)                # 噪声 noise\npar(mfrow=c(3,1))\ntsplot(cs, col=4, main=expression(2*cos(2*pi*(t+15)/50))) \ntsplot(cs+w, col=4, main=expression(2*cos(2*pi*(t+15)/50)+N(0,1)))      # 白噪声方差为 1\ntsplot(cs+5*w,col=4, main=expression(2*cos(2*pi*(t+15)/50)+N(0,5^2)))   # 白噪声方差为 25"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#思考题",
+    "href": "assets/slides/lecture2.html#思考题",
+    "title": "时间序列分析与预测",
+    "section": "思考题",
+    "text": "思考题\n\n问题答案\n\n\n下面的时间序列数据最像哪种模型生成的？\n\n\n\n\n\n\n\n\n\n\n\n随机游走模型\n\nx_t = x_{t-1} + w_t, \\quad w_t \\sim N(0,1)\n\nR 命令为\nset.seed(135)\nw &lt;- rnorm(500)\nx &lt;- cumsum(w)\ntsplot(x)"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#基于模型生成数据",
+    "href": "assets/slides/lecture2.html#基于模型生成数据",
+    "title": "时间序列分析与预测",
+    "section": "基于模型生成数据",
+    "text": "基于模型生成数据\n\n时间序列分析的目的是通过样本数据判断背后的生成机制，即从数据推断模型。\n那么，想象一下你在非洲大草原上或加拿大的针叶林中看到一种动物，你怎么判断它是什么物种呢？\n你需要事先掌握物种的知识，例如去动物园参观，或利用百科全书学习。\n同理，我们需要学习不同的模型，掌握不同模型生成数据的特点。而学习模型，除了数学推导，最好的方法就是用计算机模拟生成数据。"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#用计算机生成伪随机数",
+    "href": "assets/slides/lecture2.html#用计算机生成伪随机数",
+    "title": "时间序列分析与预测",
+    "section": "用计算机生成伪随机数",
+    "text": "用计算机生成伪随机数\n人们把无法预测或无法解释的现象称为“随机”。因此，所有用计算机生成的数值都不是随机的。但是，我们可以生成很难预测的近似随机的数值，称为伪随机数（pseudo-random number）。\n\n\n\n\n线性同余法 linear congruential generator\n\n\n最古老的伪随机数生成器。根据下面的递归方程生成伪随机数列 \\{x_n\\}\n\nx_{n+1} = (a x_n + c) \\mod m\n\n其中，0 &lt; a &lt; m ， 0 &lt; c &lt; m ，0 &lt; x_0 &lt; m。\n\n\n\n\n\n\n\n例如，(a, c, m, x_0) = (3, 4, 15, 1) 时，\\{x_n\\} = (1, 7, 10, 4, 1, 7, 10, 4, 1, \\dots)，周期为 4。\n当 (a, c, m) 满足特定条件时，\\{x_n\\} 的周期为 m 且不受 x_0 取值的影响。\n\nBorland C/C++ 中 (a, c, m) = (22695477, 1, 2^{31}) 。\nMicrosoft Visual C++ 中 (a, c, m) = (214013, 2531011, 2^{31}) 。"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#r-中的伪随机数生成器",
+    "href": "assets/slides/lecture2.html#r-中的伪随机数生成器",
+    "title": "时间序列分析与预测",
+    "section": "R 中的伪随机数生成器",
+    "text": "R 中的伪随机数生成器\n\nR 和其他多数现代编程语言和计算软件中，生成伪随机数的默认算法都是 “Mersenne-Twister”。它生成的数列周期为 2^{19937}-1 ，且计算速度快。\n生成伪随机数的命令为 r???()，其中 ??? 可以替换为具体的分布名称。例如，均匀分布对应 runif()，正态分布对应 rnorm()，t 分布对应 rt()，等。\n\n\n\nx1 = runif(1000); x2 = rnorm(1000); x3 = rexp(1000, rate=1)\npar(mfrow = c(1,3))\nhist(x1, main=\"Uniform\"); hist(x2, main=\"Standard Normal\"); hist(x3, main=\"Exponential\")"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#monte-carlo-simulation",
+    "href": "assets/slides/lecture2.html#monte-carlo-simulation",
+    "title": "时间序列分析与预测",
+    "section": "Monte Carlo Simulation",
+    "text": "Monte Carlo Simulation\n带有随机成分的模拟方法统称为蒙特卡洛法，该名称源自摩纳哥的著名赌场所在地 Monte-Carlo。\n当模型中含有随机变量时，我们感兴趣的量就不再是某一个标量，而是一个概率分布。例如\n\nY = X + 3Z, \\quad X \\sim N(1,4^2), \\ Z \\sim N(5, 1) , \\ X \\perp Z\n\n我们想知道 Y 的分布。如果你有足够的统计学知识，你会知道 Y \\sim N(16, 5^2) 。\n蒙特卡洛法则是基于 X 和 Z 的信息，利用伪随机数生成多个 Y 的样本点，从而模拟 Y 的分布。当模型非常复杂时，推导目标变量的分布变得困难甚至不可能，此时蒙特卡洛法就能发挥重要作用。"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#monte-carlo-simulation-1",
+    "href": "assets/slides/lecture2.html#monte-carlo-simulation-1",
+    "title": "时间序列分析与预测",
+    "section": "Monte Carlo Simulation",
+    "text": "Monte Carlo Simulation\n\nx &lt;- rnorm(10000, mean=1, sd=4)\nz &lt;- rnorm(10000, mean=5, sd=1)\ny &lt;- x + 3*z\npar(mar = c(5, 4, 1, 2) + 0.1)    # 调整图周围的空白空间\nplot(density(x), col=2, lwd=4, xlim=c(-15, 35), ylim=c(0,0.42), xlab=\"\", main=\"\")\nlines(density(z), col=3, lwd=4);    lines(density(y), col=4, lwd=4)\nlegend(\"topright\", inset=c(0.02,0.05), legend=c(\"X\", \"Z\", \"Y\"), col=2:4, lwd=4)"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#模拟自回归过程",
+    "href": "assets/slides/lecture2.html#模拟自回归过程",
+    "title": "时间序列分析与预测",
+    "section": "模拟自回归过程",
+    "text": "模拟自回归过程\n模拟自回归过程 \\quad x_t = 1.5 x_{t-1} - 0.75 x_{t-2} + w_t, \\ w_t \\sim N(0,1)\n\n方法 1方法 2\n\n\nw &lt;- rnorm(100)                             # 准备白噪声序列\nx &lt;- vector(\"numeric\", 100)                 # 在内存中为 x_t 留出空间\nx[1] &lt;- w[1]                                # 定义初期值 x_1\nx[2] &lt;- 1.5*x[1] + w[2]                     # 定义初期值 x_2\nfor (i in 3:100) {                          # 将序号 i 从 3 至 100 进行迭代\n  x[i] &lt;- 1.5*x[i-1] - 0.75*x[i-2] + w[i]   # 定义 x_i\n}\n\n这是任何编程语言都可以使用的方法，也和数学模型的描述最接近。\n\n\nw &lt;- rnorm(100)\nx &lt;- filter(w, filter=c(1.5,-0.75), method=\"recursive\")\n\n这个方法利用了 stats 包里的命令 filter()。\n利用 R 中的独特函数可以大幅减少编程时间，也不需要考虑算法优化、内存等问题，但前提是对 R 语言和各种软件包非常熟悉。"
+  },
+  {
+    "objectID": "assets/slides/lecture2.html#思考题-1",
+    "href": "assets/slides/lecture2.html#思考题-1",
+    "title": "时间序列分析与预测",
+    "section": "思考题",
+    "text": "思考题\n模拟序列 \\{y_t: t = 1, 2, \\dots, 200\\} ：\n\n\\begin{align*}\ny_t &= 8 + 0.7 y_{t-1} + 1.4 x_{t-1} - 0.5 x_{t-2} + 0.1t + w_t, \\quad w_t \\sim N(0, 1) \\\\\nx_t &= x_{t-1} + v_t , \\quad v_t \\sim N(0, 2^2), \\quad v_t \\perp w_t \\\\\n\\end{align*}\n\n\n问题答案\n\n\nw &lt;- rnorm(200);   v &lt;- rnorm(200, sd=____);   x &lt;- cumsum(v)\ny &lt;- vector(\"numeric\", 200)\ny[1] &lt;- 8 + 0.1 + w[1]\ny[2] &lt;- 8 + 0.7*y[1] + 1.4*x[1] + 0.2 + w[2]\nfor (i in ____) {\n  y[i] &lt;- 8 + 0.7*y[i-1] + 1.4*x[i-1] - 0.5*x[i-2] + ____ + w[i] \n}\n\n\nw &lt;- rnorm(200);   v &lt;- rnorm(200, sd=2);   x &lt;- cumsum(v)\ny &lt;- vector(\"numeric\", 200)\ny[1] &lt;- 8 + 0.1 + w[1]\ny[2] &lt;- 8 + 0.7*y[1] + 1.4*x[1] + 0.2 + w[2]\nfor (i in 3:200) {\n  y[i] &lt;- 8 + 0.7*y[i-1] + 1.4*x[i-1] - 0.5*x[i-2] + 0.1*i + w[i] \n}\n\n\n\n\n\n你能找到更好的方法吗？"
   },
   {
     "objectID": "assets/slides/lecture1.html#什么是时间序列数据",
@@ -98,21 +203,49 @@
     "href": "assets/slides/lecture1.html#时间序列数据的例子-4",
     "title": "时间序列分析与预测",
     "section": "时间序列数据的例子 4",
-    "text": "时间序列数据的例子 4\n例 1.4 厄尔尼诺南方涛动指数 (El Niño-Southern Oscillation Index)1 与新鱼数量指数\n\n本图与书中的图 1.5 不同，这里用 astsa 包中的 ENSO 数据替代了 soi 数据，因为 soi 数据被调整为取值在 -1 和 1 之间，与现今多数 soi 定义不符。但 ENSO 数据与 NOAA 网站提供的数据也有所不同，原因不明。\n\n\n\n\n\n\n\n\n\n\nSOI = 塔希提与澳大利亚达尔文海面气压之差的指数，正值代表拉尼娜现象，负值代表厄尔尼诺现象"
+    "text": "时间序列数据的例子 4\nENSO (El Niño-Southern Oscillation) 厄尔尼诺南方涛动是赤道地区太平洋海面温度和气压的一种综合气候现象。\n\n\n\n\n\n\n\n\n厄尔尼诺（El Niño）现象指太平洋中东部海面温度过高。\n\n拉尼娜（La Niña）现象指该区域海面温度过低。\n\n南方涛动指该地区海面气压和西太平洋地区气压的相对变化。\n\n\n\n\n更多信息可参考 www.climate.gov 或 iri.columbia.edu"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-4-1",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-4-1",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 4",
+    "text": "时间序列数据的例子 4\n例 1.4 厄尔尼诺南方涛动指数 (El Niño-Southern Oscillation Index)1 与新鱼数量指数\n\n\n\n\n\n\n\n\n\nSOI = 塔希提与澳大利亚达尔文海面气压之差的指数，正值代表拉尼娜现象，负值代表厄尔尼诺现象"
   },
   {
     "objectID": "assets/slides/lecture1.html#时间序列数据的例子-5",
     "href": "assets/slides/lecture1.html#时间序列数据的例子-5",
     "title": "时间序列分析与预测",
     "section": "时间序列数据的例子 5",
-    "text": "时间序列数据的例子 5\n例 1.5 捕食者与猎物：加拿大猞猁 (Canada lynx) 与白靴兔 (snow shoe hare)1\n\n\n\n\n\n\n\n\n\n猞猁是中型猫科动物，喜欢捕食小型啮齿动物和鹿，其中白靴兔是加拿大猞猁最喜欢的猎物"
+    "text": "时间序列数据的例子 5\n\n\n\n\n\n\n\n\n\n猞猁（shēlì, lynx）是中型猫科动物，喜欢捕食小型啮齿动物和鹿等，其中白靴兔（snowshoe hare）是加拿大猞猁最喜欢的猎物。\n\n图中的数据是加拿大哈德逊湾公司收购的皮毛数量，可以代表种群数量的变化。"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-5-1",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-5-1",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 5",
+    "text": "时间序列数据的例子 5\n例 1.5 捕食者与猎物：加拿大猞猁 (Canada lynx) 与白靴兔 (snow shoe hare)"
   },
   {
     "objectID": "assets/slides/lecture1.html#时间序列数据的例子-6",
     "href": "assets/slides/lecture1.html#时间序列数据的例子-6",
     "title": "时间序列分析与预测",
     "section": "时间序列数据的例子 6",
-    "text": "时间序列数据的例子 6\n例 1.6 fMRI（功能磁共振成像）图像\n\n\n在脑皮层（cortex）、丘脑（thalamus）和小脑（cerebellum）中各取两个部位进行刺激。框线代表刺激与否，每次刺激和间隔时长为 32 秒。"
+    "text": "时间序列数据的例子 6\n\n\nfMRI（functional magnetic resonance imaging，功能磁共振成像）是通过核磁共振现象观测脑活动的一种技术。它常被用来研究脑的哪些区域对特定的外部刺激产生反应，从而尝试理解脑的工作原理。\n\n\n\n\n\n\n\n\n\n\n图像取自 http://fmri.ucsd.edu/Research/whatisfmri.html"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-6-1",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-6-1",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 6",
+    "text": "时间序列数据的例子 6\n脑的某个区域的神经元活动时，其消耗的能量和氧会增加。为了补充氧气，附近血管中的血液流量会暂时性增加，使局部血液中的氧合血红蛋白浓度增加，脱氧血红蛋白浓度减少。前者的磁共振强度更高。由血氧浓度变化引起的 MRI 信号强度变化称为 BOLD（blood oxygenation level dependent, 血氧水平依赖）。\n\n\n\n\n\n\n\n\n\n从图中可见，从刺激开始到 BOLD 信号达到峰值之间存在 6 秒左右的延迟。\n\n\n\n\n图像取自 http://fmri.ucsd.edu/Research/whatisfmri.html"
+  },
+  {
+    "objectID": "assets/slides/lecture1.html#时间序列数据的例子-6-2",
+    "href": "assets/slides/lecture1.html#时间序列数据的例子-6-2",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据的例子 6",
+    "text": "时间序列数据的例子 6\n例 1.6 fMRI 图像\n\n\n在脑皮层（cortex）、丘脑（thalamus）和小脑（cerebellum）中各取两个部位进行观测。\n试验针对麻醉的志愿者的手部进行强电流刺激（100Hz, 50mA）以模拟手术时皮肤被切割的痛感。框线代表刺激与否，每次刺激和间隔时长为 32 秒。"
   },
   {
     "objectID": "assets/slides/lecture1.html#r-的几种用法",
@@ -161,14 +294,14 @@
     "href": "assets/slides/lecture1.html#统计分析",
     "title": "时间序列分析与预测",
     "section": "统计分析",
-    "text": "统计分析\n\nsimData &lt;- rnorm(100, mean = 10, sd = 2)      # 生成 100 个服从 N(10, 2^2) 的随机数\nc(mean(simData), var(simData), sd(simData))   # 求样本均值、样本方差和样本标准差\n\n[1] 9.693393 4.503128 2.122058\n\nsummary(simData)                              # 显示 sim 的描述性统计量\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  4.258   8.448   9.688   9.693  11.338  14.804 \n\nhist(simData)                                     # 画直方图"
+    "text": "统计分析\n\nsimData &lt;- rnorm(100, mean = 10, sd = 2)      # 生成 100 个服从 N(10, 2^2) 的随机数\nc(mean(simData), var(simData), sd(simData))   # 求样本均值、样本方差和样本标准差\n\n[1] 9.814483 3.205029 1.790259\n\nsummary(simData)                              # 显示 sim 的描述性统计量\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  5.241   8.686   9.485   9.814  11.238  14.200 \n\nhist(simData)                                     # 画直方图"
   },
   {
     "objectID": "assets/slides/lecture1.html#时间序列数据",
     "href": "assets/slides/lecture1.html#时间序列数据",
     "title": "时间序列分析与预测",
     "section": "时间序列数据",
-    "text": "时间序列数据\n\nmydata &lt;- ts(simData, start = 1980, frequency = 4)  # 将 simData 转变为时间序列 \"ts\" 数据\n                                                    # 设起始时间为 1980 年，频度为季度\nmydata\n\n          Qtr1      Qtr2      Qtr3      Qtr4\n1980  9.750419 11.388804 13.490908 10.120251\n1981 11.871717  7.725485  5.761560  7.639432\n1982 12.991212 11.407212  6.712444  8.810368\n1983  9.443325 11.552660  9.249202 10.303917\n1984 11.945809 11.241250  9.684502  6.439547\n1985 10.396873  7.913214 11.737665  6.115647\n1986  4.661587 12.292607  4.273766 11.185243\n1987 11.129671 10.937166 10.023437  9.312789\n1988  8.947515  9.743574  8.903197  4.257831\n1989 11.489689  9.177043 11.810469  9.846058\n1990  6.922641 10.190873  9.158893  8.650109\n1991  9.764098  7.883072  8.223109 11.521699\n1992  9.644657 10.739370 13.281299  8.689349\n1993 10.225229 11.905674 10.625809 11.850568\n1994  9.253831 10.975859 12.518535  8.472443\n1995 13.400886 12.882064 11.421009  7.693023\n1996  9.690891 10.936133  9.476516 10.692630\n1997  8.596648 11.305769  9.612498  8.199283\n1998 10.291339  9.444160 11.413203  7.622763\n1999  8.929570  9.001167  9.541534  8.969422\n2000  7.822370  9.709169 14.803648  8.854632\n2001  8.243303  5.996746  9.166524  7.749291\n2002  5.841862  9.177337 12.784427  7.913783\n2003 13.393318 11.365443  9.940009 11.985918\n2004  5.650349 11.329397  8.373238  7.935833"
+    "text": "时间序列数据\n\nmydata &lt;- ts(simData, start = 1980, frequency = 4)  # 将 simData 转变为时间序列 \"ts\" 数据\n                                                    # 设起始时间为 1980 年，频度为季度\nmydata\n\n          Qtr1      Qtr2      Qtr3      Qtr4\n1980  9.473859  9.180627 11.379493  8.792703\n1981 10.043224  9.955491  8.223800 10.417473\n1982 10.631749 14.200331  6.624186 12.699145\n1983 10.417275 11.002503 11.518072  8.835542\n1984  7.673450  9.039208  8.692310 11.209325\n1985 11.877941 10.737590 10.673656 10.392064\n1986 10.277630 11.422281 10.252661 11.618179\n1987  9.713549 10.355592  7.263250  8.774601\n1988 11.566563  6.097650  9.280111  9.422327\n1989  8.204316  9.241663 10.192954  9.341010\n1990  8.219675  8.524118 11.749226 13.509651\n1991  8.975135  8.514439  8.803923 12.107899\n1992  9.169472  8.608109  7.909532 11.564547\n1993 10.759660  8.774694 12.164454 12.023549\n1994  9.015033 13.319346 11.808557 11.704042\n1995  9.860409  6.781024 10.943615  6.658673\n1996  9.496683 12.336659 11.098434 11.324367\n1997  7.381283 11.691836  8.207877  9.025980\n1998 12.690045  8.667237  8.581036  9.729901\n1999  8.230507  9.039345  8.970566  5.240934\n2000 11.635977  8.801285  8.080511 10.093847\n2001 10.611252 11.943806  9.013143  8.912546\n2002  7.443097  9.299055  6.372271 12.351255\n2003 13.392986  9.250038  8.211968 10.534949\n2004 11.172894  9.058711  7.576504  7.795393"
   },
   {
     "objectID": "assets/slides/lecture1.html#错误提示",
@@ -190,5 +323,314 @@
     "title": "时间序列分析与预测",
     "section": "进一步学习",
     "text": "进一步学习\n我们会随着课程的进展逐渐介绍更多 R 的命令\n\n如何自学（或复习）R 的基本用法？\n\n参考学习资料中列举的资料\n有效利用 RStudio &gt; Help &gt; R Help 中的内容\n如果遇到运行错误，学会根据错误提示寻找问题所在\n熟能生巧"
+  },
+  {
+    "objectID": "assignment.html",
+    "href": "assignment.html",
+    "title": "作业",
+    "section": "",
+    "text": "个人作业\n（待更新）\n\n\n\n小组汇报\n（待更新）",
+    "crumbs": [
+      "huangjp.com",
+      "作业"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "课程信息",
+    "section": "",
+    "text": "这里是深圳大学管理学院工商管理专业《时间序列分析与预测》的课程网站。在这里可以找到和课程相关的所有公开信息，包括课程介绍、课程资料、作业发布、考试信息等。\n\n\n基本信息\n\n课程编号：0401990024\n学分/学时：2学分/36学时\n2023-2024第二学期上课时间：星期四 7-8节\n2023-2024第二学期上课地点：丽湖校区四方楼 北401\n\n\n\n\n\n\n\n教材\n\n\n\n\n\n\n\n\n\n时间序列分析：基于R的数据分析方法\n（Time Series: A Data Analysis Approach Using R）\n作者：[美]罗伯特·H 沙姆韦，戴维·S 斯托弗 著，李洪成 潘文捷 译\n出版社：机械工业出版社\nISBN：978-7-111-69519-6\n\n\n\n\n\n\n\n\n\n\n\n主讲教师\n黄嘉平，工学博士、经济学博士，深圳大学中国经济特区研究中心讲师\n\n办公地址：深圳大学粤海校区汇文楼1510\n联系方式：huangjp %at% szu %dot% edu %dot% cn\n关于接访：为方便与选课学生交流，接访地点为丽湖校区，需事先邮件预约时间地点\n个人网站：huangjp.com\n\n\n\n\n内容简介\n本门课程的主要内容是介绍时间序列数据的分析和预测方法以及在经济管理领域的应用问题。通过本门课程的学习，学生可以理解时间序列数据的特征，掌握时间序列分析的基本方法，包括利用回归的探索性数据分析，Box-Jenkins 的 ARIMA 模型，频谱分析等。\n时间序列数据是针对同一变量在不同时间点上记录观测值的数据形式，广泛存在于社会科学和自然科学的研究领域，例如GDP、股票价格指数、日均气温、特定物种的种群规模等都是时间序列数据的典型例子。\n对时间序列数据的利用主要体现在对未来的预测，例如对GDP的预测可以帮助政府更好的制定经济政策，对股票价格的预测可以帮助投资者更好的做出决策。合理的预测基于对数据生成机制的探索和验证，其基础是对时间序列数据特征的理解。我们主要从两个角度讨论时间序列模型，即基于自相关特性的模型和基于谱特性的模型，前者能够描述一般回归模型无法涵盖的特征，而后者适用于具有规律周期性特征的数据。由于时间有限，本门课程不涉及多元时间序列分析的内容。\n选择本门课程的学生需要掌握统计学的基础知识，熟练掌握协方差和相关系数等统计量的推导与计算，并能够进行简单的回归分析。我们会用到R语言进行数据分析，但并不要求学生已经掌握了R语言。我们会在学习的过程中循序渐进地介绍R语言的使用方法。\n\n\n\n成绩评定\n本门课程采用过程考核为主的成绩评定方式\n\n平时成绩 60%\n平时成绩满分 100 分 = 出席情况和课堂表现 20% + 个人作业 40% + 小组汇报 40%\n期末考核 40%\n期末考核为闭卷考试  关于考试\n\n\n\n\n教学进度\n下面是2023-2024第二学期的教学进度计划。由于课程进程和学校放假安排的不确定性，下表中的内容可能发生变化。 深圳大学校历\n\n\n\n\n\n\n\n周次\n学习内容\n\n\n\n\n第一周（3月7日）\n导论\n\n\n第二周（3月14日）\n时间序列模型简介\n\n\n第三周（3月21日）\n时间序列的特征\n\n\n第四周（3月28日）\n参数的估计\n\n\n第五周（4月4日）\n（清明节放假）\n\n\n第六周（4月11日）\n练习课1\n\n\n第七周（4月18日）\n探索性分析1：数据的平稳化（stationarization）\n\n\n第八周（4月25日）\n探索型分析2：平滑方法（smoothing）\n\n\n第九周（5月2日）\nARMA 模型\n\n\n第十周（5月9日）\n自相关与偏自相关函数\n\n\n第十一周（5月16日）\nARMA 模型的估计和预测\n\n\n第十二周（5月23日）\nARIMA 模型\n\n\n第十三周（5月30日）\n练习课2\n\n\n第十四周（6月6日）\n频谱分析简介\n\n\n第十五周（6月13日）\n其他时间序列方法简介\n\n\n第十六周（6月20日）\n小组汇报1\n\n\n第十七周（6月27日）\n小组汇报2\n\n\n\n\n\n\n参考资料\n\nShunway, R. H., & Stoffer, D. S. (2019). Time Series: A Data Analysis Approach Using R. CRC Press.\nCryer, J. D., & Chan, K.-S. (2008). Time Series Analysis: With Applications in R (2nd ed.). Springer.\nBox, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2016). Time Series Analysis: Forecasting and Control (5th ed.). Wiley.\nShunway, R. H., & Stoffer, D. S. (2017). Time Series Analysis and Its Applications: With R Examples (4th ed.). Springer.\nLyubchich, V., & Gel, Y. R. (2023). Time Series Analysis: Lecture Notes with Examples in R. https://vlyubchich.github.io/tsar/\nHyndman, R. J., & Athanasopoulos, G. (2021). Forecasting: Principles and Practice (3rd ed.). OTexts. https://otexts.com/fpp3/\nGrolemund, G. (2014). Hands-On Programming with R. O’Reily. https://rstudio-education.github.io/hopr/\nWickman, H., Cetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed.). O’Reily. https://r4ds.hadley.nz/",
+    "crumbs": [
+      "huangjp.com",
+      "课程信息"
+    ]
+  },
+  {
+    "objectID": "exam.html",
+    "href": "exam.html",
+    "title": "关于考试",
+    "section": "",
+    "text": "期末考核采取闭卷考试的方式进行，分为基本题和附加题。 深圳大学本科课程考核办法\n\n题型和分值\n\n基本题：满分100分\n\n选择题8题，每题5分，共40分，主要考察对基础概念的理解和掌握\n简答题4题，每题10分，共40分，主要考察对相对复杂概念和方法的理解和掌握\n分析题1题，20分，主要考察应用能力 （题型和分值可能根据授课效果进行调整）\n\n附加题：满分30分\n\n简答题1题：30分，主要考察对理论部分的理解和掌握，难度较基本题高\n\n\n题型和分值可能根据实际授课进程和效果进行调整\n\n\n\n注意事项\n\n考试中允许使用电子计算器，但禁止使用带有计算器功能的智能设备（包括手机、只能手表、平板电脑等  深圳大学考场纪律）",
+    "crumbs": [
+      "huangjp.com",
+      "关于考试"
+    ]
+  },
+  {
+    "objectID": "materials4.html",
+    "href": "materials4.html",
+    "title": "第四讲：参数的估计",
+    "section": "",
+    "text": "Slides\n\n点击 slides 画面，然后用   键或   键控制翻页。点击 slides 左下角的  图标可以发现更多功能。\n如何将 slides 保存到自己的电脑上：\n\n点击下面的链接会在新的标签页里打开 slides\nassets/slides/lecture4.html\n在该页面点击键盘的 e 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）\n右键选择打印该页面，然后选择保存为 PDF 文件。\n\n\n\n\n补充学习\n\n阅读书中第三章例 3.5。\n复现例 3.5 中的分析结果。\n\n\n\n\n课后练习\n掌握用 lm() 处理滞后项的正确方法\n1. 用下面的命令生成序列 x_t 和 y_t\nx &lt;- ts((1:100)%%(-2)+2)\ny &lt;- ts(x+2+rnorm(100,sd=0.1))\n猜测 \\rho_{xy}(0) 和 \\rho_{xy}(1) 的取值，并通过样本 CCF 验证你的猜想。\n2. 假设下面的回归模型\n\n\\begin{align}\nx_t &= \\beta_0 + \\beta_1 y_t + w_t \\\\\nx_t &= \\delta_0 + \\delta_1 y_{t-1} + w_t\n\\end{align}\n 猜测系数的取值，并运行下面的命令\nsummary(lm(x ~ y))\nsummary(lm(x ~ lag(y,-1)))\n你是否得到了完全一样的结果？这符合你的猜想吗？\n3. 用下面的命令手动生成序列 y_{t-1}，并对模型 (2) 进行回归\nx1 &lt;- x[2:100]\ny1 &lt;- y[1:99]\nsummary(lm(x1 ~ y1))\n结果符合你的猜想吗？\n4. 下面是用 lm() 处理滞后项的正确方法\nz &lt;- ts.intersect(x, ylag=lag(y,-1))\nsummary(lm(x ~ ylag, data=z, na.action=NULL))\n对比上面的回归结果，并通过 help 理解 ts.intersect() 的作用。",
+    "crumbs": [
+      "huangjp.com",
+      "课程资料",
+      "第四讲：参数的估计"
+    ]
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#均值函数",
+    "href": "assets/slides/lecture3.html#均值函数",
+    "title": "时间序列分析与预测",
+    "section": "均值函数",
+    "text": "均值函数\n由于时间序列 \\{x_t\\} 是随机过程，我们希望知道关于 x_t 分布的信息，例如期望值和方差。\n\n\n\n均值函数 mean function\n\n\n时间序列 \\{x_t\\} 的均值函数定义为\n\n\\mu_{xt} = E(x_t)\n\n有时也会省略下角标中的 x，而简写为 \\mu_t 。\n\n\n\n\n\n均值函数是时间 t 的函数。\n方差函数可以定义为 \\mathrm{var}(x_t) = E\\big[(x_t - \\mu_{xt})^2\\big]。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#均值函数的例子",
+    "href": "assets/slides/lecture3.html#均值函数的例子",
+    "title": "时间序列分析与预测",
+    "section": "均值函数的例子",
+    "text": "均值函数的例子\n\n\n\n移动平均序列的均值函数\n\n\n白噪声序列 \\{w_t\\} 的均值函数是 \\mu_{wt} = 0。因此，由白噪声项的线性结合定义的移动平均序列 \\{v_t\\} 的均值函数也是 \\mu_{vt}=0。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#均值函数的例子-1",
+    "href": "assets/slides/lecture3.html#均值函数的例子-1",
+    "title": "时间序列分析与预测",
+    "section": "均值函数的例子",
+    "text": "均值函数的例子\n\n\n\n带漂移项的随机游走序列的均值函数\n\n\n当 x_t = \\delta t + \\sum_{j=1}^t w_j 时，其均值函数为\n\n\\mu_{xt} = E(x_t) = \\delta t + \\sum_{j=1}^t w_j = \\delta t"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#自协方差函数",
+    "href": "assets/slides/lecture3.html#自协方差函数",
+    "title": "时间序列分析与预测",
+    "section": "自协方差函数",
+    "text": "自协方差函数\n协方差代表两个随机变量间的线性相关关系，将协方差的概念应用到不同时间点的 x_s 和 x_t 就得到了自协方差。\n\n\n\n自协方差函数 autocovariance function\n\n\n时间序列 \\{x_t\\} 在时间点 s 和 t 间的自协方差函数定义为\n\n\\gamma_x(s,t) = \\mathrm{cov}(x_s, x_t) = E\\big[(x_s - \\mu_{s})(x_t - \\mu_t)\\big]\n\n有时也会省略下角标中的 x，而简写为 \\gamma(s,t) 。\n\n\n\n\n\n\\gamma_x(t,t) = \\mathrm{cov}(x_t, x_t) = \\mathrm{var}(x_t)\n白噪声序列的自协方差函数是 \\gamma_w(s,t) = \\begin{cases}\\sigma_w^2 & \\text{if } s=t \\\\ 0 & \\text{if } s\\neq t\\end{cases}"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#不同滤波间的协方差",
+    "href": "assets/slides/lecture3.html#不同滤波间的协方差",
+    "title": "时间序列分析与预测",
+    "section": "不同滤波间的协方差",
+    "text": "不同滤波间的协方差\n\n\n\n\n定理\n\n\n随机变量 U=\\sum_{j=1}^m a_j X_j 和 V=\\sum_{k=1}^r b_k Y_k 分别是序列 \\{X_t\\} 和 \\{Y_t\\} 的滤波。U 和 V 的协方差是\n\\mathrm{cov}(U,V) = \\sum_{j=1}^m \\sum_{k=1}^r a_j b_k \\, \\mathrm{cov}(X_j, Y_k)\n\n\n\n\n\n\nm=2, r=1 时的证明：\n\\begin{align*}\\mathrm{cov}(U,V) &= \\mathrm{cov}(a_1 X_1 + a_2 X_2, b_1 Y_1) \\\\&= E\\big[ (a_1 X_1 + a_2 X_2 - a_1 \\mu_{X1} - a_2 \\mu_{X2})(b_1 Y_1 - b_1 \\mu_{Y1})\\big]\\\\&= E\\big[ \\{(a_1 X_1  - a_1 \\mu_{X1}) + (a_2 X_2 - a_2 \\mu_{X2})\\}(b_1 Y_1 - b_1 \\mu_{Y1})\\big] \\\\&= E\\big[ (a_1 X_1  - a_1 \\mu_{X1})(b_1 Y_1 - b_1 \\mu_{Y1}) + (a_2 X_2 - a_2 \\mu_{X2})(b_1 Y_1 - b_1 \\mu_{Y1})\\big]\\\\&= \\mathrm{cov}(a_1 X_1, b_1 Y_1) + \\mathrm{cov}(a_2 X_2, b_1 Y_1) \\end{align*}"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#自协方差函数的例子",
+    "href": "assets/slides/lecture3.html#自协方差函数的例子",
+    "title": "时间序列分析与预测",
+    "section": "自协方差函数的例子",
+    "text": "自协方差函数的例子\n\n\n\n移动平均序列的自协方差\n\n\n三点移动平均序列 v_t = \\tfrac{1}{3}(w_{t-1} + w_t + w_{t+1}) 的自协方差函数为\n\n\\gamma_r(s,t) = \\mathrm{cov}(v_s, v_t) = \\mathrm{cov}\\big[ \\tfrac{1}{3}(w_{s-1} + w_s + w_{s+1}) + \\tfrac{1}{3}(w_{t-1} + w_t + w_{t+1}) \\big]\n 当 s=t 时，\n\n\\begin{align*}\n\\gamma_r(t,t) &= \\tfrac{1}{9}\\big[ \\mathrm{cov}(w_{t-1}, w_{t-1}) + \\mathrm{cov}(w_t, w_t) + \\mathrm{cov}(w_{t+1}, w_{t+1}) \\big] \\\\\n&= \\tfrac{1}{3} \\sigma_w^2\n\\end{align*}\n\n当 s=t+1 时，\n\n\\begin{align*}\n\\gamma_r(t+1,t) &= \\tfrac{1}{9}\\big[ \\mathrm{cov}(w_t, w_t) + \\mathrm{cov}(w_{t+1}, w_{t+1}) \\big] \\\\\n&= \\tfrac{2}{9} \\sigma_w^2\n\\end{align*}\n\n同理可得其他情况下的 \\gamma_r(s,t)，因此\n\n\\gamma_r(s,t) =\n\\begin{cases}\n\\tfrac{1}{3} \\sigma_w^2 & \\text{ if } s=t, \\phantom{\\Big(}\\\\\n\\tfrac{2}{9} \\sigma_w^2 & \\text{ if } |s-t| = 1, \\phantom{\\Big(}\\\\\n\\tfrac{1}{9} \\sigma_w^2 & \\text{ if } |s-t| = 2, \\phantom{\\Big(}\\\\\n0 & \\text{ if } |s-t| &gt; 2. \\phantom{\\Big(}\n\\end{cases}"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#自协方差函数的例子-1",
+    "href": "assets/slides/lecture3.html#自协方差函数的例子-1",
+    "title": "时间序列分析与预测",
+    "section": "自协方差函数的例子",
+    "text": "自协方差函数的例子\n\n\n\n随机游走序列的自协方差\n\n\n随机游走序列为 x_t = \\sum_{j=1}^t w_j，因此其自协方差函数为\n\n\\gamma_x(s,t) = \\mathrm{cov}(x_s, x_t) = \\mathrm{cov} \\Big( \\sum_{j=1}^s w_s, \\sum_{k=1}^t w_t \\Big) = \\min\\{s,t\\} \\, \\sigma_w^2\n\n最后一个等式可以参考下面 (s,t) = (2,4) 的例子\n\n\\gamma_x(2,4) = \\mathrm{cov}(w_1 + w_2, w_1 + w_2 + w_3 + w_4) = 2\\sigma_w^2\n\n\n\n\n\n因此，随机游走过程的方差为 \\mathrm{var}(x_t) = \\gamma_x(t,t) = t \\sigma_w^2 。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#模拟随机游走过程",
+    "href": "assets/slides/lecture3.html#模拟随机游走过程",
+    "title": "时间序列分析与预测",
+    "section": "模拟随机游走过程",
+    "text": "模拟随机游走过程\n\n\n\n\n\n\n\n\n\n\n\n注：绘制此图时用了 scales 包中的 alpha() 命令以调整线条的透明度。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#自相关函数",
+    "href": "assets/slides/lecture3.html#自相关函数",
+    "title": "时间序列分析与预测",
+    "section": "自相关函数",
+    "text": "自相关函数\n自相关函数将自协方差函数的取值投影在 [-1,1] 上。\n\n\n\n自相关函数 autocorrelation function (ACF)\n\n\n时间序列的自相关函数定义为\n\n\\rho(s,t) = \\frac{\\gamma(s,t)}{\\sqrt{\\gamma(s,s) \\gamma(t,t)}}\n\n\n\n\n\n\n\\rho(s,t) 代表 x_s 和 x_t 间的线性相关性。\n如果 x_t = \\beta_0 + \\beta_1 x_s，则 \\beta_1 &gt; 0 时 \\rho(s,t) = 1，\\beta_1 &lt; 0 时 \\rho(s,t) = -1。 此时如果已知 x_s 的取值，我们就可以预测 x_t 的取值。\n\\rho(t, t) \\equiv 1。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#交叉协方差和交叉相关函数",
+    "href": "assets/slides/lecture3.html#交叉协方差和交叉相关函数",
+    "title": "时间序列分析与预测",
+    "section": "交叉协方差和交叉相关函数",
+    "text": "交叉协方差和交叉相关函数\n\n\n\n交叉协方差函数 cross-covariance function\n\n\n序列 \\{x_t\\} 和 \\{y_t\\} 的交叉协方差函数定义为\n\n\\gamma_{xy}(s,t) = \\mathrm{cov}(x_s, y_t) = E\\big[ (x_s - \\mu_{xs})(y_t - \\mu_{yt}) \\big]\n\n\n\n\n\n\n\n交叉相关函数 cross-correlation function (CCF)\n\n\n序列 \\{x_t\\} 和 \\{y_t\\} 的交叉相关函数定义为\n\n\\rho_{xy}(s,t) = \\frac{\\gamma_{xy}(s,t)}{\\sqrt{\\gamma_x(s,s) \\gamma_y(t,t)}}"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#什么是平稳时间序列",
+    "href": "assets/slides/lecture3.html#什么是平稳时间序列",
+    "title": "时间序列分析与预测",
+    "section": "什么是平稳时间序列？",
+    "text": "什么是平稳时间序列？\n“平稳”的时间序列是一种特殊的性质，它要求任意长度的子序列的联合分布只和该子序列的长度有关，而和观测时间无关。平稳的序列代表该序列进入了一种统计学上的均衡状态。下面我们通过均值和自协方差函数定义序列的平稳性。\n\n\n\n平稳性 stationarity\n\n\n一个时间序列是平稳的（stationary）是指它拥有有限方差，且满足\n\n其均值函数 \\mu_t 是常数，且不依赖于时间 t。\n其自协方差函数 \\gamma(s,t) 仅依赖于时间 s 和 t 的差。\n\n\n\n\n\n随机游走序列的自协方差函数是 \\gamma(s,t) = \\min\\{s,t\\}\\sigma_w^2 ，依赖于时间，因此不是平稳的。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#平稳时间序列的特征函数",
+    "href": "assets/slides/lecture3.html#平稳时间序列的特征函数",
+    "title": "时间序列分析与预测",
+    "section": "平稳时间序列的特征函数",
+    "text": "平稳时间序列的特征函数\n\n\n\n平稳时间序列的均值函数和时间 t 无关，因此可以写为 \\mu_t = \\mu。\n\n\n\n\n\n\n平稳时间序列的自协方差函数只和时间之差有关，如果另 s=t+h，则\\gamma(t+h,h) = \\mathrm{cov}(x_{t+h}, x_t) = \\mathrm{cov}(x_h, x_0) = \\gamma(h,0) 因此可以简写为 \\gamma(h)。\n\n\n\n\n\n\n平稳时间序列的自相关函数可以简写为\n\n\\rho(h)=\\frac{\\gamma(h)}{\\gamma(0)}"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#平稳时间序列的例子",
+    "href": "assets/slides/lecture3.html#平稳时间序列的例子",
+    "title": "时间序列分析与预测",
+    "section": "平稳时间序列的例子",
+    "text": "平稳时间序列的例子\n\n\n\n白噪声序列是平稳的\n\n\n白噪声序列的均值和自协方差函数分别是 \\mu_{wt}=0 和\n\n\\gamma_w(h)=\n\\begin{cases}\nh\\sigma_w^2 & \\text{if } h = 0 \\\\\n0 & \\text{if } h \\neq 0\n\\end{cases}\n\n\n\n\n\n\n\n移动平均序列是平稳的\n\n\n当 v_t = \\tfrac{1}{3}(w_{t-1} + w_t + w_{t+1}) 时，其均值函数为 \\mu_{vt} = 0，自协方差和自相关函数分别为\n\n\\gamma_r(h) =\n\\begin{cases}\n\\tfrac{1}{3} \\sigma_w^2 & \\text{ if } h=0,\\\\\n\\tfrac{2}{9} \\sigma_w^2 & \\text{ if } h = \\pm 1, \\\\\n\\tfrac{1}{9} \\sigma_w^2 & \\text{ if } h = \\pm 2, \\\\\n0 & \\text{ if } |h| &gt; 2,\n\\end{cases} \\quad \\quad\n\\rho(h) =\n\\begin{cases}\n1  & \\text{ if } h=0,\\\\\n2/3  & \\text{ if } h = \\pm 1, \\\\\n1/3  & \\text{ if } h = \\pm 2, \\\\\n0 & \\text{ if } |h| &gt; 2.\n\\end{cases}"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#自相关函数图",
+    "href": "assets/slides/lecture3.html#自相关函数图",
+    "title": "时间序列分析与预测",
+    "section": "自相关函数图",
+    "text": "自相关函数图\n\n\n上图中描绘了三点移动平均序列的自相关函数值。\n横轴的 lag 为时间间隔，也称作滞后期，即 h = s-t。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#平稳序列的其他相关性质",
+    "href": "assets/slides/lecture3.html#平稳序列的其他相关性质",
+    "title": "时间序列分析与预测",
+    "section": "平稳序列的其他相关性质",
+    "text": "平稳序列的其他相关性质\n\n有的时间序列的均值函数和时间 t 有关，但自协方差函数和 t 无关。这种序列称为趋势平稳（trend stationary）。例如 x_t = \\delta t + w_t。\n\n根据定义，\\gamma(0) = \\mathrm{var}(x_t)，\\gamma(h) = \\gamma(-h) 。\n\n\\gamma(h) 在 h=0 时取最大值，即 \\gamma(0) \\geq \\gamma(h)。\n\n自回归序列是否平稳要具体情况具体分析，例如最简单的 AR(1) 序列 x_t = \\phi x_{t-1} + w_t 只有在 |\\phi| &lt; 1 时才是平稳的。我们后面会详细学习自回归模型。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#联合平稳性",
+    "href": "assets/slides/lecture3.html#联合平稳性",
+    "title": "时间序列分析与预测",
+    "section": "联合平稳性",
+    "text": "联合平稳性\n\n\n\n联合平稳性 joint stationarity\n\n\n如果两个平稳时间序列 \\{x_t\\} 和 \\{y_t\\} 的交叉协方差函数\n\n\\gamma_{xy}(h) = \\mathrm{cov}(x_{t+h}, y_t) = E\\big[ (x_{t+h} - \\mu_x)(y_t - \\mu_y) \\big]\n\n仅是时间间隔 h 的函数，则称这两个序列联合平稳（jointly stationary）。\n\n\n\n\n\n\n联合平稳序列的交叉相关函数\n\n\n联合平稳序列 \\{x_t\\} 和 \\{y_t\\} 的交叉相关函数（CCF）可以写为\n\n\\rho_{xy}(h) = \\frac{\\gamma_{xy}(h)}{\\sqrt{\\gamma_x(0) \\gamma_y(0)}}\n\n\n\n\n\n\n注：一般情况下，\\rho_{xy}(h) \\neq \\rho_{xy}(-h)，但是 \\rho_{xy}(h) = \\rho_{yx}(-h)。"
+  },
+  {
+    "objectID": "assets/slides/lecture3.html#章后练习-2.2",
+    "href": "assets/slides/lecture3.html#章后练习-2.2",
+    "title": "时间序列分析与预测",
+    "section": "章后练习 2.2",
+    "text": "章后练习 2.2\n\n问题a 答案b 答案c 答案\n\n\n考虑时间序列模型x_t = \\beta_0 + \\beta_1 t + w_t,其中 \\beta_0 和 \\beta_1 是回归系数，w_t \\sim wn(0, \\sigma_w^2) 是白噪声。\n\n\\{x_t\\} 是平稳过程吗？\n证明 y_t = x_t - x_{t-1} 是平稳过程。\n证明 z_t = \\tfrac{1}{3}(x_{t-1} + x_t + x_{t+1}) 的均值函数是 \\beta_0 + \\beta_1 t。\n\n\n\n平稳序列需满足的条件 1 为“该序列的均值函数 \\mu_t 是常数，且不依赖于时间 t”。\n\\{x_t\\} 的 均值函数\n\n\\mu_{xt} = E(x_t) = E(\\beta_0 + \\beta_1 t + w_t) = \\beta_0 + \\beta_1 t\n\n是时间 t 的函数，因此 \\{x_t\\} 不是平稳过程。\n\n\n\n\\begin{align*}\ny_t &= (\\beta_0 + \\beta_1 t + w_t) - (\\beta_0 + \\beta_1 (t-1) + w_{t-1})\\\\\n&= \\beta_1 + w_t - w_{t-1}\n\\end{align*}\n\n\\Rightarrow\n\n\\begin{align*}\n&\\mu_{yt} = \\beta_1 \\\\\n&\\gamma_y(s,t) =\n\\begin{cases}\n2\\sigma_w^2 & \\text{if } s = t \\\\\n-\\sigma_w^2 & \\text{if } |s-t| = 1 \\\\\n0 & \\text{if } |s-t| &gt; 1\n\\end{cases}\n\\end{align*}\n 因此，\\{y_t\\} 是平稳过程。\n\n\n\n\\begin{align*}\nz_t &= \\tfrac{1}{3}\\big[3 \\beta_0 + \\beta_1 (t-1 + t + t+1)+ w_{t-1} + w_t + w_{t+1}\\big]\\\\\n&= \\beta_0 + \\beta_1 t + \\tfrac{1}{3}(w_{t-1} + w_t + w_{t+1})\n\\end{align*}\n\n\\Rightarrow\n\n\\begin{align*}\n\\quad \\mu_{zt} &= \\beta_0 + \\beta_1 t + E\\big[ \\tfrac{1}{3}(w_{t-1} + w_t + w_{t+1}) \\big] \\\\\n&= \\beta_0 + \\beta_1 t\n\\end{align*}"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#总体和样本统计量",
+    "href": "assets/slides/lecture4.html#总体和样本统计量",
+    "title": "时间序列分析与预测",
+    "section": "总体和样本统计量",
+    "text": "总体和样本统计量\n统计学中常用的描述性统计量\n\n\n\n\n\n\n\n\n总体统计量\n样本统计量\nR 命令\n\n\n\n\n\\mu_x =E(X)\n\\bar{x} = \\tfrac{1}{ n}\\sum_{i=1}^n x_i\nmean(x)\n\n\n\\sigma_x^2=\\mathrm{var}(X)\ns_x^2=\\tfrac{1}{n-1}\\sum_{i=1}^n (x_i- \\bar{x})^2\nvar(x)\n\n\n\\sigma_x=\\sqrt{\\mathrm{var}(X)}\ns_x = \\sqrt{s_x^2}\nsd(x)\n\n\n\\sigma_{xy}=\\mathrm{cov}(X, Y)\ns_{xy} = \\frac{1}{n-1}\\sum_{i=1}^n (x_i- \\bar{x})(y_i - \\bar{y})\ncov(x, y)\n\n\n\\mathrm{corr}(X,Y)= \\sigma_{xy}/(\\sigma_x \\sigma_y)\n\\rho_{xy} = s_{xy}/(s_x s_y)\ncor(x, y)\n\n\n\n\n“样本统计量” 是利用样本对总体统计量进行估计的方法，应称作估计量。同一个统计量可以有多个估计量，我们根据需要选择最合适的。例如为了满足非偏性（即估计量的期望值等于对应的总体统计量），我们在 s_x^2 的定义中除以 n-1 而不是 n。"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#时间序列数据中的-lag-和-lead",
+    "href": "assets/slides/lecture4.html#时间序列数据中的-lag-和-lead",
+    "title": "时间序列分析与预测",
+    "section": "时间序列数据中的 lag 和 lead",
+    "text": "时间序列数据中的 lag 和 lead\n\n\n\n\n\n\n\n\n\n\n\nt\nx_t\nx_{t-1}\nx_{t-2}\nx_{t+1}\nx_{t+2}\n\n\n\n\n1\n15\nNA\nNA\n11\n9\n\n\n2\n11\n15\nNA\n9\n26\n\n\n3\n9\n11\n15\n26\n3\n\n\n4\n26\n9\n11\n3\n112\n\n\n5\n3\n26\n9\n112\n58\n\n\n6\n112\n3\n26\n58\nNA\n\n\n7\n58\n112\n3\nNA\nNA\n\n\n\n\n\n“NA” = “missing value”"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#计算样本自协方差",
+    "href": "assets/slides/lecture4.html#计算样本自协方差",
+    "title": "时间序列分析与预测",
+    "section": "计算样本自协方差",
+    "text": "计算样本自协方差\n\n\n\n计算 \\hat{\\gamma}_x(t-2, t) 时，有效数据的范围是 t = 3, 4, \\cdots, 7 ，因此\n\n\\widehat{\\gamma}_x(t-2, t) = \\frac{1}{5-2} \\sum_{t=3}^7(x_{t-2} - \\widehat{\\mu}_{x,t-2})(x_{t} - \\widehat{\\mu}_{x,t})\n\n如果假定 \\{x_t\\} 是平稳序列，则\n\n\\widehat{\\mu}_{xs} = \\widehat{\\mu}_{xt} = \\frac{1}{T} \\sum_{t=1}^T x_t = \\overline{x}\n\n样本自协方差函数为\n\n\\widehat{\\gamma}_x(h) = \\mathrm{cov}(x_{t+h}, x_t) = \\frac{1}{T} \\sum_{t=\\max\\{1,1-h\\}}^{\\min\\{T-h, T\\}}(x_{t+h} - \\overline{x})(x_{t} - \\overline{x})\n\n\n\n\n\n\n\n\n\n\n\n\nt\nx_t\nx_{t-2}\n\n\n\n\n1\n15\nNA\n\n\n2\n11\nNA\n\n\n3\n9\n15\n\n\n4\n26\n11\n\n\n5\n3\n9\n\n\n6\n112\n26\n\n\n7\n58\n3\n\n\n\n\n\n\n\n\n注：计算平稳序列的样本自协方差时需要除以 T 而不是 T-h。因为样本自协方差可以用来估计均值的抽样方差（即 \\mathrm{var}(\\overline{x})），除以 T 可以保证该方差的估计值不为负。"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#平稳假设下的样本-acf-和-ccf",
+    "href": "assets/slides/lecture4.html#平稳假设下的样本-acf-和-ccf",
+    "title": "时间序列分析与预测",
+    "section": "平稳假设下的样本 ACF 和 CCF",
+    "text": "平稳假设下的样本 ACF 和 CCF\n\n\n\n样本 ACF\n\n\n当 h = 0, 1, 2, \\dots, T-1 时，\n\n\\widehat{\\rho}_x(h) = \\frac{\\widehat{\\gamma}_x(h)}{\\widehat{\\gamma}_x(0)} = \\frac{\\sum_{t=1}^{T-h}(x_{t+h} - \\overline{x})(x_t - \\overline{x})}{\\sum_{t=1}^n (x_t - \\overline{x})^2} ,\n\n当 h&lt;0 时可用 \\widehat{\\rho}_x(h) = \\widehat{\\rho}_x(-h) 计算。\n\n\n\n\n\n\n样本交叉协方差函数和 CCF\n\n\n当 h = 0, 1, 2, \\dots, T-1 时，\n\n\\begin{align*}\n\\widehat{\\gamma}_{xy}(h) &= \\frac{1}{T} \\sum_{t=1}^{T-h}(x_{t+h} - \\overline{x})(y_{t} - \\overline{y}) , \\quad\n\\widehat{\\rho}_{xy}(h) = \\frac{\\widehat{\\gamma}_{xy}(h)}{\\sqrt{\\widehat{\\gamma}_{x}(0)\\widehat{\\gamma}_{y}(0)}},\n\\end{align*}\n\n当 h&lt;0 时可用 \\widehat{\\gamma}_{xy}(h) = \\widehat{\\gamma}_{yx}(-h) 计算。"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#r-命令-lag",
+    "href": "assets/slides/lecture4.html#r-命令-lag",
+    "title": "时间序列分析与预测",
+    "section": "R 命令 lag()",
+    "text": "R 命令 lag()\n在 R 中，根据已知序列求滞后项（或先行项）的命令是 lag()。\n\nset.seed(11111)\nx &lt;- as.ts(sample(1:20, size=5))    # 这里的 x 是 ts 类型的数据\ncbind(x, lag(x,-1), lag(x,2))\n\nTime Series:\nStart = -1 \nEnd = 6 \nFrequency = 1 \n    x lag(x, -1) lag(x, 2)\n-1 NA         NA         2\n 0 NA         NA         1\n 1  2         NA        14\n 2  1          2         6\n 3 14          1        10\n 4  6         14        NA\n 5 10          6        NA\n 6 NA         10        NA\n\n\n\nlag() 并不要求输入变量是 ts 类型，上面这样做是为了 cbind() 的输出结果。\nlag(x,h) 生成的是 x_{t+h}。"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#r-命令-acf",
+    "href": "assets/slides/lecture4.html#r-命令-acf",
+    "title": "时间序列分析与预测",
+    "section": "R 命令 acf()",
+    "text": "R 命令 acf()\n\nx &lt;- 1:10\nacf(x, type=\"covariance\")   # 计算 x 的自协方差并画图，这里 x 可以不是 ts 类型的数据\n\n\n\nacf(x, type=\"covariance\", plot=FALSE)   # 不画图时需要加入参数 plot=FALSE\n\n\nAutocovariances of series 'x', by lag\n\n    0     1     2     3     4     5     6     7     8     9 \n 8.25  5.78  3.40  1.23 -0.65 -2.12 -3.10 -3.48 -3.15 -2.02"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#r-命令-acf-1",
+    "href": "assets/slides/lecture4.html#r-命令-acf-1",
+    "title": "时间序列分析与预测",
+    "section": "R 命令 acf()",
+    "text": "R 命令 acf()\n\n主要参数：acf(x, type = \"covariance\", plot = FALSE)\ntype 可以是 \"correlation\"（初始设定）、\"covariance\" 或 \"partial\"（偏自相关，后面会学习）。\nacf() 的结果是一个称作 acf class 的 list。\n Hands-On Programming with R, 5.7 Lists\n计算交叉自协方差和交叉自相关函数可用 ccf(x, y, ...) 。\n\n\n\n注意 acf() 中 lag 0 的值和 var(1:10) 不同（因为分母不同）\n\n\ny &lt;- acf(1:10, type=\"covariance\", plot=FALSE)\nc(y$acf[y$lag==0], var(1:10), var(1:10)*9/10)\n\n[1] 8.250000 9.166667 8.250000"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#样本-acf-与-ccf",
+    "href": "assets/slides/lecture4.html#样本-acf-与-ccf",
+    "title": "时间序列分析与预测",
+    "section": "样本 ACF 与 CCF",
+    "text": "样本 ACF 与 CCF\n\n例 2.25base R（stats 包）astsa 包\n\n\nx_t = w_t，y_t = x_{t-5} + u_t\n\n\\begin{align*}\n\\Rightarrow \\quad \\gamma_{yx}(h) &= \\mathrm{cov}(y_{t+h}, x_t) = \\mathrm{cov}(x_{t+h-5} + u_{t+h}, x_t) \\\\\n&= \\mathrm{cov}(x_{t+h-5}, x_t)= \\gamma_x(h-5) \\\\\n\\Rightarrow \\quad \\rho_{yx}(h) &= \\frac{\\gamma_x(h-5)}{\\sqrt{\\gamma_x(0)\\gamma_y(0)}}\n\\end{align*}\n 因为 \\{x_t\\} 是白噪声序列，\\gamma_x(h-5) 尽在 h=5 时取正值。由此可以推断，样本 CCF \\widehat{\\rho}_{yx}(h) 在 h=5 时为正，其他时候接近零。\n\n\n\nset.seed(21369); x &lt;- rnorm(100); y &lt;- lag(x, -5) + rnorm(100)\npar(mfrow=c(1,2)); acf(x); ccf(y, x, ylab=\"CCF\")\n\n\n\n\n\n\n\n\n\n左图中的虚线是白噪声过程的样本 ACF 的 95% 置信区间。右图中的虚线是假设两个过程相互独立，且至少一个是白噪声过程时，样本 CCF 的 95% 置信区间。\n\n\n\nastsa 包中提供了 acf1() 和 ccf2() 替代 stats 包中的 acf() 和 ccf() 命令。\n因为 \\rho(0) \\equiv 1，acf1() 从 lag 1 开始绘图，并同时显示计算结果。\n\nlibrary(astsa)\nset.seed(21369); x &lt;- rnorm(100); y &lt;- lag(x, -5) + rnorm(100)\npar(mfrow=c(1,2)); acf1(x); ccf2(y, x, ylab=\"CCF\")\n\n [1]  0.06 -0.10  0.05 -0.03  0.08 -0.03 -0.13 -0.07  0.00  0.04 -0.02 -0.08\n[13]  0.07 -0.12 -0.06  0.11 -0.07  0.04 -0.08 -0.08"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#soi-和新鱼数量的相关性分析",
+    "href": "assets/slides/lecture4.html#soi-和新鱼数量的相关性分析",
+    "title": "时间序列分析与预测",
+    "section": "SOI 和新鱼数量的相关性分析",
+    "text": "SOI 和新鱼数量的相关性分析\n\n\n与第一讲不同，这里我们用回 astsa 包中的 soi 数据集。"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#soi-和新鱼数量的相关性分析-1",
+    "href": "assets/slides/lecture4.html#soi-和新鱼数量的相关性分析-1",
+    "title": "时间序列分析与预测",
+    "section": "SOI 和新鱼数量的相关性分析",
+    "text": "SOI 和新鱼数量的相关性分析\n\n\nACF 显示滞后 12 期（一年）与当期具有正相关，滞后 6 期则具有负相关。这与气候的年度周期性变化相符。CCF 在 h=-6 时显示峰值，说明 t-6 期的 SOI 和 t 期的新鱼数量呈负相关。"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#回归模型和最小二乘估计",
+    "href": "assets/slides/lecture4.html#回归模型和最小二乘估计",
+    "title": "时间序列分析与预测",
+    "section": "回归模型和最小二乘估计",
+    "text": "回归模型和最小二乘估计\n回归模型描述了一系列解释变量和被解释变量间的关系。\n以 R 自带的 mtcars 数据集为例\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\nMazda RX4\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\nMazda RX4 Wag\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\nDatsun 710\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\nHornet 4 Drive\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\nHornet Sportabout\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n\n\nValiant\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\nDuster 360\n14.3\n8\n360.0\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n\n\nMerc 240D\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\nMerc 230\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\nMerc 280\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\nMerc 280C\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\nMerc 450SE\n16.4\n8\n275.8\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n\n\nMerc 450SL\n17.3\n8\n275.8\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n\n\nMerc 450SLC\n15.2\n8\n275.8\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n\n\nCadillac Fleetwood\n10.4\n8\n472.0\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n\n\nLincoln Continental\n10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n\n\nChrysler Imperial\n14.7\n8\n440.0\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n\n\nFiat 128\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\nHonda Civic\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\nToyota Corolla\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\nToyota Corona\n21.5\n4\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n\n\nDodge Challenger\n15.5\n8\n318.0\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n\n\nAMC Javelin\n15.2\n8\n304.0\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n\n\nCamaro Z28\n13.3\n8\n350.0\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n\n\nPontiac Firebird\n19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n\n\nFiat X1-9\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\nPorsche 914-2\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\nLotus Europa\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\nFord Pantera L\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\nFerrari Dino\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\nMaserati Bora\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\nVolvo 142E\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\nmpg: Miles/gallon, hp: Gross horsepower, wt: Weight\n我们可以考虑回归模型\n\n\\mathrm{mpg}_i = \\beta_0 + \\beta_1 \\mathrm{hp}_i + \\beta_2 \\mathrm{wt}_i + \\varepsilon_i"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#回归模型和最小二乘估计-1",
+    "href": "assets/slides/lecture4.html#回归模型和最小二乘估计-1",
+    "title": "时间序列分析与预测",
+    "section": "回归模型和最小二乘估计",
+    "text": "回归模型和最小二乘估计\n\nfit &lt;- lm(mpg ~ hp + wt, data = mtcars)\nsummary(fit)\n\n\nCall:\nlm(formula = mpg ~ hp + wt, data = mtcars)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-3.941 -1.600 -0.182  1.050  5.854 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 37.22727    1.59879  23.285  &lt; 2e-16 ***\nhp          -0.03177    0.00903  -3.519  0.00145 ** \nwt          -3.87783    0.63273  -6.129 1.12e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.593 on 29 degrees of freedom\nMultiple R-squared:  0.8268,    Adjusted R-squared:  0.8148 \nF-statistic: 69.21 on 2 and 29 DF,  p-value: 9.109e-12"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#时间序列回归-1",
+    "href": "assets/slides/lecture4.html#时间序列回归-1",
+    "title": "时间序列分析与预测",
+    "section": "时间序列回归",
+    "text": "时间序列回归\n时间序列回归模型可以写为\n\nx_t = \\beta_0 + \\beta_1 z_{t1} + \\beta_2 z_{t2} + \\cdots + \\beta_q z_{tq} + w_t ,\n\n其中，z_{tk} 代表第 k 个解释变量的在时间 t 的观测值，w_t 是白噪声。\n\n解释变量也可以是时间 t 的函数，例如\n\nz_t = \\beta_0 + \\beta_1 t + \\beta_2 x_t + w_t .\n\n\n可以用最小二乘法估计系数 \\beta_0, \\beta_1, \\dots。"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#估计商品的线性趋势",
+    "href": "assets/slides/lecture4.html#估计商品的线性趋势",
+    "title": "时间序列分析与预测",
+    "section": "估计商品的线性趋势",
+    "text": "估计商品的线性趋势\n\n利用 astsa 包中的数据集 salmon，考虑简单的回归模型\n\nx_t = \\beta_0 + \\beta_1 t + w_t"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#估计商品的线性趋势-1",
+    "href": "assets/slides/lecture4.html#估计商品的线性趋势-1",
+    "title": "时间序列分析与预测",
+    "section": "估计商品的线性趋势",
+    "text": "估计商品的线性趋势\n\nsalmon 是 ts 变量，可以用 time() 提取时间信息\n\n\nsummary(fit1 &lt;- lm(salmon ~ time(salmon)))\n\n\nCall:\nlm(formula = salmon ~ time(salmon))\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.69187 -0.62453 -0.07024  0.51561  2.34959 \n\nCoefficients:\n               Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -503.08947   34.44164  -14.61   &lt;2e-16 ***\ntime(salmon)    0.25290    0.01713   14.76   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.8814 on 164 degrees of freedom\nMultiple R-squared:  0.5706,    Adjusted R-squared:  0.568 \nF-statistic: 217.9 on 1 and 164 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#估计商品的线性趋势-2",
+    "href": "assets/slides/lecture4.html#估计商品的线性趋势-2",
+    "title": "时间序列分析与预测",
+    "section": "估计商品的线性趋势",
+    "text": "估计商品的线性趋势\n\ntsplot(salmon, col=4, lwd=3, ylab=\"USD per KG\", main=\"Monthly Norwegian Salmon Export Price\")\nabline(fit1)"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#模型选择",
+    "href": "assets/slides/lecture4.html#模型选择",
+    "title": "时间序列分析与预测",
+    "section": "模型选择",
+    "text": "模型选择\n在众多备选模型中，我们希望找到解释能力最强的。那么什么是解释能力最强呢？下面我们列出几种参考指标。\n\n\n\n均方误差（mean squared error, MSE）：\n\\mathrm{MSE} = \\sum(x_t - \\widehat{x}_t)^2 / (n-q-1) = \\mathrm{SSE} / (n-q-1) 。越小越好\n\n\n\n\n\n\n决定系数（coefficient of determination, R2）：\nR^2 = \\sum(\\widehat{x}_t - \\overline{x})^2 / \\sum(x_t - \\overline{x})^2 = \\mathrm{SSR}/\\mathrm{SST} = 1 - \\mathrm{SSE}/\\mathrm{SST}。越大越好\n\n\n\n\n\n\nAIC（Akaike’s information criterion）：\n\\mathrm{AIC} = \\log\\big(\\mathrm{SSE}(k)/{T}\\big) + (T+2k)/{T}，k 为模型中参数的个数。越小越好\n\n\n\n\n\n\nBIC（Bayesian information criterion）：\n\\mathrm{BIC} = \\log\\big(\\mathrm{SSE}(k)/{T}\\big) + (k\\log T)/{T}， k 为模型中参数的个数。越小越好"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#带有滞后变量的回归",
+    "href": "assets/slides/lecture4.html#带有滞后变量的回归",
+    "title": "时间序列分析与预测",
+    "section": "带有滞后变量的回归",
+    "text": "带有滞后变量的回归\n我们从样本 CCF 中发现 6 个月前的南方涛动指数 SOI 和现在的新鱼数量指数相关。为了验证这个命题，可以考虑下面的回归模型\n\nR_t = \\beta_0 + \\beta_1 S_{t-6} + w_t ,\n\n其中 R_t 是 t 月的新鱼数量指数，S_{t-6} 是 t-6 月的 SOI。\n\n模型的拟合结果是 \\widehat{R}_t = \\underset{(1.09)}{65.79} - \\underset{(2.78)}{44.28}\\, S_{t-6}。我们假设 w_t 是白噪声，但是下面的回归残差图并不支持这一假设。这说明模型是错误的。"
+  },
+  {
+    "objectID": "assets/slides/lecture4.html#用-dynlm-包进行带有滞后变量的回归",
+    "href": "assets/slides/lecture4.html#用-dynlm-包进行带有滞后变量的回归",
+    "title": "时间序列分析与预测",
+    "section": "用 dynlm 包进行带有滞后变量的回归",
+    "text": "用 dynlm 包进行带有滞后变量的回归\nR 中的 lm() 命令对处理时间序列数据的滞后项并不拿手，详情可参考书中第三章中的例 3.6。用 dynlm 包中的 dynlm() 命令可以更简单的完成带有滞后变量的回归。\n\nlibrary(dynlm)\nsummary(fit3 &lt;- dynlm(rec ~ L(soi,6)))\n\n\nTime series regression with \"ts\" data:\nStart = 1950(7), End = 1987(9)\n\nCall:\ndynlm(formula = rec ~ L(soi, 6))\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-65.187 -18.234   0.354  16.580  55.790 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   65.790      1.088   60.47   &lt;2e-16 ***\nL(soi, 6)    -44.283      2.781  -15.92   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 22.5 on 445 degrees of freedom\nMultiple R-squared:  0.3629,    Adjusted R-squared:  0.3615 \nF-statistic: 253.5 on 1 and 445 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "materials3.html",
+    "href": "materials3.html",
+    "title": "第三讲：时间序列的特征",
+    "section": "",
+    "text": "Slides\n\n点击 slides 画面，然后用   键或   键控制翻页。点击 slides 左下角的  图标可以发现更多功能。\n如何将 slides 保存到自己的电脑上：\n\n点击下面的链接会在新的标签页里打开 slides\nassets/slides/lecture3.html\n在该页面点击键盘的 e 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）\n右键选择打印该页面，然后选择保存为 PDF 文件。\n\n\n\n\n补充学习\n\n阅读书中第二章关于 Wold 分解的部分。\n阅读书中的例 2.24 关于联合平稳性的例子。\n\n\n\n\n课后练习\n章后练习 2.8（自己完成后再看参考答案）\n\n问题参考答案\n\n\n考虑两个时间序列\n\n\\begin{align*}\nx_t &= w_t ,\\\\\ny_t &= w_t - \\theta w_{t-1} + u_t ,\n\\end{align*}\n 其中 w_t 和 u_t 是独立的白噪声序列，且满足 \\mathrm{var}(w_t) = \\sigma_w^2，\\mathrm{var}(u_t) = \\sigma_u^2。\\theta 是未知系数。\n\n将 \\{y_t\\} 的自相关函数（ACF）\\rho_y(h) 写成 \\sigma_w^2、\\sigma_u^2 和 \\theta 的函数。\n写出 \\{x_t\\} 和 \\{y_t\\} 的交叉相关函数（CCF）\\rho_{xy}(h)。\n证明 \\{x_t\\} 和 \\{y_t\\} 是联合平稳的。\n\n\n\na.\n\n\\begin{align*}\n\\gamma_y(t,t) &= \\mathrm{var}(y_t) \\\\\n&= \\mathrm{var}(w_t) + \\theta^2 \\mathrm{var}(w_{t-1}) + \\mathrm{var}(u_t) \\\\\n&= (1+\\theta^2) \\sigma_w^2 + \\sigma_u^2 \\\\\n\\gamma_y(t-1,t) &= \\mathrm{cov}(y_{t-1}, y_t) \\\\\n&= -\\theta \\, \\mathrm{var}(w_{t-1}) = - \\theta \\sigma_w^2 \\\\\n\\gamma_y(t+1,t) &= \\mathrm{cov}(y_{t+1}, y_t) \\\\\n&= -\\theta \\, \\mathrm{var}(w_{t}) = - \\theta \\sigma_w^2 \\\\\n\\gamma_y(s,t) &= 0 \\text{ for all other } s \\text{ and } t\n\\end{align*}\n 因此，\\{y_t\\} 的自相关函数可以写成\n\n\\rho_y(h) =\n\\begin{cases}\n1 & \\text{if } h = 0 \\\\\n\\frac{- \\theta \\sigma_w^2}{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2} & \\text{if } h = 1 \\\\\n0 & \\text{if } h &gt; 1 \\\\\n\\end{cases}\n\nb.\n\n\\gamma_{xy}(h) =\n\\begin{cases}\n\\sigma_w^2 & \\text{if } h = 0 \\\\\n0 & \\text{if } h &gt; 0 \\\\\n-\\theta \\sigma_w^2 & \\text{if } h = -1 \\\\\n0 & \\text{if } h &lt; -1\n\\end{cases}\n\n因此，\\{x_t\\} 和 \\{y_t\\} 的交叉相关函数为\n\n\\rho_{xy}(h) =\n\\begin{cases}\n\\frac{\\sigma_w}{\\sqrt{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2}} & \\text{if } h = 0 \\\\\n0 & \\text{if } h &gt; 0 \\\\\n- \\frac{\\theta \\sigma_w}{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2} & \\text{if } h = -1 \\\\\n0 & \\text{if } h &lt; -1\n\\end{cases}\n\nc.\n\\{x_t\\} 是白噪声序列，因此是平稳的。由 \\mu_{yt} = 0 和 (a) 的结果可知 \\{y_t\\} 也是平稳的。\n由 (b) 可知两者的交叉协方差函数仅是滞后期 h 的函数，因此它们是联合平稳的。",
+    "crumbs": [
+      "huangjp.com",
+      "课程资料",
+      "第三讲：时间序列的特征"
+    ]
   }
 ]
