@@ -636,7 +636,7 @@
 </div>
 
 <aside><div>
-<p>注：计算平稳序列的样本自协方差时需要除以 <span class="math inline">T</span> 而不是 <span class="math inline">T-h</span>。因为样本自协方差可以用来估计均值的抽样方差（即 <span class="math inline">\mathrm{var}(\overline{x})</span>），除以 <span class="math inline">T</span> 可以保证该方差的估计值不为负。</p>
+<p>注：计算平稳序列的样本自协方差时需要除以 <span class="math inline">T</span> 而不是 <span class="math inline">T-|h|</span>。因为样本自协方差可以用来估计均值的抽样方差（即 <span class="math inline">\mathrm{var}(\overline{x})</span>），除以 <span class="math inline">T</span> 可以保证该方差的估计值不为负。</p>
 </div></aside></section>
 <section id="平稳假设下的样本-acf-和-ccf" class="slide level2 smaller">
 <h2>平稳假设下的样本 ACF 和 CCF</h2>
@@ -797,10 +797,7 @@ Autocovariances of series 'x', by lag
 <section id="soi-和新鱼数量的相关性分析" class="slide level2">
 <h2>SOI 和新鱼数量的相关性分析</h2>
 
-<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div style="font-size: 70%">
-<p>与第一讲不同，这里我们用回 astsa 包中的 soi 数据集。</p>
-</div>
-</section>
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section id="soi-和新鱼数量的相关性分析-1" class="slide level2">
 <h2>SOI 和新鱼数量的相关性分析</h2>
 

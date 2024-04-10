@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>《时间序列分析与预测》课程网站 - 第一讲：导论</title>
+<title>《时间序列分析与预测》课程网站 - 第一次练习课及作业</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,8 +29,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./materials2.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./exam.html" rel="next">
+<link href="./materials4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,9 +41,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,49 +69,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -191,7 +111,7 @@ window.Quarto = {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">第一讲：导论</h1>
+          <h1 class="quarto-secondary-nav-title">第一次练习课及作业</h1>
         </a>     
     </div>
   </nav>
@@ -210,16 +130,16 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">课程资料</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./materials1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">第一讲：导论</span></a>
   </div>
 </li>
@@ -245,16 +165,16 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">练习课与作业</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial1.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">第一次练习课及作业</span></a>
   </div>
 </li>
@@ -276,10 +196,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#补充信息" id="toc-补充信息" class="nav-link" data-scroll-target="#补充信息">补充信息</a></li>
-  <li><a href="#学习资料" id="toc-学习资料" class="nav-link" data-scroll-target="#学习资料">学习资料</a></li>
-  <li><a href="#课后练习" id="toc-课后练习" class="nav-link" data-scroll-target="#课后练习">课后练习</a></li>
+  <li><a href="#复习与准备" id="toc-复习与准备" class="nav-link active" data-scroll-target="#复习与准备">复习与准备</a></li>
+  <li><a href="#课堂练习导入外部数据" id="toc-课堂练习导入外部数据" class="nav-link" data-scroll-target="#课堂练习导入外部数据">课堂练习：导入外部数据</a></li>
+  <li><a href="#作业" id="toc-作业" class="nav-link" data-scroll-target="#作业">作业</a></li>
   </ul>
 </nav>
     </div>
@@ -288,7 +207,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">第一讲：导论</h1>
+<h1 class="title d-none d-lg-block">第一次练习课及作业</h1>
 </div>
 
 
@@ -306,89 +225,34 @@ window.Quarto = {
 
 
 <hr>
-<section id="slides" class="level3">
-<h3 class="anchored" data-anchor-id="slides">Slides</h3>
-<iframe class="slide-deck" src="assets/slides/lecture1.html"></iframe>
-<p>点击 slides 画面，然后用 <i class="bi-arrow-up-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-down-square " style="" role="img" aria-hidden="true"></i> 键或 <i class="bi-arrow-left-square " style="" role="img" aria-hidden="true"></i> <i class="bi-arrow-right-square " style="" role="img" aria-hidden="true"></i> 键控制翻页。点击 slides 左下角的 <i class="bi-list " style="" role="img" aria-hidden="true"></i> 图标可以发现更多功能。</p>
-<p><strong>如何将 slides 保存到自己的电脑上</strong>：</p>
+<section id="复习与准备" class="level3">
+<h3 class="anchored" data-anchor-id="复习与准备">复习与准备</h3>
 <ol type="1">
-<li>点击下面的链接会在新的标签页里打开 slides<br>
-<a href="assets/slides/lecture1.html" target="_blank">assets/slides/lecture1.html</a></li>
-<li>在该页面点击键盘的 <code>e</code> 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）</li>
-<li>右键选择打印该页面，然后选择保存为 PDF 文件。</li>
+<li>针对前 4 周授课内容中出现的 R 命令进行自主练习</li>
+<li>完成第一讲和第二讲的课后练习</li>
 </ol>
 <hr>
 </section>
-<section id="补充信息" class="level3">
-<h3 class="anchored" data-anchor-id="补充信息">补充信息</h3>
-<p><strong>R和RStudio的安装</strong>：访问 <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>，根据提示依次下载并安装 R 和 RStudio</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="assets/images/posit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Mac 上显示的下载页面"><img src="assets/images/posit.png" class="img-fluid rounded border shadow-lg figure-img" alt="Mac 上显示的下载页面"></a></p>
-<figcaption>Mac 上显示的下载页面</figcaption>
-</figure>
-</div>
-<p><strong>在 RSTudio 中设置 Primary CRAN repository （下载 package 的默认镜像网站）</strong>：用 RStudio 默认的设定下载安装 package（包），有时会因网络连接超时而失败。解决该问题的方法是选择中国境内的镜像网站，具体方法如下</p>
-<p>第一步：打开 RStudio，从菜单中选择 <code>Tools &gt; Global Options... &gt; Packages</code> （如下图）<br>
-</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="assets/images/rstudio-option-package.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="assets/images/rstudio-option-package.png" class="img-fluid rounded border shadow-lg quarto-figure quarto-figure-center figure-img" width="300"></a></p>
-</figure>
-</div>
-<p>第二步：点击 Primary CRAN repository 右侧的 <code>Change...</code> 键，从弹出的窗口中选择中国境内的镜像网站（下图中选择的是清华大学的镜像网站 TUNA）<br>
-</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="assets/images/rstudio-cran-repo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="assets/images/rstudio-cran-repo.png" class="img-fluid rounded border shadow-lg quarto-figure quarto-figure-center figure-img" width="300"></a></p>
-</figure>
-</div>
-<p><strong>安装本门课程所需的包 <code>xts</code> 和 <code>astsa</code></strong>：从菜单中选择 <code>Tools &gt; Install Packages...</code> ，如下图</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="assets/images/rstudio-installpackages.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="assets/images/rstudio-installpackages.png" class="img-fluid rounded border shadow-lg quarto-figure quarto-figure-center figure-img" width="300"></a></p>
-</figure>
-</div>
-<p>在 Packages 一栏中输入 <code>xts, astsa</code> ，并确保下面的 <i class="bi-check-square " style="" role="img" aria-hidden="true"></i> Install dependencies 已被选中，然后点击 Install。</p>
-<p><strong>astsa 包中的绘图命令 <code>tsplot</code></strong>：</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(astsa)          <span class="co"># 调用 astsa 包</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))     <span class="co"># 将绘图窗口分割成上下两部分</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers)     <span class="co"># 使用 R 的标准绘图命令 plot</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tsplot</span>(AirPassengers)   <span class="co"># 使用 astsa 包中的绘图命令 tsplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="materials1_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>由上图可见，用 <code>tsplot</code> 命令画出的图更漂亮，可读性更高。实际上 <code>tsplot</code> 命令是在原生的 <code>plot</code> 命令的基础上对四边空白等参数进行了优化调整。需要注意的是，上面的命令在 RStudio 里会呈现不同的效果，因为 RStudio 会根据 Plots 窗口的大小自动调整图的长宽比。</p>
-<hr>
-</section>
-<section id="学习资料" class="level3">
-<h3 class="anchored" data-anchor-id="学习资料">学习资料</h3>
+<section id="课堂练习导入外部数据" class="level3">
+<h3 class="anchored" data-anchor-id="课堂练习导入外部数据">课堂练习：导入外部数据</h3>
 <ol type="1">
-<li>National Centers for Environmental Information, National Oceanic and Atmospheric Administration. El Niño/Southern Oscillation (ENSO). <a href="https://www.ncei.noaa.gov/access/monitoring/enso/" class="uri">https://www.ncei.noaa.gov/access/monitoring/enso/</a></li>
-<li>Revisiting the Hare vs Lynx Cycle. <a href="https://www.ealt.ca/blog/hare-vs-lynx-cycle" class="uri">https://www.ealt.ca/blog/hare-vs-lynx-cycle</a></li>
-<li>Shumway, R., H., &amp; Stoffer, D. S. (2017). <em>Time Series Analysis and Its Applications: With R Examples</em> (4th ed.), Appendix R: R Supplement. Springer. <i class="bi-filetype-pdf " style="" role="img" aria-hidden="true"></i> <a href="assets/files/TSA4_AppendixR.pdf" target="_blank">打开文件</a></li>
-<li>Torfs, R., &amp; Brauer, C. (2023). A (very) short introduction to R. <i class="bi-filetype-pdf " style="" role="img" aria-hidden="true"></i> <a href="assets/files/A_very_short_introduction_to_R.pdf" target="_blank">打开文件</a></li>
-<li>Grolemund, G. (2014). <em>Hands-On Programming with R</em>. O’Reily. <a href="https://rstudio-education.github.io/hopr/" class="uri">https://rstudio-education.github.io/hopr/</a></li>
+<li>下载2022年盐田区空气质量数据文件 <i class="bi-filetype-csv " style="" role="img" aria-hidden="true"></i> <a href="assets/data/Yantian_air_2022d.csv">Yantian_air_2022d.csv</a>（数据来源：<a href="https://opendata.sz.gov.cn/data/dataSet/toDataDetails/29200_03700921">深圳市政府数据开放平台</a>）</li>
+<li>用 Excel 打开此文件，观察数据中是否存在缺失值（如存在，找到代表缺失值的符号）</li>
+<li>通过帮助或网络搜索了解命令 <code>read.csv()</code>，并将文件中的数据读取并保存到变量 <code>airdata</code> 中（注意文件的保存位置，以及如何正确读取缺失值）</li>
+<li>确认 <code>airdata</code> 的变量类型是 data frame，并通过右上的 Environment 窗口观察 <code>airdata</code> 中每一列的数据类型</li>
+<li>将列 <code>SJ</code> 的名称改为 <code>Time</code>，并将其数据改为 Date 类型（了解 <code>names()</code> 命令和 <code>as.Date()</code> 命令）</li>
+<li>将 <code>Time</code> 和 <code>ID</code> 以外的七列数据转为 <code>xts</code> 类型并保存到变量 <code>airdata1</code> 中（了解 <code>xts</code> 包中的 <code>xts()</code> 命令，并注意转换类型时如何指定时间值）</li>
+<li>针对七个空气质量变量画时间序列图，并尝试发现和 AQI 数据特征最相似的变量</li>
 </ol>
 <hr>
 </section>
-<section id="课后练习" class="level3">
-<h3 class="anchored" data-anchor-id="课后练习">课后练习</h3>
-<ol type="1">
-<li>探索 R 中自带的数据 mtcars，可用 <code>help()</code> 命令查询帮助文件，例如 <code>help(class)</code> 。</li>
-<li>用 R 生成 500 个服从自由度为 20 的 <span class="math inline">t</span> 分布的随机数（可自己在网上寻找合适的命令），画出该样本的直方图，并计算样本均值和方差。</li>
-</ol>
+<section id="作业" class="level3">
+<h3 class="anchored" data-anchor-id="作业">作业</h3>
+<p>将上面课堂练习的结果记录在一个 Word 文档中，需包括 R 程序和对应的运行结果。</p>
+<p>将文档命名为 “T1_学号_姓名.docx”，例如 “T1_2024123456_张三.docx”，并通过微助教提交。</p>
+<p><strong>截止日期</strong>：2024年4月14日（星期日）23:59:59</p>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Mac 上显示的下载页面</span>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -801,13 +665,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link  aria-label=" 课程信息"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">课程信息</span>
+      <a href="./materials4.html" class="pagination-link  aria-label=" 第四讲：参数的估计"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第四讲：参数的估计</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./materials2.html" class="pagination-link" aria-label="第二讲：时间序列模型简介">
-        <span class="nav-page-text">第二讲：时间序列模型简介</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./exam.html" class="pagination-link" aria-label="关于考试">
+        <span class="nav-page-text">关于考试</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -829,31 +693,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 
