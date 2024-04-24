@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="黄嘉平">
   <title>《时间序列分析与预测》课程网站 - 时间序列分析与预测</title>
@@ -97,7 +97,7 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script defer="" src="../../assets/KaTeX/0.16.10/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -112,7 +112,7 @@
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <link rel="stylesheet" href="../../assets/KaTeX/0.16.10/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -804,12 +804,12 @@
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>simData <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)      <span class="co"># 生成 100 个服从 N(10, 2^2) 的随机数</span></span>
 <span id="cb38-2"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(simData), <span class="fu">var</span>(simData), <span class="fu">sd</span>(simData))   <span class="co"># 求样本均值、样本方差和样本标准差</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.181700  4.110613  2.027465</code></pre>
+<pre><code>[1] 10.013867  4.332744  2.081524</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">summary</span>(simData)                              <span class="co"># 显示 sim 的描述性统计量</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  4.778   8.989  10.287  10.182  11.489  14.232 </code></pre>
+  3.525   8.824  10.029  10.014  11.228  16.528 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">hist</span>(simData)                                     <span class="co"># 画直方图</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
@@ -823,31 +823,31 @@
 <span id="cb43-3"><a></a>mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Qtr1      Qtr2      Qtr3      Qtr4
-1980  9.715997 13.509510 10.146541 10.034904
-1981  8.093750 11.186336 11.231293  9.489865
-1982 13.271173 12.025708 10.485199 10.589933
-1983  8.026146 10.449093  6.675624 12.046447
-1984 12.854981  6.221459 10.760018 11.279966
-1985 11.366918 12.849917 10.505580 10.838504
-1986 12.340611 10.455439  8.867223 10.459988
-1987 12.090835 11.307732  8.474143 13.844349
-1988 10.212852 12.066804 10.232543  9.344047
-1989  8.878874  5.796364 10.491938 12.709536
-1990  9.168044  9.071902 10.124239 10.042129
-1991 12.333218 14.232474  8.981591 11.844566
-1992 10.616418  6.953849 10.947140  9.399758
-1993  8.411345  4.920722  9.605705  9.411284
-1994  5.579701  8.525811  8.991313  9.773000
-1995 11.656717  8.789736  9.510233  9.301731
-1996 10.290305 12.299964 11.631660  4.778065
-1997 11.037794 12.734616  8.247587  9.502970
-1998 11.338616  9.736130 10.242770 12.917074
-1999 12.725473  8.680158 11.441472 10.284185
-2000  8.501930  5.351419  8.548675 13.129240
-2001  6.675139 13.658603 10.625211 10.129813
-2002 11.981655  8.184048 11.056295 12.561859
-2003 10.115852 10.752687 11.003357  9.125332
-2004 10.346530  8.474483  7.794845 12.843443</code></pre>
+1980 10.763970  6.868949  7.696821  8.280666
+1981 10.943278 10.424632  5.965518  8.010782
+1982 12.813853  7.909699  8.860680 15.350541
+1983  9.159630  7.916539 10.815018  8.643193
+1984  8.737703 10.883867  9.109261 12.831496
+1985 10.257710  9.112253  9.808422 12.061489
+1986 10.394229  8.816415 10.030802  9.909063
+1987  7.700941  8.917058 11.409477 10.577864
+1988 10.523256  8.517762  8.838080  9.474905
+1989  9.320946  9.247931 11.503774  9.877652
+1990 11.026117 13.461926 13.558944 11.968730
+1991  9.911113 10.434653 10.900594  7.258577
+1992 11.964030  8.826454 10.026710  9.673344
+1993  9.655519  9.869659 11.589982 10.515010
+1994 11.211515 16.528485  8.180578  4.565581
+1995 11.278432 11.768039  8.572395 11.309972
+1996 11.790692  9.771691 10.477090  7.946770
+1997 10.019104 12.805699 10.421760 15.110990
+1998  8.150882  5.418250  8.188620 10.474290
+1999 11.196548  8.608458  8.803809  5.906401
+2000  9.902436 10.554481 12.055008 10.123931
+2001 11.466347  9.434882 11.089841 12.584068
+2002  7.186068 10.922873 10.206984  8.907765
+2003 11.306863  3.525399 12.285183  8.890452
+2004 11.535029 11.886977  9.300935 10.787608</code></pre>
 </div>
 </div>
 </section>
@@ -1187,6 +1187,24 @@
         // clear code selection
         e.clearSelection();
       });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1223,7 +1241,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
