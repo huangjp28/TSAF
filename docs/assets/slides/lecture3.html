@@ -473,11 +473,11 @@
 <div class="callout-content">
 <p>三点移动平均序列 <span class="math inline">v_t = \tfrac{1}{3}(w_{t-1} + w_t + w_{t+1})</span> 的自协方差函数为</p>
 <p><span class="math display">
-\gamma_r(s,t) = \mathrm{cov}(v_s, v_t) = \mathrm{cov}\big[ \tfrac{1}{3}(w_{s-1} + w_s + w_{s+1}) + \tfrac{1}{3}(w_{t-1} + w_t + w_{t+1}) \big]
+\gamma_v(s,t) = \mathrm{cov}(v_s, v_t) = \mathrm{cov}\big[ \tfrac{1}{3}(w_{s-1} + w_s + w_{s+1}) + \tfrac{1}{3}(w_{t-1} + w_t + w_{t+1}) \big]
 </span> 当 <span class="math inline">s=t</span> 时，</p>
 <p><span class="math display">
 \begin{align*}
-\gamma_r(t,t) &amp;= \tfrac{1}{9}\big[ \mathrm{cov}(w_{t-1}, w_{t-1}) + \mathrm{cov}(w_t, w_t) + \mathrm{cov}(w_{t+1}, w_{t+1}) \big] \\
+\gamma_v(t,t) &amp;= \tfrac{1}{9}\big[ \mathrm{cov}(w_{t-1}, w_{t-1}) + \mathrm{cov}(w_t, w_t) + \mathrm{cov}(w_{t+1}, w_{t+1}) \big] \\
 &amp;= \tfrac{1}{3} \sigma_w^2
 \end{align*}
 </span></p>
@@ -488,9 +488,9 @@
 &amp;= \tfrac{2}{9} \sigma_w^2
 \end{align*}
 </span></p>
-<p>同理可得其他情况下的 <span class="math inline">\gamma_r(s,t)</span>，因此</p>
+<p>同理可得其他情况下的 <span class="math inline">\gamma_v(s,t)</span>，因此</p>
 <p><span class="math display">
-\gamma_r(s,t) =
+\gamma_v(s,t) =
 \begin{cases}
 \tfrac{1}{3} \sigma_w^2 &amp; \text{ if } s=t, \phantom{\Big(}\\
 \tfrac{2}{9} \sigma_w^2 &amp; \text{ if } |s-t| = 1, \phantom{\Big(}\\
@@ -673,14 +673,14 @@ h\sigma_w^2 &amp; \text{if } h = 0 \\
 <div class="callout-content">
 <p>当 <span class="math inline">v_t = \tfrac{1}{3}(w_{t-1} + w_t + w_{t+1})</span> 时，其均值函数为 <span class="math inline">\mu_{vt} = 0</span>，自协方差和自相关函数分别为</p>
 <p><span class="math display">
-\gamma_r(h) =
+\gamma_v(h) =
 \begin{cases}
 \tfrac{1}{3} \sigma_w^2 &amp; \text{ if } h=0,\\
 \tfrac{2}{9} \sigma_w^2 &amp; \text{ if } h = \pm 1, \\
 \tfrac{1}{9} \sigma_w^2 &amp; \text{ if } h = \pm 2, \\
 0 &amp; \text{ if } |h| &gt; 2,
 \end{cases} \quad \quad
-\rho(h) =
+\rho_v(h) =
 \begin{cases}
 1  &amp; \text{ if } h=0,\\
 2/3  &amp; \text{ if } h = \pm 1, \\

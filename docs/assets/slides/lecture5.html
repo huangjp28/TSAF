@@ -409,7 +409,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">时间序列分析与预测</h1>
-  <p class="subtitle"><strong>第一讲：导论</strong><br>
+  <p class="subtitle"><strong>第五讲：探索性数据分析</strong><br>
 </p><hr><p></p>
 
 <div class="quarto-title-authors">
@@ -424,455 +424,310 @@
 </div>
 
 </section>
-<section class="slide level2">
-
-<iframe width="100%" height="100%" src="https://embed.windy.com/embed.html?type=map&amp;location=coordinates&amp;metricRain=mm&amp;metricTemp=°C&amp;metricWind=m/s&amp;zoom=3&amp;overlay=wind&amp;product=ecmwf&amp;level=surface&amp;lat=7.362&amp;lon=114.082&amp;detailLat=22.53572677696482&amp;detailLon=113.92938569088489&amp;detail=true&amp;message=true" frameborder="0"></iframe>
-</section>
 <section>
-<section id="时间序列分析第一步" class="title-slide slide level1 center">
-<h1>时间序列分析第一步</h1>
+<section id="数据的平稳化" class="title-slide slide level1 center">
+<h1>数据的平稳化</h1>
 
 </section>
-<section id="什么是时间序列数据" class="slide level2 smaller">
-<h2>什么是时间序列数据？</h2>
-<p>数据的基本结构</p>
+<section id="为什么需要平稳时间序列" class="slide level2 smaller">
+<h2>为什么需要平稳时间序列？</h2>
+<p>对于时间序列数据的预测，最重要的是测量序列值之间的依赖关系，例如自相关系数。</p>
 <ul>
-<li><p>变量：描述观测对象的某个特定特征的量，例如身高、收入、年龄等</p></li>
-<li><p>如何区分观测值：</p>
-<ul>
-<li><p>依个体区分：每一个个体为一个观测单位，例如个人、企业、国家等</p></li>
-<li><p>依时间节点区分：每一个时间点为一个观测单位，例如年、月、日等</p></li>
-</ul></li>
+<li><p>非平稳序列的自相关系数 <span class="math inline">\rho(s,t)</span> 依赖时间 <span class="math inline">s</span> 和 <span class="math inline">t</span></p></li>
+<li><p>平稳序列的自相关系数 <span class="math inline">\rho(h)</span> 仅依赖时间之差 <span class="math inline">h=s-t</span></p></li>
 </ul>
-<p>基本数据类型：</p>
-<ul>
-<li><p>时间序列数据（time series data）：对同一个体在多个时间点进行观测</p></li>
-<li><p>横截面数据（cross-sectional data）：对多个个体在同一时间点进行观测</p></li>
-<li><p>面板数据（panel data）：对多个个体在多个时间点进行重复观测</p></li>
-</ul>
-<p>GDP 是什么类型的数据？</p>
-</section>
-<section id="不同类型的-gdp-数据" class="slide level2">
-<h2>不同类型的 GDP 数据</h2>
-<p>GDP 是变量，结合不同的观测方式会形成不同的数据类型</p>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>时间序列 GDP</strong></p>
-</div>
-<div class="callout-content">
-<p>例如，中国在2000-2022年间的年度GDP是时间序列数据</p>
-</div>
-</div>
-</div>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>横截面 GDP</strong></p>
-</div>
-<div class="callout-content">
-<p>例如，G20各国在2022年的年度GDP是横截面数据</p>
-</div>
-</div>
-</div>
-<div class="callout callout-important no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>面板 GDP</strong></p>
-</div>
-<div class="callout-content">
-<p>例如，G20各国在2000-2022年间的年度GDP是面板数据</p>
-</div>
-</div>
-</div>
-</section>
-<section id="时间序列分析的目的和方法" class="slide level2 smaller">
-<h2>时间序列分析的目的和方法</h2>
-<p>为什么要分析时间序列数据？</p>
-<ul>
-<li><p>时间序列数据在生活中随处可见</p></li>
-<li><p>通过分析时间序列数据，可以帮助我们更好的预测未来可能发生的情况</p></li>
-</ul>
-<p>怎样分析时间序列数据？</p>
-<ol type="1">
-<li><p>首先要对数据进行观察 <span class="math inline">\to</span> 变化趋势是什么？是否存在周期性？</p></li>
-<li><p>然后假设<strong>数据生成模型</strong> <span class="math inline">\to</span> 白噪声、自回归、随机游走等</p></li>
-<li><p>之后利用手中的数据对模型进行拟合 <span class="math inline">\to</span> 求出模型中的关键参数</p></li>
-<li><p>验证模型、选择模型 <span class="math inline">\to</span> 如果需要可以回到第 2 步</p></li>
-<li><p>最后利用模型预测未来</p></li>
-</ol>
-</section>
-<section id="时间序列数据的例子-1" class="slide level2 smaller">
-<h2>时间序列数据的例子 1</h2>
-<p>例 1.1 强生公司的季度每股收益（quarterly earnings per share, QEPS）</p>
+<p>现实中的数据多是非平稳序列，比如例 1.1 中的强生公司的股票收益</p>
 
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section id="时间序列数据的例子-2" class="slide level2 smaller">
-<h2>时间序列数据的例子 2</h2>
-<p>例 1.2 全球变暖与气候变化：纵轴为当年的平均地表温度与 1951-1980 年间的平均值之差</p>
-
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="footer">
-<p>更多数据可参考 <a href="https://climate.nasa.gov/" class="uri">https://climate.nasa.gov/</a></p>
-</div>
-</section>
-<section id="时间序列数据的例子-3" class="slide level2 smaller">
-<h2>时间序列数据的例子 3</h2>
-<p>例 1.3 道琼斯工业平均指数（DIJA）</p>
-
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="时间序列数据的例子-4" class="slide level2 smaller">
-<h2>时间序列数据的例子 4</h2>
-<p><strong>ENSO</strong> (El Niño-Southern Oscillation) <strong>厄尔尼诺南方涛动</strong>是赤道地区太平洋海面温度和气压的一种综合气候现象。</p>
-<div class="columns">
-<div class="column" style="width:70%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/ENSO.png" class="quarto-figure quarto-figure-center" width="676"></p>
-</figure>
-</div>
-</div><div class="column" style="width:30%;">
-<p>厄尔尼诺（El Niño）现象指太平洋中东部海面温度过高。</p>
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="非平稳序列之趋势平稳模型" class="slide level2 smaller">
+<h2>非平稳序列之：趋势平稳模型</h2>
+<p>在众多非平稳序列中，最简单也是最容易处理的一类序列是<strong>趋势平稳</strong>模型，即序列在其趋势周围是平稳的（或去掉趋势之后是平稳的）。这类模型可以表达为</p>
+<p><span class="math display">
+x_t = \mu_t + y_t
+</span></p>
+<p>其中 <span class="math inline">x_t</span> 是目标序列，<span class="math inline">\mu_t</span> 代表趋势，<span class="math inline">y_t</span> 是一个平稳序列。</p>
 <p><br></p>
-<p>拉尼娜（La Niña）现象指该区域海面温度过低。</p>
-<p><br></p>
-<p>南方涛动指该地区海面气压和西太平洋地区气压的相对变化。</p>
-</div>
-</div>
+<p>我们可以尝试将 <span class="math inline">y_t</span> 从 <span class="math inline">x_t</span> 中分离出来，即消除趋势。例如，如果我们能获得趋势项的估计值 <span class="math inline">\widehat{\mu}_t</span> ，就可以计算残差</p>
+<p><span class="math display">
+\widehat{y}_t = x_t - \widehat{\mu}_t
+</span></p>
+<p>然后针对 <span class="math inline">\widehat{y}_t</span> 进行建模分析。</p>
+</section>
+<section id="挪威三文鱼价格线性趋势" class="slide level2 smaller">
+<h2>挪威三文鱼价格：线性趋势</h2>
 
-<aside><div>
-<p>更多信息可参考 <a href="https://www.climate.gov/news-features/blogs/enso/what-el-niño–southern-oscillation-enso-nutshell">www.climate.gov</a> 或 <a href="https://iri.columbia.edu/our-expertise/climate/enso/enso-essentials/">iri.columbia.edu</a></p>
-</div></aside></section>
-<section id="时间序列数据的例子-4-1" class="slide level2 smaller">
-<h2>时间序列数据的例子 4</h2>
-<p>例 1.4 厄尔尼诺南方涛动指数 (El Niño-Southern Oscillation Index)<sup>1</sup> 与新鱼数量指数</p>
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><p>假设线性趋势 <span class="math inline">\mu_t = \beta_0 + \beta_1 t</span>。此模型的最小二乘估计结果是 <span class="math inline">\widehat{\mu}_t = -503 + 0.25t</span>，因此消除趋势后的序列是</p>
+<p><span class="math display">
+\widehat{y}_t = x_t + 503 - 0.25 t
+</span></p>
+</section>
+<section id="挪威三文鱼价格线性趋势-1" class="slide level2 smaller">
+<h2>挪威三文鱼价格：线性趋势</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lecture1_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>SOI = 塔希提与澳大利亚达尔文海面气压之差的指数，正值代表拉尼娜现象，负值代表厄尔尼诺现象</p></li></ol></aside></section>
-<section id="时间序列数据的例子-5" class="slide level2 smaller">
-<h2>时间序列数据的例子 5</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/population-density-fluctuations-snowshoe-hare-predator-effect.jpg" class="quarto-figure quarto-figure-center" width="600"></p>
-</figure>
-</div>
-</div><div class="column" style="width:45%;">
-<p><br></p>
-<p>猞猁（shēlì, lynx）是中型猫科动物，喜欢捕食小型啮齿动物和鹿等，其中白靴兔（snowshoe hare）是加拿大猞猁最喜欢的猎物。</p>
-<p><br></p>
-<p>图中的数据是加拿大哈德逊湾公司收购的皮毛数量，可以代表种群数量的变化。</p>
-</div>
-</div>
-</section>
-<section id="时间序列数据的例子-5-1" class="slide level2 smaller">
-<h2>时间序列数据的例子 5</h2>
-<p>例 1.5 捕食者与猎物：加拿大猞猁 (Canada lynx) 与白靴兔 (snow shoe hare)</p>
-
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
-<section id="时间序列数据的例子-6" class="slide level2 smaller">
-<h2>时间序列数据的例子 6</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p>fMRI（functional magnetic resonance imaging，功能磁共振成像）是通过核磁共振现象观测脑活动的一种技术。它常被用来研究脑的哪些区域对特定的外部刺激产生反应，从而尝试理解脑的工作原理。</p>
-</div><div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/BOLDSignal.jpg" class="quarto-figure quarto-figure-center" width="666"></p>
+<p><img data-src="lecture5_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 
 <aside><div>
-<p>图像取自 <a href="http://fmri.ucsd.edu/Research/whatisfmri.html" class="uri">http://fmri.ucsd.edu/Research/whatisfmri.html</a></p>
+<p>从 ACF 可以看出，三文鱼价格似乎存在一个3年左右的变化周期。</p>
 </div></aside></section>
-<section id="时间序列数据的例子-6-1" class="slide level2 smaller">
-<h2>时间序列数据的例子 6</h2>
-<p>脑的某个区域的神经元活动时，其消耗的能量和氧会增加。为了补充氧气，附近血管中的血液流量会暂时性增加，使局部血液中的氧合血红蛋白浓度增加，脱氧血红蛋白浓度减少。前者的磁共振强度更高。由血氧浓度变化引起的 MRI 信号强度变化称为 BOLD（blood oxygenation level dependent, 血氧水平依赖）。</p>
+<section id="差分序列" class="slide level2 smaller">
+<h2>差分序列</h2>
+<p>差分是两个相邻时间点上变量的差，例如 <span class="math inline">x_t - x_{t-1}</span> ，可以写成 <span class="math inline">\Delta x_t</span> 或 <span class="math inline">\nabla x_t</span> 。对于很多非平稳的时间序列数据，其差分序列 <span class="math inline">\{\nabla x_t\}</span> 往往是平稳的。</p>
+<p>例如，如果 <span class="math inline">x_t = \mu_t + y_t</span> 中的趋势项 <span class="math inline">\mu_t</span> 遵循带漂移项的随机游走模型，即</p>
+<p><span class="math display">
+\mu_t = \delta + \mu_{t-1} + w_t ,
+</span></p>
+<p>其中 <span class="math inline">w_t</span> 是白噪声且与 <span class="math inline">y_t</span> 独立。此时，<span class="math inline">x_t</span> 的差分序列是</p>
+<p><span class="math display">
+\begin{align*}
+x_t - x_{t-1} &amp;= (\mu_t - \mu_{t-1}) + (y_t - y_{t-1}) \\
+&amp;= \delta + w_t + (y_t - y_{t-1})
+\end{align*}
+</span></p>
+<p>因为 <span class="math inline">y_t</span> 是平稳的，可以证明 <span class="math inline">y_t - y_{t-1}</span> 也是平稳的，因此差分序列 <span class="math inline">\{\nabla x_t\}</span> 是平稳序列。</p>
+</section>
+<section id="挪威三文鱼价格差分" class="slide level2 smaller">
+<h2>挪威三文鱼价格：差分</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lecture5_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+
+<aside><div>
+<p>注意：差分法无法估计 <span class="math inline">y_t</span>，只能产生平稳序列 <span class="math inline">\nabla x_t</span>。ACF 显示 <span class="math inline">\nabla x_t</span> 表现出较强的年周期性。</p>
+</div></aside></section>
+<section id="后移算子backshift-operator" class="slide level2 smaller">
+<h2>后移算子（backshift operator）</h2>
+<p>我们也可以针对差分序列 <span class="math inline">\nabla x_t</span> 再取一次差分，也就是二阶差分。一阶差分可以移除线性趋势，那么二阶差分就可以移除二次趋势（即趋势项是时间的二次函数）。以此类推，我们也可以计算更高阶的差分。为了简化符号，我们定义后移算子。</p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>后移算子（backshift operator）</strong></p>
+</div>
+<div class="callout-content">
+<p>后移算子 <span class="math inline">B</span> 定义为</p>
+<p><span class="math display">
+B x_t = x_{t-1}
+</span></p>
+<p>因此，<span class="math inline">B^2 x_t = B(Bx_t) = Bx_{t-1} = x_{t-2}</span>。以此类推，可得 <span class="math inline">B^k x_t = x_{t-k}</span>。<span class="math inline">B^{-1}</span> 称为前移算子。</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>1 阶差分 <span class="math inline">\nabla x_t = x_t - Bx_t = (1-B)x_t</span>。因此，<span class="math inline">1-B</span> 可以作为差分算子。<span class="math inline">d</span> 阶差分可以表达为</p>
+<p><span class="math display">
+\nabla^d x_t = (1-B)^d x_t
+</span></p>
+<p>例如，二阶差分是 <span class="math inline">\nabla^2 x_t = (1-B)^2 x_t = (1-2B+B^2)x_t = x_t -2x_{t-1} + x_{t-2}</span>。</p>
+</div>
+</div>
+</div>
+</section>
+<section id="全球地表温度数据例-1.2" class="slide level2 smaller">
+<h2>全球地表温度数据（例 1.2）</h2>
+
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="全球地表温度数据的差分" class="slide level2 smaller">
+<h2>全球地表温度数据的差分</h2>
+
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="含有滞后项的回归" class="title-slide slide level1 center">
+<h1>含有滞后项的回归</h1>
+
+</section>
+<section id="滞后散点图lagplot" class="slide level2 smaller">
+<h2>滞后散点图（lagplot）</h2>
+<p>滞后散点图是序列 <span class="math inline">x_t</span> 和自身的滞后项 <span class="math inline">x_{t-h}</span> 或另一序列的滞后项 <span class="math inline">y_{t-h}</span> 之间的散点图，通过观察两者间的关系（或添加拟合的回归曲线），可以帮助我们判断应把哪一项加入回归模型的解释变量。</p>
 <div class="columns">
 <div class="column" style="width:70%;">
-<div class="quarto-figure quarto-figure-center">
+<div class="cell">
+<div class="cell-output-display">
+<div>
 <figure>
-<p><img data-src="lecture1supp/fmri.png" class="quarto-figure quarto-figure-center" width="673"></p>
+<p><img data-src="lecture5_files/figure-revealjs/unnamed-chunk-7-1.png" width="768"></p>
 </figure>
 </div>
+</div>
+</div>
 </div><div class="column" style="width:30%;">
-<p><br></p>
-<p>从图中可见，从刺激开始到 BOLD 信号达到峰值之间存在 6 秒左右的延迟。</p>
+<div style="font-size: 80%">
+<ul>
+<li>图中的曲线是局部加权平滑法（locally weighted scatter plot smoothing, LOWESS）的拟合结果</li>
+<li>右上角的数字是样本自相关系数</li>
+<li>自相关系数测量的是两个变量间的线性相关关系，如果 LOWESS 拟合结果明显不是直线，则说明样本自相关系数意义不大</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="南方涛动指数-soi-和新鱼数量间的滞后散点图" class="slide level2 smaller">
+<h2>南方涛动指数 SOI 和新鱼数量间的滞后散点图</h2>
+
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
+<section id="用-soi-预测新鱼数量含有滞后项的回归" class="slide level2 smaller">
+<h2>用 SOI 预测新鱼数量：含有滞后项的回归</h2>
+<p>样本 CCF 显示，SOI 指数的滞后项 <span class="math inline">S_{t-5}, S_{t-6}, S_{t-7}, S_{t-8}</span> 和新鱼数量 <span class="math inline">R_t</span> 间存在较强的负相关。通过 LOWESS 拟合则可以看出，在 SOI 取正值和负值时，相关性的强弱是不同的。因此，我们可以假设下面的回归模型：</p>
+<p><span class="math display">
+R_t = \beta_0 + \beta_1 S_{t-6} + \beta_2 D_{t-6} + \beta_3 S_{t-6} \times D_{t-6} + w_t , \quad D_{t} = \begin{cases} 1 &amp; \text{if }\ S_t \geq 0 \\ 0 &amp; \text{if }\ S_t &lt; 0 \end{cases}
+</span></p>
+<p>这里我们只用了 <span class="math inline">S_{t-6}</span> 作为独立变量，但是加入了虚拟变量 <span class="math inline">D_{t-6}</span> 以及交互项，这样就可以在 <span class="math inline">S_{t-6}</span> 取正值和负值时获得不同的线性拟合结果。这个模型的另一种写法是</p>
+<p><span class="math display">
+R_t =
+\begin{cases}
+\beta_0 + \beta_1 S_{t-6} + w_t &amp; \text{if }\ S_{t-6} \geq 0 \\
+(\beta_0 + \beta_2) + (\beta_1 + \beta_3) S_{t-6} + w_t &amp; \text{if }\ S_{t-6} &lt; 0
+\end{cases}
+</span></p>
+</section>
+<section id="用-soi-预测新鱼数量含有滞后项的回归-1" class="slide level2 smaller">
+<h2>用 SOI 预测新鱼数量：含有滞后项的回归</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(zoo) <span class="co"># zoo allows easy use of the variable names</span></span>
+<span id="cb1-2"><a></a>dummy <span class="ot">=</span> <span class="fu">ifelse</span>(soi<span class="sc">&lt;</span><span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb1-3"><a></a>fish <span class="ot">=</span> <span class="fu">as.zoo</span>(<span class="fu">ts.intersect</span>(rec, <span class="at">soiL6=</span><span class="fu">lag</span>(soi,<span class="sc">-</span><span class="dv">6</span>), <span class="at">dL6=</span><span class="fu">lag</span>(dummy,<span class="sc">-</span><span class="dv">6</span>))) </span>
+<span id="cb1-4"><a></a><span class="fu">summary</span>(fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(rec<span class="sc">~</span> soiL6<span class="sc">*</span>dL6, <span class="at">data=</span>fish, <span class="at">na.action=</span><span class="cn">NULL</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rec ~ soiL6 * dL6, data = fish, na.action = NULL)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-63.291 -15.821   2.224  15.791  61.788 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   74.479      2.865  25.998  &lt; 2e-16 ***
+soiL6        -15.358      7.401  -2.075   0.0386 *  
+dL6           -1.139      3.711  -0.307   0.7590    
+soiL6:dL6    -51.244      9.523  -5.381  1.2e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 21.84 on 443 degrees of freedom
+Multiple R-squared:  0.4024,    Adjusted R-squared:  0.3984 
+F-statistic: 99.43 on 3 and 443 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="用-soi-预测新鱼数量含有滞后项的回归-2" class="slide level2 smaller">
+<h2>用 SOI 预测新鱼数量：含有滞后项的回归</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">plot</span>(fish<span class="sc">$</span>soiL6, fish<span class="sc">$</span>rec, <span class="at">panel.first=</span><span class="fu">Grid</span>(), <span class="at">col=</span><span class="st">"dodgerblue3"</span>) </span>
+<span id="cb3-2"><a></a><span class="fu">points</span>(fish<span class="sc">$</span>soiL6, <span class="fu">fitted</span>(fit), <span class="at">pch=</span><span class="dv">3</span>, <span class="at">col=</span><span class="dv">6</span>) </span>
+<span id="cb3-3"><a></a><span class="fu">lines</span>(<span class="fu">lowess</span>(fish<span class="sc">$</span>soiL6, fish<span class="sc">$</span>rec), <span class="at">col=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="用-soi-预测新鱼数量含有滞后项的回归-3" class="slide level2 smaller">
+<h2>用 SOI 预测新鱼数量：含有滞后项的回归</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lecture5_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 
 <aside><div>
-<p>图像取自 <a href="http://fmri.ucsd.edu/Research/whatisfmri.html" class="uri">http://fmri.ucsd.edu/Research/whatisfmri.html</a></p>
-</div></aside></section>
-<section id="时间序列数据的例子-6-2" class="slide level2 smaller">
-<h2>时间序列数据的例子 6</h2>
-<p>例 1.6 fMRI 图像</p>
-
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><div style="font-size: 0.8em">
-<p>在脑皮层（cortex）、丘脑（thalamus）和小脑（cerebellum）中各取两个部位进行观测。</p>
-<p>试验针对麻醉的志愿者的手部进行强电流刺激（100Hz, 50mA）以模拟手术时皮肤被切割的痛感。框线代表刺激与否，每次刺激和间隔时长为 32 秒。</p>
-</div>
-</section></section>
+<p>注意：残差依然不像是白噪声，后面我们会尝试寻找更合适的模型。</p>
+</div></aside></section></section>
 <section>
-<section id="r-和-rstudio-第一步" class="title-slide slide level1 center">
-<h1>R 和 RStudio 第一步</h1>
+<section id="平滑方法" class="title-slide slide level1 center">
+<h1>平滑方法</h1>
 
 </section>
-<section id="r-的几种用法" class="slide level2 smaller">
-<h2>R 的几种用法</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">R 图形界面</a></li><li><a href="#tabset-1-2">with RStudio</a></li><li><a href="#tabset-1-3">Terminal/Command Prompt</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="quarto-figure quarto-figure-center">
+<section id="移动平均" class="slide level2 smaller">
+<h2>移动平均</h2>
+<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>以序列 <span class="math inline">\{x_t\}</span> 定义的对称移动平均序列定义为</p>
+<p><span class="math display">
+m_t = \sum_{j= -k}^k a_j x_{t-j}
+</span></p>
+<p>其中 <span class="math inline">a_j = a_{-j} \geq 0, \ \sum_{j=-k}^k a_j = 1</span>。</p>
+</div>
+</div>
+</div>
+
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
+<section id="核平滑kernel-smoothing" class="slide level2 smaller">
+<h2>核平滑（kernel smoothing）</h2>
+<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>以核函数（kernel function）定义权重的移动平均过程称为核平滑（kernel smoothing），即</p>
+<p><span class="math display">
+m_t = \sum_{i=1}^n w_i(t) x_{i}
+</span></p>
+<p>其中 <span class="math inline">w_i(t) = K\big(\frac{t-t_i}{b}\big)\big/\sum_{k=1}^n K\big(\frac{t-t_k}{b}\big)</span> 是权重，<span class="math inline">K(\cdot)</span> 是核函数。通常使用正态核（normal kermel）<span class="math inline">K(z)=\exp(-z^2/2)</span>。</p>
+</div>
+</div>
+</div>
+
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<section id="lowess" class="slide level2 smaller">
+<h2>LOWESS</h2>
+<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>LOWESS 的方法比较复杂，但其核心思想接近最近邻回归（nearest-neighbor regression）。</p>
+<p><span class="math inline">k</span> 最近邻回归是用 <span class="math inline">\{x_{t-k/2}, \dots, x_{t}, \dots, x_{t+k/2}\}</span> 中的观测值通过回归预测 <span class="math inline">x_t</span>，并令 <span class="math inline">m_t = \hat{x}_t</span>。LOWESS 在这个基础上会对观测值进行加权，距离 <span class="math inline">x_t</span> 越近的观测值权重越大。</p>
+</div>
+</div>
+</div>
+<div style="font-size: 80%">
+<p>R 中有 <code>lowess()</code> 和 <code>loess()</code> 两个函数。基本的 LOWESS 拟合使用 <code>lowess()</code> 即可，而 <code>loess()</code> 会丢弃数据的时间序列属性，但可以指定回归函数并输出置信区间。</p>
+</div>
+
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="经典结构模型decomposition" class="slide level2 smaller">
+<h2>经典结构模型（decomposition）</h2>
+<p>时间序列分析的一个传统方法是将时间序列数据分解成趋势（<span class="math inline">T_t</span>），季节性（<span class="math inline">S_t</span>）和噪声（<span class="math inline">N_t</span>）三部分，即</p>
+<p><span class="math display">
+x_t = T_t + S_t + N_t
+</span></p>
+<p>当数据存在循环周期时，也可加入周期项（<span class="math inline">C_t</span>）。</p>
+<p>需要注意的是，这种分解没有唯一解。根据不同的方法或不同的参数设定可以获得不同的结果。最简单的分解方法是：</p>
+<ol type="1">
+<li>估计趋势项 <span class="math inline">T_t</span>；</li>
+<li>针对去趋势的序列 <span class="math inline">x_t - \hat{T}_t</span>，用季节虚拟变量进行回归以估计 <span class="math inline">S_t</span>；</li>
+<li>获得残差 <span class="math inline">\hat{N}_t = x_t - \hat{T}_t - \hat{S}_t</span>。</li>
+</ol>
+<p>R 中可用的命令包括 <code>decompose()</code> 和 <code>stl()</code> 。前者利用了移动平均平滑法，后者则使用 loess 估计趋势项。</p>
+</section>
+<section id="夏威夷酒店入住率使用-decompose" class="slide level2 smaller">
+<h2>夏威夷酒店入住率：使用 <code>decompose()</code></h2>
+
+<img data-src="lecture5_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="夏威夷酒店入住率使用-stl" class="slide level2 smaller">
+<h2>夏威夷酒店入住率：使用 <code>stl()</code></h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
 <figure>
-<p><img data-src="lecture1supp/Rapp.png" class="quarto-figure quarto-figure-center" width="514"></p>
+<p><img data-src="lecture5_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div id="tabset-1-2">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/RStusio.png" class="quarto-figure quarto-figure-center" width="861"></p>
-</figure>
 </div>
-</div>
-<div id="tabset-1-3">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lecture1supp/RTerminal.png" class="quarto-figure quarto-figure-center" width="655"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="r-的命令与执行结果" class="slide level2 smaller">
-<h2>R 的命令与执行结果</h2>
-<p>数值带入与运算</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">100</span>    <span class="co"># 将 &lt;- 右侧的值带入左侧的变量中，但不显示结果</span></span>
-<span id="cb1-2"><a></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb1-3"><a></a>c <span class="ot">&lt;-</span> a <span class="sc">*</span> b<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb1-4"><a></a><span class="fu">print</span>(c)    <span class="co"># 显示 c 的值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 400</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><br></p>
-<p>探索数据</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">class</span>(AirPassengers)    <span class="co"># 显示 AirPassengers 的数据类型</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ts"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">tsp</span>(AirPassengers)      <span class="co"># 显示 "ts" 类数据的起始时间，结束时间，频度</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1949.000 1960.917   12.000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">window</span>(AirPassengers, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1955</span>,<span class="dv">1</span>), <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">1957</span>,<span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-1955 242 233 267 269 270 315 364 347 312 274 237 278
-1956 284 277 317 313 318 374 413 405 355 306 271 306
-1957 315 301 356 348 355 422 465 467 404 347 305 336</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="时间序列图" class="slide level2 smaller">
-<h2>时间序列图</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(astsa)</span>
-<span id="cb9-2"><a></a><span class="fu">tsplot</span>(AirPassengers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div style="font-size: 0.8em">
-<p><code>tsplot</code> 是 astsa 包中的命令，需要用 <code>library</code> 命令调用后才能使用</p>
-</div>
-</section>
-<section id="vector-和-matrix" class="slide level2 smaller">
-<h2>vector 和 matrix</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)    <span class="co"># c() 将多个输入变量“联结”为一个 vector</span></span>
-<span id="cb10-2"><a></a>x                     <span class="co"># 不使用 print() 也可以显示变量的值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10 20 30 40 50</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"新学期"</span>, <span class="st">"新气象"</span>)</span>
-<span id="cb12-2"><a></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "新学期" "新气象"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">class</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">is.vector</span>(y)          <span class="co"># 确认 y 是否为 vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)    <span class="co"># 生成一个 2 x 3 的矩阵</span></span>
-<span id="cb18-2"><a></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    3    5
-[2,]    2    4    6</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="访问变量中特定的值" class="slide level2 smaller">
-<h2>访问变量中特定的值</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>y[<span class="dv">2</span>]      <span class="co"># 调取 y 中的第 2 个值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "新气象"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]    <span class="co"># 调取 x 中的第 2 至 4 个值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20 30 40</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>z[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]    <span class="co"># 调取 z 中的第 1 至 4 个值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>z[<span class="dv">2</span>,<span class="dv">3</span>]    <span class="co"># 调取 z 的第 (2,3) 要素</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>z[<span class="dv">1</span>,]     <span class="co"># 调取 z 的第 1 行</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 3 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>z[,<span class="dv">2</span>]     <span class="co"># 调取 z 的第 2 列</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3 4</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="data-frame" class="slide level2 smaller">
-<h2>Data Frame</h2>
-<p>data frame 是 R 中储存多元数据的一种形式，以 matrix 形式存在，每一列代表一个变量，每一行代表一个观测值</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>t <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">14</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">29</span>, <span class="dv">39</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">101</span>, <span class="dv">102</span>))</span>
-<span id="cb32-2"><a></a>t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   a  b   c
-1 11 19 100
-2 12 29 101
-3 14 39 102</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><br></p>
-<p>调取特定的变量或值</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>t<span class="sc">$</span>b         <span class="co"># 调取 t 中变量 b 的全部内容</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 19 29 39</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>t<span class="sc">$</span>a[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]    <span class="co"># 调取 t 中变量 a 的第 2 至 3 个值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12 14</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="统计分析" class="slide level2 smaller">
-<h2>统计分析</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>simData <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)      <span class="co"># 生成 100 个服从 N(10, 2^2) 的随机数</span></span>
-<span id="cb38-2"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(simData), <span class="fu">var</span>(simData), <span class="fu">sd</span>(simData))   <span class="co"># 求样本均值、样本方差和样本标准差</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.185594  4.442609  2.107750</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">summary</span>(simData)                              <span class="co"># 显示 sim 的描述性统计量</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  4.987   8.726  10.430  10.186  11.753  14.358 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">hist</span>(simData)                                     <span class="co"># 画直方图</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lecture1_files/figure-revealjs/unnamed-chunk-16-1.png" style="width:70.0%" class="r-stretch"></section>
-<section id="时间序列数据" class="slide level2 smaller">
-<h2>时间序列数据</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>mydata <span class="ot">&lt;-</span> <span class="fu">ts</span>(simData, <span class="at">start =</span> <span class="dv">1980</span>, <span class="at">frequency =</span> <span class="dv">4</span>)  <span class="co"># 将 simData 转变为时间序列 "ts" 数据</span></span>
-<span id="cb43-2"><a></a>                                                    <span class="co"># 设起始时间为 1980 年，频度为季度</span></span>
-<span id="cb43-3"><a></a>mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Qtr1      Qtr2      Qtr3      Qtr4
-1980 10.708035 10.700184 10.590652  5.815130
-1981 10.558424  8.927074 10.845801  8.611551
-1982  8.669853  9.856191 11.749573  8.767241
-1983  7.889519 10.253606  7.278482  9.822089
-1984  9.532941 12.446561 11.835172  5.292277
-1985 12.094152  7.116744 11.045953  8.164090
-1986 10.522020 12.033055  6.326227 10.266675
-1987  8.040169  7.700520  9.693745 11.406721
-1988 13.458012 13.776898 11.625925 12.312619
-1989 12.613230 11.761831 12.050888  8.319644
-1990  8.798271  7.919231  7.936008  6.268639
-1991 10.910109 12.783742  9.376673 13.203286
-1992 10.410863  9.299600 12.281544 11.022189
-1993 10.130211  7.662521 11.979844  9.626112
-1994 10.416211 12.077936  8.744918 11.685580
-1995  8.601648  8.094782 11.444585 11.739039
-1996 11.703520  6.963215 10.911149 11.377305
-1997 11.305646 13.409401  7.310022  9.967388
-1998 12.420338 12.779758  6.322634  9.154425
-1999 13.794065  9.838574 11.159178  8.206040
-2000 11.683190 13.219041 12.664969 13.185881
-2001 12.284056  6.318481 12.706599  9.518151
-2002 14.357976 10.444750  9.307620  7.866954
-2003  9.021633 10.863902  9.284822  4.987490
-2004  9.121473 11.301007 10.619663 10.286105</code></pre>
-</div>
-</div>
-</section>
-<section id="错误提示" class="slide level2">
-<h2>错误提示</h2>
-
-<img data-src="lecture1supp/R_error.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="学会用-script-文件工作" class="slide level2">
-<h2>学会用 script 文件工作</h2>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<p><span class="math inline">\to</span> RStudio 操作演示</p>
-</section>
-<section id="进一步学习" class="slide level2">
-<h2>进一步学习</h2>
-<p>我们会随着课程的进展逐渐介绍更多 R 的命令</p>
-<p><br></p>
-<p>如何自学（或复习）R 的基本用法？</p>
-<ul>
-<li><p>参考学习资料中列举的资料</p></li>
-<li><p>有效利用 RStudio &gt; Help &gt; R Help 中的内容</p></li>
-<li><p>如果遇到运行错误，学会根据错误提示寻找问题所在</p></li>
-<li><p>熟能生巧</p></li>
-</ul>
 
 <div class="quarto-auto-generated-content">
 <p><img src="logo.png" class="slide-logo"></p>
@@ -881,7 +736,6 @@
 </div>
 </div>
 </section></section>
-
     </div>
   </div>
 

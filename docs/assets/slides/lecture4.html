@@ -565,15 +565,15 @@
 <div class="columns">
 <div class="column" style="width:60%;">
 <div style="font-size: 0.8em">
-<p>计算 <span class="math inline">\hat{\gamma}_x(t-2, t)</span> 时，有效数据的范围是 <span class="math inline">t = 3, 4, \cdots, 7</span> ，因此</p>
+<p>例如计算 <span class="math inline">\hat{\gamma}_x(t-2, t)</span> 时，有效数据的范围是 <span class="math inline">t = 3, 4, \cdots, 7</span> ，因此我们首先会想到下面的算式</p>
 <p><span class="math display">
-\widehat{\gamma}_x(t-2, t) = \frac{1}{5-2} \sum_{t=3}^7(x_{t-2} - \widehat{\mu}_{x,t-2})(x_{t} - \widehat{\mu}_{x,t})
+\widehat{\gamma}_x(t-2, t) = \frac{1}{7-2} \sum_{t=3}^7(x_{t-2} - \widehat{\mu}_{x,t-2})(x_{t} - \widehat{\mu}_{x,t})
 </span></p>
-<p>如果假定 <span class="math inline">\{x_t\}</span> 是<strong>平稳序列</strong>，则</p>
+<p>如果假定 <span class="math inline">\{x_t\}</span> 是<strong>平稳序列</strong>，则有</p>
 <p><span class="math display">
 \widehat{\mu}_{xs} = \widehat{\mu}_{xt} = \frac{1}{T} \sum_{t=1}^T x_t = \overline{x}
 </span></p>
-<p>样本自协方差函数为</p>
+<p>而实际上样本自协方差函数的通用表达式为</p>
 <p><span class="math display">
 \widehat{\gamma}_x(h) = \mathrm{cov}(x_{t+h}, x_t) = \frac{1}{T} \sum_{t=\max\{1,1-h\}}^{\min\{T-h, T\}}(x_{t+h} - \overline{x})(x_{t} - \overline{x})
 </span></p>
@@ -753,7 +753,7 @@ Autocovariances of series 'x', by lag
 &amp;= \mathrm{cov}(x_{t+h-5}, x_t)= \gamma_x(h-5) \\
 \Rightarrow \quad \rho_{yx}(h) &amp;= \frac{\gamma_x(h-5)}{\sqrt{\gamma_x(0)\gamma_y(0)}}
 \end{align*}
-</span> 因为 <span class="math inline">\{x_t\}</span> 是白噪声序列，<span class="math inline">\gamma_x(h-5)</span> 尽在 <span class="math inline">h=5</span> 时取正值。由此可以推断，样本 CCF <span class="math inline">\widehat{\rho}_{yx}(h)</span> 在 <span class="math inline">h=5</span> 时为正，其他时候接近零。</p>
+</span> 因为 <span class="math inline">\{x_t\}</span> 是白噪声序列，<span class="math inline">\gamma_x(h-5)</span> 仅在 <span class="math inline">h=5</span> 时取正值。由此可以推断，样本 CCF <span class="math inline">\widehat{\rho}_{yx}(h)</span> 在 <span class="math inline">h=5</span> 时为正，其他时候接近零。</p>
 </div>
 <div id="tabset-1-2">
 <div class="cell">
@@ -1351,16 +1351,16 @@ z_t = \beta_0 + \beta_1 t + \beta_2 x_t + w_t .
 <p><br></p>
 <p>可以用最小二乘法估计系数 <span class="math inline">\beta_0, \beta_1, \dots</span>。</p>
 </section>
-<section id="估计商品的线性趋势" class="slide level2">
-<h2>估计商品的线性趋势</h2>
+<section id="估计商品价格的线性趋势" class="slide level2">
+<h2>估计商品价格的线性趋势</h2>
 
 <img data-src="lecture4_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"><p>利用 astsa 包中的数据集 <code>salmon</code>，考虑简单的回归模型</p>
 <p><span class="math display">
 x_t = \beta_0 + \beta_1 t + w_t
 </span></p>
 </section>
-<section id="估计商品的线性趋势-1" class="slide level2 smaller">
-<h2>估计商品的线性趋势</h2>
+<section id="估计商品价格的线性趋势-1" class="slide level2 smaller">
+<h2>估计商品价格的线性趋势</h2>
 <div style="font-size: 100%">
 <p><code>salmon</code> 是 ts 变量，可以用 <code>time()</code> 提取时间信息</p>
 </div>
@@ -1388,7 +1388,7 @@ F-statistic: 217.9 on 1 and 164 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="估计商品的线性趋势-2" class="slide level2 smaller">
+<section id="估计商品的线性趋势" class="slide level2 smaller">
 <h2>估计商品的线性趋势</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">tsplot</span>(salmon, <span class="at">col=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">ylab=</span><span class="st">"USD per KG"</span>, <span class="at">main=</span><span class="st">"Monthly Norwegian Salmon Export Price"</span>)</span>
