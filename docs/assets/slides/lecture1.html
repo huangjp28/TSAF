@@ -804,12 +804,12 @@
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>simData <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)      <span class="co"># 生成 100 个服从 N(10, 2^2) 的随机数</span></span>
 <span id="cb38-2"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(simData), <span class="fu">var</span>(simData), <span class="fu">sd</span>(simData))   <span class="co"># 求样本均值、样本方差和样本标准差</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.185594  4.442609  2.107750</code></pre>
+<pre><code>[1] 9.965752 3.710885 1.926366</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">summary</span>(simData)                              <span class="co"># 显示 sim 的描述性统计量</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  4.987   8.726  10.430  10.186  11.753  14.358 </code></pre>
+  5.636   8.824   9.903   9.966  11.362  14.554 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">hist</span>(simData)                                     <span class="co"># 画直方图</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
@@ -823,31 +823,31 @@
 <span id="cb43-3"><a></a>mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Qtr1      Qtr2      Qtr3      Qtr4
-1980 10.708035 10.700184 10.590652  5.815130
-1981 10.558424  8.927074 10.845801  8.611551
-1982  8.669853  9.856191 11.749573  8.767241
-1983  7.889519 10.253606  7.278482  9.822089
-1984  9.532941 12.446561 11.835172  5.292277
-1985 12.094152  7.116744 11.045953  8.164090
-1986 10.522020 12.033055  6.326227 10.266675
-1987  8.040169  7.700520  9.693745 11.406721
-1988 13.458012 13.776898 11.625925 12.312619
-1989 12.613230 11.761831 12.050888  8.319644
-1990  8.798271  7.919231  7.936008  6.268639
-1991 10.910109 12.783742  9.376673 13.203286
-1992 10.410863  9.299600 12.281544 11.022189
-1993 10.130211  7.662521 11.979844  9.626112
-1994 10.416211 12.077936  8.744918 11.685580
-1995  8.601648  8.094782 11.444585 11.739039
-1996 11.703520  6.963215 10.911149 11.377305
-1997 11.305646 13.409401  7.310022  9.967388
-1998 12.420338 12.779758  6.322634  9.154425
-1999 13.794065  9.838574 11.159178  8.206040
-2000 11.683190 13.219041 12.664969 13.185881
-2001 12.284056  6.318481 12.706599  9.518151
-2002 14.357976 10.444750  9.307620  7.866954
-2003  9.021633 10.863902  9.284822  4.987490
-2004  9.121473 11.301007 10.619663 10.286105</code></pre>
+1980  8.590432 12.738864 13.527495 10.605377
+1981  9.366908 12.537746 12.109877  9.341081
+1982  7.561175  8.841184 11.437164  9.020002
+1983  9.262016  9.103535 12.575601 11.102918
+1984 12.070868  7.033637  7.824323 11.161861
+1985  8.912599 13.494598 10.185011  8.518554
+1986 11.089235  9.774326  9.825322 11.396924
+1987 10.388691  9.159256 10.099798  9.875571
+1988  9.021521 10.507555 11.187148 10.388298
+1989  7.290094  6.251527  8.170309  8.056265
+1990  5.636105 13.085067 10.522897  9.174636
+1991  8.577362 10.764758 12.629438 14.554467
+1992 12.633202 11.099669  8.960895 10.377175
+1993  6.389411 10.650284  9.929486 12.970603
+1994  8.452212  8.975750 11.350229  7.568048
+1995  8.772953 12.992118  9.838188  9.277183
+1996 11.721349  9.115946  9.273120  9.049509
+1997  8.885557 11.419807  7.939586  7.083347
+1998  6.712625  6.382576  8.287647  6.285810
+1999 11.454300 10.069194 10.180675  9.814681
+2000 12.046657  6.875670 12.703627 10.188280
+2001 12.345928  9.571350  7.403219 10.723513
+2002 11.099041  7.808599 10.079300 11.581863
+2003 11.461207  8.376340 11.103811 11.757871
+2004  9.558180 13.718927 10.319889  9.589425</code></pre>
 </div>
 </div>
 </section>

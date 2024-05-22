@@ -441,14 +441,14 @@
     "href": "assets/slides/lecture1.html#统计分析",
     "title": "时间序列分析与预测",
     "section": "统计分析",
-    "text": "统计分析\n\nsimData &lt;- rnorm(100, mean = 10, sd = 2)      # 生成 100 个服从 N(10, 2^2) 的随机数\nc(mean(simData), var(simData), sd(simData))   # 求样本均值、样本方差和样本标准差\n\n[1] 10.185594  4.442609  2.107750\n\nsummary(simData)                              # 显示 sim 的描述性统计量\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  4.987   8.726  10.430  10.186  11.753  14.358 \n\nhist(simData)                                     # 画直方图"
+    "text": "统计分析\n\nsimData &lt;- rnorm(100, mean = 10, sd = 2)      # 生成 100 个服从 N(10, 2^2) 的随机数\nc(mean(simData), var(simData), sd(simData))   # 求样本均值、样本方差和样本标准差\n\n[1] 9.965752 3.710885 1.926366\n\nsummary(simData)                              # 显示 sim 的描述性统计量\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  5.636   8.824   9.903   9.966  11.362  14.554 \n\nhist(simData)                                     # 画直方图"
   },
   {
     "objectID": "assets/slides/lecture1.html#时间序列数据",
     "href": "assets/slides/lecture1.html#时间序列数据",
     "title": "时间序列分析与预测",
     "section": "时间序列数据",
-    "text": "时间序列数据\n\nmydata &lt;- ts(simData, start = 1980, frequency = 4)  # 将 simData 转变为时间序列 \"ts\" 数据\n                                                    # 设起始时间为 1980 年，频度为季度\nmydata\n\n          Qtr1      Qtr2      Qtr3      Qtr4\n1980 10.708035 10.700184 10.590652  5.815130\n1981 10.558424  8.927074 10.845801  8.611551\n1982  8.669853  9.856191 11.749573  8.767241\n1983  7.889519 10.253606  7.278482  9.822089\n1984  9.532941 12.446561 11.835172  5.292277\n1985 12.094152  7.116744 11.045953  8.164090\n1986 10.522020 12.033055  6.326227 10.266675\n1987  8.040169  7.700520  9.693745 11.406721\n1988 13.458012 13.776898 11.625925 12.312619\n1989 12.613230 11.761831 12.050888  8.319644\n1990  8.798271  7.919231  7.936008  6.268639\n1991 10.910109 12.783742  9.376673 13.203286\n1992 10.410863  9.299600 12.281544 11.022189\n1993 10.130211  7.662521 11.979844  9.626112\n1994 10.416211 12.077936  8.744918 11.685580\n1995  8.601648  8.094782 11.444585 11.739039\n1996 11.703520  6.963215 10.911149 11.377305\n1997 11.305646 13.409401  7.310022  9.967388\n1998 12.420338 12.779758  6.322634  9.154425\n1999 13.794065  9.838574 11.159178  8.206040\n2000 11.683190 13.219041 12.664969 13.185881\n2001 12.284056  6.318481 12.706599  9.518151\n2002 14.357976 10.444750  9.307620  7.866954\n2003  9.021633 10.863902  9.284822  4.987490\n2004  9.121473 11.301007 10.619663 10.286105"
+    "text": "时间序列数据\n\nmydata &lt;- ts(simData, start = 1980, frequency = 4)  # 将 simData 转变为时间序列 \"ts\" 数据\n                                                    # 设起始时间为 1980 年，频度为季度\nmydata\n\n          Qtr1      Qtr2      Qtr3      Qtr4\n1980  8.590432 12.738864 13.527495 10.605377\n1981  9.366908 12.537746 12.109877  9.341081\n1982  7.561175  8.841184 11.437164  9.020002\n1983  9.262016  9.103535 12.575601 11.102918\n1984 12.070868  7.033637  7.824323 11.161861\n1985  8.912599 13.494598 10.185011  8.518554\n1986 11.089235  9.774326  9.825322 11.396924\n1987 10.388691  9.159256 10.099798  9.875571\n1988  9.021521 10.507555 11.187148 10.388298\n1989  7.290094  6.251527  8.170309  8.056265\n1990  5.636105 13.085067 10.522897  9.174636\n1991  8.577362 10.764758 12.629438 14.554467\n1992 12.633202 11.099669  8.960895 10.377175\n1993  6.389411 10.650284  9.929486 12.970603\n1994  8.452212  8.975750 11.350229  7.568048\n1995  8.772953 12.992118  9.838188  9.277183\n1996 11.721349  9.115946  9.273120  9.049509\n1997  8.885557 11.419807  7.939586  7.083347\n1998  6.712625  6.382576  8.287647  6.285810\n1999 11.454300 10.069194 10.180675  9.814681\n2000 12.046657  6.875670 12.703627 10.188280\n2001 12.345928  9.571350  7.403219 10.723513\n2002 11.099041  7.808599 10.079300 11.581863\n2003 11.461207  8.376340 11.103811 11.757871\n2004  9.558180 13.718927 10.319889  9.589425"
   },
   {
     "objectID": "assets/slides/lecture1.html#错误提示",
@@ -488,7 +488,7 @@
     "href": "tutorial2.html",
     "title": "第二次练习课及作业",
     "section": "",
-    "text": "复习与准备\n复习第三讲和第四讲的内容，并完成课后练习\n\n\n\n课堂练习：时间序列的模拟与回归分析\n\n完成书中第二章课后习题2.11\n\n模拟一个长度为 n=500 ，方差为 1 的高斯白噪声序列（即 w_t \\sim \\mathrm{iid}\\,N(0,1)），然后计算其滞后 1 到 20 阶的样本 ACF，记作 \\hat{\\rho}(h)。把得到的结果与真实的 ACF 即 {\\rho}(h) 进行比较。\n设 n=50，重复问题 (a)。长度 n 是如何影响结果的？\n\n\n完成书中第二章课后习题2.12\n\n模拟一个长度为 n=500 的移动平均序列 v_t = \\tfrac{1}{3}(w_{t-1}, w_t, w_{t+1}), w_t \\sim \\mathrm{iid}\\,N(0,1)，然后计算其滞后 1 到 20 阶的样本 ACF，记作 \\hat{\\rho}(h)。把得到的结果与真实的 ACF 即 {\\rho}(h) 进行比较。\n设 n=50，重复问题 (a)。长度 n 是如何影响结果的？\n\n\n完成书中第二章课后习题2.13\n模拟一个长度为 n=500 的自回归模型 x_t = 1.5x_{t-1} -0.75x_{t-2} + w_t, \\ w_t \\sim \\mathrm{iid}\\,N(0,1)，然后绘制其滞后 1 到 50 阶的样本 ACF。从样本 ACF 可以总结出数据具有怎样的循环特征？\n\n在复现书中例 3.5 的基础上，完成第三章课后习题3.2\n对于例 3.5 中检验的死亡率数据：\n\n将 P_{t-4} 作为解释变量添加到式 (3.7) 的回归中，陈述你的结论（即总结新回归模型的拟合结果）。\n使用 AIC 和 BIC，判断问题 (a) 中的模型是否是对例 3.5 中最终模型的改进。\n\n\n注意：在复现例 3.5 时，请将中文版书中第 47 页的代码 trend = time(cmort) 改为 tr = time(cmort) 或任意其他变量名，否则在使用 dynlm 包中的 dynlm() 命令时会报错。\n\n\n\n作业\n将上面课堂练习的结果记录在一个 Word 文档中，需包括 R 程序和对应的运行结果，以及对每个问题的回答。\n将文档命名为 “T2_学号_姓名.docx”，例如 “T2_2024123456_张三.docx”，并通过微助教提交。\n截止日期：2024年5月19日（星期日）23:59\n参考程序：提交截止后更新",
+    "text": "复习与准备\n复习第三讲和第四讲的内容，并完成课后练习\n\n\n\n课堂练习：时间序列的模拟与回归分析\n\n完成书中第二章课后习题2.11\n\n模拟一个长度为 n=500 ，方差为 1 的高斯白噪声序列（即 w_t \\sim \\mathrm{iid}\\,N(0,1)），然后计算其滞后 1 到 20 阶的样本 ACF，记作 \\hat{\\rho}(h)。把得到的结果与真实的 ACF 即 {\\rho}(h) 进行比较。\n设 n=50，重复问题 (a)。长度 n 是如何影响结果的？\n\n\n完成书中第二章课后习题2.12\n\n模拟一个长度为 n=500 的移动平均序列 v_t = \\tfrac{1}{3}(w_{t-1}, w_t, w_{t+1}), w_t \\sim \\mathrm{iid}\\,N(0,1)，然后计算其滞后 1 到 20 阶的样本 ACF，记作 \\hat{\\rho}(h)。把得到的结果与真实的 ACF 即 {\\rho}(h) 进行比较。\n设 n=50，重复问题 (a)。长度 n 是如何影响结果的？\n\n\n完成书中第二章课后习题2.13\n模拟一个长度为 n=500 的自回归模型 x_t = 1.5x_{t-1} -0.75x_{t-2} + w_t, \\ w_t \\sim \\mathrm{iid}\\,N(0,1)，然后绘制其滞后 1 到 50 阶的样本 ACF。从样本 ACF 可以总结出数据具有怎样的循环特征？\n\n在复现书中例 3.5 的基础上，完成第三章课后习题3.2\n对于例 3.5 中检验的死亡率数据：\n\n将 P_{t-4} 作为解释变量添加到式 (3.7) 的回归中，陈述你的结论（即总结新回归模型的拟合结果）。\n使用 AIC 和 BIC，判断问题 (a) 中的模型是否是对例 3.5 中最终模型的改进。\n\n\n注意：在复现例 3.5 时，请将中文版书中第 47 页的代码 trend = time(cmort) 改为 tr = time(cmort) 或任意其他变量名，否则在使用 dynlm 包中的 dynlm() 命令时会报错。\n\n\n\n作业\n将上面课堂练习的结果记录在一个 Word 文档中，需包括 R 程序和对应的运行结果，以及对每个问题的回答。\n将文档命名为 “T2_学号_姓名.docx”，例如 “T2_2024123456_张三.docx”，并通过微助教提交。\n截止日期：2024年5月19日（星期日）23:59\n参考程序：Tutorial2.R",
     "crumbs": [
       "huangjp.com",
       "练习课与作业",
@@ -661,6 +661,181 @@
     "text": "章后练习 2.2\n\n问题a 答案b 答案c 答案\n\n\n考虑时间序列模型x_t = \\beta_0 + \\beta_1 t + w_t,其中 \\beta_0 和 \\beta_1 是回归系数，w_t \\sim wn(0, \\sigma_w^2) 是白噪声。\n\n\\{x_t\\} 是平稳过程吗？\n证明 y_t = x_t - x_{t-1} 是平稳过程。\n证明 z_t = \\tfrac{1}{3}(x_{t-1} + x_t + x_{t+1}) 的均值函数是 \\beta_0 + \\beta_1 t。\n\n\n\n平稳序列需满足的条件 1 为“该序列的均值函数 \\mu_t 是常数，且不依赖于时间 t”。\n\\{x_t\\} 的 均值函数\n\n\\mu_{xt} = E(x_t) = E(\\beta_0 + \\beta_1 t + w_t) = \\beta_0 + \\beta_1 t\n\n是时间 t 的函数，因此 \\{x_t\\} 不是平稳过程。\n\n\n\n\\begin{align*}\ny_t &= (\\beta_0 + \\beta_1 t + w_t) - (\\beta_0 + \\beta_1 (t-1) + w_{t-1})\\\\\n&= \\beta_1 + w_t - w_{t-1}\n\\end{align*}\n\n\\Rightarrow\n\n\\begin{align*}\n&\\mu_{yt} = \\beta_1 \\\\\n&\\gamma_y(s,t) =\n\\begin{cases}\n2\\sigma_w^2 & \\text{if } s = t \\\\\n-\\sigma_w^2 & \\text{if } |s-t| = 1 \\\\\n0 & \\text{if } |s-t| &gt; 1\n\\end{cases}\n\\end{align*}\n 因此，\\{y_t\\} 是平稳过程。\n\n\n\n\\begin{align*}\nz_t &= \\tfrac{1}{3}\\big[3 \\beta_0 + \\beta_1 (t-1 + t + t+1)+ w_{t-1} + w_t + w_{t+1}\\big]\\\\\n&= \\beta_0 + \\beta_1 t + \\tfrac{1}{3}(w_{t-1} + w_t + w_{t+1})\n\\end{align*}\n\n\\Rightarrow\n\n\\begin{align*}\n\\quad \\mu_{zt} &= \\beta_0 + \\beta_1 t + E\\big[ \\tfrac{1}{3}(w_{t-1} + w_t + w_{t+1}) \\big] \\\\\n&= \\beta_0 + \\beta_1 t\n\\end{align*}"
   },
   {
+    "objectID": "assets/slides/lecture6.html#arma-模型",
+    "href": "assets/slides/lecture6.html#arma-模型",
+    "title": "时间序列分析与预测",
+    "section": "ARMA 模型",
+    "text": "ARMA 模型\nARMA（Autoregression Moving Average）模型翻译为自回归移动平均模型，顾名思义是同时包含自回归（即滞后项）和移动平均（即白噪声的线性结合）两个特征的模型。该模型包含 AR 模型和 MA 模型两个特殊形式。\n\n\n\nAR 模型\n\n\np 阶自回归模型，简写为 \\mathrm{AR}(p)，定义为\n\nx_t = \\alpha + \\phi_1 x_{t-1} + \\phi_2 x_{t-2} + \\cdots + \\phi_p x_{t-p} + w_t ,\n\n其中 x_t 为平稳序列，w_t 为白噪声。\n\n\n\n\n\n\nMA 模型\n\n\nq 阶移动平均模型，简写为 \\mathrm{MA}(q)，定义为\n\nx_t = w_t + \\theta_1 w_{t-1} + \\theta_2 w_{t-2} + \\cdots + \\theta_q w_{t-q} ,\n\n其中 w_t 为白噪声。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmar1-模型",
+    "href": "assets/slides/lecture6.html#mathrmar1-模型",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{AR}(1) 模型",
+    "text": "\\mathrm{AR}(1) 模型\n考虑零均值 \\mathrm{AR}(1) 模型 x_t = \\phi x_{t-1} + w_t。当 \\phi = 1 时，该序列是随机游走序列。已知随机游走序列的自协方差函数为 \\gamma(s,t) = \\min(s,t)\\sigma_w^2，因此不是平稳序列。由此可知，我们需要对自相关序列的系数进行限制以满足平稳性。\n零均值 \\mathrm{AR}(1) 模型的自协方差函数\n\n\\begin{align*}\n\\mathrm{var} (x_t) &= \\mathrm{var}(\\phi x_{t-1} + w_t) \\\\\n&= \\mathrm{var}(\\phi x_{t-1}) + \\mathrm{var}(w_t) + 2\\mathrm{cov}(x_{t-1}, w_t) \\\\\n&= \\phi^2 \\mathrm{var}(x_{t-1}) + \\mathrm{var}(w_t)\n\\end{align*}\n\n当 x_t 是平稳序列时，\\mathrm{var}(x_t) = \\gamma_x(0) 是常数，因此\n\n\\gamma_x(0) = \\phi^2 \\gamma_x(0) + \\sigma_w^2 \\quad \\Rightarrow \\quad \\gamma_x(0) = \\frac{\\sigma_w^2}{1-\\phi^2}\n\n为保证方差 \\gamma_x(0) 为正值且有限，系数 \\phi 需满足 |\\phi| &lt; 1。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmar1-模型的因果表达式",
+    "href": "assets/slides/lecture6.html#mathrmar1-模型的因果表达式",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{AR}(1) 模型的因果表达式",
+    "text": "\\mathrm{AR}(1) 模型的因果表达式\n零均值 \\mathrm{AR}(1) 模型 x_t = \\phi x_{t-1} + w_t 也可以表达为\n\nx_t = \\sum_{j=0}^\\infty \\phi^j w_{t-j}\n\n（尝试推导这个表达式）\n在时间序列分析中，当一个序列 x_t 的现在值不依赖于任何未来的信息时，我们称该变量是“因果的”（causal）1。上面的表达式因此被称为 \\mathrm{AR}(1) 模型的因果表达式（或因果解）。\n我们可以将因果表达式代入定义式中确认其成立，即\n\n\n\\mathrm{RHS} = \\phi \\sum_{j=0}^\\infty \\phi^j w_{t-1-j} + w_t\n= w_t + (\\phi w_{t-1} + \\phi^2 w_{t-2} + \\cdots ) = \\sum_{j=0}^\\infty \\phi^j w_{t-j}\n\n\n注意：在其他领域（例如计量经济学或政策评估），因果性有着其他定义，而时间序列意义上的“因果性”往往不被当成真正的因果关系。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmar1-模型的平稳性证明",
+    "href": "assets/slides/lecture6.html#mathrmar1-模型的平稳性证明",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{AR}(1) 模型的平稳性证明",
+    "text": "\\mathrm{AR}(1) 模型的平稳性证明\n由因果表达式可以很容易地确认 E(x_t) = 0。同时，h\\geq 0 时的自协方差函数为\n\n\\begin{align*}\n\\gamma_x(h) &= \\mathrm{cov}(x_{t+h}, x_t) = \\mathrm{cov}\\Big(\\sum_{j=0}^\\infty \\phi^j w_{t+h-j}, \\sum_{k=0}^\\infty \\phi^k w_{t-k}\\Big) \\\\\n&= \\sum_{j=0}^\\infty \\phi^{h+j} \\phi^{j} \\sigma_w^2 = \\sigma_w^2 \\frac{\\phi^h}{1-\\phi^2}\n\\end{align*}\n\n因此，h\\geq 0 时的自相关函数表达为\n\n\\rho_x(h) = \\frac{\\gamma_x(h)}{\\gamma_x(0)} = \\phi^h\n\n当 \\alpha \\neq 0 时，E(x_t) \\neq 0。此时假设 E(x_t) = \\mu，从因果表达式可得 x_t - \\mu = \\sum_{j=0}^\\infty \\phi^j w_{t-j}。因此，将 x_t - \\mu 替换零均值 \\mathrm{AR}(1) 模型中的 x_t 可得 \\alpha = \\mu(1-\\phi)。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmar1-模型的时序图",
+    "href": "assets/slides/lecture6.html#mathrmar1-模型的时序图",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{AR}(1) 模型的时序图",
+    "text": "\\mathrm{AR}(1) 模型的时序图\n\nlibrary(astsa)\npar(mfrow=c(2,1))\ntsplot(arima.sim(list(order=c(1,0,0), ar=.9), n=100), ylab=\"x\", col=4, main=expression(AR(1)~~~phi==+.9~~~sigma^2==1))\ntsplot(arima.sim(list(order=c(1,0,0), ar=-.9), n=100), ylab=\"x\", col=4, main=expression(AR(1)~~~phi==-.9~~~sigma^2==1))"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmarp-模型的因果表达式",
+    "href": "assets/slides/lecture6.html#mathrmarp-模型的因果表达式",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{AR}(p) 模型的因果表达式",
+    "text": "\\mathrm{AR}(p) 模型的因果表达式\n根据第二章中的 Wold 分解（性质2.21）可知，任何平稳的时间序列都可以写成白噪声的线性结合的形式，因此任意的 \\mathrm{AR}(p) 模型都有因果表达式。\n\n\n\n因果性 （causality）\n\n\n时间序列 x_t 如果可以写成\n\nx_t = \\mu + \\sum_{j=0}^\\infty \\psi_j w_{t-j},\n\n其中系数 \\psi_j 满足 \\sum_{j=0}^\\infty \\psi_j^2 &lt; \\infty，则称 x_t 具有因果性（x_t is causal）。\n\n\n\n将任意的 AR 过程改写成因果表达式是十分困难的，在 R 中我们可以利用 ARMAtoMA() 命令计算因果表达式中的系数1。（阅读例 4.3）\n注意：这个命令仅能处理 \\alpha=0 的序列，当 \\alpha\\neq 0 时可以考虑 \\{x_t - \\mu\\} 序列，因为该序列是零均值自回归序列。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmma1-模型",
+    "href": "assets/slides/lecture6.html#mathrmma1-模型",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{MA}(1) 模型",
+    "text": "\\mathrm{MA}(1) 模型\n考虑 \\mathrm{MA}(1) 模型 x_t = w_t + \\theta w_{t-1}。显然 E(x_t) = 0。如果用 x_t - \\mu 替换 x_t 则有 E(x_t) = \\mu。\n自协方差函数为\n\n\\gamma_x(h) =\n\\begin{cases}\n(1+\\theta^2)\\sigma_w^2 & h=0, \\\\\n\\theta \\sigma_w^2 & |h| = 1, \\\\\n0 & |h| &gt; 1,\n\\end{cases}\n\n自相关函数为\n\n\\rho_x(h) =\n\\begin{cases}\n(\\theta)\\big/(1+\\theta^2) & |h| = 1, \\\\\n0 & |h| &gt; 1.\n\\end{cases}\n\n由此可知，\\mathrm{MA}(1) 模型仅有一阶 ACF 不为零，且 |\\rho_x(1)| \\leq 0.5。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmma1-模型的时序图",
+    "href": "assets/slides/lecture6.html#mathrmma1-模型的时序图",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{MA}(1) 模型的时序图",
+    "text": "\\mathrm{MA}(1) 模型的时序图\n\npar(mfrow = c(2,1))\ntsplot(arima.sim(list(order=c(0,0,1), ma=.9),  n=100), col=4, ylab=\"x\", main=expression(MA(1)~~~theta==+.9~~~sigma^2==1))\ntsplot(arima.sim(list(order=c(0,0,1), ma=-.9), n=100), col=4, ylab=\"x\", main=expression(MA(1)~~~theta==-.9~~~sigma^2==1))"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmma1-模型的非唯一性",
+    "href": "assets/slides/lecture6.html#mathrmma1-模型的非唯一性",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{MA}(1) 模型的非唯一性",
+    "text": "\\mathrm{MA}(1) 模型的非唯一性\n如果我们考虑下面两个模型\n\n\\begin{align*}\n&x_t = w_t + \\frac{1}{5}w_{t-1}, \\quad w_t \\sim \\mathrm{iid} N(0, 25), \\\\\n&y_t = v_t + 5v_{t-1}, \\quad v_t \\sim \\mathrm{iid} N(0, 1),\n\\end{align*}\n\n我们可以得到完全相同的自协方差函数\n\n\\gamma_x(h) = \\gamma_y(h) =\n\\begin{cases}\n26 & h=0, \\\\\n5 & |h| = 1, \\\\\n0 & |h| &gt; 1.\n\\end{cases}\n\n通常我们只能观测 x_t 和 y_t，而无法直接观测白噪声 w_t 和 v_t。因此我们无法从分布上区分这两个模型。或者说，不同的移动平均过程可能生成具有相同分布特征的数据。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmma1-模型的可逆性",
+    "href": "assets/slides/lecture6.html#mathrmma1-模型的可逆性",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{MA}(1) 模型的可逆性",
+    "text": "\\mathrm{MA}(1) 模型的可逆性\n为了解决 MA 过程的非唯一性问题，我们可以只考虑具有可逆性的 MA 过程。\n\n\n\n可逆性（invertibility）\n\n\n时间序列 x_t 如果可以写成\n\nw_t = \\sum_{j=0}^\\infty \\pi_j x_{t-j},\n\n其中系数 \\pi_j 满足 \\sum_{j=0}^\\infty \\pi_j^2 &lt; \\infty，则称 x_t 具有可逆性（x_t is invertible）。\n\n\n\n对于 \\mathrm{MA}(1) 过程，可以将其改写为 w_t = -\\theta w_{t-1} + x_t，因此当 |\\theta| &lt; 1 时，有 w_t = \\sum_{j=0}^\\infty (-\\theta)^j x_{t-j}。因此，在前一页的 x_t 和 y_t 中，我们选择可逆过程 x_t。\n\n\n\n因果的零均值 \\mathrm{AR}(p) 过程可以表达为 \\mathrm{MA}(\\infty) 过程；可逆的 \\mathrm{MR}(q) 过程可以表达为 \\mathrm{AR}(\\infty) 过程。\n\n\n\n\n\n在 R 中我们可以利用 ARMAtoAR() 命令计算可逆系数。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#arma-模型-1",
+    "href": "assets/slides/lecture6.html#arma-模型-1",
+    "title": "时间序列分析与预测",
+    "section": "ARMA 模型",
+    "text": "ARMA 模型\n\n\n\n平稳序列的 ARMA 模型\n\n\n时间序列 \\{x_t: t=0, \\pm 1, \\pm 2, \\cdots \\} 如果满足\n\nx_t = \\alpha + \\phi_1 x_{t-1} + \\cdots + \\phi_p x_{t-p} + w_t + \\theta_1 w_{t-1} + \\cdots + \\theta_q w_{t-q},\n\n其中 \\phi_p \\neq 0，\\theta_q \\neq 0，\\sigma_w^2 &gt; 0，且满足因果性和可逆性，则称 x_t 为 \\mathrm{ARMA}(p,q) 模型。如果 E(x_t)=\\mu，则 \\alpha = \\mu(1-\\phi_1 - \\cdots - \\phi_p)。\n\n\n\n\\mathrm{ARMA}(p,q) 模型也可以看作是误差项为 \\varepsilon_t = w_t + \\theta_1 w_{t-1} + \\cdots + \\theta_q w_{t-q} 的回归模型。与普通回归模型不同的是，为了满足因果性和可逆性，我们需要对系数进行限制。\n\\mathrm{ARMA}(p,q) 模型包含了 \\mathrm{AR}(p) 模型和 \\mathrm{MA}(q) 模型。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#用后移算子表达-arma-模型",
+    "href": "assets/slides/lecture6.html#用后移算子表达-arma-模型",
+    "title": "时间序列分析与预测",
+    "section": "用后移算子表达 ARMA 模型",
+    "text": "用后移算子表达 ARMA 模型\n\n\n如果使用后移算子 Bx_t = x_{t-1}，则零均值 \\mathrm{AR}(p) 模型可以表达为\n\n(1-\\phi_1 B - \\phi_2 B^2 - \\cdots - \\phi_p B^p) x_t = w_t\n\n因此，为了方便表达，我们可以定义自回归算子（autoregressive operator）\n\n\\phi(B) = 1-\\phi_1 B - \\phi_2 B^2 - \\cdots - \\phi_p B^p\n\n而 AR 模型就可以写成 \\phi(B)x_t = w_t。\n类似地，\\mathrm{MA}(q) 模型可以表达为\n\nx_t = (1 + \\theta_1 B + \\theta_2 B^2 + \\cdots + \\theta_q B^q) w_t\n\n通过定义移动平均算子（moving average operator）\n\n\\theta(B) = (1 + \\theta_1 B + \\theta_2 B^2 + \\cdots + \\theta_q B^q)\n\n可以将 \\mathrm{MA}(q) 模型写成 x_t = \\theta(B) w_t。\n\\mathrm{ARMA}(p,q) 模型可以写成 \\phi(B)(x_t-\\mu) = \\theta(B) w_t。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#参数冗余",
+    "href": "assets/slides/lecture6.html#参数冗余",
+    "title": "时间序列分析与预测",
+    "section": "参数冗余",
+    "text": "参数冗余\n由于 AR 模型和 MA 模型的可互换性，在 ARMA 模型中，有些 AR 项可以和 MA 项相互抵消。这意味着同一个序列可以用不同的 ARMA 模型表达，而其中有些会变得不必要的复杂。\n如果将 \\mathrm{ARMA}(p,q) 模型 \\phi(B)(x_t-\\mu) = \\theta(B) w_t 的两侧乘以同样的算子，就可以获得一个更加复杂的模型，而 x_t 的特征并未因此改变。\n例如考虑白噪声过程 x_t = w_t。如果将两侧同时乘以 (1-0.9B)，可得\n\nx_t - 0.9x_{t-1} = w_t - 0.9 w_{t-1} \\quad \\Leftrightarrow \\quad x_t = 0.9x_{t-1} + w_t -0.9 w_{t-1}\n\n而这是一个 \\mathrm{ARMA}(1,1) 模型。这种现象被称为参数冗余（parameter redundancy）或过度参数化（over-parameterization）。\n用参数冗余的模型进行拟合也会得到看上去不错的结果（例 4.10）。在实践中我们应该尽量避免参数冗余，具体方法可以参考例 4.11。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#因果表达式与可逆表达式",
+    "href": "assets/slides/lecture6.html#因果表达式与可逆表达式",
+    "title": "时间序列分析与预测",
+    "section": "因果表达式与可逆表达式",
+    "text": "因果表达式与可逆表达式\n\\mathrm{ARMA}(1,1) 模型\n\nx_t = 0.8x_{t-1} + w_t -0.5w_{t-1}\n\n的因果表达式和可逆表达式可以利用 ARMAtoMA() 和 ARMAtoAR() 命令分别获得。\n\nround(ARMAtoMA(ar=.8, ma=-.5, 10), 2) # 前十个系数，四舍五入至小数点后两位\n\n [1] 0.30 0.24 0.19 0.15 0.12 0.10 0.08 0.06 0.05 0.04\n\nround(ARMAtoAR(ar=.8, ma=-.5, 10), 2) # 前十个系数，四舍五入至小数点后两位\n\n [1] -0.30 -0.15 -0.08 -0.04 -0.02 -0.01  0.00  0.00  0.00  0.00\n\n\n\n如果一个模型不是因果或可逆的，则变换出的系数序列不会收敛至零。例如随机游走过程 x_t = x_{t-1} + w_t = \\sum_{j=1}^t w_j\n\nARMAtoMA(ar=1, ma=0, 20)\n\n [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#arma-模型的-acf",
+    "href": "assets/slides/lecture6.html#arma-模型的-acf",
+    "title": "时间序列分析与预测",
+    "section": "ARMA 模型的 ACF",
+    "text": "ARMA 模型的 ACF\n\\mathrm{MA}(q) 模型：x_t = \\sum_{j=0}^q \\theta_j w_{t-j}, \\theta_0 = 1\n\n\\gamma(h) =\n\\begin{cases}\n\\sigma_w^2 \\sum_{j=0}^{q-h} \\theta_j \\theta_{j+h} & 0 \\leq h \\leq q \\\\\n0 & h &gt; q\n\\end{cases},\n\\quad\n\\rho(h) =\n\\begin{cases}\n\\frac{\\sum_{j=0}^{q-h} \\theta_j \\theta_{j+h}}{1 + \\theta_1^2 + \\cdots + \\theta_q^2}   & 0 \\leq h \\leq q \\\\\n0 & h &gt; q\n\\end{cases}\n\n注意：\\theta_q \\neq 0 \\Rightarrow \\rho(q) \\neq 0。因此，我们可以通过样本 ACF 判断 MA 模型的阶数。\n\n\\mathrm{AR}(p) 模型和 \\mathrm{ARMA}(p,q) 模型：这两类模型的因果表达式相当于 \\mathrm{MA}(\\infty) 模型 x_t = \\sum_{j=0}^\\infty \\psi_j w_{t-j}，因此\n\n\\gamma(h) = \\sigma_w^2 \\sum_{j=0}^{\\infty} \\psi_j \\psi_{j+h} , \\quad\n\\rho(h) = \\frac{\\sum_{j=0}^{\\infty} \\psi_j \\psi_{j+h}}{\\sum_{j=0}^{\\infty} \\psi_j^2}\n\n此时无法根据样本 ACF 判断阶数。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#偏自相关函数-pacf",
+    "href": "assets/slides/lecture6.html#偏自相关函数-pacf",
+    "title": "时间序列分析与预测",
+    "section": "偏自相关函数 PACF",
+    "text": "偏自相关函数 PACF\n\n\n\n偏自相关函数（Partial Autocorrelation Function, PACF）\n\n\n平稳过程 x_t 的 h 阶偏自相关函数 \\phi_{hh} 定义为\n\n\\begin{align*}\n\\phi_{11} &= \\mathrm{corr}(x_1, x_0) = \\rho(1) \\\\\n\\phi_{hh} &= \\mathrm{corr}(x_h - \\hat{x}_h, x_0 - \\hat{x}_0), \\ h \\geq 2\n\\end{align*}\n\n其中，\\hat{x}_h 和 \\hat{x}_0 分别是用 \\{x_1, x_2, \\dots, x_{h-1}\\} 回归 x_h 和 x_0 获得的 OLS 预测值。\n\n\n\n根据计量经济学中的 Frisch-Waugh-Lovell 定理，在 \\mathrm{AR}(p) 模型中，\\phi_{pp} 和 p 阶系数 \\phi_{p} 一致。\n如果序列 x_t 是的自回归阶数是 p，则有 \\phi_{pp} \\neq 0 但 \\phi_{hh} = 0, h &gt; p。因此可以用样本 PACF 判断自回归阶数。\n在 R 中可以用 pacf() 函数计算样本 PACF，也可以用 astsa 包中的 acf2() 函数同时计算 ACF 和 PACF。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmar2-模型的-pacf",
+    "href": "assets/slides/lecture6.html#mathrmar2-模型的-pacf",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{AR}(2) 模型的 PACF",
+    "text": "\\mathrm{AR}(2) 模型的 PACF\n继续考虑 \\mathrm{AR}(2) 模型 x_t = 1.5x_{t-1} - 0.75x_{t-2} + w_t。这个模型的 PACF 是\n\n\\phi_{11} = \\rho(1) = \\frac{\\phi_1}{1-\\phi_2} = \\frac{1.5}{1.75} \\approx 0.8571429, \\quad \\phi_{22} = \\phi_2 = -0.75\n\n\n可以用 ARMAacf() 计算 ARMA 模型的理论 ACF 和 PACF 值\n\nround(ARMAacf(ar = c(1.5, -0.75), ma=0, lag.max = 12), 4) # 不显示零阶 ACF（恒等于 1 ）\n\n      0       1       2       3       4       5       6       7       8       9 \n 1.0000  0.8571  0.5357  0.1607 -0.1607 -0.3616 -0.4219 -0.3616 -0.2260 -0.0678 \n     10      11      12 \n 0.0678  0.1526  0.1780 \n\nround(ARMAacf(ar = c(1.5, -0.75), ma=0, lag.max = 12, pacf = TRUE), 4)\n\n [1]  0.8571 -0.7500  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000\n[10]  0.0000  0.0000  0.0000"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#mathrmar2-模型的样本-acf-和-pacf",
+    "href": "assets/slides/lecture6.html#mathrmar2-模型的样本-acf-和-pacf",
+    "title": "时间序列分析与预测",
+    "section": "\\mathrm{AR}(2) 模型的样本 ACF 和 PACF",
+    "text": "\\mathrm{AR}(2) 模型的样本 ACF 和 PACF\n\ndata.sim &lt;- arima.sim(list(ar=c(1.5,-0.75), ma = 0), n=100)\npar(mfrow = c(1,3))\ntsplot(data.sim, col = 4, ylab = \"x\", main = \"AR(2) series data.sim\")\nacf1(data.sim, 30)    \nacf1(data.sim, 30, pacf = TRUE)"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#新鱼指数序列",
+    "href": "assets/slides/lecture6.html#新鱼指数序列",
+    "title": "时间序列分析与预测",
+    "section": "新鱼指数序列",
+    "text": "新鱼指数序列\n\n\n\n\n\n\n\n\n\n\n\n\n样本 PACF 暗示新鱼指数序列可能服从 \\mathrm{AR}(2) 模型。因此我们可以尝试用该模型进行拟合\n\nar.ols(rec, order.max = 2, \n       demean = FALSE, \n       intercept = TRUE)\n\n\nCall:\nar.ols(x = rec, order.max = 2, demean = FALSE, intercept = TRUE)\n\nCoefficients:\n      1        2  \n 1.3541  -0.4632  \n\nIntercept: 6.737 (1.111) \n\nOrder selected 2  sigma^2 estimated as  89.72"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#已知模型的参数估计",
+    "href": "assets/slides/lecture6.html#已知模型的参数估计",
+    "title": "时间序列分析与预测",
+    "section": "已知模型的参数估计",
+    "text": "已知模型的参数估计\n\n\n\n当我们有一个样本序列 \\{x_1, x_2, \\dots, x_n\\}，并假设我们知道真实模型是 \\mathrm{ARMA}(p,q) 时，参数估计问题是根据已知样本数据估计模型中的 p+q+2 个参数 \\mu, \\phi_1, \\dots, \\phi_p, \\theta_1, \\dots, \\theta_q, \\sigma_w^2。\n\n\n\n\n具体的估计方法依模型的不同而不同：\n\n\\mathrm{AR}(p) 模型：Yule-Walker 法\n这是一种矩估计法，即将样本矩代入理论矩（均值或方差等）满足的条件方程，并解出参数的方法。\n\\mathrm{MA}(q) 和 \\mathrm{ARMA}(p,q) 模型：极大似然法（maximum likelihood estimation, MLE）\n这是尝试找出最有可能生成现有样本的参数的方法，其核心思想是最大化极大似然函数（也就是产生现有样本的概率函数或密度函数）。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#yule-walker-估计-1",
+    "href": "assets/slides/lecture6.html#yule-walker-估计-1",
+    "title": "时间序列分析与预测",
+    "section": "Yule-Walker 估计* (1)",
+    "text": "Yule-Walker 估计* (1)\n当真实模型是 \\mathrm{AR}(p) 时，均值 \\mu = E(x_t) 的矩估计量就是样本均值，因此我们可以首先估计 \\hat{\\mu}，并将序列转换为 x_t - \\hat{\\mu} 以获得一个零截距模型。因此，我们只需讨论截距为零的模型\n\nx_t = \\phi_1 x_{t-1} + \\cdots + \\phi_p x_{t-p} + w_t\n\n将上式两侧乘以 x_{t-h}, h=0,1,\\dots, p 可得方程组\n\n\\begin{align*}\nx_t x_t &= \\phi_1 x_t x_{t-1} + \\cdots + \\phi_p x_t x_{t-p} + x_t w_t \\\\\nx_{t-h} x_t &= \\phi_1 x_{t-h} x_{t-1} + \\cdots + \\phi_p x_{t-h} x_{t-p} + x_{t-h} w_t , \\quad h = 1, \\dots, p\n\\end{align*}\n\n这里需注意\n\n\\gamma(h) = \\mathrm{cov}(x_{t-h}, x_{t}) = E\\big[(x_{t-h} - \\mu)(x_{t} - \\mu)\\big] = E(x_{t-h}x_{t})"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#yule-walker-估计-2",
+    "href": "assets/slides/lecture6.html#yule-walker-估计-2",
+    "title": "时间序列分析与预测",
+    "section": "Yule-Walker 估计* (2)",
+    "text": "Yule-Walker 估计* (2)\n将前一页中的方程组取期望值，并除以 \\gamma(0)，可得\n\n\\begin{align*}\n1 &= \\phi_1 \\rho(1) + \\cdots + \\phi_p \\rho(p) + \\sigma_w^2 \\big/ \\gamma(0) \\\\\n\\rho(h) &= \\phi_1 \\rho(h-1) + \\cdots + \\phi_p \\rho(h-p), \\quad h = 1, \\dots, p\n\\end{align*}\n\n这个方程组称为 Yule-Walker 方程组，其中包含 p+1 个独立方程，和 p+1 个未知参数 \\phi_1, \\dots, \\phi_p, \\sigma_w^2。\n将样本方差 \\hat{\\gamma}(0) 和样本 ACF \\hat{\\rho}(h) 代入方程组，即可求出参数的估计值。当样本量足够大时，估计值接近真实参数值，并接近 OLS 估计值。\n\n可用 ar.yw() 或命令进行 Yule-Walker 估计。见例 4.24"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#基于模型的预测",
+    "href": "assets/slides/lecture6.html#基于模型的预测",
+    "title": "时间序列分析与预测",
+    "section": "基于模型的预测",
+    "text": "基于模型的预测\n\n\n\n预测（forecasting）指的是基于迄今为止的样本数据 \\{x_1, x_2, \\dots, x_n\\} 预测（predict）未来值 x_{n+m}, m=1,2,\\dots。1\n\n\n\n预测一般是利用已知的模型和参数，或者根据样本数据估计出的参数进行。\nForecast 和 predict 都有预测的意思，而 forecast 特指时间序列分析中对未来的预测。"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#新鱼指数的预测",
+    "href": "assets/slides/lecture6.html#新鱼指数的预测",
+    "title": "时间序列分析与预测",
+    "section": "新鱼指数的预测",
+    "text": "新鱼指数的预测"
+  },
+  {
+    "objectID": "assets/slides/lecture6.html#时间序列分析与预测的一般步骤",
+    "href": "assets/slides/lecture6.html#时间序列分析与预测的一般步骤",
+    "title": "时间序列分析与预测",
+    "section": "时间序列分析与预测的一般步骤",
+    "text": "时间序列分析与预测的一般步骤\n\n观察数据\n模型选择\n参数估计\n模型诊断*\n预测"
+  },
+  {
     "objectID": "assets/slides/lecture4.html#总体和样本统计量",
     "href": "assets/slides/lecture4.html#总体和样本统计量",
     "title": "时间序列分析与预测",
@@ -798,7 +973,7 @@
     "href": "materials3.html",
     "title": "第三讲：时间序列的特征",
     "section": "",
-    "text": "Slides\n\n点击 slides 画面，然后用   键或   键控制翻页。点击 slides 左下角的  图标可以发现更多功能。\n如何将 slides 保存到自己的电脑上：\n\n点击下面的链接会在新的标签页里打开 slides\nassets/slides/lecture3.html\n在该页面点击键盘的 e 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）\n右键选择打印该页面，然后选择保存为 PDF 文件。\n\n\n\n\n补充学习\n\n阅读书中第二章关于 Wold 分解的部分。\n阅读书中的例 2.24 关于联合平稳性的例子。\n\n\n\n\n课后练习\n章后练习 2.8（自己完成后再看参考答案）\n\n问题参考答案\n\n\n考虑两个时间序列\n\n\\begin{align*}\nx_t &= w_t ,\\\\\ny_t &= w_t - \\theta w_{t-1} + u_t ,\n\\end{align*}\n 其中 w_t 和 u_t 是独立的白噪声序列，且满足 \\mathrm{var}(w_t) = \\sigma_w^2，\\mathrm{var}(u_t) = \\sigma_u^2。\\theta 是未知系数。\n\n将 \\{y_t\\} 的自相关函数（ACF）\\rho_y(h) 写成 \\sigma_w^2、\\sigma_u^2 和 \\theta 的函数。\n写出 \\{x_t\\} 和 \\{y_t\\} 的交叉相关函数（CCF）\\rho_{xy}(h)。\n证明 \\{x_t\\} 和 \\{y_t\\} 是联合平稳的。\n\n\n\na.\n\n\\begin{align*}\n\\gamma_y(t,t) &= \\mathrm{var}(y_t) \\\\\n&= \\mathrm{var}(w_t) + \\theta^2 \\mathrm{var}(w_{t-1}) + \\mathrm{var}(u_t) \\\\\n&= (1+\\theta^2) \\sigma_w^2 + \\sigma_u^2 \\\\\n\\gamma_y(t-1,t) &= \\mathrm{cov}(y_{t-1}, y_t) \\\\\n&= -\\theta \\, \\mathrm{var}(w_{t-1}) = - \\theta \\sigma_w^2 \\\\\n\\gamma_y(t+1,t) &= \\mathrm{cov}(y_{t+1}, y_t) \\\\\n&= -\\theta \\, \\mathrm{var}(w_{t}) = - \\theta \\sigma_w^2 \\\\\n\\gamma_y(s,t) &= 0 \\text{ for all other } s \\text{ and } t\n\\end{align*}\n 因此，\\{y_t\\} 的自相关函数可以写成\n\n\\rho_y(h) =\n\\begin{cases}\n1 & \\text{if } h = 0 \\\\\n\\frac{- \\theta \\sigma_w^2}{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2} & \\text{if } h = 1 \\\\\n0 & \\text{if } h &gt; 1 \\\\\n\\end{cases}\n\nb.\n\n\\gamma_{xy}(h) =\n\\begin{cases}\n\\sigma_w^2 & \\text{if } h = 0 \\\\\n0 & \\text{if } h &gt; 0 \\\\\n-\\theta \\sigma_w^2 & \\text{if } h = -1 \\\\\n0 & \\text{if } h &lt; -1\n\\end{cases}\n\n因此，\\{x_t\\} 和 \\{y_t\\} 的交叉相关函数为\n\n\\rho_{xy}(h) =\n\\begin{cases}\n\\frac{\\sigma_w}{\\sqrt{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2}} & \\text{if } h = 0 \\\\\n0 & \\text{if } h &gt; 0 \\\\\n- \\frac{\\theta \\sigma_w}{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2} & \\text{if } h = -1 \\\\\n0 & \\text{if } h &lt; -1\n\\end{cases}\n\nc.\n\\{x_t\\} 是白噪声序列，因此是平稳的。由 \\mu_{yt} = 0 和 (a) 的结果可知 \\{y_t\\} 也是平稳的。\n由 (b) 可知两者的交叉协方差函数仅是滞后期 h 的函数，因此它们是联合平稳的。",
+    "text": "Slides\n\n点击 slides 画面，然后用   键或   键控制翻页。点击 slides 左下角的  图标可以发现更多功能。\n如何将 slides 保存到自己的电脑上：\n\n点击下面的链接会在新的标签页里打开 slides\nassets/slides/lecture3.html\n在该页面点击键盘的 e 键，会生成可以打印的文件（生成过程可能会很慢，且只保证在 Chrome 中有效）\n右键选择打印该页面，然后选择保存为 PDF 文件。\n\n\n\n\n补充学习\n\n阅读书中第二章关于 Wold 分解的部分。\n阅读书中的例 2.24 关于联合平稳性的例子。\n\n\n\n\n课后练习\n章后练习 2.8（自己完成后再看参考答案）\n\n问题参考答案\n\n\n考虑两个时间序列\n\n\\begin{align*}\nx_t &= w_t ,\\\\\ny_t &= w_t - \\theta w_{t-1} + u_t ,\n\\end{align*}\n 其中 w_t 和 u_t 是独立的白噪声序列，且满足 \\mathrm{var}(w_t) = \\sigma_w^2，\\mathrm{var}(u_t) = \\sigma_u^2。\\theta 是未知系数。\n\n将 \\{y_t\\} 的自相关函数（ACF）\\rho_y(h) 写成 \\sigma_w^2、\\sigma_u^2 和 \\theta 的函数。\n写出 \\{x_t\\} 和 \\{y_t\\} 的交叉相关函数（CCF）\\rho_{xy}(h)。\n证明 \\{x_t\\} 和 \\{y_t\\} 是联合平稳的。\n\n\n\na.\n\n\\begin{align*}\n\\gamma_y(t,t) &= \\mathrm{var}(y_t) \\\\\n&= \\mathrm{var}(w_t) + \\theta^2 \\mathrm{var}(w_{t-1}) + \\mathrm{var}(u_t) \\\\\n&= (1+\\theta^2) \\sigma_w^2 + \\sigma_u^2 \\\\\n\\gamma_y(t-1,t) &= \\mathrm{cov}(y_{t-1}, y_t) \\\\\n&= -\\theta \\, \\mathrm{var}(w_{t-1}) = - \\theta \\sigma_w^2 \\\\\n\\gamma_y(t+1,t) &= \\mathrm{cov}(y_{t+1}, y_t) \\\\\n&= -\\theta \\, \\mathrm{var}(w_{t}) = - \\theta \\sigma_w^2 \\\\\n\\gamma_y(s,t) &= 0 \\text{ for all other } s \\text{ and } t\n\\end{align*}\n 因此，\\{y_t\\} 的自相关函数可以写成\n\n\\rho_y(h) =\n\\begin{cases}\n1 & \\text{if } h = 0 \\\\\n\\frac{- \\theta \\sigma_w^2}{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2} & \\text{if } |h| = 1 \\\\\n0 & \\text{if } |h| &gt; 1 \\\\\n\\end{cases}\n\nb.\n\n\\gamma_{xy}(h) =\n\\begin{cases}\n\\sigma_w^2 & \\text{if } h = 0 \\\\\n0 & \\text{if } h &gt; 0 \\\\\n-\\theta \\sigma_w^2 & \\text{if } h = -1 \\\\\n0 & \\text{if } h &lt; -1\n\\end{cases}\n\n因此，\\{x_t\\} 和 \\{y_t\\} 的交叉相关函数为\n\n\\rho_{xy}(h) =\n\\begin{cases}\n\\frac{\\sigma_w}{\\sqrt{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2}} & \\text{if } h = 0 \\\\\n0 & \\text{if } h &gt; 0 \\\\\n- \\frac{\\theta \\sigma_w}{(1+\\theta^2) \\sigma_w^2 + \\sigma_u^2} & \\text{if } h = -1 \\\\\n0 & \\text{if } h &lt; -1\n\\end{cases}\n\nc.\n\\{x_t\\} 是白噪声序列，因此是平稳的。由 \\mu_{yt} = 0 和 (a) 的结果可知 \\{y_t\\} 也是平稳的。\n由 (b) 可知两者的交叉协方差函数仅是滞后期 h 的函数，因此它们是联合平稳的。",
     "crumbs": [
       "huangjp.com",
       "课程资料",
