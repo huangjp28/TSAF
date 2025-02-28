@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>时间序列分析与预测 – 《时间序列分析与预测》课程网站</title>
+<title>第一部份：导论及基础知识 – 《时间序列分析与预测》课程网站</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,49 +103,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script defer="" src="./assets/katex/0.16.11/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <link rel="stylesheet" href="./assets/katex/0.16.11/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -134,7 +125,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">课程信息</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -181,22 +172,28 @@ window.Quarto = {
     <h2 id="toc-title">该页面内容</h2>
    
   <ul>
-  <li><a href="#基本信息" id="toc-基本信息" class="nav-link active" data-scroll-target="#基本信息">基本信息</a></li>
-  <li><a href="#主讲教师" id="toc-主讲教师" class="nav-link" data-scroll-target="#主讲教师">主讲教师</a></li>
-  <li><a href="#内容简介" id="toc-内容简介" class="nav-link" data-scroll-target="#内容简介">内容简介</a></li>
-  <li><a href="#成绩评定" id="toc-成绩评定" class="nav-link" data-scroll-target="#成绩评定">成绩评定</a></li>
-  <li><a href="#教学进度" id="toc-教学进度" class="nav-link" data-scroll-target="#教学进度">教学进度</a></li>
-  <li><a href="#学习建议" id="toc-学习建议" class="nav-link" data-scroll-target="#学习建议">学习建议</a></li>
-  <li><a href="#参考资料" id="toc-参考资料" class="nav-link" data-scroll-target="#参考资料">参考资料</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#补充信息" id="toc-补充信息" class="nav-link" data-scroll-target="#补充信息">补充信息</a>
+  <ul class="collapse">
+  <li><a href="#r-和-rstudio-的安装" id="toc-r-和-rstudio-的安装" class="nav-link" data-scroll-target="#r-和-rstudio-的安装">R 和 RStudio 的安装</a></li>
+  <li><a href="#基本设置" id="toc-基本设置" class="nav-link" data-scroll-target="#基本设置">基本设置</a></li>
+  <li><a href="#使用建议" id="toc-使用建议" class="nav-link" data-scroll-target="#使用建议">使用建议</a></li>
+  </ul></li>
+  <li><a href="#学习资料" id="toc-学习资料" class="nav-link" data-scroll-target="#学习资料">学习资料</a>
+  <ul class="collapse">
+  <li><a href="#练习使用-rstudio" id="toc-练习使用-rstudio" class="nav-link" data-scroll-target="#练习使用-rstudio">练习使用 RStudio</a></li>
+  <li><a href="#零基础上手-r" id="toc-零基础上手-r" class="nav-link" data-scroll-target="#零基础上手-r">零基础上手 R</a></li>
+  <li><a href="#cheat-sheets" id="toc-cheat-sheets" class="nav-link" data-scroll-target="#cheat-sheets">Cheat Sheets</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">时间序列分析与预测</h1>
+<h1 class="title">第一部份：导论及基础知识</h1>
 </div>
 
 
@@ -213,198 +210,126 @@ window.Quarto = {
 </header>
 
 
-<figure class="text-center figure">
-  <br>
-  <p class="mb-0">
-    <strong>All models are wrong, but some are useful.</strong>
-  </p>
-  <br>
-  <figcaption class="blockquote-footer">
-    <cite>George E. P. Box</cite>
-  </figcaption>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<ul>
+<li><p><a href="assets/slides/lecture1.pdf" class="external" target="_blank">第一讲</a></p></li>
+<li><p><a href="assets/slides/lecture2.pdf" class="external" target="_blank">第二讲</a></p></li>
+<li><p><a href="assets/slides/lecture3.pdf" class="external" target="_blank">第三讲</a></p></li>
+</ul>
+</section>
+<section id="补充信息" class="level2">
+<h2 class="anchored" data-anchor-id="补充信息">补充信息</h2>
+<section id="r-和-rstudio-的安装" class="level3">
+<h3 class="anchored" data-anchor-id="r-和-rstudio-的安装">R 和 RStudio 的安装</h3>
+<p>访问 <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>，根据提示依次下载并安装 R 和 RStudio。RStudio 安装包的下载速度较慢，请选择网络状态良好时下载。</p>
+<p>R 安装包中包含了运行 R 所需的文件，RStudio 则是为 R 量身定做的综合开发软件（IDE），两者的关系和电子书与阅读器之间的关系类似。我们通常不会直接调用 R，而是通过 RStudio 进行编程和执行，R 在后台被 RStudio 调用。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/image/rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="首次运行 RStudio 时的界面（Mac版）"><img src="assets/image/rstudio.png" class="img-fluid figure-img" alt="首次运行 RStudio 时的界面（Mac版）"></a></p>
+<figcaption>首次运行 RStudio 时的界面（Mac版）</figcaption>
 </figure>
-<p>这里是深圳大学管理学院工商管理专业《时间序列分析与预测》的课程网站。在这里你可以找到和课程相关的所有公开信息，包括课程介绍、课程资料、课堂练习与作业、考试信息等。</p>
-<section id="基本信息" class="level2">
-<h2 class="anchored" data-anchor-id="基本信息">基本信息</h2>
+</div>
+<p>从 RStudio 的运行界面左侧面板的 Console 部份可以看到调用 R 的信息，例如第一行显示了正在使用的 R 版本号。</p>
+</section>
+<section id="基本设置" class="level3">
+<h3 class="anchored" data-anchor-id="基本设置">基本设置</h3>
+<p>在使用 RStudio 之前需要进行一些简单的设置。R 本体可以实现的功能不多，通常在使用的时候需要安装和调用各种工具包（package）。安装是通过网络服务器自动完成的，但默认的服务器有时会因为连接超时而造成安装失败，因此我们需要设置境内的镜像服务器。</p>
+<section id="设置工具包的安装路径repository" class="level4">
+<h4 class="anchored" data-anchor-id="设置工具包的安装路径repository">1. 设置工具包的安装路径（repository）</h4>
+<p>第一步：打开菜单栏中的 <code>Tools &gt; Global Options...</code> 窗口，并选择 <code>Packages</code> 项目</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/image/rstudio-option-package.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Global Options 中的 Packages"><img src="assets/image/rstudio-option-package.png" class="img-fluid figure-img" width="600" alt="Global Options 中的 Packages"></a></p>
+<figcaption>Global Options 中的 Packages</figcaption>
+</figure>
+</div>
+<p>第二步：点击 Primary CRAN repository 右侧的 <code>Change...</code> 键，从弹出的窗口中选择一个中国境内的镜像网站（下图中选择的是清华大学的镜像网站 TUNA），并点击 <code>OK</code> 键。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/image/rstudio-cran-repo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="选择 CRAN repository"><img src="assets/image/rstudio-cran-repo.png" class="img-fluid figure-img" width="500" alt="选择 CRAN repository"></a></p>
+<figcaption>选择 CRAN repository</figcaption>
+</figure>
+</div>
+<p>第三部：回到 Global Option 设置窗口，点击 <code>Apply</code> 键完成设置。</p>
+</section>
+<section id="安装-fpp3-及相关工具包" class="level4">
+<h4 class="anchored" data-anchor-id="安装-fpp3-及相关工具包">2. 安装 fpp3 及相关工具包</h4>
+<p>工具包的安装可以通过菜单栏的 <code>Tools &gt; Install Packages ...</code> 完成。本门课程所需的工具包名为 fpp3，它会自动安装其他需要调用的工具包。在 Install Packages 窗口中的 Packages 栏输入 fpp3，并确保下面的 <i class="bi bi-check-square"></i> Install dependencies 已被选中，然后点击 <code>Install</code> 键后等待安装完成即可（安装过程可能会花较长时间，需要耐心等待）。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/image/rstudio-install-fpp3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="安装工具包"><img src="assets/image/rstudio-install-fpp3.png" class="img-fluid figure-img" width="400" alt="安装工具包"></a></p>
+<figcaption>安装工具包</figcaption>
+</figure>
+</div>
+</section>
+<section id="使用工具包" class="level4">
+<h4 class="anchored" data-anchor-id="使用工具包">3. 使用工具包</h4>
+<p>为了使用工具包中所包含的函数或数据集，我们需要在每次启动 RStudio 时（确切的说是开启一个 R session 时）调用它们。调用工具包的命令是 <code>library()</code> ，例如，在 Console 中输入</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp3)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>意味着调用 fpp3 包。敲击回车键后会显示类似下面的结果：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Registered S3 method overwritten by <span class="st">'tsibble'</span><span class="sc">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  method               from </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  as_tibble.grouped_df dplyr</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>── Attaching packages ────────────────────────────────────────────────── fpp3 <span class="dv">1</span>.<span class="fl">0.1</span> ──</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>✔ tibble      <span class="dv">3</span>.<span class="fl">2.1</span>     ✔ tsibble     <span class="dv">1</span>.<span class="fl">1.5</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>✔ dplyr       <span class="dv">1</span>.<span class="fl">1.4</span>     ✔ tsibbledata <span class="dv">0</span>.<span class="fl">4.1</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>✔ tidyr       <span class="dv">1</span>.<span class="fl">3.1</span>     ✔ feasts      <span class="dv">0</span>.<span class="fl">4.1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>✔ lubridate   <span class="dv">1</span>.<span class="fl">9.4</span>     ✔ fable       <span class="dv">0</span>.<span class="fl">4.1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>✔ ggplot2     <span class="dv">3</span>.<span class="fl">5.1</span>     </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>── Conflicts ─────────────────────────────────────────────────────── fpp3_conflicts ──</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>✖ lubridate<span class="sc">::</span><span class="fu">date</span>()    masks base<span class="sc">::</span><span class="fu">date</span>()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>✖ dplyr<span class="sc">::</span><span class="fu">filter</span>()      masks stats<span class="sc">::</span><span class="fu">filter</span>()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>✖ tsibble<span class="sc">::</span><span class="fu">intersect</span>() masks base<span class="sc">::</span><span class="fu">intersect</span>()</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>✖ tsibble<span class="sc">::</span><span class="fu">interval</span>()  masks lubridate<span class="sc">::</span><span class="fu">interval</span>()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>✖ dplyr<span class="sc">::</span><span class="fu">lag</span>()         masks stats<span class="sc">::</span><span class="fu">lag</span>()</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>✖ tsibble<span class="sc">::</span><span class="fu">setdiff</span>()   masks base<span class="sc">::</span><span class="fu">setdiff</span>()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>✖ tsibble<span class="sc">::</span><span class="fu">union</span>()     masks base<span class="sc">::</span><span class="fu">union</span>()</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>这表明你的 fpp3 包调用成功了。</p>
+<p>如果继续输入下面的命令</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>aus_retail <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">Series ID</span><span class="st">`</span><span class="sc">==</span><span class="st">"A3349640L"</span>) <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(Turnover)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>则会在右下面板的 Plots 中显示图表</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/image/R-plot-example.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="用 R 绘制的图表"><img src="assets/image/R-plot-example.png" class="img-fluid figure-img" width="600" alt="用 R 绘制的图表"></a></p>
+<figcaption>用 R 绘制的图表</figcaption>
+</figure>
+</div>
+</section>
+<section id="其他设置" class="level4">
+<h4 class="anchored" data-anchor-id="其他设置">4. 其他设置</h4>
 <ul>
-<li>课程编号：0401990024</li>
-<li>学分/学时：2学分/36学时</li>
-<li>2024-2025第二学期上课时间：星期五 7-8节</li>
-<li>2024-2025第二学期上课地点：丽湖校区四方楼 南403</li>
+<li><p><strong>在启动时不读取之前操作的历史纪录</strong>。在 <code>Tools &gt; Global Options ...</code> 的 <code>General</code> 项目中的 Workspace 部份，取消 Restore .RData into workspace at startup 的选择。这是为了避免因忘记自己之前做过的操作而导致出现错误的结果。</p></li>
+<li><p><strong>使用 native pipe operator <code>|&gt;</code></strong>。在 <code>Tools &gt; Global Options ...</code> 的 <code>Code</code> 项目中的 Editing 部份，选择 Use native pipe operator, |&gt; (requares R 4.1 +)。此选项的作用见第二讲 slides。</p></li>
 </ul>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-教材
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout="[15,85]">
-<div class="quarto-layout-row">
-<div id="first-column" class="quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p><a href="assets/image/fpp3_front_cover.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/image/fpp3_front_cover.jpg" class="img-fluid" width="100"></a></p>
-</div>
-<div id="second-column" class="quarto-layout-cell" style="flex-basis: 85.0%;justify-content: flex-start;">
-<p>Hyndman, R. J., &amp; Athanasopoulos, G. (2021). <strong><em>Forecasting: Principles and Practice</em></strong> (3rd ed.). OTexts.<br>
-<a href="https://otexts.com/fpp3/" class="uri">https://otexts.com/fpp3/</a></p>
-<p><br>
-</p>
-<p>中文版：康雁飞, 李丰 [译]. <strong>预测：方法与实践（第三版）</strong><br>
-<a href="https://otexts.com/fpp3cn/" class="uri">https://otexts.com/fpp3cn/</a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section>
-<section id="主讲教师" class="level2">
-<h2 class="anchored" data-anchor-id="主讲教师">主讲教师</h2>
-<p>黄嘉平，工学博士、经济学博士，深圳大学中国经济特区研究中心讲师</p>
+</section>
+<section id="使用建议" class="level3">
+<h3 class="anchored" data-anchor-id="使用建议">使用建议</h3>
 <ul>
-<li>办公地址：深圳大学粤海校区汇文楼 1510</li>
-<li>联系方式：<code>huangjp %at% szu %dot% edu %dot% cn</code></li>
-<li>关于接访：为方便与选课学生交流，接访地点为丽湖校区，需事先邮件预约时间地点</li>
-<li>个人网站：<a href="https://huangjp.com/">huangjp.com</a></li>
+<li><p><strong>在使用时将输入法切换至英文</strong>。这是因为 R 命令中经常会用到英文（半角）符号，包括逗号、引号等。例如逗号在中文输入状态下是全角符号，在显示器中和英文逗号的区别并不明显（这是英文半角逗号<span style="background-color: moccasin">,</span> 这是中文全角逗号<span style="background-color: moccasin">，</span>），如果混用则会报错且不容易发现错误所在。</p></li>
+<li><p><strong>学会利用官方提供的帮助文档</strong>。官方帮助文档提供了命令的使用方法和补充信息，是学习的一手资料。虽然一开始不太容易看懂，但是一定要养成看帮助文档的习惯。可以用 <code>help(xxx)</code> 或 <code>?xxx</code> 调取命令 <code>xxx</code> 的帮助文档（<code>xxx</code> 可以是任何函数或数据集），或在 RStudio 的 Help 菜单中寻找其他有用信息。</p></li>
+<li><p><strong>避免用中文命名文件或文件夹</strong>。在导入或导出数据的时候需要指示文件名和保存路径。此时如果包含中文字符，有可能出现意想不到的错误。初学阶段经验积累不够，准确定位错误原因是比较困难的，因此建议从根本上杜绝出现错误的可能性。</p></li>
 </ul>
 </section>
-<section id="内容简介" class="level2">
-<h2 class="anchored" data-anchor-id="内容简介">内容简介</h2>
-<p>本门课程的主要内容是介绍时间序列数据的分析和预测方法以及在经济管理领域的应用问题。通过本门课程的学习，你可以基本理解时间序列数据的特征，初步掌握时间序列分析的常用方法，并能够利用真实数据做出预测。</p>
-<p>时间序列数据是针对同一变量在不同时间点上记录观测值的数据形式，广泛存在于日常生活中的多个领域。我们熟知的 GDP、股票价格指数、日均气温、某一物种的种群规模等都是时间序列数据的典型例子。</p>
-<p>对时间序列数据的利用主要体现在预测未来取值上，例如对 GDP 的预测可以帮助政府更好地制定经济政策，对股票价格的预测可以帮助投资者更好地做出决策。合理的预测基于对数据生成机制的探索和验证，通常称为建模。建模的基础是理解常用模型的原理和适用范围，从而针对数据特征选择合适的模型。我们将学习回归、指数平滑、Box-Jenkins ARIMA 等常用的时间序列模型。</p>
-<p>除了理论学习，我们更加注重实践能力的培养。基于数据分析而做出预测是数据科学的一个重要使命，因此我们选择在该领域广泛使用的 R 作为分析工具。虽然 R 也是一个编程语言，但并不要求你有编程基础。通过循序渐进的学习和大量练习，任何一个肯花时间的学生都能掌握 R 的使用方法。</p>
-<p>作为在三年级下学期开设的专业课，我们要求选课学生掌握<strong>统计学</strong>的基础知识，熟悉方差和相关系数等统计量的推导与计算，并理解多元回归分析的原理。如果你有较好的<strong>数学</strong>基础，则学习起来会比较轻松。我们使用的教材和参考资料多数为英文，因此也要求你有一定的<strong>英语</strong>阅读和理解能力。</p>
 </section>
-<section id="成绩评定" class="level2">
-<h2 class="anchored" data-anchor-id="成绩评定">成绩评定</h2>
-<p>本门课程采用期末考试为主型的考核方式</p>
-<ul>
-<li><p>平时成绩 40%<br>
-平时成绩的考核包括：考勤20%、随堂测验40%、作业40%</p></li>
-<li><p>期末考核 60%<br>
-期末考核采用课程文论形式，需按要求独立完成报告内容</p></li>
-</ul>
-<p>根据<a href="https://jwb.szu.edu.cn/info/1357/2003.htm">《深圳大学本科课程考核办法（修订）》</a>，对缺课时数累计超过规定教学时数三分之一或缺交平时作业、实验报告量超过三分之一的学生，任课教师可取消其考试资格，成绩记载为F。请选课同学不要无故缺席课程。</p>
+<section id="学习资料" class="level2">
+<h2 class="anchored" data-anchor-id="学习资料">学习资料</h2>
+<section id="练习使用-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="练习使用-rstudio">练习使用 RStudio</h3>
+<p>RStudio 的官方说明文件 <a href="https://docs.posit.co/ide/user/" class="uri">https://docs.posit.co/ide/user/</a> 提供了详细的使用方法。</p>
 </section>
-<section id="教学进度" class="level2">
-<h2 class="anchored" data-anchor-id="教学进度">教学进度</h2>
-<p>下面是2024-2025第二学期的教学进度计划。由于课程进程和学校放假安排具有不确定性，下表中的内容可能发生变化。<a href="https://www.szu.edu.cn/xxgk/xl.htm">深圳大学校历</a></p>
-<table class="table-striped table-hover caption-top table">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 70%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>周次</th>
-<th>学习内容</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>第一周（2月28日）</td>
-<td>第一讲：课程简介、导论、R 基础</td>
-</tr>
-<tr class="even">
-<td>第二周（3月7日）</td>
-<td>第二讲：Tidyverse 简介、数据整理（tidying）、用 ggplot2 绘图</td>
-</tr>
-<tr class="odd">
-<td>第三周（3月14日）</td>
-<td>第三讲：时间序列数据、图形分析、自相关系数</td>
-</tr>
-<tr class="even">
-<td>第四周（3月21日）</td>
-<td>第一次练习课</td>
-</tr>
-<tr class="odd">
-<td>第五周（3月28日）</td>
-<td>第四讲</td>
-</tr>
-<tr class="even">
-<td>第六周（4月4日）</td>
-<td>第五讲</td>
-</tr>
-<tr class="odd">
-<td>第七周（4月11日）</td>
-<td>第六讲</td>
-</tr>
-<tr class="even">
-<td>第八周（4月18日）</td>
-<td>第二次练习课</td>
-</tr>
-<tr class="odd">
-<td>第九周（4月25日）</td>
-<td>第七讲</td>
-</tr>
-<tr class="even">
-<td>第十周（5月2日）</td>
-<td><em>放假</em></td>
-</tr>
-<tr class="odd">
-<td>第十一周（5月9日）</td>
-<td>第八讲</td>
-</tr>
-<tr class="even">
-<td>第十二周（5月16日）</td>
-<td>第九讲</td>
-</tr>
-<tr class="odd">
-<td>第十三周（5月23日）</td>
-<td>第三次练习课</td>
-</tr>
-<tr class="even">
-<td>第十四周（5月30日）</td>
-<td>第十讲</td>
-</tr>
-<tr class="odd">
-<td>第十五周（6月6日）</td>
-<td>第十一讲</td>
-</tr>
-<tr class="even">
-<td>第十六周（6月13日）</td>
-<td>第十二讲</td>
-</tr>
-<tr class="odd">
-<td>第十七周（6月20日）</td>
-<td>第四次练习课</td>
-</tr>
-<tr class="even">
-<td>第十八周（6月27日）</td>
-<td><em>提交期末课程论文</em></td>
-</tr>
-</tbody>
-</table>
+<section id="零基础上手-r" class="level3">
+<h3 class="anchored" data-anchor-id="零基础上手-r">零基础上手 R</h3>
+<p>如果想要快速上手 R 的使用方法，可以参考 <a href="assets/file/ShortIntroR.pdf" class="external" target="_blank">A (very) short introduction to R</a> (Torfs, P., &amp; Brauer, C., August 2024)。根据作者所述，阅读并练习该文档中的所有内容大概需要 1–2 个小时。</p>
 </section>
-<section id="学习建议" class="level2">
-<h2 class="anchored" data-anchor-id="学习建议">学习建议</h2>
-<p>为了学好本门课程（以及其他任何课程），你不仅需要在课堂上集中精力，更需要在课后自发地进行补充学习和练习。本门课程的内容是无法在 <span class="math inline">80 \times 18 \ / \  60 = 24</span> 小时内掌握的，如果你想学明白，就要在课外多花时间。不要赶在临近期末时突击学习，因为无论理论还是实践都是一个慢慢积累的过程，而学习 R 语言更需要熟能生巧。</p>
-<p>在学习的过程中应该合理利用生成式人工智能软件。你可以把它当成搜索引擎（未必好用）或者翻译工具，但要注意它的局限性。针对它给出的任何答案都应当自己判断真伪，而不是盲目信任。<strong>禁止使用生成式人工智能生成作业或期末报告的内容</strong>。</p>
-<p>练习课需要携带自己的笔记本电脑或安装 Windows 10/11 系统的平板电脑，但不包括 iPad 等平板类设备（因为无法使用 R）。</p>
-</section>
-<section id="参考资料" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="参考资料">参考资料</h2>
-<ol type="1">
-<li>Grolemund, G. (2014). <em>Hands-On Programming with R</em>. O’Reily. <a href="https://rstudio-education.github.io/hopr/" class="uri">https://rstudio-education.github.io/hopr/</a></li>
-<li><strong>Wickman, H., Cetinkaya-Rundel, M., &amp; Grolemund, G. (2023). <em>R for Data Science</em> (2nd ed.). O’Reily.</strong> <a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a> （关于R的使用方法主要参考此书）</li>
-<li>Lyubchich, V., &amp; Gel, Y. R. (2023). <em>Time Series Analysis: Lecture Notes with Examples in R</em>. <a href="https://vlyubchich.github.io/tsar/" class="uri">https://vlyubchich.github.io/tsar/</a></li>
-<li>Box, G. E. P., Jenkins, G. M., Reinsel, G. C., &amp; Ljung, G. M. (2016). <em>Time Series Analysis: Forecasting and Control</em> (5th ed.). Wiley.</li>
-<li>Shunway, R. H., &amp; Stoffer, D. S. (2017). <em>Time Series Analysis and Its Applications: With R Examples</em> (4th ed.). Springer.</li>
-<li>Brockwell, P. J., &amp; Davis, R. A. (2016). <em>Introduction to Time Series and Forecasting</em> (3rd ed.). Springer.</li>
-<li>Hyndman, R. J., Koehler, A. B., Ord, J. K, &amp; Snyder, R. D. (2008). <em>Forecasting with Exponential Smoothing: The State Space Approach</em>. Springer.</li>
-</ol>
+<section id="cheat-sheets" class="level3">
+<h3 class="anchored" data-anchor-id="cheat-sheets">Cheat Sheets</h3>
+<p>RStudio 的 Help 菜单里提供了一些 cheat sheets，即快速查询使用方法的指引文档，在查询未知命令时非常方便。建议保存在自己的电脑中随时查看。</p>
 
 
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>注：Springer 出版社出版的（部份）书籍可通过深圳大学图书馆提供的 <a href="https://www.lib.szu.edu.cn/er/springer">Springer Nature 电子图书</a> 服务下载电子版。</p>
-</div></div></section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
