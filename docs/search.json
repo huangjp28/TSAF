@@ -1,31 +1,52 @@
 [
   {
-    "objectID": "part1.html",
-    "href": "part1.html",
-    "title": "第一部份：导论及基础知识",
+    "objectID": "part2.html",
+    "href": "part2.html",
+    "title": "第二部份：分析与预测",
     "section": "",
-    "text": "第一讲\n第二讲\n第三讲（3/28 更新）"
+    "text": "第四讲"
   },
   {
-    "objectID": "part1.html#slides",
-    "href": "part1.html#slides",
-    "title": "第一部份：导论及基础知识",
+    "objectID": "part2.html#slides",
+    "href": "part2.html#slides",
+    "title": "第二部份：分析与预测",
     "section": "",
-    "text": "第一讲\n第二讲\n第三讲（3/28 更新）"
+    "text": "第四讲"
   },
   {
-    "objectID": "part1.html#补充信息",
-    "href": "part1.html#补充信息",
-    "title": "第一部份：导论及基础知识",
+    "objectID": "part2.html#补充信息",
+    "href": "part2.html#补充信息",
+    "title": "第二部份：分析与预测",
     "section": "补充信息",
-    "text": "补充信息\n\nR 和 RStudio 的安装\n访问 https://posit.co/download/rstudio-desktop/，根据提示依次下载并安装 R 和 RStudio。RStudio 安装包的下载速度较慢，请选择网络状态良好时下载。\nR 安装包中包含了运行 R 所需的文件，RStudio 则是为 R 量身定做的综合开发软件（IDE），两者的关系和电子书与阅读器之间的关系类似。我们通常不会直接调用 R，而是通过 RStudio 进行编程和执行，R 在后台被 RStudio 调用。\n\n\n\n首次运行 RStudio 时的界面（Mac版）\n\n\n从 RStudio 的运行界面左侧面板的 Console 部份可以看到调用 R 的信息，例如第一行显示了正在使用的 R 版本号。\n\n\n基本设置\n在使用 RStudio 之前需要进行一些简单的设置。R 本体可以实现的功能不多，通常在使用的时候需要安装和调用各种工具包（package）。安装是通过网络服务器自动完成的，但默认的服务器有时会因为连接超时而造成安装失败，因此我们需要设置境内的镜像服务器。\n\n1. 设置工具包的安装路径（repository）\n第一步：打开菜单栏中的 Tools &gt; Global Options... 窗口，并选择 Packages 项目\n\n\n\nGlobal Options 中的 Packages\n\n\n第二步：点击 Primary CRAN repository 右侧的 Change... 键，从弹出的窗口中选择一个中国境内的镜像网站（下图中选择的是清华大学的镜像网站 TUNA），并点击 OK 键。\n\n\n\n选择 CRAN repository\n\n\n第三部：回到 Global Option 设置窗口，点击 Apply 键完成设置。\n\n\n2. 安装 fpp3 及相关工具包\n工具包的安装可以通过菜单栏的 Tools &gt; Install Packages ... 完成。本门课程所需的工具包名为 fpp3，它会自动安装其他需要调用的工具包。在 Install Packages 窗口中的 Packages 栏输入 fpp3，并确保下面的  Install dependencies 已被选中，然后点击 Install 键后等待安装完成即可（安装过程可能会花较长时间，需要耐心等待）。\n\n\n\n安装工具包\n\n\n\n\n3. 使用工具包\n为了使用工具包中所包含的函数或数据集，我们需要在每次启动 RStudio 时（确切的说是开启一个 R session 时）调用它们。调用工具包的命令是 library() ，例如，在 Console 中输入\nlibrary(fpp3)\n意味着调用 fpp3 包。敲击回车键后会显示类似下面的结果：\nRegistered S3 method overwritten by 'tsibble':\n  method               from \n  as_tibble.grouped_df dplyr\n── Attaching packages ────────────────────────────────────────────────── fpp3 1.0.1 ──\n✔ tibble      3.2.1     ✔ tsibble     1.1.5\n✔ dplyr       1.1.4     ✔ tsibbledata 0.4.1\n✔ tidyr       1.3.1     ✔ feasts      0.4.1\n✔ lubridate   1.9.4     ✔ fable       0.4.1\n✔ ggplot2     3.5.1     \n── Conflicts ─────────────────────────────────────────────────────── fpp3_conflicts ──\n✖ lubridate::date()    masks base::date()\n✖ dplyr::filter()      masks stats::filter()\n✖ tsibble::intersect() masks base::intersect()\n✖ tsibble::interval()  masks lubridate::interval()\n✖ dplyr::lag()         masks stats::lag()\n✖ tsibble::setdiff()   masks base::setdiff()\n✖ tsibble::union()     masks base::union()\n这表明你的 fpp3 包调用成功了。\n如果继续输入下面的命令\naus_retail |&gt; filter(`Series ID`==\"A3349640L\") |&gt; autoplot(Turnover)\n则会在右下面板的 Plots 中显示图表\n\n\n\n用 R 绘制的图表\n\n\n\n\n4. 其他设置\n\n在启动时不读取之前操作的历史纪录。在 Tools &gt; Global Options ... 的 General 项目中的 Workspace 部份，取消 Restore .RData into workspace at startup 的选择。这是为了避免因忘记自己之前做过的操作而导致出现错误的结果。\n使用 native pipe operator |&gt;。在 Tools &gt; Global Options ... 的 Code 项目中的 Editing 部份，选择 Use native pipe operator, |&gt; (requares R 4.1 +)。此选项的作用见第二讲 slides。\n\n\n\n\n使用建议\n\n在使用时将输入法切换至英文。这是因为 R 命令中经常会用到英文（半角）符号，包括逗号、引号等。例如逗号在中文输入状态下是全角符号，在显示器中和英文逗号的区别并不明显（这是英文半角逗号, 这是中文全角逗号，），如果混用则会报错且不容易发现错误所在。\n学会利用官方提供的帮助文档。官方帮助文档提供了命令的使用方法和补充信息，是学习的一手资料。虽然一开始不太容易看懂，但是一定要养成看帮助文档的习惯。可以用 help(xxx) 或 ?xxx 调取命令 xxx 的帮助文档（xxx 可以是任何函数或数据集），或在 RStudio 的 Help 菜单中寻找其他有用信息。\n避免用中文命名文件或文件夹。在导入或导出数据的时候需要指示文件名和保存路径。此时如果包含中文字符，有可能出现意想不到的错误。初学阶段经验积累不够，准确定位错误原因是比较困难的，因此建议从根本上杜绝出现错误的可能性。"
+    "text": "补充信息\n\nLoess 和 Lowess\nB站视频 https://www.bilibili.com/video/BV1hE41197Gn/ 比较详细地介绍了 Loess 方法的原理，以及与其类似的 Lowess 方法，感兴趣的同学可以观看。"
   },
   {
-    "objectID": "part1.html#学习资料",
-    "href": "part1.html#学习资料",
-    "title": "第一部份：导论及基础知识",
-    "section": "学习资料",
-    "text": "学习资料\n\n练习使用 RStudio\nRStudio 的官方说明文件 https://docs.posit.co/ide/user/ 提供了详细的使用方法。\n\n\n零基础上手 R\n如果想要快速上手 R 的使用方法，可以参考 A (very) short introduction to R (Torfs, P., & Brauer, C., August 2024)。根据作者所述，阅读并练习该文档中的所有内容大概需要 1–2 个小时。\n\n\nCheat Sheets\nRStudio 的 Help 菜单里提供了一些 cheat sheets，即快速查询使用方法的指引文档，在查询未知命令时非常方便。建议保存在自己的电脑中随时查看。"
+    "objectID": "tutorial1.html",
+    "href": "tutorial1.html",
+    "title": "第一次练习课",
+    "section": "",
+    "text": "各自携带笔记本电脑，并预先安装好 R 和 RStudio。\n针对前三次课讲授的内容进行练习。\n熟悉使用脚本（script）模式编辑并运行程序。\n\n\n\n从菜单栏选择 File &gt; New File &gt; R Script 即可打开脚本编辑窗口，如下图左上部份。\n 像编辑任何类型的文本文件一样，在此窗口中编辑的内容可以以文件的形式保存在电脑中。点击 File &gt; Save 或磁盘图标即可保存。R 脚本文件的扩展名是 “.R”。\n在脚本中，换行并不会执行该行程序。执行脚本程序有通常两种方法：\n\n执行光标所在行，或者选中的部份（如下图），可以点击窗口上方的 “Run” 键，或使用快捷键 Ctrl/Cmd + ⏎。\n执行整个文件，可以点击窗口上方的 “Source” 键，或使用快捷键 Ctrl/Cmd + Shift + S 或 Ctrl/Cmd + Shift + ⏎。两者的区别是后者会在 Console 中显示所有的代码和结果，而前者则都在后台执行并忽略显示变量内容的命令（如下图中第 6 行）\n\n\n\n\n运行脚本中的程序\n\n\n更多信息可参考 R for Data Science (2e), Chapter 6. Workflow: scripts and projects 。"
+  },
+  {
+    "objectID": "tutorial1.html#准备工作",
+    "href": "tutorial1.html#准备工作",
+    "title": "第一次练习课",
+    "section": "",
+    "text": "各自携带笔记本电脑，并预先安装好 R 和 RStudio。\n针对前三次课讲授的内容进行练习。\n熟悉使用脚本（script）模式编辑并运行程序。\n\n\n\n从菜单栏选择 File &gt; New File &gt; R Script 即可打开脚本编辑窗口，如下图左上部份。\n 像编辑任何类型的文本文件一样，在此窗口中编辑的内容可以以文件的形式保存在电脑中。点击 File &gt; Save 或磁盘图标即可保存。R 脚本文件的扩展名是 “.R”。\n在脚本中，换行并不会执行该行程序。执行脚本程序有通常两种方法：\n\n执行光标所在行，或者选中的部份（如下图），可以点击窗口上方的 “Run” 键，或使用快捷键 Ctrl/Cmd + ⏎。\n执行整个文件，可以点击窗口上方的 “Source” 键，或使用快捷键 Ctrl/Cmd + Shift + S 或 Ctrl/Cmd + Shift + ⏎。两者的区别是后者会在 Console 中显示所有的代码和结果，而前者则都在后台执行并忽略显示变量内容的命令（如下图中第 6 行）\n\n\n\n\n运行脚本中的程序\n\n\n更多信息可参考 R for Data Science (2e), Chapter 6. Workflow: scripts and projects 。"
+  },
+  {
+    "objectID": "tutorial1.html#练习内容",
+    "href": "tutorial1.html#练习内容",
+    "title": "第一次练习课",
+    "section": "练习内容",
+    "text": "练习内容\n\n第一题\n首先运行下面的程序\nset.seed(111)\nx &lt;- rnorm(20, mean = 5, sd = 0.5) |&gt; round(digits = 1)\n第一行 set.seed(111) 是给第二行的 rnorm() 函数做准备，目的是保证大家都能生成同样的结果。确保第一行运行后再运行第二行。\n回答下面的问题：\n\n描述第二行程序 x &lt;- rnorm(20, mean = 5, sd = 0.5) |&gt; round(digits = 1) 的作用。\n依次完成下列计算。如果不知道用什么函数，可利用参考书或网络搜索进行学习。\n(i). 将 x 中的值从小到大排序后代入变量 y。\n(ii). 将 y 中的值标准化，即 (y_i - \\hat{\\mu}_y) / \\hat{\\sigma}_y，然后代入变量 y_stand。\n(iii). 计算 y_stand 的经验分布函数（ECDF）值，即 F(t) = \\#\\{y_{i,\\mathrm{stand}} \\leq t \\} / n，并保存至变量 y_psample。注意 y_psample 的长度应和 y_stand 一致。ecdf() 函数无法给出符合条件的结果，需利用 for 命令进行循环计算。可参考 A (very) short introduction to R 中的第 11.2 节。\n(iv). 计算 y_stand 对应的正态分布函数值，并保存至变量 y_pnorm。\n(v). 计算 y_psample 和 y_pnorm 之间的均方误差（mean squared error, MSE），即 \\sum(y_{i,\\mathrm{ps}} - y_{i,\\mathrm{pn}})^2 / n。\n利用 x 中的数据检验假设 H_0: \\overline{X} = 5。可以使用 t.test() 函数。p-值等于多少？你的结论是什么？给出 95% 置信区间。\n\n\n\n第二题\n调入 tidyverse 包，并回答下面的问题：\n\n了解数据集 women，它是什么类型的数据？\n将 women 转为 tibble 数据并代入变量 women_tb。\n在 women_tb 中添加新的一列，名称为 bmi，根据已有数据计算该列数值并存入。注意原有数据的单位。此操作可以用一行命令完成。\n针对身高 height 小于 66 的观测值，计算体重 weight 和BMI bmi 的均值。"
+  },
+  {
+    "objectID": "tutorial1.html#作业",
+    "href": "tutorial1.html#作业",
+    "title": "第一次练习课",
+    "section": "作业",
+    "text": "作业\n完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过教学平台提交。\n截止日期：2025年3月27日（星期四）23:00\n参考答案"
   },
   {
     "objectID": "index.html",
@@ -84,31 +105,31 @@
     "text": "参考资料\n\nGrolemund, G. (2014). Hands-On Programming with R. O’Reily. https://rstudio-education.github.io/hopr/\nWickman, H., Cetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed.). O’Reily. https://r4ds.hadley.nz/ （关于R的使用方法主要参考此书）\nLyubchich, V., & Gel, Y. R. (2023). Time Series Analysis: Lecture Notes with Examples in R. https://vlyubchich.github.io/tsar/\nBox, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2016). Time Series Analysis: Forecasting and Control (5th ed.). Wiley.\nShunway, R. H., & Stoffer, D. S. (2017). Time Series Analysis and Its Applications: With R Examples (4th ed.). Springer.\nBrockwell, P. J., & Davis, R. A. (2016). Introduction to Time Series and Forecasting (3rd ed.). Springer.\nHyndman, R. J., Koehler, A. B., Ord, J. K, & Snyder, R. D. (2008). Forecasting with Exponential Smoothing: The State Space Approach. Springer.\n\n\n\n\n\n注：Springer 出版社出版的（部份）书籍可通过深圳大学图书馆提供的 Springer Nature 电子图书 服务下载电子版。"
   },
   {
-    "objectID": "tutorial1.html#练习内容",
-    "href": "tutorial1.html#练习内容",
-    "title": "第一次练习课",
-    "section": "练习内容",
-    "text": "练习内容\n\n第一题\n首先运行下面的程序\nset.seed(111)\nx &lt;- rnorm(20, mean = 5, sd = 0.5) |&gt; round(digits = 1)\n第一行 set.seed(111) 是给第二行的 rnorm() 函数做准备，目的是保证大家都能生成同样的结果。确保第一行运行后再运行第二行。\n回答下面的问题：\n\n描述第二行程序 x &lt;- rnorm(20, mean = 5, sd = 0.5) |&gt; round(digits = 1) 的作用。\n依次完成下列计算。如果不知道用什么函数，可利用参考书或网络搜索进行学习。\n(i). 将 x 中的值从小到大排序后代入变量 y。\n(ii). 将 y 中的值标准化，即 (y_i - \\hat{\\mu}_y) / \\hat{\\sigma}_y，然后代入变量 y_stand。\n(iii). 计算 y_stand 的经验分布函数（ECDF）值，即 F(t) = \\#\\{y_{i,\\mathrm{stand}} \\leq t \\} / n，并保存至变量 y_psample。注意 y_psample 的长度应和 y_stand 一致。ecdf() 函数无法给出符合条件的结果，需利用 for 命令进行循环计算。可参考 A (very) short introduction to R 中的第 11.2 节。\n(iv). 计算 y_stand 对应的正态分布函数值，并保存至变量 y_pnorm。\n(v). 计算 y_psample 和 y_pnorm 之间的均方误差（mean squared error, MSE），即 \\sum(y_{i,\\mathrm{ps}} - y_{i,\\mathrm{pn}})^2 / n。\n利用 x 中的数据检验假设 H_0: \\overline{X} = 5。可以使用 t.test() 函数。p-值等于多少？你的结论是什么？给出 95% 置信区间。\n\n\n\n第二题\n调入 tidyverse 包，并回答下面的问题：\n\n了解数据集 women，它是什么类型的数据？\n将 women 转为 tibble 数据并代入变量 women_tb。\n在 women_tb 中添加新的一列，名称为 bmi，根据已有数据计算该列数值并存入。注意原有数据的单位。此操作可以用一行命令完成。\n针对身高 height 小于 66 的观测值，计算体重 weight 和BMI bmi 的均值。"
-  },
-  {
-    "objectID": "tutorial1.html#作业",
-    "href": "tutorial1.html#作业",
-    "title": "第一次练习课",
-    "section": "作业",
-    "text": "作业\n完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过教学平台提交。\n截止日期：2025年3月27日（星期四）23:00\n参考答案"
-  },
-  {
-    "objectID": "tutorial1.html",
-    "href": "tutorial1.html",
-    "title": "第一次练习课",
+    "objectID": "part1.html",
+    "href": "part1.html",
+    "title": "第一部份：导论及基础知识",
     "section": "",
-    "text": "各自携带笔记本电脑，并预先安装好 R 和 RStudio。\n针对前三次课讲授的内容进行练习。\n熟悉使用脚本（script）模式编辑并运行程序。\n\n\n\n从菜单栏选择 File &gt; New File &gt; R Script 即可打开脚本编辑窗口，如下图左上部份。\n 像编辑任何类型的文本文件一样，在此窗口中编辑的内容可以以文件的形式保存在电脑中。点击 File &gt; Save 或磁盘图标即可保存。R 脚本文件的扩展名是 “.R”。\n在脚本中，换行并不会执行该行程序。执行脚本程序有通常两种方法：\n\n执行光标所在行，或者选中的部份（如下图），可以点击窗口上方的 “Run” 键，或使用快捷键 Ctrl/Cmd + ⏎。\n执行整个文件，可以点击窗口上方的 “Source” 键，或使用快捷键 Ctrl/Cmd + Shift + S 或 Ctrl/Cmd + Shift + ⏎。两者的区别是后者会在 Console 中显示所有的代码和结果，而前者则都在后台执行并忽略显示变量内容的命令（如下图中第 6 行）\n\n\n\n\n运行脚本中的程序\n\n\n更多信息可参考 R for Data Science (2e), Chapter 6. Workflow: scripts and projects 。"
+    "text": "第一讲\n第二讲\n第三讲（3/28 更新）"
   },
   {
-    "objectID": "tutorial1.html#准备工作",
-    "href": "tutorial1.html#准备工作",
-    "title": "第一次练习课",
+    "objectID": "part1.html#slides",
+    "href": "part1.html#slides",
+    "title": "第一部份：导论及基础知识",
     "section": "",
-    "text": "各自携带笔记本电脑，并预先安装好 R 和 RStudio。\n针对前三次课讲授的内容进行练习。\n熟悉使用脚本（script）模式编辑并运行程序。\n\n\n\n从菜单栏选择 File &gt; New File &gt; R Script 即可打开脚本编辑窗口，如下图左上部份。\n 像编辑任何类型的文本文件一样，在此窗口中编辑的内容可以以文件的形式保存在电脑中。点击 File &gt; Save 或磁盘图标即可保存。R 脚本文件的扩展名是 “.R”。\n在脚本中，换行并不会执行该行程序。执行脚本程序有通常两种方法：\n\n执行光标所在行，或者选中的部份（如下图），可以点击窗口上方的 “Run” 键，或使用快捷键 Ctrl/Cmd + ⏎。\n执行整个文件，可以点击窗口上方的 “Source” 键，或使用快捷键 Ctrl/Cmd + Shift + S 或 Ctrl/Cmd + Shift + ⏎。两者的区别是后者会在 Console 中显示所有的代码和结果，而前者则都在后台执行并忽略显示变量内容的命令（如下图中第 6 行）\n\n\n\n\n运行脚本中的程序\n\n\n更多信息可参考 R for Data Science (2e), Chapter 6. Workflow: scripts and projects 。"
+    "text": "第一讲\n第二讲\n第三讲（3/28 更新）"
+  },
+  {
+    "objectID": "part1.html#补充信息",
+    "href": "part1.html#补充信息",
+    "title": "第一部份：导论及基础知识",
+    "section": "补充信息",
+    "text": "补充信息\n\nR 和 RStudio 的安装\n访问 https://posit.co/download/rstudio-desktop/，根据提示依次下载并安装 R 和 RStudio。RStudio 安装包的下载速度较慢，请选择网络状态良好时下载。\nR 安装包中包含了运行 R 所需的文件，RStudio 则是为 R 量身定做的综合开发软件（IDE），两者的关系和电子书与阅读器之间的关系类似。我们通常不会直接调用 R，而是通过 RStudio 进行编程和执行，R 在后台被 RStudio 调用。\n\n\n\n首次运行 RStudio 时的界面（Mac版）\n\n\n从 RStudio 的运行界面左侧面板的 Console 部份可以看到调用 R 的信息，例如第一行显示了正在使用的 R 版本号。\n\n\n基本设置\n在使用 RStudio 之前需要进行一些简单的设置。R 本体可以实现的功能不多，通常在使用的时候需要安装和调用各种工具包（package）。安装是通过网络服务器自动完成的，但默认的服务器有时会因为连接超时而造成安装失败，因此我们需要设置境内的镜像服务器。\n\n1. 设置工具包的安装路径（repository）\n第一步：打开菜单栏中的 Tools &gt; Global Options... 窗口，并选择 Packages 项目\n\n\n\nGlobal Options 中的 Packages\n\n\n第二步：点击 Primary CRAN repository 右侧的 Change... 键，从弹出的窗口中选择一个中国境内的镜像网站（下图中选择的是清华大学的镜像网站 TUNA），并点击 OK 键。\n\n\n\n选择 CRAN repository\n\n\n第三部：回到 Global Option 设置窗口，点击 Apply 键完成设置。\n\n\n2. 安装 fpp3 及相关工具包\n工具包的安装可以通过菜单栏的 Tools &gt; Install Packages ... 完成。本门课程所需的工具包名为 fpp3，它会自动安装其他需要调用的工具包。在 Install Packages 窗口中的 Packages 栏输入 fpp3，并确保下面的  Install dependencies 已被选中，然后点击 Install 键后等待安装完成即可（安装过程可能会花较长时间，需要耐心等待）。\n\n\n\n安装工具包\n\n\n\n\n3. 使用工具包\n为了使用工具包中所包含的函数或数据集，我们需要在每次启动 RStudio 时（确切的说是开启一个 R session 时）调用它们。调用工具包的命令是 library() ，例如，在 Console 中输入\nlibrary(fpp3)\n意味着调用 fpp3 包。敲击回车键后会显示类似下面的结果：\nRegistered S3 method overwritten by 'tsibble':\n  method               from \n  as_tibble.grouped_df dplyr\n── Attaching packages ────────────────────────────────────────────────── fpp3 1.0.1 ──\n✔ tibble      3.2.1     ✔ tsibble     1.1.5\n✔ dplyr       1.1.4     ✔ tsibbledata 0.4.1\n✔ tidyr       1.3.1     ✔ feasts      0.4.1\n✔ lubridate   1.9.4     ✔ fable       0.4.1\n✔ ggplot2     3.5.1     \n── Conflicts ─────────────────────────────────────────────────────── fpp3_conflicts ──\n✖ lubridate::date()    masks base::date()\n✖ dplyr::filter()      masks stats::filter()\n✖ tsibble::intersect() masks base::intersect()\n✖ tsibble::interval()  masks lubridate::interval()\n✖ dplyr::lag()         masks stats::lag()\n✖ tsibble::setdiff()   masks base::setdiff()\n✖ tsibble::union()     masks base::union()\n这表明你的 fpp3 包调用成功了。\n如果继续输入下面的命令\naus_retail |&gt; filter(`Series ID`==\"A3349640L\") |&gt; autoplot(Turnover)\n则会在右下面板的 Plots 中显示图表\n\n\n\n用 R 绘制的图表\n\n\n\n\n4. 其他设置\n\n在启动时不读取之前操作的历史纪录。在 Tools &gt; Global Options ... 的 General 项目中的 Workspace 部份，取消 Restore .RData into workspace at startup 的选择。这是为了避免因忘记自己之前做过的操作而导致出现错误的结果。\n使用 native pipe operator |&gt;。在 Tools &gt; Global Options ... 的 Code 项目中的 Editing 部份，选择 Use native pipe operator, |&gt; (requares R 4.1 +)。此选项的作用见第二讲 slides。\n\n\n\n\n使用建议\n\n在使用时将输入法切换至英文。这是因为 R 命令中经常会用到英文（半角）符号，包括逗号、引号等。例如逗号在中文输入状态下是全角符号，在显示器中和英文逗号的区别并不明显（这是英文半角逗号, 这是中文全角逗号，），如果混用则会报错且不容易发现错误所在。\n学会利用官方提供的帮助文档。官方帮助文档提供了命令的使用方法和补充信息，是学习的一手资料。虽然一开始不太容易看懂，但是一定要养成看帮助文档的习惯。可以用 help(xxx) 或 ?xxx 调取命令 xxx 的帮助文档（xxx 可以是任何函数或数据集），或在 RStudio 的 Help 菜单中寻找其他有用信息。\n避免用中文命名文件或文件夹。在导入或导出数据的时候需要指示文件名和保存路径。此时如果包含中文字符，有可能出现意想不到的错误。初学阶段经验积累不够，准确定位错误原因是比较困难的，因此建议从根本上杜绝出现错误的可能性。"
+  },
+  {
+    "objectID": "part1.html#学习资料",
+    "href": "part1.html#学习资料",
+    "title": "第一部份：导论及基础知识",
+    "section": "学习资料",
+    "text": "学习资料\n\n练习使用 RStudio\nRStudio 的官方说明文件 https://docs.posit.co/ide/user/ 提供了详细的使用方法。\n\n\n零基础上手 R\n如果想要快速上手 R 的使用方法，可以参考 A (very) short introduction to R (Torfs, P., & Brauer, C., August 2024)。根据作者所述，阅读并练习该文档中的所有内容大概需要 1–2 个小时。\n\n\nCheat Sheets\nRStudio 的 Help 菜单里提供了一些 cheat sheets，即快速查询使用方法的指引文档，在查询未知命令时非常方便。建议保存在自己的电脑中随时查看。"
   }
 ]
