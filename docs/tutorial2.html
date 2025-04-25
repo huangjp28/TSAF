@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>第一次练习课 – 《时间序列分析与预测》课程网站</title>
+<title>第二次练习课 – 《时间序列分析与预测》课程网站</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,9 +38,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-9c0f1b877f7018110317bb9a5be97a13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -229,15 +192,8 @@ window.Quarto = {
     <h2 id="toc-title">该页面内容</h2>
    
   <ul>
-  <li><a href="#准备工作" id="toc-准备工作" class="nav-link active" data-scroll-target="#准备工作">准备工作</a>
-  <ul class="collapse">
-  <li><a href="#脚本模式" id="toc-脚本模式" class="nav-link" data-scroll-target="#脚本模式">脚本模式</a></li>
-  </ul></li>
-  <li><a href="#练习内容" id="toc-练习内容" class="nav-link" data-scroll-target="#练习内容">练习内容</a>
-  <ul class="collapse">
-  <li><a href="#第一题" id="toc-第一题" class="nav-link" data-scroll-target="#第一题">第一题</a></li>
-  <li><a href="#第二题" id="toc-第二题" class="nav-link" data-scroll-target="#第二题">第二题</a></li>
-  </ul></li>
+  <li><a href="#准备工作" id="toc-准备工作" class="nav-link active" data-scroll-target="#准备工作">准备工作</a></li>
+  <li><a href="#练习内容" id="toc-练习内容" class="nav-link" data-scroll-target="#练习内容">练习内容</a></li>
   <li><a href="#作业" id="toc-作业" class="nav-link" data-scroll-target="#作业">作业</a></li>
   </ul>
 </nav>
@@ -247,7 +203,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">第一次练习课</h1>
+<h1 class="title">第二次练习课</h1>
 </div>
 
 
@@ -266,65 +222,28 @@ window.Quarto = {
 
 <section id="准备工作" class="level2">
 <h2 class="anchored" data-anchor-id="准备工作">准备工作</h2>
-<ol type="1">
-<li><p>各自携带笔记本电脑，并预先安装好 R 和 RStudio。</p></li>
-<li><p>针对前三次课讲授的内容进行练习。</p></li>
-<li><p>熟悉使用脚本（script）模式编辑并运行程序。</p></li>
-</ol>
-<section id="脚本模式" class="level3">
-<h3 class="anchored" data-anchor-id="脚本模式">脚本模式</h3>
-<p>从菜单栏选择 <code>File &gt; New File &gt; R Script</code> 即可打开脚本编辑窗口，如下图左上部份。</p>
-<p><img src="assets/image/rstudio-script.png" class="img-fluid" alt="RStudio 中的脚本编辑窗口（左上）"> 像编辑任何类型的文本文件一样，在此窗口中编辑的内容可以以文件的形式保存在电脑中。点击 <code>File &gt; Save</code> 或磁盘图标即可保存。R 脚本文件的扩展名是 “.R”。</p>
-<p>在脚本中，换行并不会执行该行程序。执行脚本程序有通常两种方法：</p>
-<ol type="1">
-<li><p>执行光标所在行，或者选中的部份（如下图），可以点击窗口上方的 “Run” 键，或使用快捷键 <code>Ctrl/Cmd</code> + ⏎。</p></li>
-<li><p>执行整个文件，可以点击窗口上方的 “Source” 键，或使用快捷键 <code>Ctrl/Cmd</code> + <code>Shift</code> + S 或 <code>Ctrl/Cmd</code> + <code>Shift</code> + ⏎。两者的区别是后者会在 Console 中显示所有的代码和结果，而前者则都在后台执行并忽略显示变量内容的命令（如下图中第 6 行）</p></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="assets/image/rstudio-run-script.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="运行脚本中的程序"><img src="assets/image/rstudio-run-script.png" class="img-fluid figure-img" width="600" alt="运行脚本中的程序"></a></p>
-<figcaption>运行脚本中的程序</figcaption>
-</figure>
-</div>
-<p>更多信息可参考 <a href="https://r4ds.hadley.nz/workflow-scripts.html" class="external" target="_blank">R for Data Science (2e), Chapter 6. Workflow: scripts and projects</a> 。</p>
-</section>
+<p>复习第三讲和第四讲的内容，并复现 Slides 中展示的结果。</p>
 </section>
 <section id="练习内容" class="level2">
 <h2 class="anchored" data-anchor-id="练习内容">练习内容</h2>
-<section id="第一题" class="level3">
-<h3 class="anchored" data-anchor-id="第一题">第一题</h3>
-<p>首先运行下面的程序</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="fl">0.5</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">1</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>第一行 <code>set.seed(111)</code> 是给第二行的 <code>rnorm()</code> 函数做准备，目的是保证大家都能生成同样的结果。确保第一行运行后再运行第二行。</p>
-<p>回答下面的问题：</p>
+<p>以下练习将使用 fpp3 包中的 <code>canadian_gas</code> 数据集，该数据集包含了 1960 年 1 月至 2005 年 2 月间加拿大的天然气产量月度数据（保存在 Volume 变量中），数据单位是十亿立方米。</p>
 <ol type="1">
-<li><p>描述第二行程序 <code>x &lt;- rnorm(20, mean = 5, sd = 0.5) |&gt; round(digits = 1)</code> 的作用。</p></li>
-<li><p>依次完成下列计算。如果不知道用什么函数，可利用参考书或网络搜索进行学习。</p>
-<p>(i). 将 <code>x</code> 中的值从小到大排序后代入变量 <code>y</code>。</p>
-<p>(ii). 将 <code>y</code> 中的值标准化，即 <span class="math inline">(y_i - \hat{\mu}_y) / \hat{\sigma}_y</span>，然后代入变量 <code>y_stand</code>。</p>
-<p>(iii). 计算 <code>y_stand</code> 的经验分布函数（ECDF）值，即 <span class="math inline">F(t) = \#\{y_{i,\mathrm{stand}} \leq t \} / n</span>，并保存至变量 <code>y_psample</code>。注意 <code>y_psample</code> 的长度应和 <code>y_stand</code> 一致。<code>ecdf()</code> 函数无法给出符合条件的结果，需利用 <code>for</code> 命令进行循环计算。可参考 <a href="assets/file/ShortIntroR.pdf" class="external" target="_blank">A (very) short introduction to R</a> 中的第 11.2 节。</p>
-<p>(iv). 计算 <code>y_stand</code> 对应的正态分布函数值，并保存至变量 <code>y_pnorm</code>。</p>
-<p>(v). 计算 <code>y_psample</code> 和 <code>y_pnorm</code> 之间的均方误差（mean squared error, MSE），即 <span class="math inline">\sum(y_{i,\mathrm{ps}} - y_{i,\mathrm{pn}})^2 / n</span>。</p></li>
-<li><p>利用 <code>x</code> 中的数据检验假设 <span class="math inline">H_0: \overline{X} = 5</span>。可以使用 <code>t.test()</code> 函数。<span class="math inline">p</span>-值等于多少？你的结论是什么？给出 95% 置信区间。</p></li>
+<li><p>绘制天然气产量的时序图。</p></li>
+<li><p>绘制自相关图，判断该序列是否存在趋势和季节性，并说明理由。</p></li>
+<li><p>在不使用 Guerrero 法的情况下，尝试用不同的 <span class="math inline">\lambda</span> 值进行 Box-Cox 变换，结合结果判断 Box-Cox 变换是否适用于此序列。（参考教科书第 3.1 节）</p></li>
+<li><p>考虑对天然气产量序列进行成分分解，并回答下列问题：</p>
+<ol type="i">
+<li><p>用移动平均法估计趋势项，并将原序列和趋势项的估计值绘制在同一个时序图中。写出你用的移动平均模型。</p></li>
+<li><p>分别用传统分解法（加法模型和乘法模型）、X-11、SEATS、STL 法进行成分分解并绘图。比较各种方法的分解结果，并描述它们的区别。</p></li>
+<li><p>针对第 ii 问中五种分解结果中的剩余项分别绘制自相关图（注意不同分解结果中保存剩余项的变量名称）。各种方法是否有效去除了趋势和季节性特征？</p></li>
+</ol></li>
 </ol>
-</section>
-<section id="第二题" class="level3">
-<h3 class="anchored" data-anchor-id="第二题">第二题</h3>
-<p>调入 tidyverse 包，并回答下面的问题：</p>
-<ol type="1">
-<li><p>了解数据集 <code>women</code>，它是什么类型的数据？</p></li>
-<li><p>将 <code>women</code> 转为 tibble 数据并代入变量 <code>women_tb</code>。</p></li>
-<li><p>在 <code>women_tb</code> 中添加新的一列，名称为 <code>bmi</code>，根据已有数据计算该列数值并存入。注意原有数据的单位。此操作可以用一行命令完成。</p></li>
-<li><p>针对身高 <code>height</code> 小于 66 的观测值，计算体重 <code>weight</code> 和BMI <code>bmi</code> 的均值。</p></li>
-</ol>
-</section>
 </section>
 <section id="作业" class="level2">
 <h2 class="anchored" data-anchor-id="作业">作业</h2>
 <p>完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过<a href="https://lms.szu.edu.cn/">教学平台</a>提交。</p>
-<p><strong>截止日期</strong>：2025年3月27日（星期四）23:00</p>
-<p><a href="assets/file/tutorial-1-ans.pdf" class="external" target="_blank">参考答案</a></p>
+<p><strong>截止日期</strong>：2025年4月30日（星期三）23:00</p>
+<!-- [参考答案](assets/file/tutorial-1-ans.pdf){.external target="_blank"} -->
 
 
 </section>
@@ -768,38 +687,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
