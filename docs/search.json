@@ -4,21 +4,21 @@
     "href": "part2.html",
     "title": "第二部份：分析与预测",
     "section": "",
-    "text": "第四讲（4/18 更新）"
+    "text": "第四讲（4/18 更新）\n第五讲"
   },
   {
     "objectID": "part2.html#slides",
     "href": "part2.html#slides",
     "title": "第二部份：分析与预测",
     "section": "",
-    "text": "第四讲（4/18 更新）"
+    "text": "第四讲（4/18 更新）\n第五讲"
   },
   {
     "objectID": "part2.html#补充信息",
     "href": "part2.html#补充信息",
     "title": "第二部份：分析与预测",
     "section": "补充信息",
-    "text": "补充信息\n\nLoess 和 Lowess\nB站视频 https://www.bilibili.com/video/BV1hE41197Gn/ 比较详细地介绍了 Loess 方法的原理，以及与其类似的 Lowess 方法，感兴趣的同学可以观看。"
+    "text": "补充信息\n\nLoess 和 Lowess\nB站视频 https://www.bilibili.com/video/BV1hE41197Gn/ 比较详细地介绍了 Loess 方法的原理，以及与其类似的 Lowess 方法，感兴趣的同学可以观看。\n\n\nMAE, MSE, RMSE\n这里我们通过一个例子展示这几个误差测度有什么不同。下表中给出了一组原始数据和三组（假想的）预测结果：\n\n\n\nActual\nForecast 1\nForecast 2\nForecast 3\n\n\n\n\n10\n9.6\n9.9\n10.1\n\n\n10\n10.4\n10.1\n9.9\n\n\n10\n10.3\n10.0\n10.5\n\n\n10\n9.8\n11.0\n9.8\n\n\n10\n10.3\n9.8\n10.5\n\n\n\n可以很容易地看出 Forecast 1 的每个预测值都不是特别准确；Forecast 2 中除了一个 11.0 以外其他预测值都比 Forecast 1 更加准确；相比之下 Forecast 3 中有两个预测值 10.5 的准确度比其他预测值低，但没有 Forecast 2 中的 11.0 那么离谱。\n实践中常用的三个误差测度的定义如下： \n  \\mathrm{MAE} = \\frac{1}{T}\\sum_{i=1}^T |\\hat{y}_i - y_i|, \\quad\n  \\mathrm{MSE} = \\frac{1}{T}\\sum_{i=1}^T (\\hat{y}_i - y_i)^2, \\quad\n  \\mathrm{RMSE} = \\sqrt{\\mathrm{MSE}} \\, .\n 三者中 MAE 最容易理解，但绝对值函数有时会给分析带来困难；MSE 和 RMSE 都会将较大的误差进一步放大，因此对异常预测值更加敏感，RMSE 保持了原数据的单位，但平方根函数给计算增加了难度。\n针对上面给出的数据，三个测度的计算结果是\n\n\n\nForecast\nMAE\nMSE\nRMSE\n\n\n\n\nF1\n0.320\n0.108\n0.329\n\n\nF2\n0.280\n0.212\n0.460\n\n\nF3\n0.280\n0.112\n0.335\n\n\n\nMAE 认为 F2 \\sim F3 \\succ F1，而 MSE 和 RMSE 都认为 F1 \\succ F3 \\succ F2（MSE 和 RMSE 的选择永远是一致的）。在实践中 MSE 和 RMSE 更加常见，但你应该选择哪个测度应当根据你的具体需求来判断。"
   },
   {
     "objectID": "tutorial1.html",
@@ -130,7 +130,7 @@
     "href": "tutorial2.html#作业",
     "title": "第二次练习课",
     "section": "作业",
-    "text": "作业\n完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过教学平台提交。\n截止日期：2025年4月30日（星期三）23:00"
+    "text": "作业\n完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过教学平台提交。\n截止日期：2025年4月30日（星期三）23:00\n参考答案"
   },
   {
     "objectID": "part1.html",

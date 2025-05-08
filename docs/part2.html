@@ -66,6 +66,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script defer="" src="./assets/katex/0.16.11/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="./assets/katex/0.16.11/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -153,6 +196,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#补充信息" id="toc-补充信息" class="nav-link" data-scroll-target="#补充信息">补充信息</a>
   <ul class="collapse">
   <li><a href="#loess-和-lowess" id="toc-loess-和-lowess" class="nav-link" data-scroll-target="#loess-和-lowess">Loess 和 Lowess</a></li>
+  <li><a href="#mae-mse-rmse" id="toc-mae-mse-rmse" class="nav-link" data-scroll-target="#mae-mse-rmse">MAE, MSE, RMSE</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -182,7 +226,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
 <ul>
-<li><a href="assets/slides/lecture4.pdf" class="external" target="_blank">第四讲</a>（4/18 更新）</li>
+<li><p><a href="assets/slides/lecture4.pdf" class="external" target="_blank">第四讲</a>（4/18 更新）</p></li>
+<li><p><a href="assets/slides/lecture5.pdf" class="external" target="_blank">第五讲</a></p></li>
 </ul>
 </section>
 <section id="补充信息" class="level2">
@@ -190,6 +235,90 @@ ul.task-list li input[type="checkbox"] {
 <section id="loess-和-lowess" class="level3">
 <h3 class="anchored" data-anchor-id="loess-和-lowess">Loess 和 Lowess</h3>
 <p>B站视频 <a href="https://www.bilibili.com/video/BV1hE41197Gn/" class="uri">https://www.bilibili.com/video/BV1hE41197Gn/</a> 比较详细地介绍了 Loess 方法的原理，以及与其类似的 Lowess 方法，感兴趣的同学可以观看。</p>
+</section>
+<section id="mae-mse-rmse" class="level3">
+<h3 class="anchored" data-anchor-id="mae-mse-rmse">MAE, MSE, RMSE</h3>
+<p>这里我们通过一个例子展示这几个误差测度有什么不同。下表中给出了一组原始数据和三组（假想的）预测结果：</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Actual</th>
+<th style="text-align: center;">Forecast 1</th>
+<th style="text-align: center;">Forecast 2</th>
+<th style="text-align: center;">Forecast 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">9.6</td>
+<td style="text-align: center;">9.9</td>
+<td style="text-align: center;">10.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10.4</td>
+<td style="text-align: center;">10.1</td>
+<td style="text-align: center;">9.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10.3</td>
+<td style="text-align: center;">10.0</td>
+<td style="text-align: center;">10.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">9.8</td>
+<td style="text-align: center;">11.0</td>
+<td style="text-align: center;">9.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10.3</td>
+<td style="text-align: center;">9.8</td>
+<td style="text-align: center;">10.5</td>
+</tr>
+</tbody>
+</table>
+<p>可以很容易地看出 Forecast 1 的每个预测值都不是特别准确；Forecast 2 中除了一个 11.0 以外其他预测值都比 Forecast 1 更加准确；相比之下 Forecast 3 中有两个预测值 10.5 的准确度比其他预测值低，但没有 Forecast 2 中的 11.0 那么离谱。</p>
+<p>实践中常用的三个误差测度的定义如下： <span class="math display">
+  \mathrm{MAE} = \frac{1}{T}\sum_{i=1}^T |\hat{y}_i - y_i|, \quad
+  \mathrm{MSE} = \frac{1}{T}\sum_{i=1}^T (\hat{y}_i - y_i)^2, \quad
+  \mathrm{RMSE} = \sqrt{\mathrm{MSE}} \, .
+</span> 三者中 MAE 最容易理解，但绝对值函数有时会给分析带来困难；MSE 和 RMSE 都会将较大的误差进一步放大，因此对异常预测值更加敏感，RMSE 保持了原数据的单位，但平方根函数给计算增加了难度。</p>
+<p>针对上面给出的数据，三个测度的计算结果是</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Forecast</th>
+<th style="text-align: center;">MAE</th>
+<th style="text-align: center;">MSE</th>
+<th style="text-align: center;">RMSE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">F1</td>
+<td style="text-align: center;">0.320</td>
+<td style="text-align: center;">0.108</td>
+<td style="text-align: center;">0.329</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F2</td>
+<td style="text-align: center;">0.280</td>
+<td style="text-align: center;">0.212</td>
+<td style="text-align: center;">0.460</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F3</td>
+<td style="text-align: center;">0.280</td>
+<td style="text-align: center;">0.112</td>
+<td style="text-align: center;">0.335</td>
+</tr>
+</tbody>
+</table>
+<p>MAE 认为 F2 <span class="math inline">\sim</span> F3 <span class="math inline">\succ</span> F1，而 MSE 和 RMSE 都认为 F1 <span class="math inline">\succ</span> F3 <span class="math inline">\succ</span> F2（MSE 和 RMSE 的选择永远是一致的）。在实践中 MSE 和 RMSE 更加常见，但你应该选择哪个测度应当根据你的具体需求来判断。</p>
 
 
 </section>
