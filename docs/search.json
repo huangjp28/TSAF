@@ -4,14 +4,14 @@
     "href": "part2.html",
     "title": "第二部份：分析与预测",
     "section": "",
-    "text": "第四讲（4/18 更新）\n第五讲"
+    "text": "第四讲：时间序列的分解 – slides（4/18 更新）\n第五讲：建模与预测 – slides\n第六讲：回归方法 – slides"
   },
   {
     "objectID": "part2.html#slides",
     "href": "part2.html#slides",
     "title": "第二部份：分析与预测",
     "section": "",
-    "text": "第四讲（4/18 更新）\n第五讲"
+    "text": "第四讲：时间序列的分解 – slides（4/18 更新）\n第五讲：建模与预测 – slides\n第六讲：回归方法 – slides"
   },
   {
     "objectID": "part2.html#补充信息",
@@ -137,14 +137,14 @@
     "href": "part1.html",
     "title": "第一部份：导论及基础知识",
     "section": "",
-    "text": "第一讲\n第二讲\n第三讲（3/28 更新）"
+    "text": "第一讲：导论、R的基础用法 – slides\n第二讲：Tidyverse 入门 – slides\n第三讲：时间序列数据的图形分析与自相关特征 – slides（3/28 更新）"
   },
   {
     "objectID": "part1.html#slides",
     "href": "part1.html#slides",
     "title": "第一部份：导论及基础知识",
     "section": "",
-    "text": "第一讲\n第二讲\n第三讲（3/28 更新）"
+    "text": "第一讲：导论、R的基础用法 – slides\n第二讲：Tidyverse 入门 – slides\n第三讲：时间序列数据的图形分析与自相关特征 – slides（3/28 更新）"
   },
   {
     "objectID": "part1.html#补充信息",
