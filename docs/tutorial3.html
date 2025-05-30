@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>期末考核 – 《时间序列分析与预测》课程网站</title>
+<title>第三次练习课 – 《时间序列分析与预测》课程网站</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./final.html" aria-current="page"> 
+    <a class="nav-link" href="./final.html"> 
 <span class="menu-text">期末考核</span></a>
   </li>  
 </ul>
@@ -147,15 +147,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#准备工作" id="toc-准备工作" class="nav-link active" data-scroll-target="#准备工作">准备工作</a></li>
+  <li><a href="#练习内容" id="toc-练习内容" class="nav-link" data-scroll-target="#练习内容">练习内容</a>
+  <ul class="collapse">
+  <li><a href="#第一题" id="toc-第一题" class="nav-link" data-scroll-target="#第一题">第一题</a></li>
+  <li><a href="#第二题" id="toc-第二题" class="nav-link" data-scroll-target="#第二题">第二题</a></li>
+  </ul></li>
+  <li><a href="#作业" id="toc-作业" class="nav-link" data-scroll-target="#作业">作业</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">期末考核</h1>
+<h1 class="title">第三次练习课</h1>
 </div>
 
 
@@ -172,29 +184,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>期末考核采用提交课程论文/报告的方式进行。</p>
-<section id="报告内容" class="level4">
-<h4 class="anchored" data-anchor-id="报告内容">报告内容</h4>
-<p>（待更新）</p>
+<section id="准备工作" class="level2">
+<h2 class="anchored" data-anchor-id="准备工作">准备工作</h2>
+<p>复习第五讲和第六讲的内容，并复现 Slides 中展示的结果。</p>
 </section>
-<section id="注意事项" class="level4">
-<h4 class="anchored" data-anchor-id="注意事项">注意事项</h4>
-<ul>
-<li><p>报告内容应是原创，如果需要引用他人观点或结论，请正确标注参考文献。严谨直接使用 AI 生成的内容。</p></li>
-<li><p>报告需使用深圳大学教务部提供的<strong>以论文、报告等形式考核专用答题纸.doc</strong>（<a href="https://jwb.szu.edu.cn/info/1074/1077.htm" class="external" target="_blank">点击此处下载</a>）。</p></li>
-<li><p>正文的格式要求</p>
-<ul>
-<li>字号设为 12 磅</li>
-<li>正文字体以宋体为宜，章节标题可以用黑体</li>
-<li>行间距设为 1.5</li>
-</ul></li>
-<li><p>提交方式</p>
-<ul>
-<li>将报告打印后提交</li>
-<li>提交时间：2025年6月27日随堂提交</li>
-</ul></li>
-<li><p>没有提交期末报告将被视为<strong>缺考</strong>，成绩将直接记为 F。本门课程为选修课，因此没有补考机会，请同学们注意。</p></li>
-</ul>
+<section id="练习内容" class="level2">
+<h2 class="anchored" data-anchor-id="练习内容">练习内容</h2>
+<p>下面的问题需要用到 fpp3 包。</p>
+<section id="第一题" class="level3">
+<h3 class="anchored" data-anchor-id="第一题">第一题</h3>
+<p>从 <code>aus_production</code> 数据集中选取水泥（Cement）的产量数据并回答下面的问题。</p>
+<ol type="1">
+<li><p>该序列的起止时间是什么？共有多少期？</p></li>
+<li><p>利用 <code>slice_head()</code> 和 <code>slice_tail()</code> 函数，将最后 40 个观测值设为测试集，其余观测值设为训练集。</p></li>
+<li><p>针对训练集，分别利用均值法、朴素法、季节性朴素法和漂移法进行拟合，并对未来 40 期（即测试集中的时间点）进行预测。模仿教科书 5.2 节，绘制图表展示预测结果。</p></li>
+<li><p>用 RMSE 和 MAE 测度比较模型的预测准确性。哪个模型表现得最好？</p></li>
+</ol>
+</section>
+<section id="第二题" class="level3">
+<h3 class="anchored" data-anchor-id="第二题">第二题</h3>
+<p><code>olympic_running</code> 数据集中保存了 1896 至 2016 年间奥运会跑步类项目的冠军成绩（单位：秒），了解该数据集后回答下面的问题。</p>
+<ol type="1">
+<li><p>选取 1948 年及以后年份的男子 100米、200米、400米项目成绩，并绘制时序图。</p></li>
+<li><p>考虑选择时间作为预测变量对冠军成绩进行回归分析。写出回归模型。对上一问中的项目成绩分别进行拟合，并报告时间项系数的估计值。从结果可知冠军成绩每年平均缩短多少秒？（注意数据的频度为四年）</p></li>
+<li><p>利用残差诊断图和 Ljung-Box 检验分析上面的模型是否合适。</p></li>
+<li><p>根据上面的拟合结果预测 2020 年的冠军成绩。分别给出点预测和 95% 区间预测。在 <a href="https://olympics.com/" class="external" target="_blank">https://olympics.com/</a> 上查找 2020 年东京奥运会该项目的冠军成绩并进行对比。你的预测准确吗？</p></li>
+</ol>
+</section>
+</section>
+<section id="作业" class="level2">
+<h2 class="anchored" data-anchor-id="作业">作业</h2>
+<p>完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过<a href="https://lms.szu.edu.cn/">教学平台</a>提交。</p>
+<p><strong>截止日期</strong>：2025年6月5日（星期四）23:00</p>
 
 
 </section>
