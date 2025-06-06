@@ -4,14 +4,14 @@
     "href": "part2.html",
     "title": "第二部份：分析与预测",
     "section": "",
-    "text": "第四讲：时间序列的分解 – slides（4/18 更新）\n第五讲：建模与预测 – slides\n第六讲：回归方法 – slides\n第七讲：指数平滑法 – slides"
+    "text": "第四讲：时间序列的分解 – slides（4/18 更新）\n第五讲：建模与预测 – slides\n第六讲：回归方法 – slides\n第七讲：指数平滑法 – slides\n第八讲：ARIMA – slides"
   },
   {
     "objectID": "part2.html#slides",
     "href": "part2.html#slides",
     "title": "第二部份：分析与预测",
     "section": "",
-    "text": "第四讲：时间序列的分解 – slides（4/18 更新）\n第五讲：建模与预测 – slides\n第六讲：回归方法 – slides\n第七讲：指数平滑法 – slides"
+    "text": "第四讲：时间序列的分解 – slides（4/18 更新）\n第五讲：建模与预测 – slides\n第六讲：回归方法 – slides\n第七讲：指数平滑法 – slides\n第八讲：ARIMA – slides"
   },
   {
     "objectID": "part2.html#补充信息",
@@ -74,7 +74,7 @@
     "href": "tutorial3.html#作业",
     "title": "第三次练习课",
     "section": "作业",
-    "text": "作业\n完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过教学平台提交。\n截止日期：2025年6月5日（星期四）23:00"
+    "text": "作业\n完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过教学平台提交。\n截止日期：2025年6月5日（星期四）23:00\n参考答案"
   },
   {
     "objectID": "final.html",
