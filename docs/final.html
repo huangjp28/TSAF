@@ -147,8 +147,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#报告内容" id="toc-报告内容" class="nav-link active" data-scroll-target="#报告内容">报告内容</a></li>
+  <li><a href="#注意事项" id="toc-注意事项" class="nav-link" data-scroll-target="#注意事项">注意事项</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -173,12 +180,31 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>期末考核采用提交课程论文/报告的方式进行。</p>
-<section id="报告内容" class="level4">
-<h4 class="anchored" data-anchor-id="报告内容">报告内容</h4>
-<p>（待更新）</p>
+<section id="报告内容" class="level3">
+<h3 class="anchored" data-anchor-id="报告内容">报告内容</h3>
+<p><a href="assets/file/final.pdf" class="external" target="_blank"><strong>《时间序列分析与预测》2024-2025学年第二学期期末考核题目</strong></a></p>
+<p>完成报告需要用到的数据文件：<a href="assets/file/exam.csv" class="external" target="_blank">exam.csv</a>, <a href="assets/file/au9999.csv" class="external" target="_blank">au9999.csv</a></p>
+<section id="如何导入数据" class="level4">
+<h4 class="anchored" data-anchor-id="如何导入数据">如何导入数据</h4>
+<ol type="1">
+<li><p>右键点击数据文件，选择下载并保存。</p></li>
+<li><p>在 RStudio 中导入数据：</p>
+<ul>
+<li><p>方法一：熟悉自己的操作系统中文件存放路径表达方法的同学，可以利用 readr 包中提供的 <code>read_csv()</code> 函数导入数据（参考第三讲 slides）。</p></li>
+<li><p>方法二：在 RStudio 右上方的面板中选择 Environment &gt; Import Dataset &gt; From Text (readr)… （如下图所示），然后在新弹出的窗口中选择数据文件并导入。<br>
+<img src="assets/image/data_import_menu.png" class="img-fluid" width="300" alt="Import Dataset Menu"><br>
+</p></li>
+</ul></li>
+<li><p>导入后的处理：</p>
+<ul>
+<li>导入后的数据默认为 <code>tibble</code>，需要将其转换为 <code>tsibble</code>。</li>
+<li>需注意数据中时间变量的保存形式，必要时进行转换。</li>
+</ul></li>
+</ol>
 </section>
-<section id="注意事项" class="level4">
-<h4 class="anchored" data-anchor-id="注意事项">注意事项</h4>
+</section>
+<section id="注意事项" class="level3">
+<h3 class="anchored" data-anchor-id="注意事项">注意事项</h3>
 <ul>
 <li><p>报告内容应是原创，如果需要引用他人观点或结论，请正确标注参考文献。严谨直接使用 AI 生成的内容。</p></li>
 <li><p>报告需使用深圳大学教务部提供的<strong>以论文、报告等形式考核专用答题纸.doc</strong>（<a href="https://jwb.szu.edu.cn/info/1074/1077.htm" class="external" target="_blank">点击此处下载</a>）。</p></li>
@@ -191,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>提交方式</p>
 <ul>
 <li>将报告打印后提交</li>
-<li>提交时间：2025年6月27日随堂提交</li>
+<li>提交时间：<strong>2025年6月27日</strong>随堂提交</li>
 </ul></li>
 <li><p>没有提交期末报告将被视为<strong>缺考</strong>，成绩将直接记为 F。本门课程为选修课，因此没有补考机会，请同学们注意。</p></li>
 </ul>
