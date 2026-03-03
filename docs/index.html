@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9c0f1b877f7018110317bb9a5be97a13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fcc247fad0e7d7ced50efd456b4aaa3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -169,6 +169,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./tutorial3.html">
  <span class="dropdown-text">第三次练习课</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorial4.html">
+ <span class="dropdown-text">第四次练习课</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -246,8 +250,8 @@ window.Quarto = {
 <ul>
 <li>课程编号：0401990024</li>
 <li>学分/学时：2学分/36学时</li>
-<li>2024-2025第二学期上课时间：星期五 7-8节</li>
-<li>2024-2025第二学期上课地点：丽湖校区四方楼 南403</li>
+<li>2025-2026第二学期上课时间：星期三 7-8节</li>
+<li>2026-2026第二学期上课地点：丽湖校区四方楼 南403</li>
 </ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -255,7 +259,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-教材
+主要参考书
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -286,24 +290,24 @@ window.Quarto = {
 <ul>
 <li>办公地址：深圳大学粤海校区汇文楼 1510</li>
 <li>联系方式：<code>huangjp %at% szu %dot% edu %dot% cn</code></li>
-<li>关于接访：为方便与选课学生交流，接访地点为丽湖校区，需事先邮件预约时间地点</li>
+<li>关于接访：所有问题都可以在每星期下课后交流。如果确实需要另约时间，请邮件联系。</li>
 <li>个人网站：<a href="https://huangjp.com/">huangjp.com</a></li>
 </ul>
 </section>
 <section id="内容简介" class="level2">
 <h2 class="anchored" data-anchor-id="内容简介">内容简介</h2>
 <p>本门课程的主要内容是介绍时间序列数据的分析和预测方法以及在经济管理领域的应用问题。通过本门课程的学习，你可以基本理解时间序列数据的特征，初步掌握时间序列分析的常用方法，并能够利用真实数据做出预测。</p>
-<p>时间序列数据是针对同一变量在不同时间点上记录观测值的数据形式，广泛存在于日常生活中的多个领域。我们熟知的 GDP、股票价格指数、日均气温、某一物种的种群规模等都是时间序列数据的典型例子。</p>
-<p>对时间序列数据的利用主要体现在预测未来取值上，例如对 GDP 的预测可以帮助政府更好地制定经济政策，对股票价格的预测可以帮助投资者更好地做出决策。合理的预测基于对数据生成机制的探索和验证，通常称为建模。建模的基础是理解常用模型的原理和适用范围，从而针对数据特征选择合适的模型。我们将学习回归、指数平滑、Box-Jenkins ARIMA 等常用的时间序列模型。</p>
-<p>除了理论学习，我们更加注重实践能力的培养。基于数据分析而做出预测是数据科学的一个重要使命，因此我们选择在该领域广泛使用的 R 作为分析工具。虽然 R 也是一个编程语言，但并不要求你有编程基础。通过循序渐进的学习和大量练习，任何一个肯花时间的学生都能掌握 R 的使用方法。</p>
-<p>作为在三年级下学期开设的专业课，我们要求选课学生掌握<strong>统计学</strong>的基础知识，熟悉方差和相关系数等统计量的推导与计算，并理解多元回归分析的原理。如果你有较好的<strong>数学</strong>基础，则学习起来会比较轻松。我们使用的教材和参考资料多数为英文，因此也要求你有一定的<strong>英语</strong>阅读和理解能力。</p>
+<p>时间序列数据是针对同一变量在不同时间点上记录观测值的数据形式，广泛存在于日常生活中的多个领域。我们熟知的 GDP、股票价格指数、日均气温、商品销量等都是时间序列数据的典型例子。</p>
+<p>对时间序列数据进行分析的主要目的是预测未来的发展变化，例如对 GDP 的预测可以帮助政府更好地制定经济政策，对股票价格的预测可以帮助投资者更好地做出决策。合理的预测基于对数据生成机制的探索和验证，通常称为建模。建模的基础是理解常用模型的原理和适用范围，从而针对数据特征选择合适的模型。我们将学习回归、指数平滑、Box-Jenkins ARIMA 等常用的时间序列模型。</p>
+<p>除了理论学习，本门课程也注重实践能力的培养。基于数据分析而做出预测是数据科学的一个重要使命，因此我们选择在该领域广泛使用的 R 作为分析工具。虽然 R 也是一个编程语言，但并不要求你有编程基础。通过循序渐进的学习和充分的练习，任何一个肯花时间的学生都能掌握 R 的使用方法。</p>
+<p>作为在三年级下学期开设的专业课程，我们要求选课学生掌握<strong>统计学</strong>的基础知识，熟悉方差、协方差、相关系数等统计量的推导与计算，并理解多元回归分析的基本原理。如果你有较好的<strong>数学</strong>基础，则学习起来会比较轻松。我们使用的教材和参考资料多数为英文，因此也要求你有一定的<strong>英语</strong>阅读和理解能力。</p>
 </section>
 <section id="成绩评定" class="level2">
 <h2 class="anchored" data-anchor-id="成绩评定">成绩评定</h2>
 <p>本门课程采用期末考试为主型的考核方式</p>
 <ul>
 <li><p>平时成绩 40%<br>
-平时成绩的考核包括：考勤20%、随堂测验40%、作业40%</p></li>
+平时成绩的考核包括：考勤10%、随堂小测验10%、作业20%</p></li>
 <li><p>期末考核 60%<br>
 期末考核采用课程文论形式，需按要求独立完成报告内容</p></li>
 </ul>
@@ -311,7 +315,7 @@ window.Quarto = {
 </section>
 <section id="教学进度" class="level2">
 <h2 class="anchored" data-anchor-id="教学进度">教学进度</h2>
-<p>下面是2024-2025第二学期的教学进度计划。由于课程进程和学校放假安排具有不确定性，下表中的内容可能发生变化。<a href="https://www.szu.edu.cn/xxgk/xl.htm">深圳大学校历</a></p>
+<p>下面是2025-2026第二学期的教学进度计划。由于课程进程和学校放假安排具有不确定性，下表中的内容可能发生变化。<a href="https://www.szu.edu.cn/xxgk/xl.htm">深圳大学校历</a></p>
 <table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 30%">
@@ -325,93 +329,93 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>第一周（2月28日）</td>
+<td>第一周（3月11日）</td>
 <td>第一讲（一）：课程简介、导论</td>
 </tr>
 <tr class="even">
-<td>第二周（3月7日）</td>
+<td>第二周（3月18日）</td>
 <td>第一讲（二）：R 基础</td>
 </tr>
 <tr class="odd">
-<td>第三周（3月14日）</td>
+<td>第三周（3月25日）</td>
 <td>第二讲（一）：Tidyverse 简介、数据整理（tidying）</td>
 </tr>
 <tr class="even">
-<td>第四周（3月21日）</td>
+<td>第四周（4月1日）</td>
 <td>第一次练习课</td>
 </tr>
 <tr class="odd">
-<td>第五周（3月28日）</td>
+<td>第五周（4月8日）</td>
 <td>第二讲（二）：用 ggplot2 绘图<br>
 第三讲（一）：时间序列数据、图形分析</td>
 </tr>
 <tr class="even">
-<td>第六周（4月4日）</td>
-<td><em>清明放假</em></td>
-</tr>
-<tr class="odd">
-<td>第七周（4月11日）</td>
+<td>第六周（4月15日）</td>
 <td>第三讲（二）：自相关系数<br>
 第四讲（一）：时间序列的分解</td>
 </tr>
-<tr class="even">
-<td>第八周（4月18日）</td>
+<tr class="odd">
+<td>第七周（4月22日）</td>
 <td>第四讲（二）：常用的分解方法</td>
 </tr>
-<tr class="odd">
-<td>第九周（4月25日）</td>
+<tr class="even">
+<td>第八周（4月29日）</td>
 <td>第二次练习课</td>
 </tr>
-<tr class="even">
-<td>第十周（5月2日）</td>
-<td><em>五一放假</em></td>
-</tr>
 <tr class="odd">
-<td>第十一周（5月9日）</td>
+<td>第九周（5月6日）</td>
 <td>第五讲：建模与预测</td>
 </tr>
 <tr class="even">
-<td>第十二周（5月16日）</td>
+<td>第十周（5月13日）</td>
 <td>第六讲：回归</td>
 </tr>
 <tr class="odd">
-<td>第十三周（5月23日）</td>
+<td>第十一周（5月20日）</td>
 <td>第七讲：指数平滑法</td>
 </tr>
 <tr class="even">
-<td>第十四周（5月30日）</td>
+<td>第十二周（5月27日）</td>
 <td>第三次练习课</td>
 </tr>
 <tr class="odd">
-<td>第十五周（6月6日）</td>
-<td>第八讲（一）：ARIMA基础</td>
+<td>第十三周（6月3日）</td>
+<td>第八讲（一）：ARIMA 基础</td>
 </tr>
 <tr class="even">
-<td>第十六周（6月13日）</td>
-<td>第八讲（二）：ARIMA进阶</td>
+<td>第十四周（6月10日）</td>
+<td>第八讲（二）：ARIMA 进阶</td>
 </tr>
 <tr class="odd">
-<td>第十七周（6月20日）</td>
-<td>第四次练习课</td>
+<td>第十五周（6月17日）</td>
+<td>第九讲：机器学习和人工智能方法</td>
 </tr>
 <tr class="even">
-<td>第十八周（6月27日）</td>
-<td><em>提交期末课程论文</em></td>
+<td>第十六周（6月24日）</td>
+<td>第四次练习课</td>
+</tr>
+<tr class="odd">
+<td>第十七周（7月1日）</td>
+<td><em>提交期末报告</em></td>
+</tr>
+<tr class="even">
+<td>第十八周（7月8日）</td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="学习建议" class="level2">
 <h2 class="anchored" data-anchor-id="学习建议">学习建议</h2>
-<p>为了学好本门课程（以及其他任何课程），你不仅需要在课堂上集中精力，更需要在课后自发地进行补充学习和练习。本门课程的内容是无法在 <span class="math inline">80 \times 18 \ / \  60 = 24</span> 小时内掌握的，如果你想学明白，就要在课外多花时间。不要赶在临近期末时突击学习，因为无论理论还是实践都是一个慢慢积累的过程，而学习 R 语言更需要熟能生巧。</p>
-<p>在学习的过程中应该合理利用生成式人工智能软件。你可以把它当成搜索引擎（未必好用）或者翻译工具，但要注意它的局限性。针对它给出的任何答案都应当自己判断真伪，而不是盲目信任。<strong>禁止使用生成式人工智能生成作业或期末报告的内容</strong>。</p>
-<p>练习课需要携带自己的笔记本电脑或安装 Windows 10/11 系统的平板电脑，但不包括 iPad 等平板类设备（因为无法使用 R）。</p>
+<p>为了学好本门课程（以及其他任何课程），你不仅需要在课堂上集中精力，更需要在课后自发地进行补充学习和练习。本门课程的内容是无法在 <span class="math inline">80 \times 16 \ / \  60 \approx 21.3</span> 小时内掌握的，如果你想学明白，就要在课外多花时间。不要赶在临近期末时突击学习，因为无论理论还是实践都是一个慢慢积累的过程，而学习 R 语言更需要熟能生巧。</p>
+<p>在学习的过程中应该合理利用生成式人工智能软件。你可以把它当成搜索引擎（未必好用）或者翻译工具，但要注意它的局限性。针对它给出的任何答案都应当自己判断真伪，而不是盲目信任。针对近期比较流行的“氛围编程”（vibe coding），我的态度是可以尝试，但不要依赖，更不要因为它带来的便利而轻视理论的重要性。<strong>严禁使用生成式人工智能生成作业或期末报告的内容</strong>。</p>
+<p>练习课需要携带自己的笔记本电脑或安装了 Windows 10/11 系统的平板电脑，但不包括 iPad 等平板类设备（因为无法使用 R）。</p>
 </section>
 <section id="参考资料" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="参考资料">参考资料</h2>
 <ol type="1">
 <li>Grolemund, G. (2014). <em>Hands-On Programming with R</em>. O’Reily. <a href="https://rstudio-education.github.io/hopr/" class="uri">https://rstudio-education.github.io/hopr/</a></li>
-<li><strong>Wickman, H., Cetinkaya-Rundel, M., &amp; Grolemund, G. (2023). <em>R for Data Science</em> (2nd ed.). O’Reily.</strong> <a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a> （关于R的使用方法主要参考此书）</li>
+<li><strong>Wickman, H., Cetinkaya-Rundel, M., &amp; Grolemund, G. (2023). <em>R for Data Science</em> (2nd ed.). O’Reily.</strong> <a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a> （关于 R 的使用方法主要参考此书）</li>
 <li>Lyubchich, V., &amp; Gel, Y. R. (2023). <em>Time Series Analysis: Lecture Notes with Examples in R</em>. <a href="https://vlyubchich.github.io/tsar/" class="uri">https://vlyubchich.github.io/tsar/</a></li>
 <li>Box, G. E. P., Jenkins, G. M., Reinsel, G. C., &amp; Ljung, G. M. (2016). <em>Time Series Analysis: Forecasting and Control</em> (5th ed.). Wiley.</li>
 <li>Shunway, R. H., &amp; Stoffer, D. S. (2017). <em>Time Series Analysis and Its Applications: With R Examples</em> (4th ed.). Springer.</li>

@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9c0f1b877f7018110317bb9a5be97a13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fcc247fad0e7d7ced50efd456b4aaa3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,49 +66,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script defer="" src="./assets/katex/0.16.11/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <link rel="stylesheet" href="./assets/katex/0.16.11/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -166,6 +123,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./tutorial3.html">
  <span class="dropdown-text">第三次练习课</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorial4.html">
+ <span class="dropdown-text">第四次练习课</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -190,16 +151,8 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">该页面内容</h2>
-   
-  <ul>
-  <li><a href="#准备工作" id="toc-准备工作" class="nav-link active" data-scroll-target="#准备工作">准备工作</a></li>
-  <li><a href="#练习内容" id="toc-练习内容" class="nav-link" data-scroll-target="#练习内容">练习内容</a></li>
-  <li><a href="#作业" id="toc-作业" class="nav-link" data-scroll-target="#作业">作业</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -223,33 +176,9 @@ window.Quarto = {
 </header>
 
 
-<section id="准备工作" class="level2">
-<h2 class="anchored" data-anchor-id="准备工作">准备工作</h2>
-<p>复习第三讲和第四讲的内容，并复现 Slides 中展示的结果。</p>
-</section>
-<section id="练习内容" class="level2">
-<h2 class="anchored" data-anchor-id="练习内容">练习内容</h2>
-<p>以下练习将使用 fpp3 包中的 <code>canadian_gas</code> 数据集，该数据集包含了 1960 年 1 月至 2005 年 2 月间加拿大的天然气产量月度数据（保存在 Volume 变量中），数据单位是十亿立方米。</p>
-<ol type="1">
-<li><p>绘制天然气产量的时序图。</p></li>
-<li><p>绘制自相关图，判断该序列是否存在趋势和季节性，并说明理由。</p></li>
-<li><p>在不使用 Guerrero 法的情况下，尝试用不同的 <span class="math inline">\lambda</span> 值进行 Box-Cox 变换，结合结果判断 Box-Cox 变换是否适用于此序列。（参考教科书第 3.1 节）</p></li>
-<li><p>考虑对天然气产量序列进行成分分解，并回答下列问题：</p>
-<ol type="i">
-<li><p>用移动平均法估计趋势项，并将原序列和趋势项的估计值绘制在同一个时序图中。写出你用的移动平均模型。</p></li>
-<li><p>分别用传统分解法（加法模型和乘法模型）、X-11、SEATS、STL 法进行成分分解并绘图。比较各种方法的分解结果，并描述它们的区别。</p></li>
-<li><p>针对第 ii 问中五种分解结果中的剩余项分别绘制自相关图（注意不同分解结果中保存剩余项的变量名称）。各种方法是否有效去除了趋势和季节性特征？</p></li>
-</ol></li>
-</ol>
-</section>
-<section id="作业" class="level2">
-<h2 class="anchored" data-anchor-id="作业">作业</h2>
-<p>完成上面的练习，将答案（包括对问题的回答，以及对应的 R 程序及其运行结果）整理为 PDF 文件，通过<a href="https://lms.szu.edu.cn/">教学平台</a>提交。</p>
-<p><strong>截止日期</strong>：2025年4月30日（星期三）23:00</p>
-<p><a href="assets/file/tutorial-2-ans.pdf" class="external" target="_blank">参考答案</a></p>
+<p>待更新</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

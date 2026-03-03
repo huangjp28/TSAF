@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9c0f1b877f7018110317bb9a5be97a13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fcc247fad0e7d7ced50efd456b4aaa3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -160,6 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./tutorial3.html">
  <span class="dropdown-text">第三次练习课</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorial4.html">
+ <span class="dropdown-text">第四次练习课</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -232,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>第一讲：导论、R的基础用法 – <a href="assets/slides/lecture1.pdf" class="external" target="_blank">slides</a></p></li>
 <li><p>第二讲：Tidyverse 入门 – <a href="assets/slides/lecture2.pdf" class="external" target="_blank">slides</a></p></li>
-<li><p>第三讲：时间序列数据的图形分析与自相关特征 – <a href="assets/slides/lecture3.pdf" class="external" target="_blank">slides</a>（3/28 更新）</p></li>
+<li><p>第三讲：时间序列数据的图形分析与自相关特征 – <a href="assets/slides/lecture3.pdf" class="external" target="_blank">slides</a></p></li>
 </ul>
 </section>
 <section id="补充信息" class="level2">
@@ -272,17 +276,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="安装-fpp3-及相关工具包" class="level4">
 <h4 class="anchored" data-anchor-id="安装-fpp3-及相关工具包">2. 安装 fpp3 及相关工具包</h4>
-<p>工具包的安装可以通过菜单栏的 <code>Tools &gt; Install Packages ...</code> 完成。本门课程所需的工具包名为 fpp3，它会自动安装其他需要调用的工具包。在 Install Packages 窗口中的 Packages 栏输入 fpp3，并确保下面的 <i class="bi bi-check-square"></i> Install dependencies 已被选中，然后点击 <code>Install</code> 键后等待安装完成即可（安装过程可能会花较长时间，需要耐心等待）。</p>
+<p>工具包的安装可以通过菜单栏的 <code>Tools &gt; Install Packages ...</code> 完成。本门课程所需的核心工具包名为 fpp3，它会自动安装其他需要用到的工具包。在 Install Packages 窗口中的 Packages 栏输入 fpp3，并确保下面的 <i class="bi bi-check-square"></i> Install dependencies 已被选中，然后点击 <code>Install</code> 键后等待安装完成即可（安装过程可能会花较长时间，需要耐心等待）。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="assets/image/rstudio-install-fpp3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="安装工具包"><img src="assets/image/rstudio-install-fpp3.png" class="img-fluid figure-img" width="400" alt="安装工具包"></a></p>
 <figcaption>安装工具包</figcaption>
 </figure>
 </div>
+<p>随着课程的推进，我们会用到更多的工具包。每当需要用到新工具包时，只要重复以上步骤进行安装即可。</p>
 </section>
 <section id="使用工具包" class="level4">
 <h4 class="anchored" data-anchor-id="使用工具包">3. 使用工具包</h4>
-<p>为了使用工具包中所包含的函数或数据集，我们需要在每次启动 RStudio 时（确切的说是开启一个 R session 时）调用它们。调用工具包的命令是 <code>library()</code> ，例如，在 Console 中输入</p>
+<p>为了使用工具包中所包含的函数或数据集，我们需要在每次启动 RStudio 时（确切的说是开启一个 R session 时）<strong>调用</strong>它们。调用工具包的命令是 <code>library()</code> ，例如，在 Console 中输入</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp3)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>意味着调用 fpp3 包。敲击回车键后会显示类似下面的结果：</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Registered S3 method overwritten by <span class="st">'tsibble'</span><span class="sc">:</span></span>
@@ -303,9 +308,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>✖ tsibble<span class="sc">::</span><span class="fu">setdiff</span>()   masks base<span class="sc">::</span><span class="fu">setdiff</span>()</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>✖ tsibble<span class="sc">::</span><span class="fu">union</span>()     masks base<span class="sc">::</span><span class="fu">union</span>()</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>这表明你的 fpp3 包调用成功了。</p>
-<p>如果继续输入下面的命令</p>
+<p>此时如果继续输入下面的命令</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>aus_retail <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">Series ID</span><span class="st">`</span><span class="sc">==</span><span class="st">"A3349640L"</span>) <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(Turnover)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>则会在右下面板的 Plots 中显示图表</p>
+<p>则会在 RStudio 窗口的右下方 Plots 中显示图表</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="assets/image/R-plot-example.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="用 R 绘制的图表"><img src="assets/image/R-plot-example.png" class="img-fluid figure-img" width="600" alt="用 R 绘制的图表"></a></p>
@@ -326,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p><strong>在使用时将输入法切换至英文</strong>。这是因为 R 命令中经常会用到英文（半角）符号，包括逗号、引号等。例如逗号在中文输入状态下是全角符号，在显示器中和英文逗号的区别并不明显（这是英文半角逗号<span style="background-color: moccasin">,</span> 这是中文全角逗号<span style="background-color: moccasin">，</span>），如果混用则会报错且不容易发现错误所在。</p></li>
 <li><p><strong>学会利用官方提供的帮助文档</strong>。官方帮助文档提供了命令的使用方法和补充信息，是学习的一手资料。虽然一开始不太容易看懂，但是一定要养成看帮助文档的习惯。可以用 <code>help(xxx)</code> 或 <code>?xxx</code> 调取命令 <code>xxx</code> 的帮助文档（<code>xxx</code> 可以是任何函数或数据集），或在 RStudio 的 Help 菜单中寻找其他有用信息。</p></li>
-<li><p><strong>避免用中文命名文件或文件夹</strong>。在导入或导出数据的时候需要指示文件名和保存路径。此时如果包含中文字符，有可能出现意想不到的错误。初学阶段经验积累不够，准确定位错误原因是比较困难的，因此建议从根本上杜绝出现错误的可能性。</p></li>
+<li><p><strong>避免用中文命名文件或文件夹</strong>。在导入或导出数据的时候需要指示文件名和保存路径。此时如果包含中文字符，有可能出现意想不到的错误。初学阶段经验积累不足，准确定位错误原因是比较困难的，因此建议从根本上杜绝出现错误的可能性。</p></li>
 </ul>
 </section>
 </section>
@@ -338,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="零基础上手-r" class="level3">
 <h3 class="anchored" data-anchor-id="零基础上手-r">零基础上手 R</h3>
-<p>如果想要快速上手 R 的使用方法，可以参考 <a href="assets/file/ShortIntroR.pdf" class="external" target="_blank">A (very) short introduction to R</a> (Torfs, P., &amp; Brauer, C., August 2024)。根据作者所述，阅读并练习该文档中的所有内容大概需要 1–2 个小时。</p>
+<p>如果想要快速上手 R，可以参考 <a href="assets/file/ShortIntroR.pdf" class="external" target="_blank">A (very) short introduction to R</a> (Torfs, P., &amp; Brauer, C., August 2024)。根据作者所述，阅读并练习该文档中的所有内容大概需要 1–2 个小时。</p>
 </section>
 <section id="cheat-sheets" class="level3">
 <h3 class="anchored" data-anchor-id="cheat-sheets">Cheat Sheets</h3>
