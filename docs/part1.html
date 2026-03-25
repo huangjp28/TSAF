@@ -198,6 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#r-和-rstudio-的安装" id="toc-r-和-rstudio-的安装" class="nav-link" data-scroll-target="#r-和-rstudio-的安装">R 和 RStudio 的安装</a></li>
   <li><a href="#基本设置" id="toc-基本设置" class="nav-link" data-scroll-target="#基本设置">基本设置</a></li>
+  <li><a href="#脚本模式" id="toc-脚本模式" class="nav-link" data-scroll-target="#脚本模式">脚本模式</a></li>
   <li><a href="#使用建议" id="toc-使用建议" class="nav-link" data-scroll-target="#使用建议">使用建议</a></li>
   </ul></li>
   <li><a href="#学习资料" id="toc-学习资料" class="nav-link" data-scroll-target="#学习资料">学习资料</a>
@@ -325,6 +326,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>使用 native pipe operator <code>|&gt;</code></strong>。在 <code>Tools &gt; Global Options ...</code> 的 <code>Code</code> 项目中的 Editing 部份，选择 Use native pipe operator, |&gt; (requares R 4.1 +)。此选项的作用见第二讲 slides。</p></li>
 </ul>
 </section>
+</section>
+<section id="脚本模式" class="level3">
+<h3 class="anchored" data-anchor-id="脚本模式">脚本模式</h3>
+<p>从菜单栏选择 <code>File &gt; New File &gt; R Script</code> 即可打开脚本编辑窗口，如下图左上部份。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/image/rstudio-script.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="RStudio 中的脚本编辑窗口（左上）"><img src="assets/image/rstudio-script.png" class="img-fluid figure-img" alt="RStudio 中的脚本编辑窗口（左上）"></a></p>
+<figcaption>RStudio 中的脚本编辑窗口（左上）</figcaption>
+</figure>
+</div>
+<p>像编辑任何类型的文本文件一样，在此窗口中编辑的内容可以以文件的形式保存在电脑中。点击 <code>File &gt; Save</code> 或磁盘图标即可保存。R 脚本文件的扩展名是 “.R”。</p>
+<p>在脚本中，换行并不会执行该行程序。执行脚本程序有通常两种方法：</p>
+<ol type="1">
+<li><p>执行光标所在行，或者选中的部份（如下图），可以点击窗口上方的 “Run” 键，或使用快捷键 <code>Ctrl/Cmd</code> + ⏎。</p></li>
+<li><p>执行整个文件，可以点击窗口上方的 “Source” 键，或使用快捷键 <code>Ctrl/Cmd</code> + <code>Shift</code> + S 或 <code>Ctrl/Cmd</code> + <code>Shift</code> + ⏎。两者的区别是后者会在 Console 中显示所有的代码和结果，而前者则都在后台执行并忽略显示变量内容的命令（如下图中第 6 行）</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/image/rstudio-run-script.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="运行脚本中的程序"><img src="assets/image/rstudio-run-script.png" class="img-fluid figure-img" width="600" alt="运行脚本中的程序"></a></p>
+<figcaption>运行脚本中的程序</figcaption>
+</figure>
+</div>
+<p>随着学习的深入和工作量的增加，将所有代码都存在一个脚本文件的做法也会变得不够有效。此时就可以尝试利用项目（project）模式进行工作。项目模式可以将一系列相关的脚本和数据等文件放在同一个位置进行管理，而我们需要做的只是记住该项目保存在哪个文件夹，并且在需要时打开它。</p>
+<p>关于脚本和项目的更多信息可参考 <a href="https://r4ds.hadley.nz/workflow-scripts.html" class="external" target="_blank">R for Data Science (2e), Chapter 6. Workflow: scripts and projects</a> 。</p>
 </section>
 <section id="使用建议" class="level3">
 <h3 class="anchored" data-anchor-id="使用建议">使用建议</h3>
