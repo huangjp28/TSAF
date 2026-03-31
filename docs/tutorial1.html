@@ -66,6 +66,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script defer="" src="./assets/katex/0.16.11/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="./assets/katex/0.16.11/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -151,8 +194,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#练习内容" id="toc-练习内容" class="nav-link active" data-scroll-target="#练习内容">练习内容</a>
+  <ul class="collapse">
+  <li><a href="#一基础练习" id="toc-一基础练习" class="nav-link" data-scroll-target="#一基础练习">一、基础练习</a></li>
+  <li><a href="#二数据的导入和操作" id="toc-二数据的导入和操作" class="nav-link" data-scroll-target="#二数据的导入和操作">二、数据的导入和操作</a></li>
+  </ul></li>
+  <li><a href="#作业" id="toc-作业" class="nav-link" data-scroll-target="#作业">作业</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -176,9 +230,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>待更新</p>
+<section id="练习内容" class="level2">
+<h2 class="anchored" data-anchor-id="练习内容">练习内容</h2>
+<section id="一基础练习" class="level3">
+<h3 class="anchored" data-anchor-id="一基础练习">一、基础练习</h3>
+<ol type="1">
+<li><p>将下列数字以向量的形式保存于变量 <code>x</code>。</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>37</td>
+<td>45</td>
+<td>45</td>
+<td>46</td>
+<td>29</td>
+<td>44</td>
+<td>30</td>
+<td>42</td>
+<td>43</td>
+<td>39</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>根据公式</p>
+<p><span class="math inline">\sum_{i=1}^n (x_i - \bar{x})^2 / (n-1)</span></p>
+<p>计算 <code>x</code> 的样本方差（此处仅可使用 <code>mean()</code> 函数和 <code>sum()</code> 函数）。</p></li>
+<li><p>使用 <code>var()</code> 函数再次计算 <code>x</code> 的方差，确认结果和上一问一致。</p></li>
+<li><p>假设 <code>x</code> 中的数值是十名大四女生的一分钟仰卧起坐体测数据。将 <code>x</code> 以数据框（data frame）的形式保存于变量 <code>y</code>，并将列名称设定为 <code>Situp</code>。</p></li>
+<li><p>向 <code>y</code> 中添加一个空列，名称为 <code>Score</code>。(可利用AI工具或网络搜索了解操作方法)</p></li>
+<li><p>查阅<a href="http://www.moe.gov.cn/s78/A17/twys_left/moe_938/moe_792/s3273/201407/t20140708_171692.html">《国家学生体质健康标准（2014年修订）》</a>中关于大三大四女生一分钟仰卧起坐的评分标准，并对 <code>y</code> 中的每个 <code>Situp</code> 数据进行评分，将评分结果保存在 <code>Score</code> 列中。(提示：数据所在区间的评分标准可以提炼为数学表达式)</p></li>
+</ol>
+</section>
+<section id="二数据的导入和操作" class="level3">
+<h3 class="anchored" data-anchor-id="二数据的导入和操作">二、数据的导入和操作</h3>
+<p>下载 <a href="assets/file/fitness.csv" class="external" target="_blank">fitness.csv</a> 文件并回答下面的问题。此文件中包含了 145 名大四女生的假想体测数据，其中列名称 <code>Lungcap</code> 代表肺活量，<code>Run</code> 代表 50 米跑，<code>Jump</code> 代表立定跳远，<code>Sitreach</code> 代表坐位体前屈，<code>Situp</code> 代表一分钟仰卧起坐。</p>
+<ol type="1">
+<li><p>使用 <code>read.csv()</code> 函数将 fitness.csv 文件的内容导入并保存在 <code>Fit</code> 变量中。（利用帮助文件或网络搜索了解此函数的用法，并注意待导入文件在电脑中的保存位置）</p></li>
+<li><p>计算每个学生的 BMI 指数并添加在 <code>Fit</code> 中。</p></li>
+<li><p>利用 <code>plot()</code> 函数绘制 BMI 和肺活量之间的散点图。二者之间能观察到什么关系？</p></li>
+<li><p>从上一问的结果中你是否能发现一个明显的异常值？利用条件判断的方式从 <code>Fit</code> 中找到该异常值对应的 ID。</p></li>
+<li><p>将不包含上一问中异常值的数据保存在 <code>Fit2</code> 中，并重新绘制 BMI 和肺活量之间的散点图。利用 <code>cor()</code> 函数分别计算 <code>Fit</code> 和 <code>Fit2</code> 中 BMI 和肺活量间的相关系数。剔除异常值前后相关系数是否有明显变化？</p></li>
+<li><p>针对 50 米跑和立定跳远的成绩重复第 3~5 问。</p></li>
+</ol>
+</section>
+</section>
+<section id="作业" class="level2">
+<h2 class="anchored" data-anchor-id="作业">作业</h2>
+<p>完成上面的练习，将答案（包括对问题的回答，以及对应的 R 代码及其运行结果）整理成报告形式并保存为 <strong>PDF 文件</strong>，通过微助教（<a href="https://portal.teachermate.com.cn">网页版</a>或移动端）提交。</p>
+<p><strong>提交截止时间</strong>：2026年4月8日（星期三）10:00</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -612,7 +714,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2024-2025, 黄嘉平</p>
+<p>Copyright 2024-2026, 黄嘉平</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
