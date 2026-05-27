@@ -151,8 +151,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#准备工作" id="toc-准备工作" class="nav-link active" data-scroll-target="#准备工作">准备工作</a></li>
+  <li><a href="#练习内容" id="toc-练习内容" class="nav-link" data-scroll-target="#练习内容">练习内容</a>
+  <ul class="collapse">
+  <li><a href="#一成分分解" id="toc-一成分分解" class="nav-link" data-scroll-target="#一成分分解">一、成分分解</a></li>
+  <li><a href="#二预测" id="toc-二预测" class="nav-link" data-scroll-target="#二预测">二、预测</a></li>
+  <li><a href="#三回归分析" id="toc-三回归分析" class="nav-link" data-scroll-target="#三回归分析">三、回归分析</a></li>
+  </ul></li>
+  <li><a href="#作业" id="toc-作业" class="nav-link" data-scroll-target="#作业">作业</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -176,9 +189,44 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>待更新</p>
+<section id="准备工作" class="level2">
+<h2 class="anchored" data-anchor-id="准备工作">准备工作</h2>
+<p>复习第四讲至第六讲的内容，并复现 Slides 中展示的结果。</p>
+</section>
+<section id="练习内容" class="level2">
+<h2 class="anchored" data-anchor-id="练习内容">练习内容</h2>
+<p>部分问题需要调用 fpp3 包。</p>
+<section id="一成分分解" class="level3">
+<h3 class="anchored" data-anchor-id="一成分分解">一、成分分解</h3>
+<p>本题中继续使用 <code>canadian_gas</code> 数据集。该数据集包含了 1960 年 1 月至 2005 年 2 月间加拿大的天然气产量月度数据（保存在 Volume 变量中），数据单位是十亿立方米。</p>
+<ol type="1">
+<li><p>分别用传统分解法（加法模型和乘法模型）、X-11、SEATS、STL 法进行成分分解并绘图。比较各种方法的分解结果，并描述它们的区别。</p></li>
+<li><p>针对前一问中五种分解结果中的剩余项分别绘制自相关图（注意不同分解结果中保存剩余项的变量名称）。各种方法是否有效去除了趋势和季节特征？</p></li>
+</ol>
+</section>
+<section id="二预测" class="level3">
+<h3 class="anchored" data-anchor-id="二预测">二、预测</h3>
+<p>本题中使用 <code>aus_production</code> 数据集中的水泥（Cement）产量数据。</p>
+<ol type="1">
+<li><p>该序列的起止时间是什么？共包含多少期？</p></li>
+<li><p>利用 <code>slice_head()</code> 和 <code>slice_tail()</code> 函数，将最后 40 个观测值设为测试集，其余观测值设为训练集。</p></li>
+<li><p>针对训练集，分别利用均值法、朴素法、季节性朴素法和漂移法进行拟合，并对未来 40 期（即测试集中的时间点）进行预测。模仿教科书 5.2 节，通过绘图展示预测结果。</p></li>
+<li><p>用 RMSE 和 MAE 测度比较模型的预测准确性。哪个模型表现得最好？</p></li>
+</ol>
+</section>
+<section id="三回归分析" class="level3">
+<h3 class="anchored" data-anchor-id="三回归分析">三、回归分析</h3>
+<p>本题中使用 <a href="assets/file/energy.csv" class="external" target="_blank">energy.csv</a> 中的数据。此文件中包含了 1953-2023 年间中国的人均能源生产与消费量（包括总量、原煤、原油、电力），但存在缺失值和说明性文字，在使用时需要注意。本数据来源于中国研究数据服务平台（CNRDS）。</p>
+<p>考虑用回归方法对人均电力消费量进行分析。被预测变量为人均电力消费量，可用的预测变量为除了人均电力生产量和消费量之外的所有变量（人均电力生产量和消费量几乎没有差异）。综合利用学过的方法找出你认为最好的模型。</p>
+</section>
+</section>
+<section id="作业" class="level2">
+<h2 class="anchored" data-anchor-id="作业">作业</h2>
+<p>完成上面的练习，将答案（包括对问题的回答，以及对应的 R 代码及其运行结果）整理成报告形式并保存为 <strong>PDF 文件</strong>，通过微助教（<a href="https://portal.teachermate.com.cn">网页版</a>或移动端）提交。</p>
+<p><strong>提交截止时间</strong>：2026年6月2日（星期二）23:00</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -612,7 +660,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2024-2025, 黄嘉平</p>
+<p>Copyright 2024-2026, 黄嘉平</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
