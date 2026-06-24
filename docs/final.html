@@ -38,6 +38,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-fcc247fad0e7d7ced50efd456b4aaa3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,6 +69,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script defer="" src="./assets/katex/0.16.11/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="./assets/katex/0.16.11/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -183,21 +229,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>期末考核采用提交课程论文/报告的方式进行。</p>
+<p>期末考核采用提交课程论文（报告）的方式进行。</p>
 <section id="报告内容" class="level3">
 <h3 class="anchored" data-anchor-id="报告内容">报告内容</h3>
-<p>待更新</p>
+<p>通过深圳大学图书馆网站访问中国研究数据服务平台（CNRDS）<a href="https://www.lib.szu.edu.cn/node/14665" class="external" target="_blank">https://www.lib.szu.edu.cn/node/14665</a>，从任意数据库中选取自己感兴趣的变量，下载数据并进行分析和预测。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/image/CNRDS.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="CNRDS 数据库列表（部分）"><img src="assets/image/CNRDS.png" class="img-fluid figure-img" width="600" alt="CNRDS 数据库列表（部分）"></a></p>
+<figcaption>CNRDS 数据库列表（部分）</figcaption>
+</figure>
+</div>
+<p><strong>要求</strong>：</p>
+<ul>
+<li><p>对被预测变量的选取不做要求。根据你选择的方法，可以加入其他变量辅助进行建模和预测。</p></li>
+<li><p>预测时应在最新一期数据的时间点上，对未来 <span class="math inline">h</span> 期进行预测。预测期数规定如下</p>
+<ul>
+<li>年度数据：5期</li>
+<li>季度数据：12期</li>
+<li>月度数据：36期</li>
+<li>日度及更高频数据：60期</li>
+</ul></li>
+<li><p>建议利用多种方法进行分析并比较效果，从中选择最优模型进行预测。</p></li>
+<li><p>报告中应展示完整的分析过程。可根据需要在正文中插入图表。将所有代码统一放在文末附录中展示，不需在正文中提及。</p></li>
+<li><p>报告应做到逻辑清晰、语言通顺、有理有据、方法运用得当、遵守学术规范。</p></li>
+<li><p>严谨使用生成式 AI 直接生成报告内容，如果在准备过程中利用了 AI，应在文中说明具体的使用方法。</p></li>
+</ul>
 </section>
 <section id="注意事项" class="level3">
 <h3 class="anchored" data-anchor-id="注意事项">注意事项</h3>
 <ul>
-<li><p>报告内容应是原创，如果需要引用他人观点或结论，请正确标注参考文献。严谨直接使用 AI 生成的内容。</p></li>
+<li><p>报告内容应是原创，如果需要引用他人观点或结论，请正确标注参考文献。</p></li>
+<li><p>可根据文章结构合理设定章节。不需要写摘要和文献综述，但可以包含总结性段落。</p></li>
 <li><p>报告需使用深圳大学教务部提供的 <strong>以论文、报告等形式考核专用答题纸.doc</strong>（<a href="https://jwb.szu.edu.cn/info/1074/1077.htm" class="external" target="_blank">点击此处下载</a>）。</p></li>
-<li><p>正文的格式要求</p>
+<li><p>正文的格式建议</p>
 <ul>
 <li>字号设为 12 磅（12 pt）</li>
-<li>正文字体以宋体为宜，章节标题可以用黑体</li>
-<li>行间距设为 1.5</li>
+<li>正文字体设为宋体，章节标题可以用黑体</li>
+<li>行间距设为 1.5 倍</li>
 </ul></li>
 <li><p>提交方式</p>
 <ul>
@@ -642,13 +710,45 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2024-2025, 黄嘉平</p>
+<p>Copyright 2024-2026, 黄嘉平</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
